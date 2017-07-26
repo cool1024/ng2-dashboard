@@ -19,10 +19,17 @@ export class MenuComponent implements OnInit {
         { icon: "fa fa-lock", title: "Permission List", url: "" }
       ]
     })
+    this.menus.push({
+      icon: "fa fa-cubes", title: "工具测试", childs: [
+        { icon: "fa fa-television", title: "ALERT弹窗演示", url: "/test/alert" },
+        { icon: "fa fa-window-restore", title: "Dialog弹窗演示", url: "/test/confirm" }
+      ]
+    })
   }
 
   //list menu by index
   listMenu(index: number) {
+    console.log(index)
     for (let i = 1; i < this.isCollopseArray.length; i++) {
       this.isCollopseArray[i] = false
     }
@@ -31,12 +38,11 @@ export class MenuComponent implements OnInit {
 
   //close menu by index
   closeMenu(index: number) {
-    this.isCollopseArray[index] = false;
+    this.isCollopseArray[index] = false
   }
 
   //is a active menu
   isActiveMenu(url: string) {
-    console.log(this.router.url)
     return this.router.url == url
 
   }

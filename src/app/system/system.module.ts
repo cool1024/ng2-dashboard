@@ -15,13 +15,13 @@ import { MenuSettingComponent } from './pages/menu-setting/menu-setting.componen
   imports: [
     CommonModule,
     FormsModule,
-    SystemRoutingModule
+    SystemRoutingModule,
   ],
   declarations: [
     MenuComponent,
     HeadbarComponent,
     MenuSettingComponent
   ],
-  exports: [MenuComponent,HeadbarComponent]
+  exports: [MenuComponent, HeadbarComponent]
 })
 export class SystemModule { }

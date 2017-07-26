@@ -1,9 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { TestComponent } from './pages/test/test.component';
+import { ConfirmWindowComponent } from './pages/confirm-window/confirm-window.component';
+import { AlertWindowComponent } from './pages/alert-window/alert-window.component';
+
 
 const routes: Routes = [
-  { path: 'test/test', component: TestComponent }
+  { path: 'test/confirm', component: ConfirmWindowComponent },
+  { path: 'test/alert', component: AlertWindowComponent },
 ];
 
 @NgModule({

@@ -1,0 +1,11 @@
+<div class="fixed-top w-100 h-100" [ngStyle]="styles" [hidden]="!display">
+  <div class="card {{className}} text-center window-alert">
+    <div class="card-block p-1">
+      <blockquote class="card-blockquote">
+        <p class="text-left"><i class="fa fa-exclamation-triangle"></i> {{title}}<span (click)="display=false" class="pull-right pointer">&times;</span></p>
+        <p>{{message}}</p>
+        <p class="text-right"><span (click)="doCancel()" class="pointer mr-2 ml-2">取消</span><span (click)="doOk()" class="pointer mr-2 ml-2">确认</span></p>
+      </blockquote>
+    </div>
+  </div>
+</div>

@@ -1,8 +1,84 @@
 /* You can add global styles to this file, and also import other style files */
+
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 @import "~bootstrap/dist/css/bootstrap.min.css";
-@import  "~font-awesome/css/font-awesome.min.css";
+@import "~font-awesome/css/font-awesome.min.css";
+
 /* font style */
-.text-white{
-    color:white !important;
+
+.text-white {
+    color: white !important;
+}
+
+.text-black {
+    color: black !important;
+}
+
+
+/*default css */
+
+a,
+button,
+input,
+select {
+    outline: 0 none !important;
+    text-decoration: none !important;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:active {
+    text-decoration: none
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+.btn:focus {
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+}
+
+.btn {
+    cursor: pointer;
+}
+
+.btn-outline-info {
+    border-color: #caeffb;
+    background-color: white;
+}
+
+.btn-outline-primary {
+    border-color: #c2e1fc;
+    background-color: white;
+}
+
+.btn-outline-danger {
+    border-color: #e4a1a1;
+    background-color: white;
+}
+
+.btn-outline-success {
+    border-color: #c6e7c6;
+    background-color: white;
+}
+
+.btn-outline-warning {
+    border-color: #e7cda9;
+    background-color: white;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.bg-white {
+    background-color: white;
 }

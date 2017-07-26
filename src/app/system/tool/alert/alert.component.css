@@ -1,0 +1,21 @@
+.window-alert {
+    width: 20rem;
+    margin: 20% auto;
+    box-shadow: 2px 2px 10px #CFCFCF;
+}
+
+.card-outline-danger {
+    color: #d9534f;
+}
+
+.card-outline-warning {
+    color: #f0ad4e;
+}
+
+.card-outline-success {
+    color: #5cb85c;
+}
+
+.card-outline-info {
+    color: #5bc0de;
+}
