@@ -1,0 +1,96 @@
+.app-menu {
+    height: 100%;
+    width: 100%;
+}
+
+.menu-title {
+    line-height: 55px;
+    height: 55px;
+    white-space: nowrap;
+}
+
+.menu-title img {
+    width: 32px;
+    height: 32px;
+}
+
+.line {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    width: 90%;
+    margin: 0 auto;
+}
+
+.menu-manager-title {
+    height: 60px;
+    line-height: 60px;
+    font-size: 16px;
+}
+
+.menu-manager-title .right-icon {
+    line-height: 60px;
+}
+
+.menu-manager-item {
+    line-height: 50px;
+    height: 50px;
+    font-size: 16px;
+}
+
+.icon {
+    font-size: 20px;
+    display: inline-block;
+    width: 22px;
+}
+
+.hover-item:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+}
+
+.menu-item-main {
+    height: 50px;
+    line-height: 50px;
+}
+
+.menu-item-main .right-icon {
+    line-height: 50px;
+}
+
+.icon-up {
+    animation: icon-up 1s linear forwards;
+}
+
+.icon-down {
+    animation: icon-down 1s linear forwards;
+}
+
+.menu-item-child {
+    line-height: 50px;
+    height: 50px;
+}
+
+.menu-block .active {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+@keyframes icon-up {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(180deg);
+        transform: rotate(180deg);
+    }
+}
+
+@keyframes icon-down {
+    0% {
+        -webkit-transform: rotate(180deg);
+        transform: rotate(180deg);
+    }
+    100% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+}

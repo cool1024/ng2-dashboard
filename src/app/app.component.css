@@ -1,0 +1,13 @@
+.app-pad {
+    padding-left: 270px;
+    width: 100%;
+}
+
+.app-pad-menu {
+    width:270px;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-image:url('/assets/image/sidebar.jpg');
+}
