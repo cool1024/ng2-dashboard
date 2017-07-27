@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { MdButtonModule,MdInputModule} from '@angular/material';
 import { SystemRoutingModule } from './system-routing.module';
 
 /*system components*/
@@ -15,6 +17,13 @@ import { MenuSettingComponent } from './pages/menu-setting/menu-setting.componen
   imports: [
     CommonModule,
     FormsModule,
+
+    /*material module*/
+    NoopAnimationsModule,
+    MdButtonModule,
+    MdInputModule,
+
+    /*system module*/
     SystemRoutingModule,
   ],
   declarations: [

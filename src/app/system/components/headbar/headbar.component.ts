@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SystemService } from './../../system.service';
 
 @Component({
   selector: 'app-headbar',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeadbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private systemService: SystemService) { }
 
-  ngOnInit() {
+  ngOnInit() { }
+
+  changeTheme() {
+    this.systemService.theme = { bgColor: "red", fontColor: "white", activeColor: "white" }
   }
 
+  theme: any = this.systemService.theme
 }

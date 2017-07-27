@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { SystemService } from './../../system.service';
 
 @Component({
   selector: 'app-menu',
@@ -8,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class MenuComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private systemService: SystemService) { }
 
   ngOnInit() {
     //load menus 
@@ -48,11 +49,7 @@ export class MenuComponent implements OnInit {
   }
 
   //theme color
-  themeConfig: any = {
-    bgColor: "rgba(14, 93, 87, 0.91)",
-    fontColor: "white",
-    activeColor: "white"
-  }
+  themeConfig: any = this.systemService.theme
 
   //menu list
   menus = new Array<{ icon: string, title: string, childs: Array<any> }>()

@@ -1,5 +1,33 @@
 .head-bar {
+    height: 60px;
+    /* background-color: #eaeaea; */
+    /* box-shadow: 1px 2px 3px #d2d2d2; */
+}
+
+.left-bur{
+    line-height: 60px;
+}
+
+.icon {
+    font-size: 20px;
+    color: rgb(100, 100, 100);
+}
+
+.icon-hover:hover {
+    background-color: hsla(0, 0%, 39%, .25) !important;
+    color: #fff;
+}
+
+.icon-hover {
+    transition: background-color 1s ease-out, color 1s ease-out;
+}
+
+.circle-button {
+    display: inline-block;
+    border-radius: 50%;
     height: 50px;
-    background-color: #eaeaea;
-    box-shadow: 1px 2px 3px #d2d2d2;
+    width: 50px;
+    line-height: 50px;
+    box-shadow: 1px 2px 12px #e4e4e4;
+    background-color: #fff;
 }

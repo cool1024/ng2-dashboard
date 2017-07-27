@@ -1,1 +1,18 @@
-<div class="head-bar"></div>
+<div class="head-bar">
+    <div class="row w-100">
+        <div class="col-2 left-bur">
+            <div class="circle-button pointer text-center ml-2">
+                <i class="fa fa-angle-double-left fa-lg" aria-hidden="true"></i>
+            </div>
+        </div>
+        <div class="col-10 text-right">
+            <md-input-container color="warn">
+                <input mdInput>
+            </md-input-container>
+            <button class="mr-2" md-raised-button><i class="text-black fa fa-search fa-lg"></i></button>
+            <button (click)="changeTheme()" [ngStyle]="{'color': theme.bgColor}" class="icon-hover mr-2" md-icon-button><i class="fa fa-question-circle fa-lg"></i></button>
+            <button [ngStyle]="{'color': theme.bgColor}" class="icon-hover mr-2" md-icon-button><i class="fa fa-bell fa-lg"></i></button>
+            <button [ngStyle]="{'color': theme.bgColor}" class="icon-hover mr-2" md-icon-button><i class="fa fa-cog fa-spin fa-lg"></i></button>
+        </div>
+    </div>
+</div>

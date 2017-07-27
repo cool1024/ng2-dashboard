@@ -1,14 +1,14 @@
-<div class="card">
+<div class="card rounded-0">
     <div class="card-header">提示窗口示例</div>
     <div class="card-block">
-        <button class="btn btn-danger" (click)="showAlert('card-inverse card-danger','危险','你确定要这么做吗？',alert)">Danger</button>
-        <button class="btn btn-warning" (click)="showAlert('card-inverse card-warning','警告','请不要这么做',alert)">Warning</button>
-        <button class="btn btn-success" (click)="showAlert('card-inverse card-success','成功','这是一个成功的例子',alert)">Success</button>
-        <button class="btn btn-info" (click)="showAlert('card-inverse card-info','信息','这是一个提示信息',alert)">Info</button>
-        <button class="btn btn-outline-danger" (click)="showAlert('bg-white card-outline-danger','危险','你确定要这么做吗？',alert)">Danger</button>
-        <button class="btn btn-outline-warning" (click)="showAlert('bg-white card-outline-warning','警告','请不要这么做',alert)">Warning</button>
-        <button class="btn btn-outline-success" (click)="showAlert('bg-white card-outline-success','成功','这是一个成功的例子',alert)">Success</button>
-        <button class="btn btn-outline-info" (click)="showAlert('bg-white card-outline-info','信息','这是一个提示信息',alert)">Info</button>
+        <button class="mt-1 btn btn-danger" (click)="showAlert('card-inverse card-danger','危险','你确定要这么做吗？',alert)">Danger</button>
+        <button class="mt-1 btn btn-warning" (click)="showAlert('card-inverse card-warning','警告','请不要这么做',alert)">Warning</button>
+        <button class="mt-1 btn btn-success" (click)="showAlert('card-inverse card-success','成功','这是一个成功的例子',alert)">Success</button>
+        <button class="mt-1 btn btn-info" (click)="showAlert('card-inverse card-info','信息','这是一个提示信息',alert)">Info</button>
+        <button class="mt-1 btn btn-outline-danger" (click)="showAlert('bg-white card-outline-danger','危险','你确定要这么做吗？',alert)">Danger</button>
+        <button class="mt-1 btn btn-outline-warning" (click)="showAlert('bg-white card-outline-warning','警告','请不要这么做',alert)">Warning</button>
+        <button class="mt-1 btn btn-outline-success" (click)="showAlert('bg-white card-outline-success','成功','这是一个成功的例子',alert)">Success</button>
+        <button class="mt-1 btn btn-outline-info" (click)="showAlert('bg-white card-outline-info','信息','这是一个提示信息',alert)">Info</button>
     </div>
 </div>
 <app-alert-window #alert [className]="className" [title]="title" [message]="message" (ok)="ok()" (cancel)="cancel()"></app-alert-window>

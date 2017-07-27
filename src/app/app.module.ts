@@ -1,13 +1,17 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { MdButtonModule, MdDialogModule, MdDialogTitle, MdDialogContent, MdDialogActions, MdDialogClose } from '@angular/material';
 import 'hammerjs';
 
+/*app component*/
 import { AppComponent } from './app.component';
+
+/*module list*/
 import { SystemModule } from './system/system.module';
 import { TestModule } from './model/test/test.module';
+
+/*public service*/
+import { SystemService } from './system/system.service';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: 'test/alert', pathMatch: 'full' }
@@ -29,10 +33,8 @@ const appRoutes: Routes = [
     /*dev module*/
     TestModule,
 
-    /*material module*/
-
   ],
-  providers: [],
+  providers: [SystemService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
