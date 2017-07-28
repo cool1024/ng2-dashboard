@@ -33,7 +33,6 @@
                 </tr>
             </tbody>
         </table>
-        <app-pagination></app-pagination>
-        <!-- <ngb-pagination class="pull-right" [ellipses]="true" [collectionSize]="120" [(page)]="page" [maxSize]="5"></ngb-pagination> -->
+        <app-pagination class="pull-right" (pageChange)="pageChanged($event)" [ellipses]="true" [collectionSize]="this.page.total" [(page)]="this.page.page" [pageSize]="this.page.limit" [maxSize]="5"></app-pagination>
     </div>
 </div>

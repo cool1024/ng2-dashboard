@@ -17,7 +17,7 @@ import { SortablejsModule } from 'angular-sortablejs';
 import { SelectModule } from 'ng2-select';
 
 /*ng-bootstrap*/
-import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
+// import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
 
 /*引入路由模块*/
 import { TestRoutingModule } from './test-routing.module'
@@ -52,7 +52,7 @@ import { TableDemoComponent } from './pages/table-demo/table-demo.component';
     MdSelectModule,
     SelectModule,
     MdTableModule,
-    NgbPaginationModule.forRoot(),
+    // NgbPaginationModule.forRoot(),
   ],
   entryComponents: [DialogDefault, DialogInfo, DialogSuccess, DialogWarning, DialogDanger],
   declarations: [
