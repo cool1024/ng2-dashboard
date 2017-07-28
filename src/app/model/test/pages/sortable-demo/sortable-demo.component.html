@@ -1,14 +1,17 @@
 <div class="card rounded-0">
-  <div class="card-header">SortableJS
-  </div>
-  <div class="card-block">
-    <div class="row" [sortablejs]="items">
-      <div class="card col-sm-3" *ngFor="let item of items">
-        <img class="card-img-top" src="{{item.image}}" alt="Card image cap">
-        <div class="card-body">
-          <h4 class="title text-center">{{item.title}}</h4>
-        </div>
-      </div>
+    <div class="card-header">
+        <i class="fa fa-sort"></i> SortableJS
     </div>
-  </div>
+    <div class="card-block">
+        <div class="row" [sortablejs]="items">
+            <div class="col-sm-3" *ngFor="let item of items;index as i">
+                <div class="card mb-4">
+                    <img class="card-img-top" src="{{item.image}}" alt="Card image cap">
+                    <div class="card-body">
+                        <h4 class="title text-center">{{i}}.{{item.title}}</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

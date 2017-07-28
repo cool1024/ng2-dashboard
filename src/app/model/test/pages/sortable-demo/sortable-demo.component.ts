@@ -13,11 +13,11 @@ export class SortableDemoComponent implements OnInit {
 
   //list data
   items: Array<{ title: string, image: string }> = [
-    { title: 'apple', image: '/assets/image/photo.jpg' },
-    { title: 'board', image: '/assets/image/photo.jpg' },
-    { title: 'car', image: '/assets/image/photo.jpg' },
-    { title: 'dist', image: '/assets/image/photo.jpg' },
-    { title: 'egg', image: '/assets/image/photo.jpg' },
+    { title: 'apple', image: '/assets/image/avatar/1.jpg' },
+    { title: 'board', image: '/assets/image/avatar/2.jpg' },
+    { title: 'car', image: '/assets/image/avatar/3.jpg' },
+    { title: 'dist', image: '/assets/image/avatar/4.jpg' },
+    { title: 'egg', image: '/assets/image/avatar/5.jpg' },
   ]
 
 }

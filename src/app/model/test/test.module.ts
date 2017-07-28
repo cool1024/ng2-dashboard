@@ -5,13 +5,16 @@ import { FormsModule } from '@angular/forms';
 
 /*Material*/
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { MdButtonModule, MdDialogModule } from '@angular/material';
+import { MdButtonModule, MdDialogModule, MdSelectModule } from '@angular/material';
 
 /*ng2-charts*/
 import { ChartsModule } from 'ng2-charts';
 
 /*sortablejs*/
 import { SortablejsModule } from 'angular-sortablejs';
+
+/*ng2-select*/
+import { SelectModule } from 'ng2-select';
 
 /*引入路由模块*/
 import { TestRoutingModule } from './test-routing.module'
@@ -27,6 +30,7 @@ import { ConfirmWindowComponent } from './pages/confirm-window/confirm-window.co
 import { AlertWindowComponent } from './pages/alert-window/alert-window.component';
 import { ChartsDemoComponent } from './pages/charts-demo/charts-demo.component';
 import { SortableDemoComponent } from './pages/sortable-demo/sortable-demo.component';
+import { SelectDemoComponent } from './pages/select-demo/select-demo.component';
 
 @NgModule({
   imports: [
@@ -38,6 +42,8 @@ import { SortableDemoComponent } from './pages/sortable-demo/sortable-demo.compo
     MdButtonModule,
     ChartsModule,
     SortablejsModule,
+    MdSelectModule,
+    SelectModule,
   ],
   entryComponents: [DialogDefault, DialogInfo, DialogSuccess, DialogWarning, DialogDanger],
   declarations: [
@@ -48,6 +54,7 @@ import { SortableDemoComponent } from './pages/sortable-demo/sortable-demo.compo
     AlertWindowComponent,
     ChartsDemoComponent,
     SortableDemoComponent,
+    SelectDemoComponent,
   ],
 })
 export class TestModule { }

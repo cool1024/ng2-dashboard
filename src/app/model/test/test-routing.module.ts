@@ -4,6 +4,7 @@ import { ConfirmWindowComponent } from './pages/confirm-window/confirm-window.co
 import { AlertWindowComponent } from './pages/alert-window/alert-window.component';
 import { ChartsDemoComponent } from './pages/charts-demo/charts-demo.component';
 import { SortableDemoComponent } from './pages/sortable-demo/sortable-demo.component';
+import { SelectDemoComponent } from './pages/select-demo/select-demo.component';
 
 
 const routes: Routes = [
@@ -11,7 +12,8 @@ const routes: Routes = [
   { path: 'test/alert', component: AlertWindowComponent },
   { path: 'test/charts', component: ChartsDemoComponent },
   { path: 'test/sortable', component: SortableDemoComponent },
-  
+  { path: 'test/select', component: SelectDemoComponent },
+
 ];
 
 @NgModule({

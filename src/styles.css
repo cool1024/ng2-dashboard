@@ -1,6 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 
+
 /* @import "~@angular/material/prebuilt-themes/indigo-pink.css"; */
+
 @import "~bootstrap/dist/css/bootstrap.min.css";
 @import "~font-awesome/css/font-awesome.min.css";
 
@@ -17,8 +19,8 @@
 
 /*default css */
 
-body{
-    background-color:rgb(245, 243, 243);
+body {
+    background-color: rgb(245, 243, 243);
 }
 
 a,
@@ -85,4 +87,11 @@ a:visited {
 
 .bg-white {
     background-color: white;
+}
+
+
+/*ng2-select*/
+
+.dropdown-menu {
+    display: inline-block !important;
 }

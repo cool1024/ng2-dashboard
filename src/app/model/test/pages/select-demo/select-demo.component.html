@@ -1,0 +1,64 @@
+<div class="card rounded-0">
+    <div class="card-header"><i class="fa fa-chevron-circle-down" aria-hidden="true"></i> <a href="https://material.angular.io/components/select/overview">下拉选择示例--Material</a></div>
+    <div class="card-block">
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">have placeholder</label>
+            <div class="col-sm-10">
+                <md-select color="primary" placeholder="选择类型" [(ngModel)]="select.one" name="type">
+                    <md-option [value]="1">Apple</md-option>
+                    <md-option [value]="2">Board</md-option>
+                    <md-option [value]="3">Card</md-option>
+                </md-select>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">not placeholder</label>
+            <div class="col-sm-10">
+                <md-select color="primary" [(ngModel)]="select.two" name="type">
+                    <md-option [value]="1">Apple</md-option>
+                    <md-option [value]="2">Board</md-option>
+                    <md-option [value]="3">Card</md-option>
+                </md-select>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<div class="card rounded-0">
+    <div class="card-header"><i class="fa fa-chevron-circle-down" aria-hidden="true"></i> <a href="https://v4-alpha.getbootstrap.com/components/forms/">下拉选择示例--Bootstrap</a></div>
+    <div class="card-block">
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">custom</label>
+            <div class="col-sm-10">
+                <select class="custom-select" [(ngModel)]="select.three" name="type">
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">default</label>
+            <div class="col-sm-10">
+                <select class="form-control" [(ngModel)]="select.four" name="type">
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<div class="card rounded-0">
+    <div class="card-header"><i class="fa fa-chevron-circle-down" aria-hidden="true"></i> <a href="http://valor-software.com/ng2-select/">下拉选择示例--ng2-select</a></div>
+    <div class="card-block">
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">custom</label>
+            <div class="col-sm-10">
+                <ng-select [items]="items" (data)="refreshValue($event)" (selected)="selected($event)" placeholder="No city selected">
+                </ng-select>
+            </div>
+        </div>
+    </div>
+</div>
