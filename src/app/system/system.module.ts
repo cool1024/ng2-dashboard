@@ -12,7 +12,6 @@ import { HeadbarComponent } from './components/headbar/headbar.component';
 /*system pages*/
 import { MenuSettingComponent } from './pages/menu-setting/menu-setting.component';
 
-
 @NgModule({
   imports: [
     CommonModule,
@@ -29,7 +28,7 @@ import { MenuSettingComponent } from './pages/menu-setting/menu-setting.componen
   declarations: [
     MenuComponent,
     HeadbarComponent,
-    MenuSettingComponent
+    MenuSettingComponent,
   ],
   exports: [MenuComponent, HeadbarComponent]
 })

@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 
 /*Material*/
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { MdButtonModule, MdDialogModule, MdSelectModule,MdTableModule } from '@angular/material';
+import { MdButtonModule, MdDialogModule, MdSelectModule, MdTableModule } from '@angular/material';
 
 /*ng2-charts*/
 import { ChartsModule } from 'ng2-charts';
@@ -16,6 +16,9 @@ import { SortablejsModule } from 'angular-sortablejs';
 /*ng2-select*/
 import { SelectModule } from 'ng2-select';
 
+/*ng-bootstrap*/
+import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
+
 /*引入路由模块*/
 import { TestRoutingModule } from './test-routing.module'
 
@@ -24,6 +27,9 @@ import { DialogDefault, DialogInfo, DialogSuccess, DialogWarning, DialogDanger }
 
 /*引入弹窗组件*/
 import { AlertComponent } from './../../system/tool/alert/alert.component';
+
+/*Pagination*/
+import { PaginationComponent } from './../../system/tool/pagination/pagination.component';
 
 /*引入页面组件*/
 import { ConfirmWindowComponent } from './pages/confirm-window/confirm-window.component';
@@ -46,10 +52,12 @@ import { TableDemoComponent } from './pages/table-demo/table-demo.component';
     MdSelectModule,
     SelectModule,
     MdTableModule,
+    NgbPaginationModule.forRoot(),
   ],
   entryComponents: [DialogDefault, DialogInfo, DialogSuccess, DialogWarning, DialogDanger],
   declarations: [
     AlertComponent,
+    PaginationComponent,
     DialogDefault, DialogInfo, DialogSuccess, DialogWarning, DialogDanger,
     /*pages list*/
     ConfirmWindowComponent,

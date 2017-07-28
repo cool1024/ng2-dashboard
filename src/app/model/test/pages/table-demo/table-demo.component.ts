@@ -9,7 +9,8 @@ export class TableDemoComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
+
+  page=1
 
 }
