@@ -27,6 +27,7 @@ export class MenuComponent implements OnInit {
         { icon: "fa fa-pie-chart", title: "Charts Example", url: "/test/charts" },
         { icon: "fa fa-sort", title: "Sortable JS", url: "/test/sortable" },
         { icon: "fa fa-chevron-circle-down", title: "Select Example", url: "/test/select" },
+        { icon: "fa fa-table", title: "Table Example", url: "/test/table" },        
       ]
     })
   }

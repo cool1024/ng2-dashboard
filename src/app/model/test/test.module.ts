@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 
 /*Material*/
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { MdButtonModule, MdDialogModule, MdSelectModule } from '@angular/material';
+import { MdButtonModule, MdDialogModule, MdSelectModule,MdTableModule } from '@angular/material';
 
 /*ng2-charts*/
 import { ChartsModule } from 'ng2-charts';
@@ -31,6 +31,7 @@ import { AlertWindowComponent } from './pages/alert-window/alert-window.componen
 import { ChartsDemoComponent } from './pages/charts-demo/charts-demo.component';
 import { SortableDemoComponent } from './pages/sortable-demo/sortable-demo.component';
 import { SelectDemoComponent } from './pages/select-demo/select-demo.component';
+import { TableDemoComponent } from './pages/table-demo/table-demo.component';
 
 @NgModule({
   imports: [
@@ -44,6 +45,7 @@ import { SelectDemoComponent } from './pages/select-demo/select-demo.component';
     SortablejsModule,
     MdSelectModule,
     SelectModule,
+    MdTableModule,
   ],
   entryComponents: [DialogDefault, DialogInfo, DialogSuccess, DialogWarning, DialogDanger],
   declarations: [
@@ -55,6 +57,7 @@ import { SelectDemoComponent } from './pages/select-demo/select-demo.component';
     ChartsDemoComponent,
     SortableDemoComponent,
     SelectDemoComponent,
+    TableDemoComponent,
   ],
 })
 export class TestModule { }
