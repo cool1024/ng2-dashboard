@@ -22,7 +22,7 @@ import { MenuSettingComponent } from './pages/menu-setting/menu-setting.componen
     NoopAnimationsModule,
     MdButtonModule,
     MdInputModule,
-
+ 
     /*system module*/
     SystemRoutingModule,
   ],

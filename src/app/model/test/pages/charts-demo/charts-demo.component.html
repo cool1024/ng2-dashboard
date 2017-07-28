@@ -1,0 +1,89 @@
+<div class="card">
+  <div class="card-header text-center">图表数据</div>
+  <div class="card-block">
+    <blockquote class="card-blockquote">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th *ngFor="let title of chartLabels">{{title}}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let datas of chartData">
+            <th *ngFor="let data of datas.data">{{data}}</th>
+          </tr>
+        </tbody>
+      </table>
+    </blockquote>
+  </div>
+</div>
+<br>
+<div class="card">
+  <div class="card-header">
+    <div class="row">
+      <div class="col-6 text-center">折线图</div>
+      <div class="col-6 text-center">条形图</div>
+    </div>
+  </div>
+  <div class="card-block">
+    <blockquote class="card-blockquote row">
+      <div class="col-6">
+        <canvas baseChart [datasets]="chartData" [labels]="chartLabels" [options]="lineChartOptions" [colors]="chartColors" [legend]="true"
+          [chartType]="'line'"></canvas>
+        <!-- 
+            参数参考
+            <canvas baseChart width="400" height="400" 
+              [datasets]="显示的数据列表" 
+              [labels]="底部显示的标签列表" 
+              [options]="配置参数，参考chartjs官方说明"
+              [colors]="图表样式列表" 
+              [legend]="是否显示图例" 
+              [chartType]="图表类型"
+            ></canvas>
+          -->
+      </div>
+      <div class="col-6">
+        <canvas baseChart [datasets]="chartData" [labels]="chartLabels" [options]="barChartOptions" [legend]="true" [chartType]="'bar'"
+          [colors]="chartColors"></canvas>
+      </div>
+    </blockquote>
+  </div>
+</div>
+<br>
+<div class="card">
+  <div class="card-header">
+    <div class="row">
+      <div class="col-6 text-center">圈图</div>
+      <div class="col-6 text-center">雷达图</div>
+    </div>
+  </div>
+  <div class="card-block">
+    <blockquote class="card-blockquote row">
+      <div class="col-6">
+        <canvas baseChart [data]="doughnutChartData" [labels]="doughnutChartLabels" [chartType]="'doughnut'" [legend]="true"></canvas>
+      </div>
+      <div class="col-6">
+        <canvas baseChart [datasets]="chartData" [labels]="chartLabels" [chartType]="'radar'"></canvas>
+      </div>
+    </blockquote>
+  </div>
+</div>
+<br>
+<div class="card">
+  <div class="card-header">
+    <div class="row">
+      <div class="col-6 text-center">饼图</div>
+      <div class="col-6 text-center">极地面积图</div>
+    </div>
+  </div>
+  <div class="card-block">
+    <blockquote class="card-blockquote row">
+      <div class="col-6">
+        <canvas baseChart [data]="doughnutChartData" [labels]="doughnutChartLabels" [chartType]="'pie'" [legend]="true"></canvas>
+      </div>
+      <div class="col-6">
+        <canvas baseChart [data]="doughnutChartData" [labels]="doughnutChartLabels" [chartType]="'polarArea'"></canvas>
+      </div>
+    </blockquote>
+  </div>
+</div>
