@@ -5,7 +5,7 @@ import { SystemService } from './../../system.service';
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.css']
+  styleUrls: ['./menu.component.scss']
 })
 export class MenuComponent implements OnInit {
 
@@ -27,7 +27,13 @@ export class MenuComponent implements OnInit {
         { icon: "fa fa-pie-chart", title: "Charts Example", url: "/test/charts" },
         { icon: "fa fa-sort", title: "Sortable JS", url: "/test/sortable" },
         { icon: "fa fa-chevron-circle-down", title: "Select Example", url: "/test/select" },
-        { icon: "fa fa-table", title: "Table Example", url: "/test/table" },        
+        { icon: "fa fa-table", title: "Table Example", url: "/test/table" },  
+        { icon: "fa fa-superpowers", title: "Form Example", url: "/test/form" },                      
+      ]
+    })
+    this.menus.push({
+      icon: "fa fa-cogs", title: "Service Tool", childs: [
+        { icon: "fa fa-spinner", title: "Show Loading", url: "/test/loading" },                    
       ]
     })
   }

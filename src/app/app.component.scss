@@ -1,0 +1,31 @@
+.app-pad {
+    padding-left: 270px;
+    width: 100%;
+}
+
+.app-pad-small {
+    padding-left: 70px;
+}
+
+.app-pad-menu-small {
+    width: 70px !important;
+    transition: all .5s ease-out;
+}
+
+.app-pad-menu-small:hover {
+    width: 270px !important;
+    transition: all .5s ease-out;
+}
+
+.app-pad-menu {
+    width: 270px;
+    height: 100%;
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    background-image: url('/assets/image/sidebar.jpg');
+    overflow-y: hidden;
+    overflow-x: hidden;
+    box-shadow: 1px 2px 3px black;
+}

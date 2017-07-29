@@ -95,3 +95,19 @@ a:visited {
 .dropdown-menu {
     display: inline-block !important;
 }
+
+
+/*loading css*/
+
+.loading-dom {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    background-color: white;//rgba(255, 255, 255, 0.2) !important;
+}
+//span loading
+@import 'theme/loading-span.scss';
+//squre loading
+@import 'theme/loading-squre.scss';
+//circle loading
+@import 'theme/loading-circle.scss';

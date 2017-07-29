@@ -5,7 +5,7 @@ import { DialogDefault, DialogInfo, DialogSuccess, DialogWarning, DialogDanger }
 @Component({
   selector: 'app-confirm-window',
   templateUrl: './confirm-window.component.html',
-  styleUrls: ['./confirm-window.component.css']
+  styleUrls: ['./confirm-window.component.scss']
 })
 
 export class ConfirmWindowComponent implements OnInit {

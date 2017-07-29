@@ -19,8 +19,8 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.css",
-        "app/theme-material.scss"
+        "styles.scss",
+        "theme/theme-material.scss"
       ],
       "scripts": [
         "./../node_modules/chart.js/src/chart.js"

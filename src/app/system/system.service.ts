@@ -31,4 +31,16 @@ export class SystemService {
     return this.config.server
   }
 
+  get menuSetting(): { size: string } {
+    return this.menuConfig
+  }
+
+  set menuSetting(config: { size: string }) {
+    this.menuConfig.size = config.size || this.menuConfig.size
+  }
+
+  private menuConfig: { size: string } = {
+    size: 'lg'
+  }
+
 }

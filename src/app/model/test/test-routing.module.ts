@@ -6,15 +6,20 @@ import { ChartsDemoComponent } from './pages/charts-demo/charts-demo.component';
 import { SortableDemoComponent } from './pages/sortable-demo/sortable-demo.component';
 import { SelectDemoComponent } from './pages/select-demo/select-demo.component';
 import { TableDemoComponent } from './pages/table-demo/table-demo.component';
-
+import { FormDemoComponent } from './pages/form-demo/form-demo.component';
+import { LoadingServiceComponent } from './pages/loading-service/loading-service.component';
 
 const routes: Routes = [
+  /*tool component*/
   { path: 'test/confirm', component: ConfirmWindowComponent },
   { path: 'test/alert', component: AlertWindowComponent },
   { path: 'test/charts', component: ChartsDemoComponent },
   { path: 'test/sortable', component: SortableDemoComponent },
   { path: 'test/select', component: SelectDemoComponent },
-  { path: 'test/table', component: TableDemoComponent },  
+  { path: 'test/table', component: TableDemoComponent },
+  { path: 'test/form', component: FormDemoComponent },
+  /*tool service*/
+  { path: 'test/loading', component: LoadingServiceComponent },
 
 ];
 

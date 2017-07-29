@@ -3,7 +3,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 @Component({
   selector: 'app-model-window',
   templateUrl: './alert-window.component.html',
-  styleUrls: ['./alert-window.component.css']
+  styleUrls: ['./alert-window.component.scss']
 })
 
 export class AlertWindowComponent implements OnInit {

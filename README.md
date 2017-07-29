@@ -1,18 +1,18 @@
-#install
+# install
 `npm install`
 
-#run
+# run
 `ng serve --open`
 
-#build
+# build
 `ng build --env=prod --output-hashing`
 
-#run on nginx
+# run on nginx
 
 you need that
 
-`try_files $uri $uri/ /index.html?$query_string;`
+` try_files $uri $uri/ /index.html?$query_string; `
 
 replace the old
 
-`try_files $uri $uri/ =404;`
+` try_files $uri $uri/ =404; `

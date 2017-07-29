@@ -4,7 +4,7 @@ import { SystemService } from './../../system.service';
 @Component({
   selector: 'app-headbar',
   templateUrl: './headbar.component.html',
-  styleUrls: ['./headbar.component.css']
+  styleUrls: ['./headbar.component.scss']
 })
 export class HeadbarComponent implements OnInit {
 
@@ -15,6 +15,12 @@ export class HeadbarComponent implements OnInit {
   changeTheme() {
     this.systemService.theme = { bgColor: "red", fontColor: "white", activeColor: "white" }
   }
+
+  changeMenuSize() {
+    this.systemService.menuSetting.size = this.systemService.menuSetting.size == 'sm' ? 'lg' : 'sm'
+  }
+
+  menuSetting = this.systemService.menuSetting
 
   theme: any = this.systemService.theme
 }

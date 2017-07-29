@@ -1,5 +1,5 @@
-<div class="app-pad">
-    <div class="app-pad-menu">
+<div *ngIf="false" class="app-pad" [ngClass]="{'app-pad-small': minSetting.size=='sm'}">
+    <div class="app-pad-menu" [ngClass]="{'app-pad-menu-small': minSetting.size=='sm'}">
         <app-menu></app-menu>
     </div>
     <div class="app-pad-cotent">
@@ -9,3 +9,4 @@
         </div>
     </div>
 </div>
+<app-login *ngIf="true"></app-login>
