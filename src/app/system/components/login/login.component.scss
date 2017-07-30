@@ -10,8 +10,8 @@
 
 .window {
     width: 450px;
-    height: 300px; //background-color: rgba(255, 255, 255, 0.05);
-    background: linear-gradient(left top, #ace, #f96);
+    height: 300px;
+    background-color: rgba(255, 255, 255, 0.05);
 }
 
 .window-header {
@@ -30,4 +30,22 @@ td {
 img {
     border: 1px solid white;
     box-shadow: 0px 0px 3px gray;
+}
+
+.login-input {
+    height: 50px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    line-height: 50px;
+}
+
+.login-input input {
+    height: 100%;
+    border-style: none;
+    background-color: transparent;
+}
+
+.login-input span {
+    font-size: 20px;
 }
