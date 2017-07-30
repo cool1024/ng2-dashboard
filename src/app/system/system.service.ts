@@ -7,7 +7,7 @@ export class SystemService {
 
   constructor() {
     this.config.theme = {
-      bgColor: "rgba(14, 93, 87, 0.91)",
+      bgColor: "rgba(0, 0, 0, 0.62)",
       fontColor: "white",
       activeColor: "white",
     }

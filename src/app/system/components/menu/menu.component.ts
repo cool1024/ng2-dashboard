@@ -58,6 +58,11 @@ export class MenuComponent implements OnInit {
 
   }
 
+  //sign out
+  signOut(){
+    this.router.navigateByUrl('/login')
+  }
+
   //theme color
   themeConfig: any = this.systemService.theme
 

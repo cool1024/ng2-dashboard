@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SystemService } from './../../system.service';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  constructor(private systemService: SystemService) { }
 
-  ngOnInit() {
+  ngOnInit() { }
+
+  //login
+  doLogin() {
+    this.message = "wrong password or account"
   }
 
+  //login data
+  loginParams: { account: string, password: string } = { account: "", password: "" }
+
+  //login message
+  message: string = ""
+
+  //background color
+  bgColor = this.systemService.theme.bgColor
 }
