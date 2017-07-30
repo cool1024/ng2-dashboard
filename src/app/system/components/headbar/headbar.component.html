@@ -2,8 +2,7 @@
     <div class="row w-100">
         <div class="col-2 left-bur">
             <div (click)="changeMenuSize()" class="circle-button pointer text-center ml-2">
-                <i [ngClass]="{'icon-up': menuSetting.size=='sm','icon-down':menuSetting.size!='sm'}" class="fa fa-dedent"
-                    aria-hidden="true"></i>
+                <i [ngClass]="{'icon-up': menuSetting.size=='sm','icon-down':menuSetting.size!='sm'}" class="fa fa-dedent" aria-hidden="true"></i>
             </div>
         </div>
         <div class="col-10 text-right">
@@ -11,7 +10,7 @@
                 <input mdInput>
             </md-input-container>
             <button class="mr-2" md-raised-button><i class="text-black fa fa-search fa-lg"></i></button>
-            <button (click)="changeTheme()" [ngStyle]="{'color': theme.bgColor}" class="icon-hover mr-2" md-icon-button><i class="fa fa-question-circle fa-lg"></i></button>
+            <button [ngStyle]="{'color': theme.bgColor}" class="icon-hover mr-2" md-icon-button><i class="fa fa-question-circle fa-lg"></i></button>
             <button [ngStyle]="{'color': theme.bgColor}" class="icon-hover mr-2" md-icon-button><i class="fa fa-bell fa-lg"></i></button>
             <button [ngStyle]="{'color': theme.bgColor}" class="icon-hover mr-2" md-icon-button><i class="fa fa-cog fa-lg"></i></button>
         </div>

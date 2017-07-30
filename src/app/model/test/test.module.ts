@@ -40,6 +40,7 @@ import { SelectDemoComponent } from './pages/select-demo/select-demo.component';
 import { TableDemoComponent } from './pages/table-demo/table-demo.component';
 import { FormDemoComponent } from './pages/form-demo/form-demo.component';
 import { LoadingServiceComponent } from './pages/loading-service/loading-service.component';
+import { ToastrDemoComponent } from './pages/toastr-demo/toastr-demo.component';
 
 @NgModule({
   imports: [
@@ -70,6 +71,7 @@ import { LoadingServiceComponent } from './pages/loading-service/loading-service
     TableDemoComponent,
     FormDemoComponent,
     LoadingServiceComponent,
+    ToastrDemoComponent,
   ],
 })
 export class TestModule { }

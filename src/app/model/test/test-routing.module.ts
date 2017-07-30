@@ -8,6 +8,7 @@ import { SelectDemoComponent } from './pages/select-demo/select-demo.component';
 import { TableDemoComponent } from './pages/table-demo/table-demo.component';
 import { FormDemoComponent } from './pages/form-demo/form-demo.component';
 import { LoadingServiceComponent } from './pages/loading-service/loading-service.component';
+import { ToastrDemoComponent } from './pages/toastr-demo/toastr-demo.component';
 
 const routes: Routes = [
   /*tool component*/
@@ -20,6 +21,8 @@ const routes: Routes = [
   { path: 'test/form', component: FormDemoComponent },
   /*tool service*/
   { path: 'test/loading', component: LoadingServiceComponent },
+  { path: 'test/toastr', component: ToastrDemoComponent },
+  
 
 ];
 

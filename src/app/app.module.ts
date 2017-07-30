@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import 'hammerjs';
+import { ToastrModule } from 'ngx-toastr';
 
 /*app component*/
 import { AppComponent } from './app.component';
@@ -26,6 +27,7 @@ const appRoutes: Routes = [
     /*angular module*/
     BrowserModule,
     RouterModule.forRoot(appRoutes),
+    ToastrModule.forRoot({positionClass:'toast-bottom-right',progressBar:true}),
 
     /*system module*/
     SystemModule,

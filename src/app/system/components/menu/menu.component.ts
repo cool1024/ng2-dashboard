@@ -27,13 +27,14 @@ export class MenuComponent implements OnInit {
         { icon: "fa fa-pie-chart", title: "Charts Example", url: "/test/charts" },
         { icon: "fa fa-sort", title: "Sortable JS", url: "/test/sortable" },
         { icon: "fa fa-chevron-circle-down", title: "Select Example", url: "/test/select" },
-        { icon: "fa fa-table", title: "Table Example", url: "/test/table" },  
-        { icon: "fa fa-superpowers", title: "Form Example", url: "/test/form" },                      
+        { icon: "fa fa-table", title: "Table Example", url: "/test/table" },
+        { icon: "fa fa-superpowers", title: "Form Example", url: "/test/form" },
       ]
     })
     this.menus.push({
       icon: "fa fa-cogs", title: "Service Tool", childs: [
-        { icon: "fa fa-spinner", title: "Show Loading", url: "/test/loading" },                    
+        { icon: "fa fa-spinner", title: "Show Loading", url: "/test/loading" },
+        { icon: "fa fa-comments-o", title: "Show Toastr", url: "/test/toastr" },
       ]
     })
   }
@@ -59,7 +60,7 @@ export class MenuComponent implements OnInit {
   }
 
   //sign out
-  signOut(){
+  signOut() {
     this.router.navigateByUrl('/login')
   }
 
