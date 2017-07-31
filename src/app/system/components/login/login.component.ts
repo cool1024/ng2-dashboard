@@ -25,4 +25,5 @@ export class LoginComponent implements OnInit {
 
   //background color
   bgColor = this.systemService.theme.bgColor
+  bgImage = this.systemService.theme.bgImage
 }

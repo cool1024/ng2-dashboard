@@ -9,7 +9,7 @@ import { AppComponent } from './app.component';
 
 /*module list*/
 import { SystemModule } from './system/system.module';
-import { TestModule } from './model/test/test.module';
+import { TestModule } from './module/test/test.module';
 
 /*public service*/
 import { SystemService } from './system/system.service';

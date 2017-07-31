@@ -13,7 +13,7 @@ export class HeadbarComponent implements OnInit {
   ngOnInit() { }
 
   changeTheme() {
-    this.systemService.theme = { bgColor: "red", fontColor: "white", activeColor: "white" }
+
   }
 
   changeMenuSize() {

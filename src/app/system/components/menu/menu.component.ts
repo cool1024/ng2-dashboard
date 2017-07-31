@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { SystemService } from './../../system.service';
+import { Menus } from './../../../config/config';
 
 @Component({
   selector: 'app-menu',
@@ -13,30 +14,7 @@ export class MenuComponent implements OnInit {
 
   ngOnInit() {
     //load menus 
-    this.menus.push({
-      icon: "fa fa-cog", title: "System Setting", childs: [
-        { icon: "fa fa-list-ul", title: "Menu Board", url: "/" },
-        { icon: "fa fa-users", title: "Role Group", url: "" },
-        { icon: "fa fa-lock", title: "Permission List", url: "" }
-      ]
-    })
-    this.menus.push({
-      icon: "fa fa-cubes", title: "工具测试", childs: [
-        { icon: "fa fa-television", title: "ALERT弹窗演示", url: "/test/alert" },
-        { icon: "fa fa-window-restore", title: "Dialog弹窗演示", url: "/test/confirm" },
-        { icon: "fa fa-pie-chart", title: "Charts Example", url: "/test/charts" },
-        { icon: "fa fa-sort", title: "Sortable JS", url: "/test/sortable" },
-        { icon: "fa fa-chevron-circle-down", title: "Select Example", url: "/test/select" },
-        { icon: "fa fa-table", title: "Table Example", url: "/test/table" },
-        { icon: "fa fa-superpowers", title: "Form Example", url: "/test/form" },
-      ]
-    })
-    this.menus.push({
-      icon: "fa fa-cogs", title: "Service Tool", childs: [
-        { icon: "fa fa-spinner", title: "Show Loading", url: "/test/loading" },
-        { icon: "fa fa-comments-o", title: "Show Toastr", url: "/test/toastr" },
-      ]
-    })
+    this.menus = this.menus.concat(Menus)
   }
 
   //list menu by index

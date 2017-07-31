@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Config } from '../config/config';
 
 @Injectable()
 export class SystemService {
@@ -6,25 +7,19 @@ export class SystemService {
   private config: { theme: any, server: any } = { theme: {}, server: {} }
 
   constructor() {
-    this.config.theme = {
-      bgColor: "rgba(0, 0, 0, 0.62)",
-      fontColor: "white",
-      activeColor: "white",
-    }
-    this.config.server = {
-      url: "",
-      source: "",
-    }
+    this.config.theme = Config.THEME
+    this.config.server = Config.SERVER
   }
 
-  get theme(): { bgColor: string, fontColor: string, activeColor: string } {
+  get theme(): { bgColor: string, fontColor: string, activeColor: string, bgImage: string } {
     return this.config.theme
   }
 
-  set theme(theme: { bgColor: string, fontColor: string, activeColor: string }) {
+  set theme(theme: { bgColor: string, fontColor: string, activeColor: string, bgImage: string }) {
     this.config.theme.bgColor = theme.bgColor
     this.config.theme.fontColor = theme.fontColor
     this.config.theme.activeColor = theme.activeColor
+    this.config.theme.bgImage = theme.bgImage
   }
 
   get server(): { url: string, source: string } {
