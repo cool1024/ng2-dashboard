@@ -20,7 +20,7 @@ const appRoutes: Routes = [
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
 
@@ -29,11 +29,11 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     ToastrModule.forRoot({positionClass:'toast-bottom-right',progressBar:true}),
 
-    /*system module*/
-    SystemModule,
-
     /*dev module*/
     TestModule,
+
+    /*system module must the end*/
+    SystemModule,
 
   ],
   providers: [SystemService],

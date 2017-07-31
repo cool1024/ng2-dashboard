@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 
 /*Material*/
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { MdButtonModule, MdDialogModule, MdSelectModule,MdInputModule,MdSlideToggleModule } from '@angular/material';
+import { MdButtonModule, MdDialogModule, MdSelectModule, MdInputModule, MdSlideToggleModule } from '@angular/material';
 
 /*ng2-charts*/
 import { ChartsModule } from 'ng2-charts';
@@ -17,7 +17,7 @@ import { SortablejsModule } from 'angular-sortablejs';
 import { SelectModule } from 'ng2-select';
 
 /*ng-bootstrap*/
-// import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbProgressbarModule } from '@ng-bootstrap/ng-bootstrap';
 
 /*引入路由模块*/
 import { TestRoutingModule } from './test-routing.module'
@@ -41,6 +41,7 @@ import { TableDemoComponent } from './pages/table-demo/table-demo.component';
 import { FormDemoComponent } from './pages/form-demo/form-demo.component';
 import { LoadingServiceComponent } from './pages/loading-service/loading-service.component';
 import { ToastrDemoComponent } from './pages/toastr-demo/toastr-demo.component';
+import { HomeComponent } from './pages/home/home.component';
 
 @NgModule({
   imports: [
@@ -56,6 +57,7 @@ import { ToastrDemoComponent } from './pages/toastr-demo/toastr-demo.component';
     MdInputModule,
     MdSlideToggleModule,
     SelectModule,
+    NgbProgressbarModule.forRoot(),
   ],
   entryComponents: [DialogDefault, DialogInfo, DialogSuccess, DialogWarning, DialogDanger],
   declarations: [
@@ -72,6 +74,7 @@ import { ToastrDemoComponent } from './pages/toastr-demo/toastr-demo.component';
     FormDemoComponent,
     LoadingServiceComponent,
     ToastrDemoComponent,
+    HomeComponent,
   ],
 })
 export class TestModule { }

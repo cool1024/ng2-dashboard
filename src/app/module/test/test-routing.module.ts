@@ -9,8 +9,12 @@ import { TableDemoComponent } from './pages/table-demo/table-demo.component';
 import { FormDemoComponent } from './pages/form-demo/form-demo.component';
 import { LoadingServiceComponent } from './pages/loading-service/loading-service.component';
 import { ToastrDemoComponent } from './pages/toastr-demo/toastr-demo.component';
+import { HomeComponent } from './pages/home/home.component';
 
 const routes: Routes = [
+  /*home page*/
+  { path: '', component: HomeComponent },
+
   /*tool component*/
   { path: 'test/confirm', component: ConfirmWindowComponent },
   { path: 'test/alert', component: AlertWindowComponent },
@@ -22,8 +26,6 @@ const routes: Routes = [
   /*tool service*/
   { path: 'test/loading', component: LoadingServiceComponent },
   { path: 'test/toastr', component: ToastrDemoComponent },
-  
-
 ];
 
 @NgModule({

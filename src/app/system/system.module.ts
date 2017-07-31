@@ -8,10 +8,11 @@ import { SystemRoutingModule } from './system-routing.module';
 /*system components*/
 import { MenuComponent } from './components/menu/menu.component';
 import { HeadbarComponent } from './components/headbar/headbar.component';
+import { LoginComponent } from './components/login/login.component';
 
 /*system pages*/
 import { MenuSettingComponent } from './pages/menu-setting/menu-setting.component';
-import { LoginComponent } from './components/login/login.component';
+import { Error404Component } from './pages/error404/error404.component';
 
 @NgModule({
   imports: [
@@ -31,6 +32,7 @@ import { LoginComponent } from './components/login/login.component';
     HeadbarComponent,
     MenuSettingComponent,
     LoginComponent,
+    Error404Component,
   ],
   exports: [MenuComponent, HeadbarComponent, LoginComponent]
 })
