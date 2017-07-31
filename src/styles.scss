@@ -7,7 +7,14 @@
 @import "~font-awesome/css/font-awesome.min.css";
 @import '~ngx-toastr/toastr.css';
 
-/* font style */
+/*default css*/
+
+* {
+    font-family: Microsoft YaiHei;
+}
+
+
+/*font style */
 
 .text-white {
     color: white !important;
@@ -104,8 +111,9 @@ a:visited {
     align-items: center;
     display: flex;
     justify-content: center;
-    background-color: white;//rgba(255, 255, 255, 0.2) !important;
+    background-color: white; //rgba(255, 255, 255, 0.2) !important;
 }
+
 //span loading
 @import 'theme/loading-span.scss';
 //squre loading
