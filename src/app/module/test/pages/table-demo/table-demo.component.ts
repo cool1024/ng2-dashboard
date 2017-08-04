@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Page } from './../../../../system/tool/pagination/page.class';
+import { Page } from './../../../../tool/components/pagination/page.class';
 @Component({
   selector: 'app-table-demo',
   templateUrl: './table-demo.component.html',
@@ -17,7 +17,7 @@ export class TableDemoComponent implements OnInit {
     console.log(page)
 
     //the page waitting
-    setInterval(_ => {
+    setTimeout(_ => {
       console.log(this.page)
     }, 2000)
   }

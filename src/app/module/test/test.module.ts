@@ -19,17 +19,11 @@ import { SelectModule } from 'ng2-select';
 /*ng-bootstrap*/
 import { NgbProgressbarModule } from '@ng-bootstrap/ng-bootstrap';
 
+/*tool-module*/
+import { ToolModule } from './../../tool/tool.module';
+
 /*引入路由模块*/
 import { TestRoutingModule } from './test-routing.module'
-
-/*引入对话组件*/
-import { DialogDefault, DialogInfo, DialogSuccess, DialogWarning, DialogDanger } from './../../system/tool/dialog';
-
-/*引入弹窗组件*/
-import { AlertComponent } from './../../system/tool/alert/alert.component';
-
-/*Pagination*/
-import { PaginationComponent } from './../../system/tool/pagination/pagination.component';
 
 /*引入页面组件*/
 import { ConfirmWindowComponent } from './pages/confirm-window/confirm-window.component';
@@ -58,12 +52,9 @@ import { HomeComponent } from './pages/home/home.component';
     MdSlideToggleModule,
     SelectModule,
     NgbProgressbarModule.forRoot(),
+    ToolModule
   ],
-  entryComponents: [DialogDefault, DialogInfo, DialogSuccess, DialogWarning, DialogDanger],
   declarations: [
-    AlertComponent,
-    PaginationComponent,
-    DialogDefault, DialogInfo, DialogSuccess, DialogWarning, DialogDanger,
     /*pages list*/
     ConfirmWindowComponent,
     AlertWindowComponent,

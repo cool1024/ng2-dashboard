@@ -5,16 +5,25 @@
             <div class="col-sm">
                 <div class="input-group">
                     <input (click)="file_input.click()" #file_title type="text" class="form-control rounded-0" placeholder="请选择要上传的文件" readonly>
-                    <input #file_input (change)="image=$event.target.files[0];file_title.value=image.name" type="file" [hidden]="true">
+                    <input #file_input (change)="file=$event.target.files[0];file_title.value=file.name;testEvent($event.target.files)" type="file" [hidden]="true">
                     <span class="input-group-btn">
                         <button (click)="file_input.click()" class="btn btn-secondary rounded-0" type="button"><i class="fa fa-file-text"></i> 打开文件</button>
                     </span>
                 </div>
                 <br>
                 <p>
-                    <ngb-progressbar type="success" [value]="70" [striped]="true" [animated]="true"><i>70%</i></ngb-progressbar>
+                    <ngb-progressbar type="success" [value]="uploadProgress" [striped]="true" [animated]="true"><i>{{uploadProgress}}%</i></ngb-progressbar>
                 </p>
+                <br>
+                <button class="btn btn-success" (click)="tryUpload()"><i class="fa fa-check fa-fw"></i>Upload File</button>
             </div>
         </div>
+    </div>
+</div>
+<br>
+<div class="card rounded-0">
+    <div class="card-header"><i class="fa fa-file-text"></i> sigle image input</div>
+    <div class="card-block">
+        <app-image-input-form  [image]="image"></app-image-input-form>
     </div>
 </div>

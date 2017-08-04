@@ -1,0 +1,2 @@
+<input type="file" accept="image/*" (change)="changeFile(img_input,$event.target.files)">
+<img #img_input [hidden]="!!image||imageShow" src="{{image}}">

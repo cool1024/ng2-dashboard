@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MdDialog } from '@angular/material';
-import { DialogDefault, DialogInfo, DialogSuccess, DialogWarning, DialogDanger } from './../../../../system/tool/dialog';
+import { DialogDefault, DialogInfo, DialogSuccess, DialogWarning, DialogDanger } from './../../../../tool/components/dialog';
 
 @Component({
   selector: 'app-confirm-window',

@@ -1,7 +1,7 @@
 /*default menus*/
 export const Config = {
     SERVER: {
-        server: 'http://127.0.0.1',
+        server: 'http://zrwc.cool1024.com:8080',
         source: 'http://127.0.0.1',
     },
     THEME: {

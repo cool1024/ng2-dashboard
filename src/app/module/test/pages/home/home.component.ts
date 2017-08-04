@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient, HttpRequest, HttpEventType } from '@angular/common/http';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-home',
@@ -7,16 +9,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private httpClient: HttpClient, private toastrService: ToastrService) { }
 
   ngOnInit() { }
 
-  image: any = new Blob()
+  file: any = new Blob()
+
+  uploadProgress: number = 0
 
   tryUpload() {
+    this.uploadProgress = 0
     let formData = new FormData()
     formData.append('image', this.image)
-    //this.http.post('http://www.baidu.com')
+    this.httpClient.request(new HttpRequest('POST', '/admin/login', formData, { reportProgress: true })).subscribe(event => {
+      if (event.type == HttpEventType.UploadProgress) {
+        this.uploadProgress = Math.round(100 * event.loaded / event.total)
+      }
+      if (event.type == HttpEventType.Response) {
+        this.toastrService.info('upload finished ...', 'notice')
+        console.log(event.body)
+      }
+    })
   }
+
+  testEvent(files: any) {
+    console.log(1)
+    console.log(files)
+  }
+
+  image: string = ""
 
 }
