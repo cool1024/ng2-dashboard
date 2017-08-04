@@ -1,8 +1,8 @@
 <div class="app-menu" [ngStyle]="{'background-color': themeConfig.bgColor,'color': themeConfig.fontColor}">
-    <h4 class="menu-title">
-        <img class="mr-3" src="/favicon.ico">
-        <span>Hello Manager</span>
-    </h4>
+    <div class="menu-title">
+        <img class="mr-3" src="{{systemContent.icon}}">
+        <span>{{systemContent.title}}</span>
+    </div>
     <hr class="line">
     <div class="menu-manager">
         <div class="menu-manager-title" (click)="isCollopseArray[0]=!isCollopseArray[0]">

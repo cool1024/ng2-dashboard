@@ -9,6 +9,11 @@ export const Config = {
         fontColor: "white",
         activeColor: "white",
         bgImage: "/assets/image/photo.jpg",
+    },
+    CONTENT:{
+        title:"NG2-DASHBOARD",
+        version:"1.0.0",
+        icon:"/favicon.ico",
     }
 }
 

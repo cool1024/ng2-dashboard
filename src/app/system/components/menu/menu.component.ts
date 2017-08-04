@@ -45,6 +45,9 @@ export class MenuComponent implements OnInit {
   //theme color
   themeConfig: any = this.systemService.theme
 
+  //content setting
+  systemContent: any = this.systemService.systemContent
+
   //menu list
   menus = new Array<{ icon: string, title: string, childs: Array<any> }>()
 
