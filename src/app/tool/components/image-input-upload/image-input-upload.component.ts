@@ -1,13 +1,16 @@
+
 import { Component, OnChanges, SimpleChanges, Input, Output, EventEmitter, ViewChildren } from '@angular/core';
+import { Http, Headers, RequestOptions } from '@angular/http';
 
 @Component({
-  selector: 'app-image-input-form',
-  templateUrl: './image-input-form.component.html',
-  styleUrls: ['./image-input-form.component.scss']
+  selector: 'app-image-input-upload',
+  templateUrl: './image-input-upload.component.html',
+  styleUrls: ['./image-input-upload.component.scss']
 })
-export class ImageInputFormComponent implements OnChanges {
 
+export class ImageInputUploadComponent implements OnChanges {
 
+  @Input() config: any = {}
   @Input() image: string
   @Input() openBtnClassName: string = "btn btn-secondary"
   @Input() removeBtnClassName: string = "btn btn-outline-danger"
@@ -19,11 +22,18 @@ export class ImageInputFormComponent implements OnChanges {
   @Output() onChange: EventEmitter<{ file: Blob, image: string }> = new EventEmitter<{ file: Blob, image: string }>()
   @ViewChildren('img_pad') img_pad: HTMLImageElement;
   showImage: boolean = false
+  _config: any = { uploadApiUrl: '', deleteApiUrl: '', sourceUrl: '', autoDelete: false, name: "image", params: {}, headers: new Headers() }
 
-  constructor() { }
+  constructor(private http: Http) { }
 
   ngOnChanges(changes: SimpleChanges): void {
-
+    this._config = this.config.uploadApiUrl || this._config.uploadApiUrl
+    this._config = this.config.deleteApiUrl || this._config.deleteApiUrl
+    this._config = this.config.sourceUrl || this._config.sourceUrl
+    this._config = this.config.autoDelete || this._config.autoDelete
+    this._config = this.config.name || this._config.name
+    this._config = this.config.params || this._config.params
+    this._config = this.config.headers || this._config.headers
     if (!changes.image.firstChange) this.img_pad.src = changes.image.currentValue
   }
 
@@ -51,4 +61,12 @@ export class ImageInputFormComponent implements OnChanges {
     this.onChange.emit({ file: null, image: '' })
   }
 
+  uploadImage(file: Blob) {
+    let formData = new FormData()
+    formData.append(this._config.name, file)
+    for (let key in this._config.params) {
+      formData.append(key, this._config[key])
+    }
+    this.http.post(this._config.uploadApiUrl, formData, new RequestOptions({ headers: this._config.headers })).subscribe()
+  }
 }

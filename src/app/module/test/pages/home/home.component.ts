@@ -20,9 +20,10 @@ export class HomeComponent implements OnInit {
   tryUpload() {
     this.uploadProgress = 0
     let formData = new FormData()
-    formData.append('image', this.image)
+    formData.append('image', this.file)
     this.httpClient.request(new HttpRequest('POST', '/admin/login', formData, { reportProgress: true })).subscribe(event => {
       if (event.type == HttpEventType.UploadProgress) {
+        console.log(event.loaded / event.total)
         this.uploadProgress = Math.round(100 * event.loaded / event.total)
       }
       if (event.type == HttpEventType.Response) {
@@ -32,11 +33,10 @@ export class HomeComponent implements OnInit {
     })
   }
 
-  testEvent(files: any) {
-    console.log(1)
-    console.log(files)
+  getFile($event){
+    console.log($event)
   }
 
-  image: string = ""
+  image: string = "http://cool1024.com/images/article/svg/angular.svg"
 
 }
