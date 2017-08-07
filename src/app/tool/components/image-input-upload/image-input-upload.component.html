@@ -3,4 +3,8 @@
 <button class="{{resetBtnClassName}}" (click)="resetInput(img_pad,input_file)" [innerHtml]="resetTitle"></button>
 <button class="{{removeBtnClassName}}" (click)="cleanInput(img_pad,input_file)" [innerHtml]="removeTitle"></button>
 <br>
-<img class="img-thumbnail mt-2" #img_pad [hidden]="!showImage&&!image" src="{{image}}" [ngStyle]="imageStyle">
+<img class="img-thumbnail mt-2" #img_pad [hidden]="(!showImage&&!image)||isLoading" src="{{image}}" [ngStyle]="imageStyle">
+<div class="span img-thumbnail mt-2" *ngIf="isLoading">
+    <div class="typing_loader"></div>
+</div>
+<div class="alert alert-danger mt-2" role="alert" [hidden]="!isFailed">{{errorAlertText}}</div>

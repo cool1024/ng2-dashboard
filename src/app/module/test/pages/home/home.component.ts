@@ -33,10 +33,16 @@ export class HomeComponent implements OnInit {
     })
   }
 
-  getFile($event){
+  getFile($event) {
     console.log($event)
   }
 
   image: string = "http://cool1024.com/images/article/svg/angular.svg"
+
+  uploadConfig: any = {
+    upload: (file: Blob, callback: Function) => {
+      setTimeout(_ => callback(false),2000)
+    }
+  }
 
 }
