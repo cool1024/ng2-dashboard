@@ -1,0 +1,7 @@
+<input #input_file type="file" [hidden]="true" accept="image/*" (change)="changeFile(img_pad,$event.target.files)">
+<button class="{{openBtnClassName}}" (click)="input_file.click()" [innerHtml]="openTitle"></button>
+<button class="{{resetBtnClassName}}" (click)="resetInput(img_pad,input_file)" [innerHtml]="resetTitle"></button>
+<br>
+<div [sortablejs]="imagesArray">
+  <img ng class="img-thumbnail mt-2" [hidden]="!showImage&&!image" src="{{image}}" [ngStyle]="imageStyle">
+</div>

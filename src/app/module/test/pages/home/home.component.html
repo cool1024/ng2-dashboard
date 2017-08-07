@@ -31,6 +31,13 @@
 <div class="card rounded-0">
     <div class="card-header"><i class="fa fa-file-text"></i> 单图选择-异步上传</div>
     <div class="card-block">
-        <app-image-input-upload [errorAlertText]="'woops,upload was failed!'" [image]="image" (onChange)="getFile($event)" [config]="uploadConfig"></app-image-input-upload>
+        <app-image-input-upload [errorAlertText]="'woops,upload was failed!'" [image]="image" [config]="uploadConfig"></app-image-input-upload>
+    </div>
+</div>
+<br>
+<div class="card rounded-0">
+    <div class="card-header"><i class="fa fa-file-text"></i> ...</div>
+    <div class="card-block">
+        <app-images-input-form [images]="image" (onChange)="getFiles($event)"></app-images-input-form>
     </div>
 </div>

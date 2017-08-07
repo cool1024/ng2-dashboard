@@ -6,6 +6,9 @@ import { HttpModule } from '@angular/http';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MdDialogModule } from '@angular/material';
 
+/*sortablejs*/
+import { SortablejsModule } from 'angular-sortablejs';
+
 /*引入对话组件*/
 import { DialogDefault, DialogInfo, DialogSuccess, DialogWarning, DialogDanger } from './components/dialog';
 
@@ -18,6 +21,7 @@ import { PaginationComponent } from './components/pagination/pagination.componen
 /*image input form*/
 import { ImageInputFormComponent } from './components/image-input-form/image-input-form.component';
 import { ImageInputUploadComponent } from './components/image-input-upload/image-input-upload.component';
+import { ImagesInputFormComponent } from './components/images-input-form/images-input-form.component';
 
 @NgModule({
   imports: [
@@ -25,6 +29,7 @@ import { ImageInputUploadComponent } from './components/image-input-upload/image
     NoopAnimationsModule,
     MdDialogModule,
     HttpModule,
+    SortablejsModule,
   ],
   entryComponents: [DialogDefault, DialogInfo, DialogSuccess, DialogWarning, DialogDanger],
   declarations: [
@@ -33,6 +38,7 @@ import { ImageInputUploadComponent } from './components/image-input-upload/image
     DialogDefault, DialogInfo, DialogSuccess, DialogWarning, DialogDanger,
     ImageInputFormComponent,
     ImageInputUploadComponent,
+    ImagesInputFormComponent,
   ],
   exports: [
     AlertComponent,
@@ -40,6 +46,7 @@ import { ImageInputUploadComponent } from './components/image-input-upload/image
     DialogDefault, DialogInfo, DialogSuccess, DialogWarning, DialogDanger,
     ImageInputFormComponent,
     ImageInputUploadComponent,
+    ImagesInputFormComponent,
   ]
 })
 export class ToolModule { }
