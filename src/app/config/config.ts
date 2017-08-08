@@ -22,9 +22,9 @@ export const Config = {
 export const Menus = [
     {
         icon: "fa fa-cog", title: "System Setting", childs: [
-            { icon: "fa fa-list-ul", title: "Menu Board", url: "/" },
-            { icon: "fa fa-users", title: "Role Group", url: "" },
-            { icon: "fa fa-lock", title: "Permission List", url: "" }
+            { icon: "fa fa-list-ul", title: "Menu Board", url: "/system/menu" },
+            { icon: "fa fa-users", title: "Role Group", url: "/" },
+            { icon: "fa fa-lock", title: "Permission List", url: "/" }
         ]
     }, {
         icon: "fa fa-cubes", title: "工具测试", childs: [
