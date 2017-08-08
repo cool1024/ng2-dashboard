@@ -22,6 +22,7 @@ import { PaginationComponent } from './components/pagination/pagination.componen
 import { ImageInputFormComponent } from './components/image-input-form/image-input-form.component';
 import { ImageInputUploadComponent } from './components/image-input-upload/image-input-upload.component';
 import { ImagesInputFormComponent } from './components/images-input-form/images-input-form.component';
+import { ImagesInputUploadComponent } from './components/images-input-upload/images-input-upload.component';
 
 @NgModule({
   imports: [
@@ -39,6 +40,7 @@ import { ImagesInputFormComponent } from './components/images-input-form/images-
     ImageInputFormComponent,
     ImageInputUploadComponent,
     ImagesInputFormComponent,
+    ImagesInputUploadComponent,
   ],
   exports: [
     AlertComponent,
@@ -47,6 +49,7 @@ import { ImagesInputFormComponent } from './components/images-input-form/images-
     ImageInputFormComponent,
     ImageInputUploadComponent,
     ImagesInputFormComponent,
+    ImagesInputUploadComponent,
   ]
 })
 export class ToolModule { }

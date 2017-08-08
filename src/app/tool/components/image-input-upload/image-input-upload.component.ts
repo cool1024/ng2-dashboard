@@ -32,7 +32,6 @@ export class ImageInputUploadComponent implements OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-
     this._config = {
       autoDelete: changes.config.currentValue.autoDelete || false,
       upload: changes.config.currentValue.upload

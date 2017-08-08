@@ -45,7 +45,7 @@ export class HomeComponent implements OnInit {
 
   uploadConfig: any = {
     upload: (file: Blob, callback: Function) => {
-      setTimeout(_ => callback(false), 2000)
+      setTimeout(_ => callback(true), 2000)
     }
   }
 
