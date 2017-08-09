@@ -1,0 +1,8 @@
+{
+    "result": false,
+    "message": "url request was succeed",
+    "datas": [
+        "https://www.angular.cn",
+        "http://www.fontawesome.com/.cn"
+    ]
+}

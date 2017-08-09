@@ -18,6 +18,8 @@ import { HeaderInterceptor } from './system/interceptors/HeaderInterceptor';
 
 /*public service*/
 import { SystemService } from './system/system.service';
+import { RequestService } from './system/service/request.service';
+
 
 const appRoutes: Routes = [
   { path: '', redirectTo: 'test/alert', pathMatch: 'full' }
@@ -25,7 +27,7 @@ const appRoutes: Routes = [
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
 
@@ -40,12 +42,13 @@ const appRoutes: Routes = [
 
     /*system module must the end*/
     SystemModule,
-
   ],
   providers: [
 
     /*public service*/
     SystemService,
+    RequestService,
+    
     /*public interceptor*/
     { provide: HTTP_INTERCEPTORS, useClass: HeaderInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: AuthCheckInterceptor, multi: true },
