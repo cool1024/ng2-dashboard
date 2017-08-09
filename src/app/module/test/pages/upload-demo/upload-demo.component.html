@@ -1,0 +1,50 @@
+<div class="card rounded-0">
+    <div class="card-header"><i class="fa fa-file-text"></i> 单文件上传</div>
+    <div class="card-block">
+        <div class="row">
+            <div class="col-sm">
+                <div class="input-group">
+                    <input (click)="file_input.click()" #file_title type="text" class="form-control rounded-0" placeholder="请选择要上传的文件" readonly>
+                    <input #file_input (change)="file=$event.target.files[0];file_title.value=file.name;" type="file" [hidden]="true">
+                    <span class="input-group-btn">
+                        <button (click)="file_input.click()" class="btn btn-secondary rounded-0" type="button"><i class="fa fa-file-text"></i> 打开文件</button>
+                    </span>
+                </div>
+                <br>
+                <p>
+                    <ngb-progressbar type="success" [value]="uploadProgress" [striped]="true" [animated]="true"><i>{{uploadProgress}}%</i></ngb-progressbar>
+                </p>
+                <br>
+                <button class="btn btn-success" (click)="tryUpload()"><i class="fa fa-check fa-fw"></i>Upload File</button>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<div class="card rounded-0">
+    <div class="card-header"><i class="fa fa-file-text"></i> 单图选择-表单提交</div>
+    <div class="card-block">
+        <app-image-input-form [image]="image" (onChange)="getFile($event)"></app-image-input-form>
+    </div>
+</div>
+<br>
+<div class="card rounded-0">
+    <div class="card-header"><i class="fa fa-file-text"></i> 单图选择-异步上传</div>
+    <div class="card-block">
+        <app-image-input-upload [errorAlertText]="'woops,upload was failed!'" [image]="image" [config]="uploadConfig"></app-image-input-upload>
+    </div>
+</div>
+<br>
+<div class="card rounded-0">
+    <div class="card-header"><i class="fa fa-file-text"></i> 多图选择-表单提交</div>
+    <div class="card-block">
+        <app-images-input-form [images]="image" (onChange)="getFiles($event)"></app-images-input-form>
+    </div>
+</div>
+<br>
+<div class="card rounded-0">
+    <div class="card-header"><i class="fa fa-file-text"></i> 多图选择-异步上传</div>
+    <div class="card-block">
+        <app-images-input-upload [images]="image" (onChange)="getFiles($event)" [config]="uploadConfig"></app-images-input-upload>
+    </div>
+</div>

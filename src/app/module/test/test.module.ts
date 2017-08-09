@@ -36,6 +36,7 @@ import { FormDemoComponent } from './pages/form-demo/form-demo.component';
 import { LoadingServiceComponent } from './pages/loading-service/loading-service.component';
 import { ToastrDemoComponent } from './pages/toastr-demo/toastr-demo.component';
 import { HomeComponent } from './pages/home/home.component';
+import { UploadDemoComponent } from './pages/upload-demo/upload-demo.component';
 
 @NgModule({
   imports: [
@@ -66,6 +67,7 @@ import { HomeComponent } from './pages/home/home.component';
     LoadingServiceComponent,
     ToastrDemoComponent,
     HomeComponent,
+    UploadDemoComponent,
   ],
 })
 export class TestModule { }
