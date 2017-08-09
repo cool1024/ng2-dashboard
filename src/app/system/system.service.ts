@@ -12,15 +12,16 @@ export class SystemService {
     this.config.content = Config.CONTENT
   }
 
-  get theme(): { bgColor: string, fontColor: string, activeColor: string, bgImage: string } {
+  get theme(): { bgColor: string, fontColor: string, activeColor: string, bgImage: string, mnImage: string } {
     return this.config.theme
   }
 
-  set theme(theme: { bgColor: string, fontColor: string, activeColor: string, bgImage: string }) {
+  set theme(theme: { bgColor: string, fontColor: string, activeColor: string, bgImage: string, mnImage: string }) {
     this.config.theme.bgColor = theme.bgColor
     this.config.theme.fontColor = theme.fontColor
     this.config.theme.activeColor = theme.activeColor
     this.config.theme.bgImage = theme.bgImage
+    this.config.theme.mnImage = theme.mnImage
   }
 
   get server(): { url: string, source: string } {

@@ -1,5 +1,5 @@
 <div *ngIf="!isLoginPage()" class="app-pad" [ngClass]="{'app-pad-small': minSetting.size=='sm'}">
-    <div class="app-pad-menu" [ngClass]="{'app-pad-menu-small': minSetting.size=='sm'}">
+    <div class="app-pad-menu" [ngClass]="{'app-pad-menu-small': minSetting.size=='sm'}" [ngStyle]="{'background-image': mnImage}">
         <app-menu></app-menu>
     </div>
     <div class="app-pad-cotent">

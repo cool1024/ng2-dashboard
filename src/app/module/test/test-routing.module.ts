@@ -10,6 +10,7 @@ import { FormDemoComponent } from './pages/form-demo/form-demo.component';
 import { LoadingServiceComponent } from './pages/loading-service/loading-service.component';
 import { ToastrDemoComponent } from './pages/toastr-demo/toastr-demo.component';
 import { HomeComponent } from './pages/home/home.component';
+import { UploadDemoComponent } from './pages/upload-demo/upload-demo.component';
 
 const routes: Routes = [
   /*home page*/
@@ -23,9 +24,12 @@ const routes: Routes = [
   { path: 'test/select', component: SelectDemoComponent },
   { path: 'test/table', component: TableDemoComponent },
   { path: 'test/form', component: FormDemoComponent },
+  { path: 'test/upload', component: UploadDemoComponent },
+  
   /*tool service*/
   { path: 'test/loading', component: LoadingServiceComponent },
   { path: 'test/toastr', component: ToastrDemoComponent },
+
 ];
 
 @NgModule({

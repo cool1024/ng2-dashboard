@@ -1,34 +1,34 @@
 <div class="card rounded-0">
-  <div class="card-header"><i class="fa fa-list-ul fa-fw"></i>Menu Setting</div>
-  <div class="card-block">
-    <div class="menu-pad" [sortablejs]="menus">
-      <div class="card card-block mt-2 rounded-0" *ngFor="let main of menus">
-        <h3 class="text-primary">
-          <i class="fa-fw {{main.icon}}"></i>{{main.title}}
-          <span class="pull-right">
+    <div class="card-header"><i class="fa fa-list-ul fa-fw"></i>Menu Setting</div>
+    <div class="card-block">
+        <div class="menu-pad" [sortablejs]="menus">
+            <div class="card card-block mt-2 rounded-0" *ngFor="let main of menus">
+                <h3 class="text-primary">
+                    <i class="fa-fw {{main.icon}}"></i>{{main.title}}
+                    <span class="pull-right">
             <button (click)="openChildDialog(main.childs)" class="btn btn-secondary" title="childs"><i class="fa fa-list text-primary"></i></button>
             <button class="btn btn-secondary" title="change"><i class="fa fa-edit text-info"></i></button>
             <button class="btn btn-secondary" title="remove"><i class="fa fa-trash text-danger"></i></button>
           </span>
-        </h3>
-        <div *ngFor="let child of main.childs">
-          <h4><i class="fa-fw {{child.icon}}"></i>{{child.title}}</h4>
-        </div>
-      </div>
-      <div class="text-left mt-2">
-        <button class="btn btn-success">
+                </h3>
+                <div *ngFor="let child of main.childs" class="pt-2 pb-2">
+                    <h4><i class="fa-fw {{child.icon}}"></i>{{child.title}}</h4>
+                </div>
+            </div>
+            <div class="text-left mt-2">
+                <button class="btn btn-success">
           <i class="fa fa-check fa-fw"></i>
           Confirm Change
         </button>
-        <button class="btn btn-warning">
+                <button class="btn btn-warning">
           <i class="fa fa-refresh fa-fw"></i>
           Apply Sort
         </button>
-        <button class="btn btn-primary">
+                <button class="btn btn-primary">
           <i class="fa fa-spinner fa-fw"></i>
           Reload Menu
         </button>
-      </div>
+            </div>
+        </div>
     </div>
-  </div>
 </div>

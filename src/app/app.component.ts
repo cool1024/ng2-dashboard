@@ -13,6 +13,8 @@ export class AppComponent {
 
   minSetting = this.systemService.menuSetting
 
+  mnImage = `url(${this.systemService.theme.mnImage})`
+
   isLoginPage(): boolean {
     return this.router.url == '/login'
   }

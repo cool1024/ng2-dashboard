@@ -9,37 +9,51 @@ export const Config = {
         fontColor: "white",
         activeColor: "white",
         bgImage: "/assets/image/photo.jpg",
+        mnImage:"/assets/image/siderbar/1.jpg"
     },
-    CONTENT:{
-        title:"NG2-DASHBOARD",
-        version:"1.0.0",
-        icon:"/favicon.ico",
+    CONTENT: {
+        title: "NG2-DASHBOARD",
+        version: "1.0.0",
+        icon: "/favicon.ico",
     }
+}
+
+/*default token&cache*/
+export enum StorageType {
+    localStorage = 1,
+    sessionStorage = 2
+}
+export const StorageSetting = {
+    tokensSaveMethod: StorageType.sessionStorage,
+    dataSaveMethod: StorageType.sessionStorage,
+    tokenParams: ['ng-params-one', 'ng-params-two']
 }
 
 
 /*default menus */
 export const Menus = [
     {
-        icon: "fa fa-cog", title: "System Setting", childs: [
-            { icon: "fa fa-list-ul", title: "Menu Board", url: "/system/menu" },
-            { icon: "fa fa-users", title: "Role Group", url: "/" },
-            { icon: "fa fa-lock", title: "Permission List", url: "/" }
+        icon: "fa fa-cog", title: "系统设置", childs: [
+            { icon: "fa fa-list-ul", title: "菜单编辑", url: "/system/menu" },
+            { icon: "fa fa-users", title: "角色管理", url: "/" },
+            { icon: "fa fa-lock", title: "权限分配", url: "/" }
         ]
     }, {
         icon: "fa fa-cubes", title: "工具测试", childs: [
-            { icon: "fa fa-television", title: "Bootstrap Confirm", url: "/test/alert" },
-            { icon: "fa fa-window-restore", title: "Dialog Confirm", url: "/test/confirm" },
-            { icon: "fa fa-pie-chart", title: "Charts Js", url: "/test/charts" },
-            { icon: "fa fa-sort", title: "Sortable Js", url: "/test/sortable" },
-            { icon: "fa fa-chevron-circle-down", title: "Select Example", url: "/test/select" },
-            { icon: "fa fa-table", title: "Table Example", url: "/test/table" },
-            { icon: "fa fa-superpowers", title: "Form Example", url: "/test/form" },
+            { icon: "fa fa-television", title: "确认对话", url: "/test/alert" },
+            { icon: "fa fa-window-restore", title: "弹出对话", url: "/test/confirm" },
+            { icon: "fa fa-pie-chart", title: "图表演示", url: "/test/charts" },
+            { icon: "fa fa-sort", title: "拖拽排序", url: "/test/sortable" },
+            { icon: "fa fa-chevron-circle-down", title: "下拉选择", url: "/test/select" },
+            { icon: "fa fa-table", title: "表格分页", url: "/test/table" },
+            { icon: "fa fa-superpowers", title: "表单提交", url: "/test/form" },
+            { icon: "fa fa-floppy-o", title: "文件上传", url: "/test/upload" },
+
         ]
     }, {
-        icon: "fa fa-cogs", title: "Service Tool", childs: [
-            { icon: "fa fa-spinner", title: "Show Loading", url: "/test/loading" },
-            { icon: "fa fa-comments-o", title: "Show Toastr", url: "/test/toastr" },
+        icon: "fa fa-cogs", title: "内置服务", childs: [
+            { icon: "fa fa-spinner", title: "加载动画", url: "/test/loading" },
+            { icon: "fa fa-comments-o", title: "通知消息", url: "/test/toastr" },
         ]
     }
 ]
