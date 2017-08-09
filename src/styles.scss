@@ -24,6 +24,16 @@ button {
     font-family: '微软雅黑', 'KaiTi';
 }
 
+td {
+    vertical-align: middle !important;
+}
+
+td img {
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+}
+
 
 /*font style */
 
@@ -110,6 +120,37 @@ a:visited {
 
 .d-hidden {
     display: none !important;
+}
+
+.line {
+    width: 100%;
+    height: 1px;
+    background-color: #dfdfdf;
+}
+
+.card-shadow {
+    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12);
+    border-style: none !important;
+}
+
+.card-border {
+    box-shadow: none !important;
+    border: 1px solid rgba(0, 0, 0, .125);
+}
+
+.breadcrumb {
+    background-color: transparent !important;
+}
+
+.breadcrumb-item {
+    float: none;
+}
+
+input,
+button,
+a,
+div {
+    outline: 0 none !important;
 }
 
 

@@ -8,6 +8,11 @@
     width: 100%;
     z-index: 4;
     padding-left: 280px;
+    min-width: 900px;
+}
+
+.head-block {
+    min-width: 800px !important;
 }
 
 .head-bar-min {
@@ -16,6 +21,13 @@
 
 .left-bur {
     line-height: 60px;
+    max-width: 400px;
+    float: left;
+}
+
+.right-bur {
+    min-width: 380px;
+    float: right;
 }
 
 .icon {
@@ -37,8 +49,7 @@
     border-radius: 50%;
     height: 50px;
     width: 50px;
-    line-height: 50px;
-    // box-shadow: 1px 2px 12px #e4e4e4;
+    line-height: 50px; // box-shadow: 1px 2px 12px #e4e4e4;
     background-color: #fff;
 }
 

@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 
 /*Material*/
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { MdButtonModule, MdDialogModule, MdSelectModule, MdInputModule, MdSlideToggleModule } from '@angular/material';
+import { MdButtonModule, MdDialogModule, MdSelectModule, MdInputModule, MdSlideToggleModule,MdListModule,MdCardModule } from '@angular/material';
 
 /*ng2-charts*/
 import { ChartsModule } from 'ng2-charts';
@@ -51,6 +51,8 @@ import { UploadDemoComponent } from './pages/upload-demo/upload-demo.component';
     MdSelectModule,
     MdInputModule,
     MdSlideToggleModule,
+    MdListModule,
+    MdCardModule,
     SelectModule,
     NgbProgressbarModule.forRoot(),
     ToolModule

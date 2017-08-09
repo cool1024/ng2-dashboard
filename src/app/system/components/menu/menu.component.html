@@ -3,7 +3,7 @@
         <img class="mr-3" src="{{systemContent.icon}}">
         <span>{{systemContent.title}}</span>
     </div>
-    <hr class="line">
+    <hr class="menu-line">
     <div class="menu-manager">
         <div class="menu-manager-title" (click)="isCollopseArray[0]=!isCollopseArray[0]">
             <img width="40" height="40" class="ml-3 mr-3 rounded-circle" src="/assets/image/photo.jpg">
@@ -25,8 +25,8 @@
             </div>
         </div>
     </div>
-    <hr class="line">
-    <div class="menu-list" *ngFor="let main of menus;index as mainIndex">
+    <hr class="menu-line">
+    <div class="menu-list" [ngClass]="{'menu-list-active': isCollopseArray[mainIndex+1]}" *ngFor="let main of menus;index as mainIndex">
         <div class="menu-item-main pl-4 hover-item" (click)="isCollopseArray[mainIndex+1]==true?closeMenu(mainIndex+1):listMenu(mainIndex+1)">
             <i class="{{main.icon}} icon"></i>
             <span class="ml-4">{{main.title}}</span>
