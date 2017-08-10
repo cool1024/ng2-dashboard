@@ -11,4 +11,10 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() { }
 
+  like1=false
+  like2=false
+  like3=false
+  favor1=false
+  favor2=false
+  favor3=false
 }
