@@ -19,7 +19,6 @@ export class MenuComponent implements OnInit {
 
   //list menu by index
   listMenu(index: number) {
-    console.log(index)
     for (let i = 1; i < this.isCollopseArray.length; i++) {
       this.isCollopseArray[i] = false
     }

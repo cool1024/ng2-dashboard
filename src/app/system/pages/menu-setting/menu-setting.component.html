@@ -1,38 +1,27 @@
-<!-- <div class="card rounded-0">
-    <div class="card-header"><i class="fa fa-list-ul fa-fw"></i>Menu Setting</div>
-    <div class="card-block"> -->
-<!-- <nav class="breadcrumb">
-    <a class="breadcrumb-item" routerLink="/"><i class="fa fa-home fa-fw" aria-hidden="true"></i>首页</a>
-    <span class="breadcrumb-item active"><i class="fa fa-bars fa-fw" aria-hidden="true"></i>菜单设置</span>
-</nav> -->
-<div class="menu-pad" [sortablejs]="menus" [sortablejsOptions]="{ animation: 400 }">
-    <div class="card card-shadow  card-block mt-2 rounded-0" *ngFor="let main of menus">
-        <div class="text-primary">
-            <i class="fa-fw fa-lg {{main.icon}}"></i>{{main.title}}
-            <span class="pull-right">
+<div class="card rounded-0">
+    <div class="card-header">菜单设置</div>
+    <div class="card-body">
+        <div [sortablejs]="menus" [sortablejsOptions]="{ animation: 400 }">
+            <div *ngFor="let main of menus">
+                <div class="card card-block border-top-0 border-right-0 border-left-0 rounded-0">
+                    <div class="text-primary">
+                        <i class="fa-fw fa-lg {{main.icon}}"></i>{{main.title}}
+                        <span class="pull-right">
                         <button (click)="openChildDialog(main.childs)" class="btn btn-link" title="childs"><i class="fa fa-list text-primary fa-lg"></i></button>
                         <button class="btn btn-link" title="change"><i class="fa fa-edit text-info fa-lg"></i></button>
                         <button class="btn btn-link" title="remove"><i class="fa fa-trash text-danger fa-lg"></i></button>
                     </span>
-        </div>
-        <div *ngFor="let child of main.childs" class="pt-2 pb-2">
-            <div><i class="fa-fw {{child.icon}}"></i>{{child.title}}</div>
+                    </div>
+                    <div *ngFor="let child of main.childs" class="pt-2 pb-2">
+                        <div><i class="fa-fw {{child.icon}}"></i>{{child.title}}</div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
-<div class="text-left mt-2">
-    <button class="btn btn-success">
-          <i class="fa fa-check fa-fw"></i>
-          Confirm Change
-        </button>
-    <button class="btn btn-warning">
-          <i class="fa fa-refresh fa-fw"></i>
-          Apply Sort
-        </button>
-    <button class="btn btn-primary">
-          <i class="fa fa-spinner fa-fw"></i>
-          Reload Menu
-        </button>
+<div class="text-right mt-2">
+    <button class="btn btn-success"><i class="fa fa-check fa-fw"></i>确认修改</button>
+    <button class="btn btn-warning"><i class="fa fa-refresh fa-fw"></i>确认排序</button>
+    <button class="btn btn-primary"><i class="fa fa-spinner fa-fw"></i>重载菜单</button>
 </div>
-<!-- </div>
-</div> -->

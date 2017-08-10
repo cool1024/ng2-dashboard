@@ -28,7 +28,6 @@ export class ImageInputFormComponent implements OnChanges {
   }
 
   changeFile(img: HTMLImageElement, files: Blob[]) {
-    console.log(1)
     if (files.length > 0) {
       this.onChange.emit({ file: files[0], image: this.image })
       img.src = window.URL.createObjectURL(files[0])

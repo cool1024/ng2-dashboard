@@ -33,8 +33,8 @@
             <i class="pull-right fa fa-caret-down right-icon mr-3" [ngClass]="{'icon-up': isCollopseArray[mainIndex+1],'icon-down':!isCollopseArray[mainIndex+1]}"></i>
         </div>
         <ng-template ngFor let-item [ngForOf]="main.childs">
-            <div routerLink="{{item.url}}" class="menu-block" *ngIf="isCollopseArray[mainIndex+1]">
-                <div class="menu-item-child pl-4 hover-item" [ngClass]="{'active': isActiveMenu(item.url)}">
+            <div class="menu-block" *ngIf="isCollopseArray[mainIndex+1]">
+                <div routerLink="{{item.url}}" routerLinkActive="active" class="menu-item-child pl-4 hover-item">
                     <i class="{{item.icon}} icon"></i>
                     <span class="ml-4">{{item.title}}</span>
                 </div>

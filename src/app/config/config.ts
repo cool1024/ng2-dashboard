@@ -1,7 +1,7 @@
 /*default menus*/
 export const Config = {
     SERVER: {
-        server: 'http://127.0.0.1:4200',
+        server: 'http://zrwc.cool1024.com:8080',
         source: 'http://127.0.0.1',
     },
     THEME: {
@@ -35,8 +35,8 @@ export const Menus = [
     {
         icon: "fa fa-cog", title: "系统设置", childs: [
             { icon: "fa fa-list-ul", title: "菜单编辑", url: "/system/menu" },
-            { icon: "fa fa-users", title: "角色管理", url: "/" },
-            { icon: "fa fa-lock", title: "权限分配", url: "/" }
+            { icon: "fa fa-users", title: "角色管理", url: "/system/role" },
+            { icon: "fa fa-lock", title: "权限分配", url: "/system/permission" }
         ]
     }, {
         icon: "fa fa-cubes", title: "工具测试", childs: [
@@ -54,7 +54,7 @@ export const Menus = [
         icon: "fa fa-cogs", title: "内置服务", childs: [
             { icon: "fa fa-spinner", title: "加载动画", url: "/test/loading" },
             { icon: "fa fa-comments-o", title: "通知消息", url: "/test/toastr" },
-            { icon: "fa fa-internet-explorer", title: "Request Service", url: "/test/request" },
+            { icon: "fa fa-internet-explorer", title: "发送请求", url: "/test/request" },
         ]
     }
 ]

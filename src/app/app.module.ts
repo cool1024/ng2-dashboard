@@ -13,11 +13,13 @@ import { SystemModule } from './system/system.module';
 import { TestModule } from './module/test/test.module';
 
 /*interceptor list*/
-import { AuthCheckInterceptor } from './system/interceptors/AuthCheckInterceptor';
+import { ErrorCheckInterceptor } from './system/interceptors/ErrorCheckInterceptor';
 import { HeaderInterceptor } from './system/interceptors/HeaderInterceptor';
 
 /*public service*/
 import { SystemService } from './system/system.service';
+import { SessionService } from './system/service/session.service';
+import { LocalService } from './system/service/local.service';
 import { RequestService } from './system/service/request.service';
 
 
@@ -47,11 +49,13 @@ const appRoutes: Routes = [
 
     /*public service*/
     SystemService,
+    SessionService,
+    LocalService,
     RequestService,
-    
+
     /*public interceptor*/
     { provide: HTTP_INTERCEPTORS, useClass: HeaderInterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: AuthCheckInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorCheckInterceptor, multi: true },
   ],
   bootstrap: [AppComponent]
 })

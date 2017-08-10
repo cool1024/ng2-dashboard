@@ -65,7 +65,6 @@ export class ImagesInputUploadComponent implements OnInit {
   cleanErrorDom() {
     let temp = new Array<{ type: string, file: Blob, url: string, uploading: boolean }>()
     this.imagesArray.forEach(e => { if (e.uploading == false) temp.push(e) })
-    console.log(temp)
     this.imagesArray = temp
   }
 

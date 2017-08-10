@@ -14,6 +14,8 @@ import { LoginComponent } from './components/login/login.component';
 /*system pages*/
 import { MenuSettingComponent, MenuChildrenDialog } from './pages/menu-setting/menu-setting.component';
 import { Error404Component } from './pages/error404/error404.component';
+import { PermissionManagerComponent } from './pages/permission-manager/permission-manager.component';
+import { RoleManagerComponent } from './pages/role-manager/role-manager.component';
 
 @NgModule({
   imports: [
@@ -37,6 +39,8 @@ import { Error404Component } from './pages/error404/error404.component';
     MenuChildrenDialog,
     LoginComponent,
     Error404Component,
+    PermissionManagerComponent,
+    RoleManagerComponent,
   ],
   entryComponents: [
     MenuChildrenDialog,
