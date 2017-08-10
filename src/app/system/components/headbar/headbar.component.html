@@ -1,6 +1,6 @@
 <div class="head-bar" [ngClass]="{'head-bar-min': menuSetting.size=='sm'}">
     <div class="w-100 h-100 head-block">
-        <div class="w-50 left-bur h-100">
+        <div class="left-bur h-100">
             <span (click)="changeMenuSize()" class="circle-button pointer text-center ml-2">
                 <i [ngClass]="{'icon-up': menuSetting.size=='sm','icon-down':menuSetting.size!='sm'}" class="fa fa-dedent" aria-hidden="true"></i>
             </span>
@@ -9,14 +9,29 @@
                 <span class="breadcrumb-item active"><i class="fa fa-bars fa-fw" aria-hidden="true"></i>菜单设置</span>
             </nav>
         </div>
-        <div class="w-50 right-bur text-right">
+        <div class="right-bur text-right h-100">
             <md-input-container color="warn">
-                <input mdInput>
+                <input style="width:150px;" mdInput>
             </md-input-container>
             <button [ngStyle]="{'color': theme.bgColor}" class="icon-hover mr-2" md-icon-button><i class="fa fa-search fa-lg"></i></button>
             <button [ngStyle]="{'color': theme.bgColor}" class="icon-hover mr-2" md-icon-button><i class="fa fa-question-circle fa-lg"></i></button>
-            <button [ngStyle]="{'color': theme.bgColor}" class="icon-hover mr-2" md-icon-button><i class="fa fa-bell fa-lg"></i></button>
-            <button [ngStyle]="{'color': theme.bgColor}" class="icon-hover mr-2" md-icon-button><i class="fa fa-cog fa-lg"></i></button>
+            <button [ngStyle]="{'color': theme.bgColor}" class="icon-hover mr-2" md-icon-button (click)="sidenav.open()"><i class="fa fa-bell fa-lg"></i></button>
+            <button [ngStyle]="{'color': theme.bgColor}" class="icon-hover mr-2" md-icon-button [mdMenuTriggerFor]="menu"><i class="fa fa-cog fa-lg"></i></button>
         </div>
     </div>
 </div>
+<!--setting menu-->
+<md-menu #menu="mdMenu">
+    <div md-menu-item>
+        <i class="fa fa-paint-brush fa-fw fa-lg" aria-hidden="true"></i>
+        <span>More Theme</span>
+    </div>
+    <div md-menu-item>
+        <i class="fa fa-file-text-o fa-fw fa-lg" aria-hidden="true"></i>
+        <span>Api Docs</span>
+    </div>
+    <div md-menu-item>
+        <i class="fa fa-trash-o fa-fw fa-lg" aria-hidden="true"></i>
+        <span>Delete Storage</span>
+    </div>
+</md-menu>
