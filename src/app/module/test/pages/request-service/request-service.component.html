@@ -8,3 +8,26 @@
         <button (click)="tryDeleteRequest()" class="btn btn-danger mb-2">DELETE REQUEST</button>
     </div>
 </div>
+<!--CODW VIEW-->
+<br>
+<div class="card rounded-0">
+    <div class="card-header"><i class="fa fa-file-code-o fa-fw fa-lg" aria-hidden="true"></i>代码演示</div>
+    <div class="card-block">
+        <i class="fa fa-code fa-fw" aria-hidden="true"></i>HTML代码：
+        <handy-syntax-highlighter [language]="'html'" [content]="html_code"></handy-syntax-highlighter>
+        <i class="fa fa-code fa-fw" aria-hidden="true"></i>TS代码：
+        <handy-syntax-highlighter [language]="'typescript'" [content]="ts_code"></handy-syntax-highlighter>
+    </div>
+</div>
+<br>
+<!--CODW VIEW-->
+<div class="card rounded-0">
+    <div class="card-header"><i class="fa fa-internet-explorer fa-fw"></i>带文件数据请求-请在控制台查看请求结果</div>
+    <div class="card-block">
+        <app-image-input-form [image]="imageUrl" (onChange)="imageFile=$event"></app-image-input-form>
+        <br>
+        <app-images-input-form [images]="imagesUrl" (onChange)="imageFiles=$event"></app-images-input-form>
+        <br>
+        <button (click)="tryUploadRequest()" class="btn btn-secondary mb-2">提交数据</button>
+    </div>
+</div>

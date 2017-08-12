@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 
 /*Material*/
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { MdButtonModule, MdDialogModule, MdSelectModule, MdInputModule, MdSlideToggleModule,MdListModule,MdCardModule } from '@angular/material';
+import { MdButtonModule, MdDialogModule, MdSelectModule, MdInputModule, MdSlideToggleModule, MdListModule, MdCardModule } from '@angular/material';
 
 /*ng2-charts*/
 import { ChartsModule } from 'ng2-charts';
@@ -18,6 +18,12 @@ import { SelectModule } from 'ng2-select';
 
 /*ng-bootstrap*/
 import { NgbProgressbarModule } from '@ng-bootstrap/ng-bootstrap';
+
+/*SyntaxHighlighter*/
+import 'prismjs';
+import 'prismjs/components/prism-javascript';
+import 'prismjs/components/prism-typescript';
+import { Ng2HandySyntaxHighlighterModule } from 'ng2-handy-syntax-highlighter';
 
 /*tool-module*/
 import { ToolModule } from './../../tool/tool.module';
@@ -56,6 +62,7 @@ import { RequestServiceComponent } from './pages/request-service/request-service
     MdCardModule,
     SelectModule,
     NgbProgressbarModule.forRoot(),
+    Ng2HandySyntaxHighlighterModule,
     ToolModule
   ],
   declarations: [

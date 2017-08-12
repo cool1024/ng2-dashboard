@@ -4,7 +4,7 @@
     </div>
     <div class="card-block">
         <div class="row" [sortablejs]="items">
-            <div class="col-sm-3" *ngFor="let item of items;index as i">
+            <div class="col-sm-2" *ngFor="let item of items;index as i">
                 <div class="card mb-4">
                     <img class="card-img-top" src="{{item.image}}" alt="Card image cap">
                     <div class="card-body">
@@ -13,5 +13,15 @@
                 </div>
             </div>
         </div>
+    </div>
+</div>
+<br>
+<div class="card rounded-0">
+    <div class="card-header"><i class="fa fa-file-code-o fa-fw fa-lg" aria-hidden="true"></i>代码演示</div>
+    <div class="card-block">
+        <i class="fa fa-code fa-fw" aria-hidden="true"></i>HTML代码：
+        <handy-syntax-highlighter [language]="'html'" [content]="html_code"></handy-syntax-highlighter>
+        <i class="fa fa-code fa-fw" aria-hidden="true"></i>TS代码：
+        <handy-syntax-highlighter [language]="'typescript'" [content]="ts_code"></handy-syntax-highlighter>
     </div>
 </div>

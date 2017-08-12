@@ -11,4 +11,16 @@
         <button class="mt-1 btn btn-outline-info" (click)="showAlert('bg-white card-outline-info','信息','这是一个提示信息',alert)">Info</button>
     </div>
 </div>
+<!--CODW VIEW-->
+<br>
+<div class="card rounded-0">
+    <div class="card-header"><i class="fa fa-file-code-o fa-fw fa-lg" aria-hidden="true"></i>代码演示</div>
+    <div class="card-block">
+        <i class="fa fa-code fa-fw" aria-hidden="true"></i>HTML代码：
+        <handy-syntax-highlighter [language]="'html'" [content]="html_code"></handy-syntax-highlighter>
+        <i class="fa fa-code fa-fw" aria-hidden="true"></i>TS代码：
+        <handy-syntax-highlighter [language]="'typescript'" [content]="ts_code"></handy-syntax-highlighter>
+    </div>
+</div>
+<!--CODW VIEW-->
 <app-alert-window #alert [className]="className" [title]="title" [message]="message" (ok)="ok()" (cancel)="cancel()"></app-alert-window>

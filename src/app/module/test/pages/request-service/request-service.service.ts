@@ -27,4 +27,8 @@ export class RequestServiceService {
   testPost(params: any): Observable<any> {
     return this.requestService.post('/assets/json/get.json', params)
   }
+
+  testFile(params: any, files: Array<{ name: string, files: Array<Blob> }>): Observable<any> {
+    return this.requestService.file('/assets/json/get.json', params, files)
+  }
 }

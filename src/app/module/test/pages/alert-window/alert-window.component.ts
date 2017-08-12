@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-model-window',
@@ -31,9 +31,23 @@ export class AlertWindowComponent implements OnInit {
     console.log("你点击了取消");
   }
 
-  public className: string;
-  public title: string;
-  public message: string;
-  public window: any;
+  className: string;
+  title: string;
+  message: string;
+  window: any;
+
+  html_code = `
+    <button class="mt-1 btn btn-danger" (click)="showAlert(alert)">打开提示框</button>
+    <!--添加这行标签到组件的HTML页面最末尾-->
+    <app-alert-window #alert [className]="'card-inverse card-danger'" [title]="'警告" [message]="'你确定要这么做吗'"></app-alert-window>  
+  `
+  ts_code = `
+    showAlert(alert: any) {
+      alert.show(
+        () => { },//可选：点击成功执行
+        //() => { },//可选：点击取消执行
+      )
+    }
+  `
 
 }

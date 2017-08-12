@@ -62,9 +62,11 @@ export class ImagesInputFormComponent implements OnInit {
 
   resetInput(input: HTMLInputElement) {
     this.imagesArray.splice(0)
-    this.images.split(',').forEach(element => {
-      this.imagesArray.push({ type: 'url', file: null, url: element })
-    });
+    if (!!this.images) {
+      this.images.split(',').forEach(element => {
+        this.imagesArray.push({ type: 'url', file: null, url: element })
+      });
+    }
     input.value = ''
   }
 

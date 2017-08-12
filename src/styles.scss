@@ -6,6 +6,7 @@
 @import "~bootstrap/dist/css/bootstrap.min.css";
 @import "~font-awesome/css/font-awesome.min.css";
 @import '~ngx-toastr/toastr.css';
+@import '~prismjs/themes/prism-tomorrow.css';
 
 /*default css*/
 
@@ -146,15 +147,18 @@ a:visited {
     float: none;
 }
 
+.breadcrumb-pad {
+    position: fixed;
+    z-index: 5;
+    margin-top: -60px !important;
+    margin-left: 50px !important;
+}
+
 input,
 button,
 a,
 div {
     outline: 0 none !important;
-}
-/*material-css*/
-.header-menu{
-    margin-top:200px !important;
 }
 
 

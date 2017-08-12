@@ -47,6 +47,10 @@
                 </select>
             </div>
         </div>
+        <p class="text-info"><i class="fa fa-code fa-fw" aria-hidden="true"></i>HTML代码：</p>
+        <handy-syntax-highlighter [language]="'html'" [content]="html_code"></handy-syntax-highlighter>
+        <p class="text-info"><i class="fa fa-code fa-fw" aria-hidden="true"></i>TS代码：</p>
+        <handy-syntax-highlighter [language]="'typescript'" [content]="ts_code"></handy-syntax-highlighter>
     </div>
 </div>
 <br>
@@ -62,3 +66,4 @@
         </div>
     </div>
 </div>
+<br>

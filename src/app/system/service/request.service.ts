@@ -28,6 +28,12 @@ export class RequestService {
     return this.httpClient.put(url, params)
   }
 
+  file(url: string, params: any = {}, files = new Array<{ name: string, files: Array<Blob> }>()): Observable<any> {
+    console.log(this.getFormdata(params, files))
+    return this.httpClient.post(url, this.getFormdata(params, files))
+  }
+
+
   private getParams(params: any): HttpParams {
     let httpParams = new HttpParams()
     for (let key in params) {
@@ -45,5 +51,19 @@ export class RequestService {
     }
     str = query.join('&')
     return str == "" ? str : '?' + str
+  }
+
+  private getFormdata(params: any, filesArray = new Array<{ name: string, files: Array<Blob> }>()) {
+    let formdata = new FormData()
+    for (let key in params) {
+      formdata.append(key, params[key])
+    }
+    for (let key in filesArray) {
+      let files = filesArray[key]
+      for (let i = 0; i < files.files.length; i++) {
+        formdata.append(files.name, files.files[i])
+      }
+    }
+    return formdata
   }
 }

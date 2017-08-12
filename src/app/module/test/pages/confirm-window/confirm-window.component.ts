@@ -65,4 +65,20 @@ export class ConfirmWindowComponent implements OnInit {
     }
     dialogRef.afterClosed().subscribe(result => { console.log(result ? "你选择了确认" : "你选择了关闭") })
   }
+
+  code = `
+    import { DialogDefault} from '<path>/tool/components/dialog';
+    import { MdDialog } from '@angular/material';
+
+    constructor(public dialog: MdDialog) { }
+
+    openDialog() {
+      dialogRef = this.dialog.open(DialogDefault, {
+          data: {
+            title: "Default Message",
+            message: "你确定要这么做,操作不可恢复?!"
+          }
+        })
+    }
+  `
 }

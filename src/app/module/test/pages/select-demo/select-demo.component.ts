@@ -44,4 +44,18 @@ export class SelectDemoComponent implements OnInit {
   public refreshValue(value: any): void {
     this.value = value;
   }
+
+  html_code = `
+    <select class="custom-select" [(ngModel)]="selectValue" name="type">
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+    </select>
+  `
+
+  ts_code = `
+    //如果需要选中默认值的话，可以直接对绑定数据设置初始值
+    //如果下拉选项是通过请求获取的，那么可以在请求完成后对selectValue进行赋值
+    selectValue:number=1
+  `
 }
