@@ -23,7 +23,11 @@ export class LoginComponent implements OnInit {
   //login message
   message: string = ""
 
+  //page config
+  loginPageConfig=this.systemService.loginPageConfig
+
   //background color
   bgColor = this.systemService.theme.bgColor
   bgImage = this.systemService.theme.bgImage
+
 }

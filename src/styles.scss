@@ -86,31 +86,26 @@ a:visited {
     cursor: pointer;
 }
 
-.btn-outline-info {
-    border-color: #caeffb;
-    background-color: white;
-}
-
-.btn-outline-primary {
-    border-color: #c2e1fc;
-    background-color: white;
-}
-
-.btn-outline-danger {
-    border-color: #e4a1a1;
-    background-color: white;
-}
-
-.btn-outline-success {
-    border-color: #c6e7c6;
-    background-color: white;
-}
-
-.btn-outline-warning {
-    border-color: #e7cda9;
-    background-color: white;
-}
-
+// .btn-outline-info {
+//     border-color: #caeffb;
+//     background-color: white;
+// }
+// .btn-outline-primary {
+//     border-color: #c2e1fc;
+//     background-color: white;
+// }
+// .btn-outline-danger {
+//     border-color: #e4a1a1;
+//     background-color: white;
+// }
+// .btn-outline-success {
+//     border-color: #c6e7c6;
+//     background-color: white;
+// }
+// .btn-outline-warning {
+//     border-color: #e7cda9;
+//     background-color: white;
+// }
 .pointer {
     cursor: pointer;
 }
@@ -168,6 +163,10 @@ div {
     display: inline-block !important;
 }
 
+.ui-select-toggle {
+    background-color: white !important;
+    color:black !important;
+}
 
 /*loading css*/
 

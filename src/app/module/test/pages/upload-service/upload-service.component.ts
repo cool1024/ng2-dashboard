@@ -23,4 +23,25 @@ export class UploadServiceComponent implements OnInit {
 
   file: Blob
 
+  html_code=`
+    <app-image-input-form (onChange)="file=$event.file"></app-image-input-form>
+    <div class="mt-1">
+      <button (click)="tryUploadFile()" class="btn btn-success"><i class="fa fa-check fa-fw"></i>Upload File</button>
+    </div>
+  `
+
+  ts_code=`
+    import { RequestService } from '<path>/system/service/request.service';
+    
+    ......
+
+    file: Blob
+
+    constructor(private requestService: RequestService) { }
+
+    tryUploadFile(){
+       this.requestService.file('/upload/image ', { image:file }).subscribe()
+    }    
+
+  `
 }

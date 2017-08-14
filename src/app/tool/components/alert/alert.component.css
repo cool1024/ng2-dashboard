@@ -1,7 +1,10 @@
+.window-center{
+    justify-content: center;
+}
 .window-alert {
     width: 20rem;
-    margin: 20% auto;
-    box-shadow: 2px 2px 10px #CFCFCF;
+    margin:15% auto;
+    /* box-shadow: 2px 2px 10px #CFCFCF; */
 }
 
 .card-outline-danger {

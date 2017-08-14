@@ -1,6 +1,6 @@
 <div class="card rounded-0">
     <div class="card-header"><i class="fa fa-internet-explorer fa-fw"></i>请求测试-请在控制台查看请求结果</div>
-    <div class="card-block">
+    <div class="card-body">
         <button (click)="tryUrlRequest()" class="btn btn-secondary mb-2">URL REQUEST</button>
         <button (click)="tryGetRequest()" class="btn btn-info mb-2">GET REQUEST</button>
         <button (click)="tryPostRequest()" class="btn btn-success mb-2">POST REQUEST</button>
@@ -12,7 +12,7 @@
 <br>
 <div class="card rounded-0">
     <div class="card-header"><i class="fa fa-file-code-o fa-fw fa-lg" aria-hidden="true"></i>代码演示</div>
-    <div class="card-block">
+    <div class="card-body">
         <i class="fa fa-code fa-fw" aria-hidden="true"></i>HTML代码：
         <handy-syntax-highlighter [language]="'html'" [content]="html_code"></handy-syntax-highlighter>
         <i class="fa fa-code fa-fw" aria-hidden="true"></i>TS代码：
@@ -23,7 +23,7 @@
 <!--CODW VIEW-->
 <div class="card rounded-0">
     <div class="card-header"><i class="fa fa-internet-explorer fa-fw"></i>带文件数据请求-请在控制台查看请求结果</div>
-    <div class="card-block">
+    <div class="card-body">
         <app-image-input-form [image]="imageUrl" (onChange)="imageFile=$event"></app-image-input-form>
         <br>
         <app-images-input-form [images]="imagesUrl" (onChange)="imageFiles=$event"></app-images-input-form>

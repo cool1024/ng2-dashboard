@@ -9,7 +9,7 @@ import { SortablejsOptions } from 'angular-sortablejs';
 export class ImagesInputFormComponent implements OnInit {
   @ViewChildren('sortablejs') sortablejs: any
   @Input() images: string
-  @Input() openBtnClassName: string = "btn btn-secondary"
+  @Input() openBtnClassName: string = "btn btn-outline-secondary"
   @Input() resetBtnClassName: string = "btn btn-outline-warning"
   @Input() openTitle: string = `<i class="fa fa-file-image-o fa-fw" aria-hidden="true"></i>打开文件`
   @Input() resetTitle: string = `<i class="fa fa-refresh fa-fw" aria-hidden="true"></i>`

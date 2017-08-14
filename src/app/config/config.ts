@@ -9,7 +9,7 @@ export const Config = {
         fontColor: "white",
         activeColor: "white",
         bgImage: "/assets/image/photo.jpg",
-        mnImage:"/assets/image/siderbar/1.jpg"
+        mnImage:"/assets/image/siderbar/2.jpg"
     },
     CONTENT: {
         title: "NG2-DASHBOARD",
@@ -60,3 +60,13 @@ export const Menus = [
         ]
     }
 ]
+
+/*login page setting*/
+export const LoginPageConfig={
+    icon:'fa fa-wechat fa-fw',
+    title:'Hello1024 Manager',
+    description:'version 2.0.1 2017.8.29@xiaojian',
+    avatar:'/assets/image/photo.jpg',
+    button:'Login',
+    bgImage:'/assets/image/card/2.jpg'
+}

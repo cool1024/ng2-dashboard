@@ -4,7 +4,7 @@
 <br>
 <div [sortablejs]="imagesArray" [sortablejsOptions]="options">
     <div *ngFor="let item of imagesArray;index as i" class="img-thumbnail img-thumbnail-pad d-inline-block  mt-2 mr-2">
-        <span *ngIf="!item.uploading" class="close text-danger" (click)="removeImage(i)">&times;</span>
+        <span *ngIf="!item.uploading" class="close text-danger pointer" (click)="removeImage(i)">&times;</span>
         <div *ngIf="!item.uploading" class="w-100 h-100 img-thumbnail-image" [ngStyle]="{'background-image': getUrl(item.url)}"></div>
         <div class="span mt-2" *ngIf="item.uploading">
             <div class="typing_loader"></div>

@@ -3,7 +3,7 @@
     <div class="card-body">
         <div [sortablejs]="menus" [sortablejsOptions]="{ animation: 400 }">
             <div *ngFor="let main of menus">
-                <div class="card card-block border-top-0 border-right-0 border-left-0 rounded-0">
+                <div class="card card-body border-top-0 border-right-0 border-left-0 rounded-0">
                     <div class="text-primary">
                         <i class="fa-fw fa-lg {{main.icon}}"></i>{{main.title}}
                         <span class="pull-right">

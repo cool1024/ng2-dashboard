@@ -1,10 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Config } from '../config/config';
+import { Config, LoginPageConfig } from '../config/config';
 
 @Injectable()
 export class SystemService {
-
-  private config: { theme: any, server: any, content: any } = { theme: {}, server: {}, content: {} }
 
   constructor() {
     this.config.theme = Config.THEME
@@ -40,8 +38,10 @@ export class SystemService {
     this.menuConfig.size = config.size || this.menuConfig.size
   }
 
-  private menuConfig: { size: string } = {
-    size: 'lg'
-  }
+  private menuConfig: { size: string } = { size: 'lg' }
+
+  private config: { theme: any, server: any, content: any } = { theme: {}, server: {}, content: {} }
+
+  public loginPageConfig = LoginPageConfig;
 
 }

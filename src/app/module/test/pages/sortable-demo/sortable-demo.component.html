@@ -2,7 +2,7 @@
     <div class="card-header">
         <i class="fa fa-sort"></i> SortableJS
     </div>
-    <div class="card-block">
+    <div class="card-body">
         <div class="row" [sortablejs]="items">
             <div class="col-sm-2" *ngFor="let item of items;index as i">
                 <div class="card mb-4">
@@ -18,7 +18,7 @@
 <br>
 <div class="card rounded-0">
     <div class="card-header"><i class="fa fa-file-code-o fa-fw fa-lg" aria-hidden="true"></i>代码演示</div>
-    <div class="card-block">
+    <div class="card-body">
         <i class="fa fa-code fa-fw" aria-hidden="true"></i>HTML代码：
         <handy-syntax-highlighter [language]="'html'" [content]="html_code"></handy-syntax-highlighter>
         <i class="fa fa-code fa-fw" aria-hidden="true"></i>TS代码：

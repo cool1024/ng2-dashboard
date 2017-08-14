@@ -9,7 +9,7 @@ export class ImageInputFormComponent implements OnChanges {
 
 
   @Input() image: string
-  @Input() openBtnClassName: string = "btn btn-secondary"
+  @Input() openBtnClassName: string = "btn btn-outline-secondary"
   @Input() removeBtnClassName: string = "btn btn-outline-danger"
   @Input() resetBtnClassName: string = "btn btn-outline-warning"
   @Input() openTitle: string = `<i class="fa fa-file-image-o fa-fw" aria-hidden="true"></i>打开文件`

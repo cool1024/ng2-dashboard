@@ -5,7 +5,7 @@
 <div [sortablejs]="imagesArray" [sortablejsOptions]="options">
     <!-- <img *ngFor="let item of imagesArray" class="img-thumbnail mt-2 mr-2" src="{{item.url}}" [ngStyle]="imageStyle"> -->
     <div *ngFor="let item of imagesArray;index as i" class="img-thumbnail img-thumbnail-pad d-inline-block  mt-2 mr-2">
-        <span class="close text-danger" (click)="removeImage(i)">&times;</span>
+        <span class="close text-danger pointer" (click)="removeImage(i)">&times;</span>
         <div class="w-100 h-100 img-thumbnail-image" [ngStyle]="{'background-image': getUrl(item.url)}"></div>
     </div>
 </div>

@@ -1,9 +1,14 @@
 <div class="card rounded-0">
   <div class="card-header"><i class="fa fa-file-text"></i> 单图选择-表单提交</div>
-  <div class="card-block">
+  <div class="card-body">
     <app-image-input-form (onChange)="file=$event.file"></app-image-input-form>
     <div class="mt-1">
       <button (click)="tryUploadFile()" class="btn btn-success"><i class="fa fa-check fa-fw"></i>Upload File</button>
     </div>
+    <br>
+    <p class="text-info"><i class="fa fa-code fa-fw" aria-hidden="true"></i>HTML代码：</p>
+    <handy-syntax-highlighter [language]="'html'" [content]="html_code"></handy-syntax-highlighter>
+    <p class="text-info"><i class="fa fa-code fa-fw" aria-hidden="true"></i>TS代码：</p>
+    <handy-syntax-highlighter [language]="'typescript'" [content]="ts_code"></handy-syntax-highlighter>
   </div>
 </div>

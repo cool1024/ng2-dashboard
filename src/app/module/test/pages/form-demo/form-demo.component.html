@@ -1,6 +1,6 @@
 <div class="card rounded-0">
   <div class="card-header"><i class="fa fa-file-text-o"></i> Bootstrap Form</div>
-  <div class="card-block">
+  <div class="card-body">
     <form #testForm="ngForm" (ngSubmit)="doSubmit()">
       <div class="form-group row" [ngClass]="{'has-danger':!(mobile.valid||mobile.pristine)}">
         <label class="col-sm-2 col-form-label">Mobile<span class="text-danger">*</span></label>
@@ -35,7 +35,7 @@
 <br>
 <div class="card rounded-0">
   <div class="card-header"><i class="fa fa-file-text-o"></i> Inline Form</div>
-  <div class="card-block">
+  <div class="card-body">
     <form class="form-inline">
       <input type="text" class="form-control col-5">
       <input type="text" class="form-control col-5">
@@ -86,7 +86,7 @@
 <br>
 <div class="card rounded-0">
   <div class="card-header"><i class="fa fa-file-text-o"></i> No Radius</div>
-  <div class="card-block">
+  <div class="card-body">
     <div class="input-group">
       <span class="input-group-addon rounded-0" id="basic-addon1">Params</span>
       <input type="text" class="form-control rounded-0" placeholder="" aria-describedby="basic-addon1">
@@ -108,7 +108,7 @@
       <md-slide-toggle color="warn" (change)="disabled=!disabled" [checked]="!disabled"></md-slide-toggle>
     </span>
   </div>
-  <div class="card-block">
+  <div class="card-body">
     <form class="example-form">
       <md-input-container class="example-full-width">
         <input mdInput placeholder="Company" [disabled]="disabled" value="AnasIT">

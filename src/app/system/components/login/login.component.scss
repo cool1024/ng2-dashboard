@@ -1,7 +1,6 @@
 .pad {
     width: 100%;
     height: 100vh;
-    background-image: url('/assets/image/card/2.jpg');
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -31,7 +30,10 @@ td {
 
 img {
     border: 1px solid white;
-    box-shadow: 0px 0px 3px gray;
+    box-shadow: 0px 0px 3px #6E6D6D;
+    height: 60px;
+    width:60px;
+    border-radius: 0px;
 }
 
 .login-input {

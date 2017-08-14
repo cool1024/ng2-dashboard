@@ -1,4 +1,4 @@
-<div class="pad">
+<div class="pad" [ngStyle]="{'background-image':'url('+loginPageConfig.bgImage+')' }">
     <div class="pad-window" [ngStyle]="{'background-color': bgColor}">
         <div class="window p-3">
             <div class="window-header">
@@ -6,12 +6,12 @@
                     <tbody>
                         <tr>
                             <td>
-                                <h3><i class="fa fa-wechat"></i> Hello1024 Manager</h3>
-                                <p [hidden]="!!message">version 2.0.1 2017.8.29@xiaojian</p>
+                                <h3><i class="{{loginPageConfig.icon}}"></i>{{loginPageConfig.title}}</h3>
+                                <p [hidden]="!!message">{{loginPageConfig.description}}</p>
                                 <p [hidden]="!message" class="text-danger">{{message}}</p>
                             </td>
                             <td class="text-right">
-                                <img width="60" height="60" src="{{bgImage}}" class="pull-right">
+                                <img src="{{loginPageConfig.avatar}}" class="pull-right">
                             </td>
                         </tr>
                     </tbody>
@@ -30,7 +30,7 @@
                 <br>
                 <div>
                     <button type="submit" [disabled]="!loginForm.form.valid" class="btn btn-primary rounded-0 btn-lg btn-block">
-                        <i class="fa fa-sign-in mr-2" aria-hidden="true"></i>Login
+                        <i class="fa fa-sign-in mr-2" aria-hidden="true"></i>{{loginPageConfig.button}}
                     </button>
                 </div>
             </form>
