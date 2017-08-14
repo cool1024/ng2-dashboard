@@ -1,7 +1,7 @@
 /*default menus*/
 export const Config = {
     SERVER: {
-        server: 'http://zrwc.cool1024.com:8080',
+        server: 'http://127.0.0.1',
         source: 'http://127.0.0.1',
     },
     THEME: {
@@ -55,6 +55,8 @@ export const Menus = [
             { icon: "fa fa-spinner", title: "加载动画", url: "/test/loading" },
             { icon: "fa fa-comments-o", title: "通知消息", url: "/test/toastr" },
             { icon: "fa fa-internet-explorer", title: "发送请求", url: "/test/request" },
+            { icon: "fa fa-cloud-upload", title: "upload service", url: "/test/file" },
+            
         ]
     }
 ]

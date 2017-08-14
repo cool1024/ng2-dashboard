@@ -12,6 +12,7 @@ import { ToastrDemoComponent } from './pages/toastr-demo/toastr-demo.component';
 import { HomeComponent } from './pages/home/home.component';
 import { UploadDemoComponent } from './pages/upload-demo/upload-demo.component';
 import { RequestServiceComponent } from './pages/request-service/request-service.component';
+import { UploadServiceComponent } from './pages/upload-service/upload-service.component';
 
 const routes: Routes = [
   /*home page*/
@@ -31,6 +32,8 @@ const routes: Routes = [
   { path: 'test/loading', component: LoadingServiceComponent },
   { path: 'test/toastr', component: ToastrDemoComponent },
   { path: 'test/request', component: RequestServiceComponent },
+  { path: 'test/file', component: UploadServiceComponent },
+  
 ];
 
 @NgModule({
