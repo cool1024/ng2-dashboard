@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Storage } from './../interface/storage';
+import { Storage } from './../interfaces/storage';
 import { StorageSetting } from './../../config/config';
 
 @Injectable()
-export class SessionService implements Storage {
+export class LocalService implements Storage {
 
   tokenParams = StorageSetting.tokenParams
 

@@ -103,7 +103,7 @@ export class RequestServiceComponent implements OnInit {
     //为组件创建服务testservice.ts
     import { Injectable } from '@angular/core';
     import { Observable } from 'rxjs/Observable';
-    import { RequestService } from '<path>/system/service/request.service';
+    import { RequestService } from '<path>/system/services/request.service';
 
     @Injectable()
     export class TestService {

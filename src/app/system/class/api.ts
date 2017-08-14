@@ -1,5 +1,21 @@
 export class ApiData {
-    constructor(public result: boolean, public message: string, public datas: any) { }
+    constructor(public result: boolean, public msg: any, public datas: any) { }
+
+    get message(): string {
+        let message = "2222"
+
+        if (typeof this.msg == 'string') {
+           message=this.msg
+        }
+        else{
+            for(let key in this.msg){
+                message=this.msg[key][0]
+                break
+            }
+        }
+
+        return message;
+    }
 }
 export const ErrorMessages = {
     API_DATA_ERROR: '服务器数据错误，无法解析的数据格式~',

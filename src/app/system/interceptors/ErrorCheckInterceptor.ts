@@ -33,9 +33,13 @@ export class ErrorCheckInterceptor implements HttpInterceptor {
             if (response instanceof HttpResponse) {
 
                 if (response.body != null && response.body.result != null) {
-                    if (response.body.result == false) {
-                        this.toastrService.warning(response.body.message || ErrorMessages.API_DATA_ERROR, 'Warning')
+                    let apiData = new ApiData(response.body.result, response.body.message, response.body.datas)
+                    console.log(apiData.result)
+                    if (apiData.result == false) {
+                        console.log('error')
+                        this.toastrService.warning(apiData.message || ErrorMessages.API_DATA_ERROR, 'Warning')
                     }
+                    response.clone({ body: apiData })
                 }
                 else {
                     this.toastrService.error(ErrorMessages.API_DATA_ERROR, 'Error!')

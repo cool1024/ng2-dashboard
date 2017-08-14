@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormCheckService } from './../../../../system/service/form-check.service';
+import { FormCheckService } from './../../../../system/services/form-check.service';
 
 @Component({
   selector: 'app-form-demo',

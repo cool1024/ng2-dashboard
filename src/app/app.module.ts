@@ -18,9 +18,9 @@ import { HeaderInterceptor } from './system/interceptors/HeaderInterceptor';
 
 /*public service*/
 import { SystemService } from './system/system.service';
-import { SessionService } from './system/service/session.service';
-import { LocalService } from './system/service/local.service';
-import { RequestService } from './system/service/request.service';
+import { SessionService } from './system/services/session.service';
+import { LocalService } from './system/services/local.service';
+import { RequestService } from './system/services/request.service';
 
 
 const appRoutes: Routes = [

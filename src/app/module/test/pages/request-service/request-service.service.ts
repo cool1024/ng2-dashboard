@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { RequestService } from './../../../../system/service/request.service';
+import { RequestService } from './../../../../system/services/request.service';
 
 @Injectable()
 export class RequestServiceService {

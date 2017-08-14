@@ -31,7 +31,7 @@ export class UploadServiceComponent implements OnInit {
   `
 
   ts_code=`
-    import { RequestService } from '<path>/system/service/request.service';
+    import { RequestService } from '<path>/system/services/request.service';
     
     ......
 

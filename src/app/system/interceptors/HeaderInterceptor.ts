@@ -2,8 +2,8 @@ import { HttpRequest, HttpHandler, HttpHeaders, HttpEvent, HttpInterceptor } fro
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Config, StorageSetting, StorageType } from './../../config/config';
-import { SessionService } from './../service/session.service';
-import { LocalService } from './../service/local.service';
+import { SessionService } from './../services/session.service';
+import { LocalService } from './../services/local.service';
 
 @Injectable()
 export class HeaderInterceptor implements HttpInterceptor {

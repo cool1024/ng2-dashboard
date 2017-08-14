@@ -20,12 +20,12 @@
             <form #loginForm="ngForm" (ngSubmit)="doLogin()">
                 <div class="login-input">
                     <span class="fa fa-user pl-2 pr-2"></span>
-                    <input name="account" #account="ngModel" [ngModel]="loginParams.account" type="text" placeholder="mobile or emali" required>
+                    <input name="email" #email="ngModel" [(ngModel)]="loginParams.email" type="text" placeholder="your emali" required>
                 </div>
                 <br>
                 <div class="login-input">
                     <span class="fa fa-key pl-2 pr-2" aria-hidden="true"></span>
-                    <input name="password" #password="ngModel" [ngModel]="loginParams.password" type="password" placeholder="your password" required>
+                    <input name="password" #password="ngModel" [(ngModel)]="loginParams.password" type="password" placeholder="your password" required>
                 </div>
                 <br>
                 <div>
