@@ -18,11 +18,15 @@ import { AlertComponent } from './components/alert/alert.component';
 /*Pagination*/
 import { PaginationComponent } from './components/pagination/pagination.component';
 
-/*image input form*/
+/*pipe list*/
+import { TreeParentPipe } from './pipes/tree-parent.pipe';
+
+/*tool components*/
 import { ImageInputFormComponent } from './components/image-input-form/image-input-form.component';
 import { ImageInputUploadComponent } from './components/image-input-upload/image-input-upload.component';
 import { ImagesInputFormComponent } from './components/images-input-form/images-input-form.component';
 import { ImagesInputUploadComponent } from './components/images-input-upload/images-input-upload.component';
+import { TreeComponent } from './components/tree/tree.component';
 
 @NgModule({
   imports: [
@@ -41,6 +45,8 @@ import { ImagesInputUploadComponent } from './components/images-input-upload/ima
     ImageInputUploadComponent,
     ImagesInputFormComponent,
     ImagesInputUploadComponent,
+    TreeComponent,
+    TreeParentPipe,
   ],
   exports: [
     AlertComponent,
@@ -50,6 +56,7 @@ import { ImagesInputUploadComponent } from './components/images-input-upload/ima
     ImageInputUploadComponent,
     ImagesInputFormComponent,
     ImagesInputUploadComponent,
+    TreeComponent,
   ]
 })
 export class ToolModule { }

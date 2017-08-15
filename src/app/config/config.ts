@@ -9,7 +9,7 @@ export const Config = {
         fontColor: "white",
         activeColor: "white",
         bgImage: "/assets/image/photo.jpg",
-        mnImage:"/assets/image/siderbar/2.jpg"
+        mnImage:"/assets/image/siderbar/3.png"
     },
     CONTENT: {
         title: "NG2-DASHBOARD",
@@ -55,7 +55,7 @@ export const Menus = [
             { icon: "fa fa-spinner", title: "加载动画", url: "/test/loading" },
             { icon: "fa fa-comments-o", title: "通知消息", url: "/test/toastr" },
             { icon: "fa fa-internet-explorer", title: "发送请求", url: "/test/request" },
-            { icon: "fa fa-cloud-upload", title: "upload service", url: "/test/file" },
+            { icon: "fa fa-cloud-upload", title: "上传服务", url: "/test/file" },
             
         ]
     }

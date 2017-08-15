@@ -1,0 +1,6 @@
+<div class="d-inline-block text-center p-3" *ngFor="let parent of (trees|filterByParentId:parentid)">
+    <div class="leaf text-center text-white bg-primary rounded-0 hover">{{parent.text}}</div>
+    <div class="w-100">
+        <app-tree [trees]="trees" [parentid]="parent.id"></app-tree>
+    </div>
+</div>

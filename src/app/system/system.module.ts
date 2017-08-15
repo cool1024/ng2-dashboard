@@ -2,9 +2,12 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { MdButtonModule, MdInputModule, MdDialogModule, MdMenuModule} from '@angular/material';
+import { MdButtonModule, MdInputModule, MdDialogModule, MdMenuModule } from '@angular/material';
 import { SortablejsModule } from 'angular-sortablejs';
 import { SystemRoutingModule } from './system-routing.module';
+
+/*tool module*/
+import { ToolModule } from './../tool/tool.module';
 
 /*system components*/
 import { MenuComponent } from './components/menu/menu.component';
@@ -32,6 +35,9 @@ import { RoleManagerComponent } from './pages/role-manager/role-manager.componen
 
     /*system module*/
     SystemRoutingModule,
+
+    /*tool module*/
+    ToolModule,
   ],
   declarations: [
     MenuComponent,
