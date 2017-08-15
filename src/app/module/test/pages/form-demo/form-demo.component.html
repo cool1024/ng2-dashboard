@@ -1,160 +1,160 @@
+<nav class="breadcrumb-pad p-0 m-0">
+    <a class="breadcrumb-item" routerLink="/"><i class="fa fa-home fa-fw fa-lg" aria-hidden="true"></i>首页</a>
+</nav>
 <div class="card rounded-0">
-  <div class="card-header"><i class="fa fa-file-text-o"></i> Bootstrap Form</div>
-  <div class="card-body">
-    <form #testForm="ngForm" (ngSubmit)="doSubmit()">
-      <div class="form-group row" [ngClass]="{'has-danger':!(mobile.valid||mobile.pristine)}">
-        <label class="col-sm-2 col-form-label">Mobile<span class="text-danger">*</span></label>
-        <div class="col-sm-10">
-          <input required minlength="11" maxlength="11" #mobile="ngModel" name="mobile" [(ngModel)]="form.mobile" type="text" placeholder="please enter your mobile"
-            class="form-control">
-          <small class="text-danger" [hidden]="mobile.valid||mobile.pristine"><i>please confirm your mobile is valid</i></small>
-        </div>
-      </div>
-      <div class="form-group row" [ngClass]="{'has-danger':!(email.valid||email.pristine)}">
-        <label class="col-sm-2 col-form-label">E-mail<span class="text-danger">*</span></label>
-        <div class="col-sm-10">
-          <input required #email="ngModel" name="email" [(ngModel)]="form.email" type="emial" placeholder="please enter your email"
-            class="form-control">
-          <small class="text-danger" [hidden]="email.valid||email.pristine"><i>please confirm your mobile is valid</i></small>
-        </div>
-      </div>
-      <div class="form-group row">
-        <label class="col-sm-2 col-form-label">Price<span class="text-danger">*</span></label>
-        <div class="col-sm-10">
-          <input required #price="ngModel" name="price" [(ngModel)]="form.price" (change)="form.price=toPrice(form.price)" type="text"
-            placeholder="please enter your price" class="form-control">
-        </div>
-      </div>
-      <div class="form-group text-right">
-        <button type="button" class="btn btn-secondary"><i class="fa fa-angle-left"></i> Back</button>
-        <button type="submit" [disabled]="!testForm.form.valid" class="btn btn-success"><i class="fa fa-check"></i> Submit</button>
-      </div>
-    </form>
-  </div>
+    <div class="card-header"><i class="fa fa-file-text-o"></i> Bootstrap Form</div>
+    <div class="card-body">
+        <form #testForm="ngForm" (ngSubmit)="doSubmit()">
+            <div class="form-group row" [ngClass]="{'has-danger':!(mobile.valid||mobile.pristine)}">
+                <label class="col-sm-2 col-form-label">Mobile<span class="text-danger">*</span></label>
+                <div class="col-sm-10">
+                    <input required minlength="11" maxlength="11" #mobile="ngModel" name="mobile" [(ngModel)]="form.mobile" type="text" placeholder="please enter your mobile" class="form-control">
+                    <small class="text-danger" [hidden]="mobile.valid||mobile.pristine"><i>please confirm your mobile is valid</i></small>
+                </div>
+            </div>
+            <div class="form-group row" [ngClass]="{'has-danger':!(email.valid||email.pristine)}">
+                <label class="col-sm-2 col-form-label">E-mail<span class="text-danger">*</span></label>
+                <div class="col-sm-10">
+                    <input required #email="ngModel" name="email" [(ngModel)]="form.email" type="emial" placeholder="please enter your email" class="form-control">
+                    <small class="text-danger" [hidden]="email.valid||email.pristine"><i>please confirm your mobile is valid</i></small>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Price<span class="text-danger">*</span></label>
+                <div class="col-sm-10">
+                    <input required #price="ngModel" name="price" [(ngModel)]="form.price" (change)="form.price=toPrice(form.price)" type="text" placeholder="please enter your price" class="form-control">
+                </div>
+            </div>
+            <div class="form-group text-right">
+                <button type="button" class="btn btn-secondary"><i class="fa fa-angle-left"></i> Back</button>
+                <button type="submit" [disabled]="!testForm.form.valid" class="btn btn-success"><i class="fa fa-check"></i> Submit</button>
+            </div>
+        </form>
+    </div>
 </div>
 <br>
 <div class="card rounded-0">
-  <div class="card-header"><i class="fa fa-file-text-o"></i> Inline Form</div>
-  <div class="card-body">
-    <form class="form-inline">
-      <input type="text" class="form-control col-5">
-      <input type="text" class="form-control col-5">
-      <div class="col-2 text-right">
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </div>
-    </form>
-    <br>
-    <div class="input-group">
-      <span class="input-group-addon" id="basic-addon1">Params</span>
-      <input type="text" class="form-control" placeholder="" aria-describedby="basic-addon1">
-    </div>
-    <br>
-    <div class="row">
-      <div class="col-lg-6">
+    <div class="card-header"><i class="fa fa-file-text-o"></i> Inline Form</div>
+    <div class="card-body">
+        <form class="form-inline">
+            <input type="text" class="form-control col-5">
+            <input type="text" class="form-control col-5">
+            <div class="col-2 text-right">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+        <br>
         <div class="input-group">
-          <span class="input-group-btn">
+            <span class="input-group-addon" id="basic-addon1">Params</span>
+            <input type="text" class="form-control" placeholder="" aria-describedby="basic-addon1">
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="input-group">
+                    <span class="input-group-btn">
              <button class="btn btn-secondary" type="button"><i class="fa fa-search"></i></button>
           </span>
-          <input type="text" class="form-control" placeholder="Search for...">
-        </div>
-      </div>
-      <div class="col-lg-6">
-        <div class="input-group">
-          <input type="text" class="form-control" placeholder="Search for...">
-          <span class="input-group-btn">
+                    <input type="text" class="form-control" placeholder="Search for...">
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search for...">
+                    <span class="input-group-btn">
             <button class="btn btn-outline-warning" type="button">Warning</button>
           </span>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-    <br>
-    <div class="row">
-      <div class="col-lg-offset-3 col-lg-6">
-        <div class="input-group">
-          <span class="input-group-btn">
+        <br>
+        <div class="row">
+            <div class="col-lg-offset-3 col-lg-6">
+                <div class="input-group">
+                    <span class="input-group-btn">
         <button class="btn btn-secondary" type="button">Hate it</button>
       </span>
-          <input type="text" class="form-control" placeholder="Product name">
-          <span class="input-group-btn">
+                    <input type="text" class="form-control" placeholder="Product name">
+                    <span class="input-group-btn">
         <button class="btn btn-secondary" type="button">Love it</button>
       </span>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </div>
 <br>
 <div class="card rounded-0">
-  <div class="card-header"><i class="fa fa-file-text-o"></i> No Radius</div>
-  <div class="card-body">
-    <div class="input-group">
-      <span class="input-group-addon rounded-0" id="basic-addon1">Params</span>
-      <input type="text" class="form-control rounded-0" placeholder="" aria-describedby="basic-addon1">
-    </div>
-    <br>
-    <div class="input-group">
-      <span class="input-group-btn">
+    <div class="card-header"><i class="fa fa-file-text-o"></i> No Radius</div>
+    <div class="card-body">
+        <div class="input-group">
+            <span class="input-group-addon rounded-0" id="basic-addon1">Params</span>
+            <input type="text" class="form-control rounded-0" placeholder="" aria-describedby="basic-addon1">
+        </div>
+        <br>
+        <div class="input-group">
+            <span class="input-group-btn">
         <button class="btn btn-secondary rounded-0" type="button">Params</button>
       </span>
-      <input type="text" class="form-control rounded-0" placeholder="">
+            <input type="text" class="form-control rounded-0" placeholder="">
+        </div>
     </div>
-  </div>
 </div>
 <br>
 <div class="card rounded-0">
-  <div class="card-header">
-    <i class="fa fa-file-text-o"></i> Materila Input
-    <span class="pull-right">
+    <div class="card-header">
+        <i class="fa fa-file-text-o"></i> Materila Input
+        <span class="pull-right">
       <md-slide-toggle color="warn" (change)="disabled=!disabled" [checked]="!disabled"></md-slide-toggle>
     </span>
-  </div>
-  <div class="card-body">
-    <form class="example-form">
-      <md-input-container class="example-full-width">
-        <input mdInput placeholder="Company" [disabled]="disabled" value="AnasIT">
-      </md-input-container>
-      <table class="example-full-width" cellspacing="0">
-        <tr>
-          <td>
+    </div>
+    <div class="card-body">
+        <form class="example-form">
             <md-input-container class="example-full-width">
-              <input mdInput placeholder="First name" value="Kaven" [disabled]="disabled">
+                <input mdInput placeholder="Company" [disabled]="disabled" value="AnasIT">
             </md-input-container>
-          </td>
-          <td>
-            <md-input-container class="example-full-width">
-              <input mdInput placeholder="Long Last Name That Will Be Truncated" value="Hello1024" [disabled]="disabled">
-            </md-input-container>
-          </td>
-        </tr>
-      </table>
-      <p>
-        <md-input-container class="example-full-width">
-          <textarea mdInput placeholder="Address" [disabled]="disabled">1600 Amphitheatre Pkwy</textarea>
-        </md-input-container>
-        <md-input-container class="example-full-width">
-          <textarea mdInput placeholder="Address 2" [disabled]="disabled">Where ???</textarea>
-        </md-input-container>
-      </p>
-      <table class="example-full-width" cellspacing="0">
-        <tr>
-          <td>
-            <md-input-container class="example-full-width">
-              <input mdInput placeholder="City" value="NanChang" [disabled]="disabled">
-            </md-input-container>
-          </td>
-          <td>
-            <md-input-container class="example-full-width">
-              <input mdInput placeholder="State" value="Unknow" [disabled]="disabled">
-            </md-input-container>
-          </td>
-          <td>
-            <md-input-container class="example-full-width">
-              <input mdInput #postalCode maxlength="5" placeholder="Postal Code" value="94043" [disabled]="disabled">
-              <md-hint align="end">{{postalCode.value.length}} / 5</md-hint>
-            </md-input-container>
-          </td>
-        </tr>
-      </table>
-    </form>
-  </div>
+            <table class="example-full-width" cellspacing="0">
+                <tr>
+                    <td>
+                        <md-input-container class="example-full-width">
+                            <input mdInput placeholder="First name" value="Kaven" [disabled]="disabled">
+                        </md-input-container>
+                    </td>
+                    <td>
+                        <md-input-container class="example-full-width">
+                            <input mdInput placeholder="Long Last Name That Will Be Truncated" value="Hello1024" [disabled]="disabled">
+                        </md-input-container>
+                    </td>
+                </tr>
+            </table>
+            <p>
+                <md-input-container class="example-full-width">
+                    <textarea mdInput placeholder="Address" [disabled]="disabled">1600 Amphitheatre Pkwy</textarea>
+                </md-input-container>
+                <md-input-container class="example-full-width">
+                    <textarea mdInput placeholder="Address 2" [disabled]="disabled">Where ???</textarea>
+                </md-input-container>
+            </p>
+            <table class="example-full-width" cellspacing="0">
+                <tr>
+                    <td>
+                        <md-input-container class="example-full-width">
+                            <input mdInput placeholder="City" value="NanChang" [disabled]="disabled">
+                        </md-input-container>
+                    </td>
+                    <td>
+                        <md-input-container class="example-full-width">
+                            <input mdInput placeholder="State" value="Unknow" [disabled]="disabled">
+                        </md-input-container>
+                    </td>
+                    <td>
+                        <md-input-container class="example-full-width">
+                            <input mdInput #postalCode maxlength="5" placeholder="Postal Code" value="94043" [disabled]="disabled">
+                            <md-hint align="end">{{postalCode.value.length}} / 5</md-hint>
+                        </md-input-container>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
 </div>

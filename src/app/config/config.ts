@@ -8,7 +8,7 @@ export const Config = {
         bgColor: "rgba(0, 0, 0, 0.62)",
         fontColor: "white",
         activeColor: "white",
-        bgImage: "/assets/image/photo.jpg",
+        bgImage: "/assets/image/avatar/6.jpg",
         mnImage:"/assets/image/siderbar/3.png"
     },
     CONTENT: {
@@ -66,7 +66,7 @@ export const LoginPageConfig={
     icon:'fa fa-wechat fa-fw',
     title:'Hello1024 Manager',
     description:'version 2.0.1 2017.8.29@xiaojian',
-    avatar:'/assets/image/photo.jpg',
+    avatar:'/assets/image/avatar/2.jpg',
     button:'Login',
-    bgImage:'/assets/image/card/2.jpg'
+    bgImage:'/assets/image/card/3.jpg'
 }
