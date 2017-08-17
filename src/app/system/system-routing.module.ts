@@ -11,7 +11,6 @@ const routes: Routes = [
   { path: 'system/menu', component: MenuSettingComponent },
   { path: 'system/permission', component: PermissionManagerComponent },
   { path: 'system/role', component: RoleManagerComponent },  
-  { path: '**', component: Error404Component },
 ];
 
 @NgModule({

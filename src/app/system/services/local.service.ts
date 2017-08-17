@@ -12,7 +12,7 @@ export class LocalService implements Storage {
   getToken(): any {
     let tokenParams = {}
     this.tokenParams.forEach(key => {
-      tokenParams[key] = sessionStorage.getItem(key) || ''
+      tokenParams[key] = localStorage.getItem(key) || ''
     });
     return tokenParams
   }
@@ -20,7 +20,18 @@ export class LocalService implements Storage {
   setToken(params: any) {
     this.tokenParams.forEach(key => {
       //not support 0 or false, other like to empty value
-      if (!!params[key]) sessionStorage.setItem(key, params[key])
+      if (!!params[key]) localStorage.setItem(key, params[key])
     })
   }
+
+  cleanToken(){
+    this.tokenParams.forEach(key => {
+      localStorage.removeItem(key)
+    })
+  }
+
+  cleanAll(){
+    localStorage.clear()
+  }
+  
 }

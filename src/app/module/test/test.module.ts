@@ -4,7 +4,6 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 // /*Material*/
-// import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MdButtonModule, MdDialogModule, MdSelectModule, MdInputModule, MdSlideToggleModule, MdListModule, MdCardModule } from '@angular/material';
 
 /*ng2-charts*/
@@ -51,7 +50,6 @@ import { UploadServiceComponent } from './pages/upload-service/upload-service.co
     CommonModule,
     FormsModule,
     TestRoutingModule,
-    // NoopAnimationsModule,
     MdDialogModule,
     MdButtonModule,
     ChartsModule,

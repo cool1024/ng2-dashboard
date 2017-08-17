@@ -23,4 +23,14 @@ export class SessionService implements Storage {
       if (!!params[key]) sessionStorage.setItem(key, params[key])
     })
   }
+
+  cleanToken(){
+    this.tokenParams.forEach(key => {
+      sessionStorage.removeItem(key)
+    })
+  }
+
+  cleanAll(){
+    sessionStorage.clear()
+  }
 }

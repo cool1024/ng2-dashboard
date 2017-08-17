@@ -9,19 +9,12 @@ import { ToastrModule } from 'ngx-toastr';
 /*Material*/
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
-/*ng2-select*/
-// import { SelectModule } from 'ng2-select';
-
-/*ng-bootstrap*/
-import { NgbProgressbarModule } from '@ng-bootstrap/ng-bootstrap';
-
 /*app component*/
 import { AppComponent } from './app.component';
 
 /*module list*/
 import { AppRoutingModule } from './app-routing.module';
 import { SystemModule } from './system/system.module';
-// import { TestModule } from './module/test/test.module';
 
 /*interceptor list*/
 import { ErrorCheckInterceptor } from './system/interceptors/ErrorCheckInterceptor';
@@ -31,7 +24,10 @@ import { HeaderInterceptor } from './system/interceptors/HeaderInterceptor';
 import { SystemService } from './system/system.service';
 import { SessionService } from './system/services/session.service';
 import { LocalService } from './system/services/local.service';
+import { StorageService } from './system/services/storage.service';
 import { RequestService } from './system/services/request.service';
+import { AuthGuard } from './system/services/auth-guard.service';
+import { AuthService } from './system/services/auth.service';
 
 @NgModule({
   declarations: [
@@ -58,7 +54,10 @@ import { RequestService } from './system/services/request.service';
     SystemService,
     SessionService,
     LocalService,
+    StorageService,
     RequestService,
+    AuthService,
+    AuthGuard,
 
     /*public interceptor*/
     { provide: HTTP_INTERCEPTORS, useClass: HeaderInterceptor, multi: true },

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { SystemService } from './../../system.service';
 import { Menus } from './../../../config/config';
+import { AuthService } from './../../services/auth.service'
 
 @Component({
   selector: 'app-menu',
@@ -10,7 +11,7 @@ import { Menus } from './../../../config/config';
 })
 export class MenuComponent implements OnInit {
 
-  constructor(private router: Router, private systemService: SystemService) { }
+  constructor(private router: Router, private systemService: SystemService, private authService: AuthService) { }
 
   ngOnInit() {
     //load menus 
@@ -38,6 +39,7 @@ export class MenuComponent implements OnInit {
 
   //sign out
   signOut() {
+    this.authService.setOut()
     this.router.navigateByUrl('/login')
   }
 
