@@ -1,16 +1,27 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import 'hammerjs';
 import { ToastrModule } from 'ngx-toastr';
 
+/*Material*/
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+
+/*ng2-select*/
+// import { SelectModule } from 'ng2-select';
+
+/*ng-bootstrap*/
+import { NgbProgressbarModule } from '@ng-bootstrap/ng-bootstrap';
+
 /*app component*/
 import { AppComponent } from './app.component';
 
 /*module list*/
+import { AppRoutingModule } from './app-routing.module';
 import { SystemModule } from './system/system.module';
-import { TestModule } from './module/test/test.module';
+// import { TestModule } from './module/test/test.module';
 
 /*interceptor list*/
 import { ErrorCheckInterceptor } from './system/interceptors/ErrorCheckInterceptor';
@@ -22,11 +33,6 @@ import { SessionService } from './system/services/session.service';
 import { LocalService } from './system/services/local.service';
 import { RequestService } from './system/services/request.service';
 
-
-const appRoutes: Routes = [
-  { path: '', redirectTo: 'test/alert', pathMatch: 'full' }
-];
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,12 +41,13 @@ const appRoutes: Routes = [
 
     /*angular module*/
     BrowserModule,
+    CommonModule,
     HttpClientModule,
-    RouterModule.forRoot(appRoutes),
+    AppRoutingModule,
     ToastrModule.forRoot({ positionClass: 'toast-bottom-right', progressBar: true }),
 
     /*dev module*/
-    TestModule,
+    // TestModule,
 
     /*system module must the end*/
     SystemModule,

@@ -11,6 +11,11 @@ export class RoleManagerComponent implements OnInit {
 
   ngOnInit() { }
 
+  //
+  showChangePad(role:any){
+    alert(1)
+  }
+
   //角色列表
   roles = [
     { id: 1, parentid: 0, text: '主角色' },

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-tree',
@@ -11,7 +11,11 @@ export class TreeComponent implements OnInit {
 
   ngOnInit() { }
 
-  @Input() trees: Array<{ id: number, parentid: number, text: string }>;
-  @Input() parentid: number=0;
+  @Input() trees: Array<{ id: number, parentid: number, text: string }>
+  @Input() parentid: number = 0
+  @Output() activeOne: EventEmitter<{ id: number, parentid: number, text: string }>
 
+  doClick(obj) {
+    this.activeOne.emit(obj)
+  }
 }

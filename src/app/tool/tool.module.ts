@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { HttpModule } from '@angular/http';
 
 /*Material*/
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MdDialogModule } from '@angular/material';
 
 /*sortablejs*/
@@ -31,7 +30,6 @@ import { TreeComponent } from './components/tree/tree.component';
 @NgModule({
   imports: [
     CommonModule,
-    NoopAnimationsModule,
     MdDialogModule,
     HttpModule,
     SortablejsModule,

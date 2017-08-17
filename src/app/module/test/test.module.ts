@@ -3,8 +3,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
-/*Material*/
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+// /*Material*/
+// import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MdButtonModule, MdDialogModule, MdSelectModule, MdInputModule, MdSlideToggleModule, MdListModule, MdCardModule } from '@angular/material';
 
 /*ng2-charts*/
@@ -51,7 +51,7 @@ import { UploadServiceComponent } from './pages/upload-service/upload-service.co
     CommonModule,
     FormsModule,
     TestRoutingModule,
-    NoopAnimationsModule,
+    // NoopAnimationsModule,
     MdDialogModule,
     MdButtonModule,
     ChartsModule,
@@ -82,5 +82,20 @@ import { UploadServiceComponent } from './pages/upload-service/upload-service.co
     RequestServiceComponent,
     UploadServiceComponent,
   ],
+  exports:[
+    ConfirmWindowComponent,
+    AlertWindowComponent,
+    ChartsDemoComponent,
+    SortableDemoComponent,
+    SelectDemoComponent,
+    TableDemoComponent,
+    FormDemoComponent,
+    LoadingServiceComponent,
+    ToastrDemoComponent,
+    HomeComponent,
+    UploadDemoComponent,
+    RequestServiceComponent,
+    UploadServiceComponent,
+  ]
 })
 export class TestModule { }

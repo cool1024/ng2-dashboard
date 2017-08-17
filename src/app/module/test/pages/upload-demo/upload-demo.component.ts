@@ -20,15 +20,15 @@ export class UploadDemoComponent implements OnInit {
   tryUpload() {
     this.uploadProgress = 0
     let formData = new FormData()
-    formData.append('image', this.file)
-    this.httpClient.request(new HttpRequest('POST', '/admin/login', formData, { reportProgress: true })).subscribe(event => {
+    formData.append('file', this.file)
+    this.httpClient.request(new HttpRequest('POST', '/upload/file', formData, { reportProgress: true })).subscribe(event => {
       if (event.type == HttpEventType.UploadProgress) {
         console.log(event.loaded / event.total)
         this.uploadProgress = Math.round(100 * event.loaded / event.total)
       }
       if (event.type == HttpEventType.Response) {
         this.toastrService.info('upload finished ...', 'notice')
-        console.log(event.body)
+        console.log(event)
       }
     })
   }

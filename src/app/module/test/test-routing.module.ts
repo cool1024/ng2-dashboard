@@ -16,23 +16,23 @@ import { UploadServiceComponent } from './pages/upload-service/upload-service.co
 
 const routes: Routes = [
   /*home page*/
-  { path: '', component: HomeComponent },
+  { path: 'home', component: HomeComponent },
 
   /*tool component*/
-  { path: 'test/confirm', component: ConfirmWindowComponent },
-  { path: 'test/alert', component: AlertWindowComponent },
-  { path: 'test/charts', component: ChartsDemoComponent },
-  { path: 'test/sortable', component: SortableDemoComponent },
-  { path: 'test/select', component: SelectDemoComponent },
-  { path: 'test/table', component: TableDemoComponent },
-  { path: 'test/form', component: FormDemoComponent },
-  { path: 'test/upload', component: UploadDemoComponent },
+  { path: 'confirm', component: ConfirmWindowComponent },
+  { path: 'alert', component: AlertWindowComponent },
+  { path: 'charts', component: ChartsDemoComponent },
+  { path: 'sortable', component: SortableDemoComponent },
+  { path: 'select', component: SelectDemoComponent },
+  { path: 'table', component: TableDemoComponent },
+  { path: 'form', component: FormDemoComponent },
+  { path: 'upload', component: UploadDemoComponent },
 
   /*tool service*/
-  { path: 'test/loading', component: LoadingServiceComponent },
-  { path: 'test/toastr', component: ToastrDemoComponent },
-  { path: 'test/request', component: RequestServiceComponent },
-  { path: 'test/file', component: UploadServiceComponent },
+  { path: 'loading', component: LoadingServiceComponent },
+  { path: 'toastr', component: ToastrDemoComponent },
+  { path: 'request', component: RequestServiceComponent },
+  { path: 'file', component: UploadServiceComponent },
   
 ];
 
