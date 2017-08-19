@@ -20,7 +20,7 @@ import { SystemModule } from './system/system.module';
 import { ErrorCheckInterceptor } from './system/interceptors/ErrorCheckInterceptor';
 import { HeaderInterceptor } from './system/interceptors/HeaderInterceptor';
 
-/*public service*/
+/*public system service*/
 import { SystemService } from './system/system.service';
 import { SessionService } from './system/services/session.service';
 import { LocalService } from './system/services/local.service';
@@ -28,6 +28,10 @@ import { StorageService } from './system/services/storage.service';
 import { RequestService } from './system/services/request.service';
 import { AuthGuard } from './system/services/auth-guard.service';
 import { AuthService } from './system/services/auth.service';
+
+/*public components service*/
+import { HeadbarService } from './system/components/headbar/headbar.service';
+
 
 @NgModule({
   declarations: [
@@ -50,7 +54,7 @@ import { AuthService } from './system/services/auth.service';
   ],
   providers: [
 
-    /*public service*/
+    /*public system service*/
     SystemService,
     SessionService,
     LocalService,
@@ -58,6 +62,9 @@ import { AuthService } from './system/services/auth.service';
     RequestService,
     AuthService,
     AuthGuard,
+
+    /*public components service*/
+    HeadbarService,
 
     /*public interceptor*/
     { provide: HTTP_INTERCEPTORS, useClass: HeaderInterceptor, multi: true },

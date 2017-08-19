@@ -17,7 +17,7 @@ export class AppComponent {
   mnImage = `url(${this.systemService.theme.mnImage})`
 
   isLoginPage(): boolean {
-    return this.router.url == '/login' || this.authService.isLoggedIn
+    return this.router.url == '/login' || !this.authService.isLoggedIn
   }
 
 }

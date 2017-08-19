@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
+import { HeadbarService } from './headbar.service';
 import { SystemService } from './../../system.service';
-import { ActivatedRoute, Router, NavigationEnd} from '@angular/router';
+import { Breadcrumb } from './../../class/breadcrumb';
 import 'rxjs/add/operator/filter';
 
 @Component({
@@ -10,14 +12,13 @@ import 'rxjs/add/operator/filter';
 })
 export class HeadbarComponent implements OnInit {
 
-  constructor(private systemService: SystemService, private router: Router, private activatedRoute: ActivatedRoute) { }
+  constructor(private systemService: SystemService, private headbarService: HeadbarService, private router: Router) { }
 
   ngOnInit() {
     //捕获路由跳转事件，获取当前路由的面包屑导航信息
-    this.router.events.subscribe(event => {
-      console.log(event)
-    })
-    //filter(event => event instanceof NavigationEnd)
+    // this.router.events.filter(event => event instanceof NavigationEnd).subscribe(event => {
+    //   console.log(this.router.config)
+    // })
   }
 
   //修改系统主题
@@ -25,7 +26,7 @@ export class HeadbarComponent implements OnInit {
 
   //修改菜单尺寸
   changeMenuSize() {
-    this.systemService.menuSetting.size = this.systemService.menuSetting.size == 'sm' ? 'lg' : 'sm'
+    this.systemService.menuSetting.size = (this.systemService.menuSetting.size == 'sm' ? 'lg' : 'sm')
   }
 
   //系统菜单配置参数
@@ -35,5 +36,5 @@ export class HeadbarComponent implements OnInit {
   theme: any = this.systemService.theme
 
   //面包屑导航列表
-  breadcrumbs: Array<any>
+  breadcrumbs: Array<Breadcrumb> = this.headbarService.breadcrumbs
 }
