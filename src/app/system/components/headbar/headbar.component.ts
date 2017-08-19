@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SystemService } from './../../system.service';
+import { ActivatedRoute, Router, NavigationEnd} from '@angular/router';
+import 'rxjs/add/operator/filter';
 
 @Component({
   selector: 'app-headbar',
@@ -8,19 +10,30 @@ import { SystemService } from './../../system.service';
 })
 export class HeadbarComponent implements OnInit {
 
-  constructor(private systemService: SystemService) { }
+  constructor(private systemService: SystemService, private router: Router, private activatedRoute: ActivatedRoute) { }
 
-  ngOnInit() { }
-
-  changeTheme() {
-
+  ngOnInit() {
+    //捕获路由跳转事件，获取当前路由的面包屑导航信息
+    this.router.events.subscribe(event => {
+      console.log(event)
+    })
+    //filter(event => event instanceof NavigationEnd)
   }
 
+  //修改系统主题
+  changeTheme() { }
+
+  //修改菜单尺寸
   changeMenuSize() {
     this.systemService.menuSetting.size = this.systemService.menuSetting.size == 'sm' ? 'lg' : 'sm'
   }
 
+  //系统菜单配置参数
   menuSetting = this.systemService.menuSetting
 
+  //系统主题配置参数
   theme: any = this.systemService.theme
+
+  //面包屑导航列表
+  breadcrumbs: Array<any>
 }

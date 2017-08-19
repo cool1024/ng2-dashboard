@@ -7,7 +7,7 @@ import { SortablejsModule } from 'angular-sortablejs';
 import { SystemRoutingModule } from './system-routing.module';
 
 /*tool module*/
-import { ToolModule } from './../tool/tool.module';
+import { ToolModule } from './../system/tools/tool.module';
 
 /*system components*/
 import { MenuComponent } from './components/menu/menu.component';

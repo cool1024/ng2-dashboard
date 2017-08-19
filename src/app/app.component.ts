@@ -1,5 +1,6 @@
 import { Component, ViewContainerRef } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from './system/services/auth.service';
 import { SystemService } from './system/system.service';
 
 @Component({
@@ -9,14 +10,14 @@ import { SystemService } from './system/system.service';
 })
 export class AppComponent {
 
-  constructor(private systemService: SystemService, private router: Router) { }
+  constructor(private systemService: SystemService, private authService: AuthService, private router: Router) { }
 
   minSetting = this.systemService.menuSetting
 
   mnImage = `url(${this.systemService.theme.mnImage})`
 
   isLoginPage(): boolean {
-    return this.router.url == '/login'
+    return this.router.url == '/login' || this.authService.isLoggedIn
   }
 
 }

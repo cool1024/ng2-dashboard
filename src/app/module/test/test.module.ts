@@ -25,7 +25,7 @@ import 'prismjs/components/prism-typescript';
 import { Ng2HandySyntaxHighlighterModule } from 'ng2-handy-syntax-highlighter';
 
 /*tool-module*/
-import { ToolModule } from './../../tool/tool.module';
+import { ToolModule } from './../../system/tools/tool.module';
 
 /*引入路由模块*/
 import { TestRoutingModule } from './test-routing.module'

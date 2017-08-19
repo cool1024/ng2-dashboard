@@ -19,7 +19,7 @@ export class MenuSettingComponent implements OnInit {
     this.dialog.open(MenuChildrenDialog, { data: childs });
   }
 
-  //menu list
+  //菜单列表
   menus = new Array<{ icon: string, title: string, childs: Array<any> }>()
 }
 
