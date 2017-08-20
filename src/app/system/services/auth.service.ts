@@ -7,7 +7,7 @@ export class AuthService {
   constructor(private storageService: StorageService) { }
 
   //是否登入
-  isLoggedIn = false
+  isLoggedIn = true
 
   //跳转页面
   redirectUrl = ''

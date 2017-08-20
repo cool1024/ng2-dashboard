@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Storage } from './../interfaces/storage';
-import { Config, StorageSetting, StorageType } from './../../config/config';
+import { StorageSetting, StorageType } from './../../config/storage';
 import { SessionService } from './../services/session.service';
 import { LocalService } from './../services/local.service';
 
@@ -27,8 +27,7 @@ export class StorageService {
     this.storageService.setToken(params)
   }
 
-  cleanAll(){
+  cleanAll() {
     this.storageService.cleanAll()
-    //this.storageService.cleanAll()
   }
 }

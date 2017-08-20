@@ -26,7 +26,7 @@
         </div>
     </div>
     <hr class="menu-line">
-    <div class="menu-list" [ngClass]="{'menu-list-active': isCollopseArray[mainIndex+1]}" *ngFor="let main of menus;index as mainIndex">
+    <div class="menu-list" [ngStyle]="{'background-color': isCollopseArray[mainIndex+1]?themeConfig.childsBgColor:'transparent'}" *ngFor="let main of menus;index as mainIndex">
         <div class="menu-item-main pl-4 hover-item" (click)="isCollopseArray[mainIndex+1]==true?closeMenu(mainIndex+1):listMenu(mainIndex+1)">
             <i class="{{main.icon}} icon"></i>
             <span class="ml-4">{{main.title}}</span>
@@ -34,7 +34,7 @@
         </div>
         <ng-template ngFor let-item [ngForOf]="main.childs">
             <div class="menu-block" *ngIf="isCollopseArray[mainIndex+1]">
-                <div routerLink="{{item.url}}" routerLinkActive="active" class="menu-item-child pl-4 hover-item">
+                <div routerLink="{{item.url}}" class="menu-item-child pl-4 hover-item" [ngStyle]="{'color': isActiveMenu(item.url)?themeConfig.activeColor:themeConfig.childsColor,'background-color':isActiveMenu(item.url)?themeConfig.activeBgColor:'transparent'}">
                     <i class="{{item.icon}} icon"></i>
                     <span class="ml-4">{{item.title}}</span>
                 </div>

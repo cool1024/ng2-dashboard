@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Storage } from './../interfaces/storage';
-import { StorageSetting } from './../../config/config';
+import { StorageSetting } from './../../config/storage';
 
 @Injectable()
 export class LocalService implements Storage {

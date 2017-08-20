@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MdDialog, MD_DIALOG_DATA } from '@angular/material';
-import { Menus } from './../../../config/config';
+import { Menus } from './../../../config/menus';
 
 @Component({
   selector: 'app-menu-setting',

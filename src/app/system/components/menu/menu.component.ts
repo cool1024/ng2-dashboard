@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { SystemService } from './../../system.service';
-import { Menus } from './../../../config/config';
+import { Menus } from './../../../config/menus';
 import { AuthService } from './../../services/auth.service'
 
 @Component({
@@ -34,7 +34,6 @@ export class MenuComponent implements OnInit {
   //is a active menu
   isActiveMenu(url: string) {
     return this.router.url == url
-
   }
 
   //sign out

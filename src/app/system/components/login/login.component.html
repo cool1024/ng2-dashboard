@@ -19,13 +19,13 @@
             </div>
             <form #loginForm="ngForm" (ngSubmit)="doLogin()">
                 <div class="login-input">
-                    <span class="fa fa-user pl-2 pr-2"></span>
-                    <input name="email" #email="ngModel" [(ngModel)]="loginParams.email" type="text" placeholder="your emali" required>
+                    <span class="{{loginPageConfig.inputs[0].icon}} pl-2 pr-2"></span>
+                    <input name="email" #email="ngModel" [(ngModel)]="loginParams.email" type="text" placeholder="{{loginPageConfig.inputs[0].placeholder}}" required>
                 </div>
                 <br>
                 <div class="login-input">
-                    <span class="fa fa-key pl-2 pr-2" aria-hidden="true"></span>
-                    <input name="password" #password="ngModel" [(ngModel)]="loginParams.password" type="password" placeholder="your password" required>
+                    <span class="{{loginPageConfig.inputs[1].icon}} pl-2 pr-2" aria-hidden="true"></span>
+                    <input name="password" #password="ngModel" [(ngModel)]="loginParams.password" type="password" placeholder="{{loginPageConfig.inputs[1].placeholder}}" required>
                 </div>
                 <br>
                 <div>
@@ -35,6 +35,6 @@
                 </div>
             </form>
         </div>
-        <footer class="fixed-bottom text-center window-header"><i>Copyright © 2016 XiaoJian. All Rights Reserved.| 赣 ICP备16010587号</i></footer>
+        <footer class="fixed-bottom text-center window-header"><i>{{loginPageConfig.footer}}</i></footer>
     </div>
 </div>

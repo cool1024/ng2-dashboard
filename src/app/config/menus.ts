@@ -1,36 +1,5 @@
-/*default menus*/
-export const Config = {
-    SERVER: {
-        server: 'http://127.0.0.1',
-        source: 'http://127.0.0.1',
-    },
-    THEME: {
-        bgColor: "rgba(0, 0, 0, 0.62)",
-        fontColor: "white",
-        activeColor: "white",
-        bgImage: "/assets/image/avatar/6.jpg",
-        mnImage:"/assets/image/siderbar/3.png"
-    },
-    CONTENT: {
-        title: "NG2-DASHBOARD",
-        version: "1.0.0",
-        icon: "/favicon.ico",
-    }
-}
+/*系统默认菜单设置&此文件仅在开发环境下有效*/
 
-/*default token&cache*/
-export enum StorageType {
-    localStorage = 1,
-    sessionStorage = 2
-}
-export const StorageSetting = {
-    tokensSaveMethod: StorageType.sessionStorage,
-    dataSaveMethod: StorageType.sessionStorage,
-    tokenParams: ['ng-params-one', 'ng-params-two']
-}
-
-
-/*default menus */
 export const Menus = [
     {
         icon: "fa fa-cog", title: "系统设置", childs: [
@@ -56,17 +25,7 @@ export const Menus = [
             { icon: "fa fa-comments-o", title: "通知消息", url: "/test/toastr" },
             { icon: "fa fa-internet-explorer", title: "发送请求", url: "/test/request" },
             { icon: "fa fa-cloud-upload", title: "上传服务", url: "/test/file" },
-            
+
         ]
     }
 ]
-
-/*login page setting*/
-export const LoginPageConfig={
-    icon:'fa fa-wechat fa-fw',
-    title:'Hello1024 Manager',
-    description:'version 2.0.1 2017.8.29@xiaojian',
-    avatar:'/assets/image/avatar/2.jpg',
-    button:'Login',
-    bgImage:'/assets/image/card/3.jpg'
-}

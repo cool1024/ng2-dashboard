@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Config, LoginPageConfig } from '../config/config';
+import { Config } from '../config/system';
+import { LoginPageConfig } from './../config/login';
 
 @Injectable()
 export class SystemService {
@@ -10,16 +11,12 @@ export class SystemService {
     this.config.content = Config.CONTENT
   }
 
-  get theme(): { bgColor: string, fontColor: string, activeColor: string, bgImage: string, mnImage: string } {
+  get theme(): any {
     return this.config.theme
   }
 
-  set theme(theme: { bgColor: string, fontColor: string, activeColor: string, bgImage: string, mnImage: string }) {
-    this.config.theme.bgColor = theme.bgColor
-    this.config.theme.fontColor = theme.fontColor
-    this.config.theme.activeColor = theme.activeColor
-    this.config.theme.bgImage = theme.bgImage
-    this.config.theme.mnImage = theme.mnImage
+  set theme(theme: any) {
+    this.theme = theme
   }
 
   get server(): { url: string, source: string } {
@@ -38,9 +35,9 @@ export class SystemService {
     this.menuConfig.size = config.size || this.menuConfig.size
   }
 
-  private menuConfig: { size: string } = { size: 'lg' }
+  public menuConfig: { size: string } = { size: 'lg' }
 
-  private config: { theme: any, server: any, content: any } = { theme: {}, server: {}, content: {} }
+  public config: { theme: any, server: any, content: any } = { theme: {}, server: {}, content: {} }
 
   public loginPageConfig = LoginPageConfig;
 
