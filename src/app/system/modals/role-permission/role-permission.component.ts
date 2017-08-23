@@ -2,14 +2,15 @@ import { Component, Input } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  selector: 'app-role-info',
-  templateUrl: './role-info.component.html',
-  styleUrls: ['./role-info.component.scss']
+  templateUrl: './role-permission.component.html',
+  styleUrls: ['./role-permission.component.scss']
 })
-export class RoleInfoComponent {
+export class RolePermissionComponent{
 
-  @Input() role: any
+  @Input() role: any  
 
   constructor(public activeModal: NgbActiveModal) { }
+
+  ngOnInit() { }
 
 }

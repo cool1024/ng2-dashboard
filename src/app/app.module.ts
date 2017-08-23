@@ -45,7 +45,7 @@ import { HeadbarService } from './system/components/headbar/headbar.service';
     HttpClientModule,
     AppRoutingModule,
     ToastrModule.forRoot({ positionClass: 'toast-bottom-right', progressBar: true }),
-
+    NoopAnimationsModule,
     /*dev module*/
     // TestModule,
 

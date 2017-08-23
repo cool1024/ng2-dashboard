@@ -3,7 +3,7 @@
     <span class="breadcrumb-item active"><i class="fa fa-users fa-fw fa-lg" aria-hidden="true"></i>角色管理</span>
 </nav>
 <div class="card rounded-0 role-card">
-    <div class="card-header"><i class="fa fa-users fa-fw"></i>角色列表</div>
+    <!-- <div class="card-header"><i class="fa fa-users fa-fw"></i>角色列表</div> -->
     <div class="card-body">
         <!-- <app-tree [trees]="roles" (activeOne)="showChangePad($event)"></app-tree> -->
         <table class="table table-striped">
@@ -16,13 +16,14 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let item of roles">
+                <tr *ngFor="let item of roles;index as i">
                     <th scope="row">{{item.id}}</th>
                     <td cass="border border-primary">{{item.name}}</td>
                     <td>{{item.description}}</td>
                     <td>
-                        <button class="btn btn-sm btn-info"><i class="fa fa-edit fa-fw"></i>编辑</button>
-                        <button class="btn btn-sm btn-danger"><i class="fa fa-trash fa-fw"></i>删除</button>
+                        <button (click)="openInfoChangeModal(i)" class="btn btn-sm btn-info"><i class="fa fa-edit fa-fw"></i>编辑</button>
+                        <button (click)="openPermissionChangeModal(i)" class="btn btn-sm btn-warning"><i class="fa fa-lock fa-fw"></i>认可</button>                        
+                        <button (click)="deleteRole(i)" class="btn btn-sm btn-danger"><i class="fa fa-trash fa-fw"></i>删除</button>
                     </td>
                 </tr>
             </tbody>

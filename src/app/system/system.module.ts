@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { MdButtonModule, MdInputModule, MdDialogModule, MdMenuModule } from '@angular/material';
+import { MdButtonModule, MdInputModule, MdDialogModule, MdMenuModule, MdCheckboxModule } from '@angular/material';
 import { SortablejsModule } from 'angular-sortablejs';
 import { SystemRoutingModule } from './system-routing.module';
+
+/*ng-bootstrap*/
+import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 
 /*tool module*/
 import { ToolModule } from './../system/tools/tool.module';
@@ -20,19 +22,21 @@ import { Error404Component } from './pages/error404/error404.component';
 import { PermissionManagerComponent } from './pages/permission-manager/permission-manager.component';
 import { RoleManagerComponent } from './pages/role-manager/role-manager.component';
 import { RoleInfoComponent } from './modals/role-info/role-info.component';
+import { RolePermissionComponent } from './modals/role-permission/role-permission.component';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     SortablejsModule,
+    NgbModalModule.forRoot(),
 
     /*material module*/
-    NoopAnimationsModule,
     MdButtonModule,
     MdInputModule,
     MdDialogModule,
     MdMenuModule,
+    MdCheckboxModule,
 
     /*system module*/
     SystemRoutingModule,
@@ -50,9 +54,12 @@ import { RoleInfoComponent } from './modals/role-info/role-info.component';
     PermissionManagerComponent,
     RoleManagerComponent,
     RoleInfoComponent,
+    RolePermissionComponent,
   ],
   entryComponents: [
     MenuChildrenDialog,
+    RoleInfoComponent,
+    RolePermissionComponent,
   ],
   exports: [MenuComponent, HeadbarComponent, LoginComponent]
 })
