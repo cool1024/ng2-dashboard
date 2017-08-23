@@ -2,9 +2,35 @@
     <a class="breadcrumb-item" routerLink="/"><i class="fa fa-home fa-fw fa-lg" aria-hidden="true"></i>首页</a>
     <span class="breadcrumb-item active"><i class="fa fa-users fa-fw fa-lg" aria-hidden="true"></i>角色管理</span>
 </nav>
-<div class="card rounded-0">
-    <div class="card-header"><i class="fa fa-users fa-fw"></i>Role List</div>
+<div class="card rounded-0 role-card">
+    <div class="card-header"><i class="fa fa-users fa-fw"></i>角色列表</div>
     <div class="card-body">
         <!-- <app-tree [trees]="roles" (activeOne)="showChangePad($event)"></app-tree> -->
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th class="border-0">编号</th>
+                    <th class="border-0">角色名称</th>
+                    <th class="border-0">描述</th>
+                    <th class="border-0">操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of roles">
+                    <th scope="row">{{item.id}}</th>
+                    <td cass="border border-primary">{{item.name}}</td>
+                    <td>{{item.description}}</td>
+                    <td>
+                        <button class="btn btn-sm btn-info"><i class="fa fa-edit fa-fw"></i>编辑</button>
+                        <button class="btn btn-sm btn-danger"><i class="fa fa-trash fa-fw"></i>删除</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-right pr-3">
+        <button class="btn btn-outline-secondary border-0 mr-3">共 {{this.page.total}} 条记录</button>
+        <app-pagination class="pull-right" (pageChange)="pageChanged($event)" [ellipses]="true" [collectionSize]="this.page.total" [(page)]="this.page.page" [pageSize]="this.page.limit" [maxSize]="5"></app-pagination>
     </div>
 </div>
+<br>

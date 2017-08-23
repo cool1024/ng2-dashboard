@@ -2,7 +2,7 @@ export class Page {
   constructor(public total: number = 0, public page: number = 1, public limit = 10) { }
 
   get offset(): number {
-    return (this.page - 1) * this.offset
+    return (this.page - 1) * this.limit
   }
 
   get pageData(): any {

@@ -19,6 +19,7 @@ import { MenuSettingComponent, MenuChildrenDialog } from './pages/menu-setting/m
 import { Error404Component } from './pages/error404/error404.component';
 import { PermissionManagerComponent } from './pages/permission-manager/permission-manager.component';
 import { RoleManagerComponent } from './pages/role-manager/role-manager.component';
+import { RoleInfoComponent } from './modals/role-info/role-info.component';
 
 @NgModule({
   imports: [
@@ -48,6 +49,7 @@ import { RoleManagerComponent } from './pages/role-manager/role-manager.componen
     Error404Component,
     PermissionManagerComponent,
     RoleManagerComponent,
+    RoleInfoComponent,
   ],
   entryComponents: [
     MenuChildrenDialog,
