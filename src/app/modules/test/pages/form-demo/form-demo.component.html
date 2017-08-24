@@ -2,6 +2,15 @@
     <a class="breadcrumb-item" routerLink="/"><i class="fa fa-home fa-fw fa-lg" aria-hidden="true"></i>首页</a>
 </nav>
 <div class="card rounded-0">
+    <div class="card-header"><i class="fa fa-file-text-o"></i> 特别的按钮</div>
+    <div class="card-body">
+        <button type="button" loading title="确认修改" class="btn btn-success" #btn1="btnLoading" (click)="submitForm(btn1)"></button>
+        <button type="button" loading title="确认修改" class="btn btn-warning" #btn2="btnLoading" (click)="submitForm(btn2)"></button>
+        <button type="button" loading title="确认修改" class="btn btn-outline-info" #btn3="btnLoading" (click)="submitForm(btn3)"></button>
+        <button type="button" loading title="确认修改" class="btn btn-outline-secondary" #btn4="btnLoading" (click)="submitForm(btn4)"></button>
+    </div>
+</div>
+<div class="card rounded-0">
     <div class="card-header"><i class="fa fa-file-text-o"></i> Bootstrap Form</div>
     <div class="card-body">
         <form #testForm="ngForm" (ngSubmit)="doSubmit()">

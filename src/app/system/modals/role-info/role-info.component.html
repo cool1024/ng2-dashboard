@@ -1,26 +1,25 @@
 <div class="modal-header">
-    <h5 class="modal-title" id="exampleModalLabel">Change Role Info</h5>
-    <button type="button" class="close" (click)="activeModal.dismiss('Cross click')" aria-label="Close">
+    <h5 class="modal-title" id="exampleModalLabel">{{role.name}}@信息编辑</h5>
+    <button type="button" class="close pointer" (click)="close()" aria-label="Close">
         <span aria-hidden="true">&times;</span>
     </button>
 </div>
 <div class="modal-body">
     <form>
         <div class="form-group">
-            <label for="recipient-name" class="form-control-label">Name:</label>
+            <label for="recipient-name" class="form-control-label">角色名称:</label>
             <input type="text" class="form-control" id="recipient-name" name="name" [(ngModel)]="role.name">
         </div>
         <div class="form-group">
-            <label for="message-text" class="form-control-label">Description:</label>
+            <label for="message-text" class="form-control-label">角色描述:</label>
             <textarea class="form-control" id="message-text" name="description" [(ngModel)]="role.description"></textarea>
         </div>
     </form>
 </div>
 <div class="modal-footer">
-    <button type="button" class="btn btn-secondary" (click)="activeModal.close('Close click')">
+    <button type="button" class="btn btn-secondary" (click)="close()">
         <!-- <i class="fa fa-angle-left fa-fw"></i> -->
-        Close</button>
-    <button type="button" class="btn btn-success" (click)="activeModal.close('Close click')">
-        <!-- <i class="fa fa-check fa-fw"></i> -->
-        Confirm</button>    
+        <span>取消/返回</span>
+    </button>
+    <button type="button" loading title="确认修改" class="btn btn-success" #button="btnLoading" (click)="applayInfoChange(button)"></button>
 </div>

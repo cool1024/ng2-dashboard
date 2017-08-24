@@ -40,7 +40,7 @@ export class RoleManagerComponent implements OnInit {
     const modalRef = this.modalService.open(RoleInfoComponent)
     modalRef.componentInstance.role = this.roles[index]
   }
-  
+
   //open role edit pad
   openPermissionChangeModal(index: number) {
     const modalRef = this.modalService.open(RolePermissionComponent)
@@ -51,11 +51,15 @@ export class RoleManagerComponent implements OnInit {
   deleteRole(index: number) {
     let dialogRef = this.dialog.open(DialogDanger, {
       data: {
-        title: "Danger Message",
-        message: "你确定要这么做,操作不可恢复?!"
+        title: "风险提示",
+        message: `您确认删除角色 '${this.roles[index].name}',操作不可恢复?！`
       }
     })
-    dialogRef.afterClosed().subscribe(result => { console.log(result ? "你选择了确认" : "你选择了关闭") })
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.roles.splice(index, 1)
+      }
+    })
   }
 
 }

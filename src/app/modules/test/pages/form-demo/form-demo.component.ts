@@ -23,6 +23,12 @@ export class FormDemoComponent implements OnInit {
     console.log(this.form)
   }
 
+  submitForm(btn: any) {
+    setTimeout(_ => {
+      btn.complete = true
+    }, 2000)
+  }
+
   //disabled the input
   disabled = false;
 
