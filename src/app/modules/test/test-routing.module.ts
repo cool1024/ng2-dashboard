@@ -27,7 +27,7 @@ const routes: Routes = [
   { path: 'table', component: TableDemoComponent },
   { path: 'form', component: FormDemoComponent },
   { path: 'upload', component: UploadDemoComponent },
-
+  
   /*tool service*/
   { path: 'loading', component: LoadingServiceComponent },
   { path: 'toastr', component: ToastrDemoComponent },

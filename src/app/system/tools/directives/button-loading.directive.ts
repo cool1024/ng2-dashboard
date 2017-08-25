@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef } from '@angular/core';
+import { Component, OnInit, ElementRef, OnChanges, SimpleChanges } from '@angular/core';
 
 @Component({
     selector: 'button[loading]',
@@ -6,27 +6,36 @@ import { Component, OnInit, ElementRef } from '@angular/core';
         <i [hidden]="!complete" class="fa fa-spinner fa-pulse"></i>
         <span>{{title}}</span>
     `,
-    inputs: ['title'],
+    inputs: ['title', 'loading', 'disabled'],
     host: {
         '(click)': 'showLoading()'
     },
     exportAs: 'btnLoading'
 })
-export class ButtonLoadingDirective {
+export class ButtonLoadingDirective implements OnChanges {
 
     title: string
 
+    loading = false
+
+    disabled = false
+
     constructor(private elementRef: ElementRef) { }
 
-    set complete(disabled: boolean) {
-        this.elementRef.nativeElement.disabled = !disabled
+    ngOnChanges() {
+        this.elementRef.nativeElement.disabled = this.disabled
+    }
+
+    set complete(ready: boolean) {
+        this.elementRef.nativeElement.disabled = !ready||this.disabled
+        this.loading = !ready
     }
 
     get complete(): boolean {
-        return this.elementRef.nativeElement.disabled
+        return this.loading
     }
 
     showLoading() {
-        this.elementRef.nativeElement.disabled = true
+        this.complete = false
     }
 }

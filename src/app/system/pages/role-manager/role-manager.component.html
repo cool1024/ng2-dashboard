@@ -3,7 +3,11 @@
     <span class="breadcrumb-item active"><i class="fa fa-users fa-fw fa-lg" aria-hidden="true"></i>角色管理</span>
 </nav>
 <div class="card rounded-0 role-card">
-    <!-- <div class="card-header"><i class="fa fa-users fa-fw"></i>角色列表</div> -->
+    <div class="card-header">
+        <i class="fa fa-users fa-fw"></i>
+        <span>角色列表</span>
+        <span (click)="openAddRoleMoal()" class="pull-right text-primary pointer"><i class="fa fa-plus fa-fw"></i>添加新角色</span>
+    </div>
     <div class="card-body">
         <!-- <app-tree [trees]="roles" (activeOne)="showChangePad($event)"></app-tree> -->
         <table class="table table-striped">

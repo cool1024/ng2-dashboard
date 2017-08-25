@@ -1,0 +1,51 @@
+<div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLabel">@创建新角色</h5>
+    <button type="button" class="close pointer" (click)="close()" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <form #addForm="ngForm">
+        <div class="form-group">
+            <label class="form-control-label">角色名称:</label>
+            <input type="text" class="form-control rounded-0" id="recipient-name" name="name" [(ngModel)]="role.name" placeholder="请输入角色名称" required>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label">上级角色:</label>
+            <select class="form-control custom-select rounded-0" name="parent" [(ngModel)]="role.parentid" name="type" required>
+                <option value="0">无上级角色</option>
+                <option value="1">超级管理员</option>
+                <option value="2">普通管理员</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label">角色描述:</label>
+            <textarea class="form-control rounded-0" id="message-text" name="description" maxlength="100" [(ngModel)]="role.description" placeholder="请输入角色描述" required></textarea>
+            <p class="text-right">{{role.description.length}}/100</p>
+        </div>
+        <div>
+            <label class="form-control-label">权限分配:</label>
+            <div class="border border-muted p-2">
+                <p>系统设置</p>
+                <div class="mt-2">
+                    <md-slide-toggle color="warn" (change)="reversePermission(1)" [checked]="hasPermission(1)">
+                        <span [ngClass]="{'text-danger': hasPermission(1),'text-muted':!hasPermission(1)}">菜单设置</span>
+                    </md-slide-toggle>
+                    <md-slide-toggle color="warn" (change)="reversePermission(2)" [checked]="hasPermission(2)">
+                        <span [ngClass]="{'text-danger': hasPermission(2),'text-muted':!hasPermission(2)}">角色管理</span>
+                    </md-slide-toggle>
+                    <md-slide-toggle color="warn" (change)="reversePermission(3)" [checked]="hasPermission(3)">
+                        <span [ngClass]="{'text-danger': hasPermission(3),'text-muted':!hasPermission(3)}">权限分配</span>
+                    </md-slide-toggle>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="close()">
+        <!-- <i class="fa fa-angle-left fa-fw"></i> -->
+        <span>取消/返回</span>
+    </button>
+    <button type="button" [disabled]="!addForm.form.valid" loading title="确认添加" class="btn btn-success" #button="btnLoading" (click)="addNewRole(button)"></button>
+</div>

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { MdButtonModule, MdInputModule, MdDialogModule, MdMenuModule, MdCheckboxModule } from '@angular/material';
+import { MdButtonModule, MdInputModule, MdDialogModule, MdMenuModule, MdCheckboxModule, MdSlideToggleModule,MdListModule } from '@angular/material';
 import { SortablejsModule } from 'angular-sortablejs';
 import { SystemRoutingModule } from './system-routing.module';
 
@@ -21,8 +21,12 @@ import { MenuSettingComponent, MenuChildrenDialog } from './pages/menu-setting/m
 import { Error404Component } from './pages/error404/error404.component';
 import { PermissionManagerComponent } from './pages/permission-manager/permission-manager.component';
 import { RoleManagerComponent } from './pages/role-manager/role-manager.component';
+
+/*modals list*/
 import { RoleInfoComponent } from './modals/role-info/role-info.component';
 import { RolePermissionComponent } from './modals/role-permission/role-permission.component';
+import { RoleAddComponent } from './modals/role-add/role-add.component';
+import { PermissionEditComponent } from './modals/permission-edit/permission-edit.component';
 
 @NgModule({
   imports: [
@@ -37,7 +41,9 @@ import { RolePermissionComponent } from './modals/role-permission/role-permissio
     MdDialogModule,
     MdMenuModule,
     MdCheckboxModule,
-
+    MdSlideToggleModule,
+    MdListModule,
+    
     /*system module*/
     SystemRoutingModule,
 
@@ -55,11 +61,15 @@ import { RolePermissionComponent } from './modals/role-permission/role-permissio
     RoleManagerComponent,
     RoleInfoComponent,
     RolePermissionComponent,
+    RoleAddComponent,
+    PermissionEditComponent,
   ],
   entryComponents: [
     MenuChildrenDialog,
     RoleInfoComponent,
     RolePermissionComponent,
+    RoleAddComponent,
+    PermissionEditComponent,
   ],
   exports: [MenuComponent, HeadbarComponent, LoginComponent]
 })

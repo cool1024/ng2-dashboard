@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormCheckService } from './../../../../system/services/form-check.service';
+import { Http } from '@angular/http';
 
 @Component({
   selector: 'app-form-demo',
@@ -9,7 +10,7 @@ import { FormCheckService } from './../../../../system/services/form-check.servi
 })
 export class FormDemoComponent implements OnInit {
 
-  constructor(private formCheckService: FormCheckService) { }
+  constructor(private formCheckService: FormCheckService, private http: Http) { }
 
   ngOnInit() { }
 

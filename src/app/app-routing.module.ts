@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes, PreloadAllModules } from '@angular/router';
 import { AuthGuard } from './system/services/auth-guard.service';
 
 const routes: Routes = [
@@ -7,13 +7,13 @@ const routes: Routes = [
   { path: '', redirectTo: '/system/menu', pathMatch: 'full' },
 
   //懒加载子模块
-  { path: 'test', loadChildren: 'app/modules/test/test.module#TestModule' ,canActivate:[AuthGuard]},
+  { path: 'test', loadChildren: 'app/modules/test/test.module#TestModule', canActivate: [AuthGuard] },
 
 ];
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
   ],
   exports: [
     RouterModule

@@ -8,7 +8,11 @@ export class RoleManagerService {
 
   constructor(private req: RequestService) { }
 
-  getRoles(params: any): Observable<ApiData> {    
-    return this.req.get('/role/search', params);
+  getRoles(params: any): Observable<ApiData> {
+    return this.req.get('/role/search', params)
+  }
+
+  deleteRole(roleid: number): Observable<ApiData> {
+    return this.req.delete('/role/delete', { roleid })
   }
 }
