@@ -79,4 +79,9 @@ export class RoleManagerComponent implements OnInit {
     })
   }
 
+  //on page changed
+  pageChanged($event){
+    
+  }
+
 }
