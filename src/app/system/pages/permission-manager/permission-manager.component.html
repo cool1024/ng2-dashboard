@@ -3,24 +3,19 @@
     <span class="breadcrumb-item active"><i class="fa fa-lock fa-fw fa-lg" aria-hidden="true"></i>权限设置</span>
 </nav>
 <div class="card">
-    <div class="card-header">权限分配</div>
+    <div class="card-header">
+        <span>权限分配</span>
+        <a (click)="showAddModelModal()" class="btn-link text-success pointer pull-right"><i class="fa fa-plus fa-fw"></i>添加权限模块</a>
+    </div>
     <div class="card-body">
         <div class="row">
             <div class="col-4 border border-muted border-top-0 border-bottom-0 border-left-0">
                 <md-nav-list>
                     <!-- <h3 md-subheader>权限模块</h3> -->
-                    <md-list-item *ngFor="let model of permissionsModels" (click)="this.activeModelId=model.id">
+                    <md-list-item *ngFor="let model of permissionsModels;index as i" (click)="this.activeModelIndex=i">
                         <a md-line>{{model.name}}</a>
                         <span class="text-muted"><i class="fa fa-angle-right fa-lg"></i></span>
                     </md-list-item>
-                    <!-- <md-list-item>
-                        <a md-line>内置服务</a>
-                        <span class="text-muted"><i class="fa fa-angle-right fa-lg"></i></span>
-                    </md-list-item>
-                    <md-list-item>
-                        <a md-line>工具测试</a>
-                        <span class="text-muted"><i class="fa fa-angle-right fa-lg"></i></span>
-                    </md-list-item> -->
                 </md-nav-list>
             </div>
             <div class="col-8">
@@ -28,28 +23,19 @@
                     <tbody>
                         <tr *ngFor="let permission of getActiveModelPermissions">
                             <td>{{permission.name}}</td>
-                            <td>
-                                <button (click)="showChangeModal(0)" class="btn btn-sm btn-info"><i class="fa fa-edit fa-fw"></i>编辑</button>
+                            <td class="text-right">
+                                <button (click)="showChangePermissionModal(0)" class="btn btn-sm btn-info"><i class="fa fa-edit fa-fw"></i>编辑</button>
                                 <button (click)="deletePermission(0)" class="btn btn-sm btn-danger"><i class="fa fa-remove fa-fw"></i>删除</button>
                             </td>
                         </tr>
-                        <!-- <tr>
-                            <td>管理系统角色</td>
-                            <td>
-                                <button class="btn btn-sm btn-info"><i class="fa fa-edit fa-fw"></i>编辑</button>
-                                <button class="btn btn-sm btn-danger"><i class="fa fa-remove fa-fw"></i>删除</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>管理系统权限</td>
-                            <td>
-                                <button class="btn btn-sm btn-info"><i class="fa fa-edit fa-fw"></i>删除</button>
-                                <button class="btn btn-sm btn-danger"><i class="fa fa-remove fa-fw"></i>编辑</button>
-                            </td>
-                        </tr> -->
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
 </div>
+<div class="text-right mt-2">
+    <button (click)="showAddPermissionModal()" class="btn btn-primary"><i class="fa fa-plus fa-fw"></i>添加权限</button>
+    <button class="btn btn-dark"><i class="fa fa-info fa-fw"></i>权限预览</button>
+</div>
+<br>

@@ -15,7 +15,7 @@ export class StorageService {
 
     }
     if (StorageSetting.tokensSaveMethod == StorageType.sessionStorage) {
-      this.storageService = this.sessionService
+      this.storageService = sessionService
     }
   }
 

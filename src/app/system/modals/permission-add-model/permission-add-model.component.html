@@ -1,0 +1,25 @@
+<div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLabel">@添加权限模块</h5>
+    <button type="button" class="close pointer" (click)="close()" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <form #addForm="ngForm">
+        <div class="form-group">
+            <label class="form-control-label">模块名称:</label>
+            <input type="text" class="form-control rounded-0" id="recipient-name" name="name" [(ngModel)]="permissionModel.name" placeholder="请输入权限名称" required>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label">模块描述:</label>
+            <textarea class="form-control rounded-0" id="message-text" name="description" maxlength="100" [(ngModel)]="permissionModel.description" placeholder="请输入角色描述" required></textarea>
+            <p class="text-right">{{permissionModel.description.length}}/100</p>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="close()">
+        <span>取消/返回</span>
+    </button>
+    <button type="button" [disabled]="!addForm.form.valid" loading title="确认添加" class="btn btn-success" #button="btnLoading" (click)="addPermissionModel(button)"></button>
+</div>
