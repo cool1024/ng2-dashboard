@@ -30,7 +30,6 @@ export class RequestService {
   }
 
   file(url: string, params: any = {}, files = new Array<{ name: string, files: Array<Blob> }>()): Observable<any> {
-    console.log(this.getFormdata(params, files))
     return this.httpClient.post(url, this.getFormdata(params, files))
   }
 

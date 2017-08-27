@@ -1,13 +1,15 @@
 import { Injectable } from '@angular/core';
 import { StorageService } from './../services/storage.service';
+import { Observable } from 'rxjs/Observable';
+import { RequestService } from './request.service';
 
 @Injectable()
 export class AuthService {
 
-  constructor(private storageService: StorageService) { }
+  constructor(private storageService: StorageService, private request: RequestService) { }
 
   //是否登入
-  isLoggedIn = true
+  isLoggedIn = false
 
   //跳转页面
   redirectUrl = ''
@@ -22,5 +24,15 @@ export class AuthService {
   setOut() {
     this.storageService.cleanAll()
     this.isLoggedIn = false
+  }
+
+  //检测登入状态
+  checkOnline(): Observable<boolean> {
+    let obs = new Observable<boolean>()
+    let token = this.storageService.getToken()
+    return this.request.post('/check', token).map(res => {
+      this.isLoggedIn = res.result
+      return this.isLoggedIn
+    })
   }
 }

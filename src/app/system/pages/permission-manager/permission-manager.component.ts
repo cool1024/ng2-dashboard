@@ -3,6 +3,8 @@ import { MdDialog } from '@angular/material';
 import { DialogDanger } from './../../tools/components/dialog';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { PermissionEditComponent } from './../../modals/permission-edit/permission-edit.component';
+import { PermissionAddModelComponent } from './../../modals/permission-add-model/permission-add-model.component';
+import { PermissionAddChildComponent } from './../../modals/permission-add-child/permission-add-child.component';
 
 @Component({
   selector: 'app-permission-manager',
@@ -12,7 +14,7 @@ import { PermissionEditComponent } from './../../modals/permission-edit/permissi
 export class PermissionManagerComponent implements OnInit {
 
   //积极状态的模块ID
-  activeModelId = 1
+  activeModelIndex = 0
 
   //权限列表
   permissions = [
@@ -32,7 +34,7 @@ export class PermissionManagerComponent implements OnInit {
 
   //获取当前模块的权限列表
   get getActiveModelPermissions(): Array<any> {
-    return this.permissions.filter(e => e.modelid == this.activeModelId)
+    return this.permissions.filter(e => e.modelid == this.permissionsModels[this.activeModelIndex].id)
   }
 
   constructor(private modalService: NgbModal, private dialog: MdDialog) { }
@@ -40,8 +42,8 @@ export class PermissionManagerComponent implements OnInit {
   ngOnInit() { }
 
   //弹出权限编辑窗口
-  showChangeModal(index: number) {
-    const modalRef = this.modalService.open(PermissionEditComponent)
+  showChangePermissionModal(index: number) {
+    let modalRef = this.modalService.open(PermissionEditComponent)
     modalRef.componentInstance.permission = this.permissions[index]
   }
 
@@ -59,5 +61,16 @@ export class PermissionManagerComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
 
     })
+  }
+
+  //弹出添加权限模块窗口
+  showAddModelModal() {
+    let modalRef = this.modalService.open(PermissionAddModelComponent)
+  }
+
+  //弹出权限添加窗口
+  showAddPermissionModal() {
+    let modalRef = this.modalService.open(PermissionAddChildComponent)
+    modalRef.componentInstance.permissionModel = this.permissionsModels[this.activeModelIndex]
   }
 }

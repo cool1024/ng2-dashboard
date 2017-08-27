@@ -9,6 +9,9 @@ import { Menus } from './../../../config/menus';
 })
 export class MenuSettingComponent implements OnInit {
 
+  //菜单列表
+  menus = new Array<{ icon: string, title: string, childs: Array<any> }>()
+
   constructor(public dialog: MdDialog) { }
 
   ngOnInit() {
@@ -19,8 +22,9 @@ export class MenuSettingComponent implements OnInit {
     this.dialog.open(MenuChildrenDialog, { data: childs });
   }
 
-  //菜单列表
-  menus = new Array<{ icon: string, title: string, childs: Array<any> }>()
+  addMainMenu() {
+
+  }
 }
 
 @Component({

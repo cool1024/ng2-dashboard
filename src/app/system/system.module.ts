@@ -27,6 +27,8 @@ import { RoleInfoComponent } from './modals/role-info/role-info.component';
 import { RolePermissionComponent } from './modals/role-permission/role-permission.component';
 import { RoleAddComponent } from './modals/role-add/role-add.component';
 import { PermissionEditComponent } from './modals/permission-edit/permission-edit.component';
+import { PermissionAddModelComponent } from './modals/permission-add-model/permission-add-model.component';
+import { PermissionAddChildComponent } from './modals/permission-add-child/permission-add-child.component';
 
 @NgModule({
   imports: [
@@ -63,6 +65,8 @@ import { PermissionEditComponent } from './modals/permission-edit/permission-edi
     RolePermissionComponent,
     RoleAddComponent,
     PermissionEditComponent,
+    PermissionAddModelComponent,
+    PermissionAddChildComponent,
   ],
   entryComponents: [
     MenuChildrenDialog,
@@ -70,6 +74,8 @@ import { PermissionEditComponent } from './modals/permission-edit/permission-edi
     RolePermissionComponent,
     RoleAddComponent,
     PermissionEditComponent,
+    PermissionAddModelComponent,
+    PermissionAddChildComponent,
   ],
   exports: [MenuComponent, HeadbarComponent, LoginComponent]
 })
