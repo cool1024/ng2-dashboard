@@ -15,6 +15,15 @@ export class FormCheckService {
     return isNaN(count) ? '0' : count;
   }
 
+  //简单拷贝JSON数据
+  copyJson(json: any): any {
+    let temp = {}
+    for (let key in json) {
+      temp[key] = json[key]
+    }
+    return temp
+  }
+
   //排序时获取排序后的元素的id串.形式如："1,2,3,4,5"
   getIds(array: Array<any>): string {
     let ids: Array<number> = new Array<number>();

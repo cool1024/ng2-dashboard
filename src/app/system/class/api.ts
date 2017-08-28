@@ -1,15 +1,15 @@
 export class ApiData {
-    constructor(public result: boolean, public msg: any, public datas: any) { }
+    constructor(public result: boolean, public msg: any, public datas: any, public id?: number) { }
 
     get message(): string {
         let message = "2222"
 
         if (typeof this.msg == 'string') {
-           message=this.msg
+            message = this.msg
         }
-        else{
-            for(let key in this.msg){
-                message=this.msg[key][0]
+        else {
+            for (let key in this.msg) {
+                message = this.msg[key][0]
                 break
             }
         }

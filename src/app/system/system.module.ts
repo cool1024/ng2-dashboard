@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { MdButtonModule, MdInputModule, MdDialogModule, MdMenuModule, MdCheckboxModule, MdSlideToggleModule,MdListModule } from '@angular/material';
+import { MdButtonModule, MdInputModule, MdDialogModule, MdMenuModule, MdCheckboxModule, MdSlideToggleModule, MdListModule } from '@angular/material';
 import { SortablejsModule } from 'angular-sortablejs';
 import { SystemRoutingModule } from './system-routing.module';
 
@@ -29,6 +29,9 @@ import { RoleAddComponent } from './modals/role-add/role-add.component';
 import { PermissionEditComponent } from './modals/permission-edit/permission-edit.component';
 import { PermissionAddModelComponent } from './modals/permission-add-model/permission-add-model.component';
 import { PermissionAddChildComponent } from './modals/permission-add-child/permission-add-child.component';
+import { MenuAddMainComponent } from './modals/menu-add-main/menu-add-main.component';
+import { MenuChangeMainComponent } from './modals/menu-change-main/menu-change-main.component';
+import { MenuChangeChildComponent } from './modals/menu-change-child/menu-change-child.component';
 
 @NgModule({
   imports: [
@@ -45,7 +48,7 @@ import { PermissionAddChildComponent } from './modals/permission-add-child/permi
     MdCheckboxModule,
     MdSlideToggleModule,
     MdListModule,
-    
+
     /*system module*/
     SystemRoutingModule,
 
@@ -67,6 +70,9 @@ import { PermissionAddChildComponent } from './modals/permission-add-child/permi
     PermissionEditComponent,
     PermissionAddModelComponent,
     PermissionAddChildComponent,
+    MenuAddMainComponent,
+    MenuChangeMainComponent,
+    MenuChangeChildComponent,
   ],
   entryComponents: [
     MenuChildrenDialog,
@@ -76,6 +82,9 @@ import { PermissionAddChildComponent } from './modals/permission-add-child/permi
     PermissionEditComponent,
     PermissionAddModelComponent,
     PermissionAddChildComponent,
+    MenuAddMainComponent,
+    MenuChangeMainComponent,
+    MenuChangeChildComponent,
   ],
   exports: [MenuComponent, HeadbarComponent, LoginComponent]
 })

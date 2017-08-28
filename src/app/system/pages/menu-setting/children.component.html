@@ -1,14 +1,14 @@
-<h4 class="text-center">Children Menu</h4>
+<!-- <h4>子菜单设置</h4> -->
 <div [sortablejs]="menus" [sortablejsOptions]="{ animation: 400 }">
     <h5 *ngFor="let menu of menus" class="pt-2 pb-2 text-muted">
         <i class="fa-fw {{menu.icon}}"></i>{{menu.title}}
         <span class="pull-right pl-5">
-    <i class="fa fa-edit text-info pl-2"></i>
-    <i class="fa fa-trash text-danger pl-2"></i>
+    <!-- <i class="fa fa-edit text-info pl-2"></i>
+    <i class="fa fa-trash text-danger pl-2"></i> -->
   </span>
     </h5>
 </div>
-<div>
-    <button style="font-size:20px;" md-dialog-close md-button color="warn" class="font-1-5"><i class="fa fa-remove fa-fw"></i>cancel</button>
-    <button style="font-size:20px;" md-dialog-close md-button color="primary" class="font-1-5"><i class="fa fa-refresh fa-fw"></i>confirm sort</button>
-</div>
+<!-- <div class="text-right">
+    <br>
+    <button md-dialog-close class="btn btn-sm btn-dark">关闭窗口</button>
+</div> -->
