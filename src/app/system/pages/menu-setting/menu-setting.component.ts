@@ -138,10 +138,10 @@ export class MenuSettingComponent implements OnInit {
   }
 
   //排序主菜单
-  sortMainMenu(){
-    this.menuSettingService.sortMenu(this.formService.getIds(this.menus)).subscribe(res=>{
-      if(res.result){
-        this.toast.success('排序成功~','操成功')
+  sortMainMenu() {
+    this.menuSettingService.sortMenu(this.formService.getIds(this.menus)).subscribe(res => {
+      if (res.result) {
+        this.toast.success('排序成功~', '操成功')
       }
     })
   }
