@@ -11,7 +11,7 @@ import { MenuSettingService } from './../../pages/menu-setting/menu-setting.serv
 export class MenuChangeMainComponent {
 
   //菜单数据
-  @Input() menu = {}
+  @Input() menu = { title: "", icon: "", url: "#", parentid: 0 }
 
   //标题
   @Input() title

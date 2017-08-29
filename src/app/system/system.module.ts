@@ -30,6 +30,7 @@ import { PermissionEditComponent } from './modals/permission-edit/permission-edi
 import { PermissionAddModelComponent } from './modals/permission-add-model/permission-add-model.component';
 import { PermissionAddChildComponent } from './modals/permission-add-child/permission-add-child.component';
 import { MenuAddMainComponent } from './modals/menu-add-main/menu-add-main.component';
+import { MenuAddChildComponent } from './modals/menu-add-child/menu-add-child.component';
 import { MenuChangeMainComponent } from './modals/menu-change-main/menu-change-main.component';
 import { MenuChangeChildComponent } from './modals/menu-change-child/menu-change-child.component';
 
@@ -71,6 +72,7 @@ import { MenuChangeChildComponent } from './modals/menu-change-child/menu-change
     PermissionAddModelComponent,
     PermissionAddChildComponent,
     MenuAddMainComponent,
+    MenuAddChildComponent,
     MenuChangeMainComponent,
     MenuChangeChildComponent,
   ],
@@ -83,6 +85,7 @@ import { MenuChangeChildComponent } from './modals/menu-change-child/menu-change
     PermissionAddModelComponent,
     PermissionAddChildComponent,
     MenuAddMainComponent,
+    MenuAddChildComponent,
     MenuChangeMainComponent,
     MenuChangeChildComponent,
   ],

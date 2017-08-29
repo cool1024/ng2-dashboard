@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { MenuSettingService } from './../../pages/menu-setting/menu-setting.service'
 import { ToastrService } from 'ngx-toastr';
@@ -20,7 +20,7 @@ export class MenuAddChildComponent {
   constructor(public activeModal: NgbActiveModal, private menuSettingService: MenuSettingService, private toast: ToastrService) { }
 
   addChildMenu(button: any) {
-    this.menu.parentid=this.parentid
+    this.menu.parentid = this.parentid
     this.menuSettingService.addMenu(this.menu).subscribe(res => {
       button.loading = true
       if (res.result) {

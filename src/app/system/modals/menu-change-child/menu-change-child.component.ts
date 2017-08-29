@@ -11,7 +11,10 @@ import { MenuSettingService } from './../../pages/menu-setting/menu-setting.serv
 export class MenuChangeChildComponent {
 
   //菜单数据
-  menu = { id: 0, title: "", icon: "", url: "#", parentid: 0 }
+  @Input()menu = { id: 0, title: "", icon: "", url: "#", parentid: 0 }
+
+  //title
+  @Input()title:string
 
   constructor(public activeModal: NgbActiveModal, private menuSettingService: MenuSettingService) { }
 
