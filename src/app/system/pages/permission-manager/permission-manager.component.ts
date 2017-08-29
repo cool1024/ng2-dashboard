@@ -5,72 +5,94 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { PermissionEditComponent } from './../../modals/permission-edit/permission-edit.component';
 import { PermissionAddModelComponent } from './../../modals/permission-add-model/permission-add-model.component';
 import { PermissionAddChildComponent } from './../../modals/permission-add-child/permission-add-child.component';
+import { PermissionManagerService } from "./permission-manager.service";
+import { FormCheckService } from './../../services/form-check.service';
 
 @Component({
   selector: 'app-permission-manager',
   templateUrl: './permission-manager.component.html',
-  styleUrls: ['./permission-manager.component.scss']
+  styleUrls: ['./permission-manager.component.scss'],
+  providers: [PermissionManagerService, FormCheckService]
 })
 export class PermissionManagerComponent implements OnInit {
 
-  //积极状态的模块ID
-  activeModelIndex = 0
-
   //权限列表
-  permissions = [
-    { id: 1, modelid: 1, name: "管理系统菜单", menuid: 1, description: '未描述权限' },
-    { id: 2, modelid: 1, name: "管理系统角色", menuid: 1, description: '未描述权限' },
-    { id: 3, modelid: 1, name: "管理系统权限", menuid: 1, description: '未描述权限' },
-    { id: 4, modelid: 2, name: "管理系统菜单1", menuid: 1, description: '未描述权限' },
-    { id: 5, modelid: 2, name: "管理系统角色1", menuid: 1, description: '未描述权限' },
-    { id: 6, modelid: 2, name: "管理系统权限1", menuid: 1, description: '未描述权限' },
-    { id: 7, modelid: 3, name: "管理系统菜单2", menuid: 1, description: '未描述权限' },
-    { id: 8, modelid: 3, name: "管理系统角色2", menuid: 1, description: '未描述权限' },
-    { id: 9, modelid: 3, name: "管理系统权限2", menuid: 1, description: '未描述权限' },
-  ]
+  permissions = new Array<{ id: number, modelid: number, name: string, description: string, key: string }>()
 
   //权限模块列表
-  permissionsModels = [{ id: 1, name: '系统设置' }, { id: 2, name: '内置服务' }, { id: 3, name: '工具测试' }]
+  permissionsModels = new Array<{ id: number, name: string }>()
 
-  //获取当前模块的权限列表
-  get getActiveModelPermissions(): Array<any> {
-    return this.permissions.filter(e => e.modelid == this.permissionsModels[this.activeModelIndex].id)
+  constructor(private modalService: NgbModal, private dialog: MdDialog, private permissionMgService: PermissionManagerService, private formCheckService: FormCheckService) { }
+
+  ngOnInit() {
+    this.loadPermissionsAndModel()
   }
 
-  constructor(private modalService: NgbModal, private dialog: MdDialog) { }
+  //载入权限列表&权限模块
+  loadPermissionsAndModel() {
+    this.permissionMgService.getAllPermission.subscribe(res => {
+      if (res.result) {
+        this.permissionsModels = res.datas.models
+        this.permissions = res.datas.permissions
+      }
+    })
+  }
 
-  ngOnInit() { }
+  //获取指定模块的权限列表
+  getModelPermissions(modelid: number): Array<any> {
+    return this.permissions.filter(e => e.modelid == modelid)
+  }
 
   //弹出权限编辑窗口
-  showChangePermissionModal(index: number) {
+  showChangePermissionModal(permission: any) {
     let modalRef = this.modalService.open(PermissionEditComponent)
-    modalRef.componentInstance.permission = this.permissions[index]
+    modalRef.componentInstance.permission = this.formCheckService.copyJson(permission)
+    modalRef.result.catch(res => {
+      if (res.id) {
+        permission.name = res.name
+        permission.description = res.description
+        permission.key = res.key
+      }
+    }).then()
   }
 
   //尝试删除权限
-  deletePermission(index: number) {
-    //show danger message
+  deletePermission(permission: any) {
+
+    //显示警告提示
     let dialogRef = this.dialog.open(DialogDanger, {
       data: {
         title: "风险提示",
-        message: `您确认删除权限 '${this.permissions[index].name}',操作不可恢复?！`
+        message: `您确认删除权限 '${permission.name}',操作不可恢复?！`
       }
     })
 
-    //try delete role
+    //判断是否确认删除
     dialogRef.afterClosed().subscribe(result => {
-
+      if (result == true) {
+        this.permissionMgService.deletePermission(permission.id).subscribe(res => {
+          if (res.result) {
+            let index = this.permissions.indexOf(permission)
+            this.permissions.splice(index, 1)
+          }
+        })
+      }
     })
   }
 
   //弹出添加权限模块窗口
   showAddModelModal() {
-    let modalRef = this.modalService.open(PermissionAddModelComponent)
+    const modalRef = this.modalService.open(PermissionAddModelComponent)
   }
 
   //弹出权限添加窗口
-  showAddPermissionModal() {
-    let modalRef = this.modalService.open(PermissionAddChildComponent)
-    modalRef.componentInstance.permissionModel = this.permissionsModels[this.activeModelIndex]
+  showAddPermissionModal(modelindex: number) {
+    const modalRef = this.modalService.open(PermissionAddChildComponent)
+    modalRef.componentInstance.permissionModel = this.permissionsModels[modelindex]
+    modalRef.result.catch(res => {
+      if (res.id) {
+        this.permissions.push(res)
+      }
+    }).then()
   }
 }

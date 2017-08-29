@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { PermissionManagerService } from "./../../pages/permission-manager/permission-manager.service";
 
 @Component({
   selector: 'app-permission-edit',
@@ -8,17 +9,18 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class PermissionEditComponent {
 
-  @Input() permission: any
+  @Input() permission: any = { id: 0, name: "", description: "", key: "", modelid: 0 }
 
-  constructor(public activeModal: NgbActiveModal) { }
+  constructor(public activeModal: NgbActiveModal, private permissionMgService: PermissionManagerService) { }
 
   //修改权限
   applayPermissionChange(button: any) {
-
-    setTimeout(_ => {
+    this.permissionMgService.changePermission(this.permission).subscribe(res => {
       button.complete = true
-      this.activeModal.dismiss(this.permission)
-    }, 2000)
+      if (res.result) {
+        this.activeModal.dismiss(this.permission)
+      }
+    })
   }
 
   //关闭本模态框

@@ -32,7 +32,6 @@ import { PermissionAddChildComponent } from './modals/permission-add-child/permi
 import { MenuAddMainComponent } from './modals/menu-add-main/menu-add-main.component';
 import { MenuChangeMainComponent } from './modals/menu-change-main/menu-change-main.component';
 import { MenuChangeChildComponent } from './modals/menu-change-child/menu-change-child.component';
-import { MenuAddChildComponent } from './modals/menu-add-child/menu-add-child.component';
 
 @NgModule({
   imports: [
@@ -74,7 +73,6 @@ import { MenuAddChildComponent } from './modals/menu-add-child/menu-add-child.co
     MenuAddMainComponent,
     MenuChangeMainComponent,
     MenuChangeChildComponent,
-    MenuAddChildComponent,
   ],
   entryComponents: [
     MenuChildrenDialog,
@@ -87,7 +85,6 @@ import { MenuAddChildComponent } from './modals/menu-add-child/menu-add-child.co
     MenuAddMainComponent,
     MenuChangeMainComponent,
     MenuChangeChildComponent,
-    MenuAddChildComponent,
   ],
   exports: [MenuComponent, HeadbarComponent, LoginComponent]
 })

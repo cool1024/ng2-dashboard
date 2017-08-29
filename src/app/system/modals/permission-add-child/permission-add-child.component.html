@@ -11,13 +11,8 @@
             <input type="text" class="form-control rounded-0" id="recipient-name" name="name" [(ngModel)]="permission.name" placeholder="请输入权限名称" required>
         </div>
         <div class="form-group">
-            <label class="form-control-label">对应菜单:</label>
-            <select class="form-control custom-select rounded-0" name="parent" [(ngModel)]="permission.menuid" name="menu" required>
-                <option value="0">无对应菜单</option>
-                <option value="1">菜单编辑</option>
-                <option value="2">角色管理</option>
-                <option value="3">权限分配</option>
-            </select>
+            <label class="form-control-label">关键词:</label>
+            <input class="form-control" [(ngModel)]="permission.key" name="key" placeholder="请输入权限关键词" required>
         </div>
         <div class="form-group">
             <label class="form-control-label">权限描述:</label>
@@ -30,5 +25,5 @@
     <button type="button" class="btn btn-secondary" (click)="close()">
         <span>取消/返回</span>
     </button>
-    <button type="button" [disabled]="!addForm.form.valid" loading title="确认添加" class="btn btn-success" #button="btnLoading" (click)="applayPermissionChange(button)"></button>
+    <button type="button" [disabled]="!addForm.form.valid" loading title="确认添加" class="btn btn-success" #button="btnLoading" (click)="addPermission(button)"></button>
 </div>

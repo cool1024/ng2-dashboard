@@ -4,38 +4,36 @@
 </nav>
 <div class="card">
     <div class="card-header">
-        <span>权限分配</span>
-        <a (click)="showAddModelModal()" class="btn-link text-success pointer pull-right"><i class="fa fa-plus fa-fw"></i>添加权限模块</a>
+        <span class="text-primary"><i class="fa fa-lock fa-fw fa-lg"></i>权限分配</span>
     </div>
-    <div class="card-body">
-        <div class="row">
-            <div class="col-4 border border-muted border-top-0 border-bottom-0 border-left-0">
-                <md-nav-list>
-                    <!-- <h3 md-subheader>权限模块</h3> -->
-                    <md-list-item *ngFor="let model of permissionsModels;index as i" (click)="this.activeModelIndex=i">
-                        <a md-line>{{model.name}}</a>
-                        <span class="text-muted"><i class="fa fa-angle-right fa-lg"></i></span>
-                    </md-list-item>
-                </md-nav-list>
-            </div>
-            <div class="col-8">
-                <table class="table table-striped">
-                    <tbody>
-                        <tr *ngFor="let permission of getActiveModelPermissions">
-                            <td>{{permission.name}}</td>
-                            <td class="text-right">
-                                <button (click)="showChangePermissionModal(0)" class="btn btn-sm btn-info"><i class="fa fa-edit fa-fw"></i>编辑</button>
-                                <button (click)="deletePermission(0)" class="btn btn-sm btn-danger"><i class="fa fa-remove fa-fw"></i>删除</button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+    <div class="card-body p-2">
+        <table class="table table-striped">
+            <tbody>
+                <ng-template ngFor let-item [ngForOf]="permissionsModels" let-i="index">
+                    <tr class="bg-dark text-white">
+                        <td>{{item.name}}</td>
+                        <td>关键词</td>
+                        <td class="text-right">
+                            <i (click)="showAddPermissionModal(i)" class="fa fa-plus text-success fa-lg pr-5"></i>
+                            <i class="fa fa-refresh text-primary fa-lg pr-5"></i>
+                            <i class="fa fa-trash text-danger fa-lg pr-5"></i>
+                        </td>
+                    </tr>
+                    <tr *ngFor="let permission of getModelPermissions(item.id);">
+                        <td>{{permission.name}}</td>
+                        <td class="text-info">{{permission.key||'未设置'}}</td>
+                        <td class="text-right">
+                            <button (click)="showChangePermissionModal(permission)" class="btn btn-sm btn-info">编辑</button>
+                            <button (click)="deletePermission(permission)" class="btn btn-sm btn-danger">删除</button>
+                        </td>
+                    </tr>
+                </ng-template>
+            </tbody>
+        </table>
     </div>
 </div>
 <div class="text-right mt-2">
-    <button (click)="showAddPermissionModal()" class="btn btn-primary"><i class="fa fa-plus fa-fw"></i>添加权限</button>
-    <button class="btn btn-dark"><i class="fa fa-info fa-fw"></i>权限预览</button>
+    <button (click)="showAddModelModal()" class="btn btn-success"><i class="fa fa-plus fa-fw"></i>添加权限模块</button>
+    <button (click)="loadPermissionsAndModel()" class="btn btn-primary"><i class="fa fa-spinner fa-fw"></i>刷新数据</button>
 </div>
 <br>

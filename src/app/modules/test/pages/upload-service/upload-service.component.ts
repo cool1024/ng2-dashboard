@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UploadServiceService } from './upload-service.service';
 import { ToastrService } from 'ngx-toastr';
+import { Http } from '@angular/http';
 
 @Component({
   selector: 'app-upload-service',
@@ -10,27 +11,27 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class UploadServiceComponent implements OnInit {
 
-  constructor(private uploadServiceService: UploadServiceService,private toastrService:ToastrService) { }
+  constructor(private uploadServiceService: UploadServiceService, private toastrService: ToastrService, private http: Http) { }
 
   ngOnInit() { }
 
   tryUploadFile() {
     console.log(this.file)
     if (!!this.file) {
-      this.uploadServiceService.tryUploadFile(this.file).subscribe(res=>this.toastrService.info(res.datas,'200'))
+      this.uploadServiceService.tryUploadFile(this.file).subscribe(res => this.toastrService.info(res.datas, '200'))
     }
   }
 
   file: Blob
 
-  html_code=`
+  html_code = `
     <app-image-input-form (onChange)="file=$event.file"></app-image-input-form>
     <div class="mt-1">
       <button (click)="tryUploadFile()" class="btn btn-success"><i class="fa fa-check fa-fw"></i>Upload File</button>
     </div>
   `
 
-  ts_code=`
+  ts_code = `
     import { RequestService } from '<path>/system/services/request.service';
     
     ......

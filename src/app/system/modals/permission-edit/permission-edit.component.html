@@ -11,18 +11,13 @@
             <input type="text" class="form-control rounded-0" id="recipient-name" name="name" [(ngModel)]="permission.name" placeholder="请输入权限名称" required>
         </div>
         <div class="form-group">
-            <label class="form-control-label">对应菜单:</label>
-            <select class="form-control custom-select rounded-0" name="parent" [(ngModel)]="permission.menuid" name="menu" required>
-                <option value="0">无对应菜单</option>
-                <option value="1">菜单编辑</option>
-                <option value="2">角色管理</option>
-                <option value="3">权限分配</option>
-            </select>
+            <label class="form-control-label">关键词:</label>
+            <input class="form-control" [(ngModel)]="permission.key" name="key" placeholder="请输入权限关键词" required>
         </div>
         <div class="form-group">
             <label class="form-control-label">权限描述:</label>
             <textarea class="form-control rounded-0" id="message-text" name="description" maxlength="100" [(ngModel)]="permission.description" placeholder="请输入角色描述" required></textarea>
-            <p class="text-right">{{permission.description.length}}/100</p>
+            <p class="text-right">{{permission.description.length||0}}/100</p>
         </div>
     </form>
 </div>

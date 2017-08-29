@@ -8,26 +8,26 @@
     </div>
     <div class="card-body p-0">
         <div [sortablejs]="menus" [sortablejsOptions]="{ animation: 400 }">
-            <div *ngFor="let main of menus;index as i">
+            <div *ngFor="let main of menus;index as mianindex">
                 <div class="card card-body border-0 rounded-0">
                     <div class="text-primary">
                         <i class="fa-fw fa-lg {{main.icon}}"></i>{{main.title}}
                         <span class="pull-right">
-                        <button (click)="showAddChangeChildMenuPad(i)" class="btn btn-link" title="add"><i class="fa fa-plus text-success fa-lg"></i></button>                                
+                        <button (click)="showAddChangeChildMenuPad(mianindex)" class="btn btn-link" title="add"><i class="fa fa-plus text-success fa-lg"></i></button>                                
                         <button (click)="openChildDialog(main.childs)" class="btn btn-link" title="sort"><i class="fa fa-refresh text-primary fa-lg"></i></button>
-                        <button (click)="showChangeMainMenuPad(i)" class="btn btn-link" title="change"><i class="fa fa-edit text-info fa-lg"></i></button>
-                        <button (click)="deleteMainMenu(i)" class="btn btn-link" title="remove"><i class="fa fa-trash text-danger fa-lg"></i></button>
+                        <button (click)="showChangeMainMenuPad(mianindex)" class="btn btn-link" title="change"><i class="fa fa-edit text-info fa-lg"></i></button>
+                        <button (click)="deleteMainMenu(mianindex)" class="btn btn-link" title="remove"><i class="fa fa-trash text-danger fa-lg"></i></button>
                     </span>
                     </div>
                     <table class="table table-striped">
                         <tbody>
-                            <tr *ngFor="let child of main.childs">
+                            <tr *ngFor="let child of main.childs;index as childindex">
                                 <td style="width:130px;"><i class="{{child.icon}} fa-fw"></i>{{child.title}}</td>
                                 <td style="width:220px;">{{child.icon}}</td>
                                 <td class="text-primary pointer"><span routerLink="{{child.url}}">{{child.url}}</span></td>
                                 <td class="text-right">
                                     <button (click)="showChangeChildMenuPad(child)" class="btn btn-sm btn-info">编辑</button>
-                                    <button class="btn btn-sm btn-danger">删除</button>
+                                    <button (click)="deleteChildMenu(mianindex,childindex)" class="btn btn-sm btn-danger">删除</button>
                                 </td>
                             </tr>
                         </tbody>

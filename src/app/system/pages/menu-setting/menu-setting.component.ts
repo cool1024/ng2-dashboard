@@ -20,7 +20,7 @@ import { MenuAddChildComponent } from './../../modals/menu-add-child/menu-add-ch
 export class MenuSettingComponent implements OnInit {
 
   //菜单列表
-  menus = new Array<{ id: number, icon: string, title: string, childs: Array<any> }>()
+  menus = new Array<{ id: number, icon: string, title: string, childs: Array<{ id: number, icon: string, title: string, url: string, parentid: number }> }>()
 
   constructor(public dialog: MdDialog, private modalService: NgbModal, private toast: ToastrService, private menuSettingService: MenuSettingService, private formService: FormCheckService) { }
 
@@ -130,6 +130,30 @@ export class MenuSettingComponent implements OnInit {
         this.menuSettingService.deleteMenu(this.menus[index].id).subscribe(res => {
           if (res.result) {
             this.menus.splice(index, 1)
+            this.toast.success('删除成功~', '操作成功')
+          }
+        })
+      }
+    })
+  }
+
+  //尝试删除子菜单
+  deleteChildMenu(mainindex: number, childindex: number) {
+
+    //提示危险信息
+    const dialogRef = this.dialog.open(DialogDanger, {
+      data: {
+        title: "风险提示",
+        message: `您确认删除此菜单'${this.menus[mainindex].childs[childindex].title}'，操作将无法恢复！`
+      }
+    })
+
+    //判断是否确认删除
+    dialogRef.afterClosed().subscribe(result => {
+      if (result == true) {
+        this.menuSettingService.deleteMenu(this.menus[mainindex].childs[childindex].id).subscribe(res => {
+          if (res.result) {
+            this.menus[mainindex].childs.splice(childindex, 1)
             this.toast.success('删除成功~', '操作成功')
           }
         })
