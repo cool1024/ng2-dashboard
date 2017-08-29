@@ -18,12 +18,6 @@ import { SelectModule } from 'ng2-select';
 /*ng-bootstrap*/
 import { NgbProgressbarModule } from '@ng-bootstrap/ng-bootstrap';
 
-/*SyntaxHighlighter*/
-import 'prismjs';
-import 'prismjs/components/prism-javascript';
-import 'prismjs/components/prism-typescript';
-import { Ng2HandySyntaxHighlighterModule } from 'ng2-handy-syntax-highlighter';
-
 /*tool-module*/
 import { ToolModule } from './../../system/tools/tool.module';
 
@@ -61,7 +55,6 @@ import { UploadServiceComponent } from './pages/upload-service/upload-service.co
     MdCardModule,
     SelectModule,
     NgbProgressbarModule.forRoot(),
-    Ng2HandySyntaxHighlighterModule,
     ToolModule
   ],
   declarations: [

@@ -5,6 +5,9 @@ import { HttpModule } from '@angular/http';
 /*Material*/
 import { MdDialogModule } from '@angular/material';
 
+/*SyntaxHighlighter*/
+import 'assets/prism/prism.js';
+
 /*sortablejs*/
 import { SortablejsModule } from 'angular-sortablejs';
 
@@ -29,6 +32,7 @@ import { ImageInputUploadComponent } from './components/image-input-upload/image
 import { ImagesInputFormComponent } from './components/images-input-form/images-input-form.component';
 import { ImagesInputUploadComponent } from './components/images-input-upload/images-input-upload.component';
 import { TreeComponent } from './components/tree/tree.component';
+import { CodePadComponent } from './components/code-pad/code-pad.component';
 
 @NgModule({
   imports: [
@@ -49,12 +53,14 @@ import { TreeComponent } from './components/tree/tree.component';
     ImagesInputFormComponent,
     ImagesInputUploadComponent,
     TreeComponent,
-
+    CodePadComponent,
+    
     //pipes
     TreeParentPipe,
     
     //directives
     ButtonLoadingDirective,
+
   ],
   exports: [
     AlertComponent,
@@ -65,6 +71,7 @@ import { TreeComponent } from './components/tree/tree.component';
     ImagesInputFormComponent,
     ImagesInputUploadComponent,
     TreeComponent,
+    CodePadComponent,
     ButtonLoadingDirective,
   ]
 })

@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import 'hammerjs';
 import { ToastrModule } from 'ngx-toastr';
+import 'hammerjs';
 
 /*Material*/
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
@@ -72,4 +72,8 @@ import { HeadbarService } from './system/components/headbar/headbar.service';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+  constructor(){
+    console.log(window)
+  }
+}

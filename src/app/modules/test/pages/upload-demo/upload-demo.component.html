@@ -29,9 +29,9 @@
     <div class="card-body">
         <app-image-input-form [image]="image" (onChange)="getFile($event)"></app-image-input-form>
         <p class="text-info"><i class="fa fa-code fa-fw" aria-hidden="true"></i>HTML代码：</p>
-        <handy-syntax-highlighter [language]="'html'" [content]="html_code_sigle"></handy-syntax-highlighter>
+        <app-code-pad [language]="'html'" [content]="html_code_sigle"></app-code-pad>
         <p class="text-info"><i class="fa fa-code fa-fw" aria-hidden="true"></i>TS代码：</p>
-        <handy-syntax-highlighter [language]="'typescript'" [content]="ts_code_sigle"></handy-syntax-highlighter>
+        <app-code-pad [language]="'typescript'" [content]="ts_code_sigle"></app-code-pad>
     </div>
 </div>
 <br>
@@ -47,9 +47,9 @@
     <div class="card-body">
         <app-images-input-form [images]="images" (onChange)="getFiles($event)"></app-images-input-form>
         <p class="text-info"><i class="fa fa-code fa-fw" aria-hidden="true"></i>HTML代码：</p>
-        <handy-syntax-highlighter [language]="'html'" [content]="html_code_multi"></handy-syntax-highlighter>
+        <app-code-pad [language]="'html'" [content]="html_code_multi"></app-code-pad>
         <p class="text-info"><i class="fa fa-code fa-fw" aria-hidden="true"></i>TS代码：</p>
-        <handy-syntax-highlighter [language]="'typescript'" [content]="ts_code_multi"></handy-syntax-highlighter>
+        <app-code-pad [language]="'typescript'" [content]="ts_code_multi"></app-code-pad>
     </div>
 </div>
 <br>
