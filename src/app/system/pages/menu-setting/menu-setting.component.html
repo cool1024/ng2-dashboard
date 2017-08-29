@@ -3,7 +3,9 @@
     <span class="breadcrumb-item active"><i class="fa fa-bars fa-fw fa-lg" aria-hidden="true"></i>菜单设置</span>
 </nav>
 <div class="card rounded-0">
-    <div class="card-header">菜单设置<a (click)="showAddMainMenuPad()" class="btn-link text-success pointer pull-right"><i class="fa fa-plus fa-fw"></i>添加主菜单</a></div>
+    <div class="card-header">菜单设置
+        <!-- <a (click)="showAddMainMenuPad()" class="btn-link text-success pointer pull-right"><i class="fa fa-plus fa-fw"></i>添加主菜单</a> -->
+    </div>
     <div class="card-body p-0">
         <div [sortablejs]="menus" [sortablejsOptions]="{ animation: 400 }">
             <div *ngFor="let main of menus;index as i">
@@ -11,7 +13,8 @@
                     <div class="text-primary">
                         <i class="fa-fw fa-lg {{main.icon}}"></i>{{main.title}}
                         <span class="pull-right">
-                        <button (click)="openChildDialog(main.childs)" class="btn btn-link" title="childs"><i class="fa fa-refresh text-primary fa-lg"></i></button>
+                        <button (click)="showAddChangeChildMenuPad(i)" class="btn btn-link" title="add"><i class="fa fa-plus text-success fa-lg"></i></button>                                
+                        <button (click)="openChildDialog(main.childs)" class="btn btn-link" title="sort"><i class="fa fa-refresh text-primary fa-lg"></i></button>
                         <button (click)="showChangeMainMenuPad(i)" class="btn btn-link" title="change"><i class="fa fa-edit text-info fa-lg"></i></button>
                         <button (click)="deleteMainMenu(i)" class="btn btn-link" title="remove"><i class="fa fa-trash text-danger fa-lg"></i></button>
                     </span>
@@ -35,7 +38,7 @@
     </div>
 </div>
 <div class="text-right mt-2">
-    <button class="btn btn-success"><i class="fa fa-check fa-fw"></i>确认修改</button>
-    <button class="btn btn-warning"><i class="fa fa-refresh fa-fw"></i>确认排序</button>
-    <button class="btn btn-primary"><i class="fa fa-spinner fa-fw"></i>重载菜单</button>
+    <button (click)="showAddMainMenuPad()" class="btn btn-success"><i class="fa fa-plus fa-fw"></i>添加主菜单</button>
+    <button (click)="sortMainMenu()" class="btn btn-warning"><i class="fa fa-refresh fa-fw"></i>主菜单排序</button>
+    <button (click)="loadMenus()" class="btn btn-primary"><i class="fa fa-spinner fa-fw"></i>重载所有菜单</button>
 </div>

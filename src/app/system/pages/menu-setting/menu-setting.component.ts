@@ -1,13 +1,15 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { MdDialog, MD_DIALOG_DATA } from '@angular/material';
+import { MdDialog, MD_DIALOG_DATA, MdDialogRef } from '@angular/material';
 import { DialogDanger } from './../../tools/components/dialog';
 import { Menus } from './../../../config/menus';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormCheckService } from './../../services/form-check.service';
 import { MenuSettingService } from './menu-setting.service';
+import { ToastrService } from 'ngx-toastr';
 import { MenuAddMainComponent } from './../../modals/menu-add-main/menu-add-main.component';
 import { MenuChangeMainComponent } from './../../modals/menu-change-main/menu-change-main.component';
 import { MenuChangeChildComponent } from './../../modals/menu-change-child/menu-change-child.component';
+import { MenuAddChildComponent } from './../../modals/menu-add-child/menu-add-child.component';
 
 @Component({
   selector: 'app-menu-setting',
@@ -20,13 +22,14 @@ export class MenuSettingComponent implements OnInit {
   //菜单列表
   menus = new Array<{ id: number, icon: string, title: string, childs: Array<any> }>()
 
-  constructor(public dialog: MdDialog, private modalService: NgbModal, private menuSettingService: MenuSettingService, private formService: FormCheckService) { }
+  constructor(public dialog: MdDialog, private modalService: NgbModal, private toast: ToastrService, private menuSettingService: MenuSettingService, private formService: FormCheckService) { }
 
   ngOnInit() {
     //this.menus = this.menus.concat(Menus)
     this.loadMenus()
   }
 
+  //载入菜单列表
   loadMenus() {
     this.menuSettingService.getMenuGroups.subscribe(res => {
       let mains = new Array<{ id: number, icon: string, title: string, childs: Array<{ id: number, icon: string, title: string, url: string, parentid: number }> }>()
@@ -50,7 +53,12 @@ export class MenuSettingComponent implements OnInit {
   openChildDialog(childs) {
     const dialog = this.dialog.open(MenuChildrenDialog, { data: childs });
     dialog.afterClosed().subscribe(res => {
-      this.
+      console.log(dialog.componentInstance.ids)
+      this.menuSettingService.sortMenu(dialog.componentInstance.ids).subscribe(res => {
+        if (res.result) {
+          this.toast.success('排序成功~', '操作成功')
+        }
+      })
     })
 
   }
@@ -72,6 +80,18 @@ export class MenuSettingComponent implements OnInit {
       if (!!res.id) {
         this.menus[index].icon = res.icon
         this.menus[index].title = res.title
+      }
+    }
+    ).then()
+  }
+
+  //弹出子菜单添加面板
+  showAddChangeChildMenuPad(index: number) {
+    const modal = this.modalService.open(MenuAddChildComponent)
+    modal.componentInstance.parentid = this.menus[index].id
+    modal.result.catch(res => {
+      if (!!res.id) {
+        this.menus[index].childs.push(res)
       }
     }
     ).then()
@@ -108,8 +128,20 @@ export class MenuSettingComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result == true) {
         this.menuSettingService.deleteMenu(this.menus[index].id).subscribe(res => {
-          return res.result != true || this.menus.splice(index, 1)
+          if (res.result) {
+            this.menus.splice(index, 1)
+            this.toast.success('删除成功~', '操作成功')
+          }
         })
+      }
+    })
+  }
+
+  //排序主菜单
+  sortMainMenu(){
+    this.menuSettingService.sortMenu(this.formService.getIds(this.menus)).subscribe(res=>{
+      if(res.result){
+        this.toast.success('排序成功~','操成功')
       }
     })
   }

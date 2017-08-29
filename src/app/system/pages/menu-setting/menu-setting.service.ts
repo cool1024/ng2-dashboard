@@ -30,7 +30,7 @@ export class MenuSettingService {
 
   //排序菜单
   sortMenu(ids: string) {
-    return this.request.put('/menu/sort', ids)
+    return this.request.put('/menu/sort', { ids })
   }
 
   //通过parentid获取指定子菜单列表
