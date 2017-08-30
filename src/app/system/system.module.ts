@@ -26,13 +26,14 @@ import { RoleManagerComponent } from './pages/role-manager/role-manager.componen
 import { RoleInfoComponent } from './modals/role-info/role-info.component';
 import { RolePermissionComponent } from './modals/role-permission/role-permission.component';
 import { RoleAddComponent } from './modals/role-add/role-add.component';
-import { PermissionEditComponent } from './modals/permission-edit/permission-edit.component';
+import { PermissionChangeChildComponent } from './modals/permission-change-child/permission-change-child.component';
 import { PermissionAddModelComponent } from './modals/permission-add-model/permission-add-model.component';
 import { PermissionAddChildComponent } from './modals/permission-add-child/permission-add-child.component';
 import { MenuAddMainComponent } from './modals/menu-add-main/menu-add-main.component';
 import { MenuAddChildComponent } from './modals/menu-add-child/menu-add-child.component';
 import { MenuChangeMainComponent } from './modals/menu-change-main/menu-change-main.component';
 import { MenuChangeChildComponent } from './modals/menu-change-child/menu-change-child.component';
+import { PermissionChangeMainComponent } from './modals/permission-change-main/permission-change-main.component';
 
 @NgModule({
   imports: [
@@ -68,9 +69,10 @@ import { MenuChangeChildComponent } from './modals/menu-change-child/menu-change
     RoleInfoComponent,
     RolePermissionComponent,
     RoleAddComponent,
-    PermissionEditComponent,
+    PermissionChangeChildComponent,
     PermissionAddModelComponent,
     PermissionAddChildComponent,
+    PermissionChangeMainComponent,
     MenuAddMainComponent,
     MenuAddChildComponent,
     MenuChangeMainComponent,
@@ -81,9 +83,10 @@ import { MenuChangeChildComponent } from './modals/menu-change-child/menu-change
     RoleInfoComponent,
     RolePermissionComponent,
     RoleAddComponent,
-    PermissionEditComponent,
+    PermissionChangeChildComponent,
     PermissionAddModelComponent,
     PermissionAddChildComponent,
+    PermissionChangeMainComponent,
     MenuAddMainComponent,
     MenuAddChildComponent,
     MenuChangeMainComponent,

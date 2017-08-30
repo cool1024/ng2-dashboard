@@ -6,22 +6,22 @@
     <div class="card-header">
         <span class="text-primary"><i class="fa fa-lock fa-fw fa-lg"></i>权限分配</span>
     </div>
-    <div class="card-body p-2">
-        <table class="table table-striped">
+    <div class="card-body p-1">
+        <table class="table table-bordered">
             <tbody>
                 <ng-template ngFor let-item [ngForOf]="permissionsModels" let-i="index">
-                    <tr class="bg-dark text-white">
-                        <td>{{item.name}}</td>
-                        <td>关键词</td>
-                        <td class="text-right">
-                            <i (click)="showAddPermissionModal(i)" class="fa fa-plus text-success fa-lg pr-5"></i>
-                            <i class="fa fa-refresh text-primary fa-lg pr-5"></i>
-                            <i class="fa fa-trash text-danger fa-lg pr-5"></i>
+                    <tr class="border-0">
+                        <td class="border-0"><i class="fa fa-thumb-tack fa-fw"></i>{{item.name}}</td>
+                        <td class="border-0">关键词</td>
+                        <td class="text-right border-0">
+                            <i (click)="showAddPermissionModal(i)" class="fa fa-plus text-success fa-lg pr-5 pointer"></i>
+                            <i (click)="showChangePermissionModelModal(i)" class="fa fa-edit text-primary fa-lg pr-5 pointer"></i>
+                            <i (click)="deletePermissionModel(i)" class="fa fa-trash text-danger fa-lg pr-5 pointer"></i>
                         </td>
                     </tr>
                     <tr *ngFor="let permission of getModelPermissions(item.id);">
                         <td>{{permission.name}}</td>
-                        <td class="text-info">{{permission.key||'未设置'}}</td>
+                        <td>{{permission.key||'未设置'}}</td>
                         <td class="text-right">
                             <button (click)="showChangePermissionModal(permission)" class="btn btn-sm btn-info">编辑</button>
                             <button (click)="deletePermission(permission)" class="btn btn-sm btn-danger">删除</button>

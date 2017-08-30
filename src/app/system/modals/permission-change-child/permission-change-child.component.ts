@@ -3,11 +3,12 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { PermissionManagerService } from "./../../pages/permission-manager/permission-manager.service";
 
 @Component({
-  selector: 'app-permission-edit',
-  templateUrl: './permission-edit.component.html',
-  styleUrls: ['./permission-edit.component.scss']
+  selector: 'app-permission-change-child',
+  templateUrl: './permission-change-child.component.html',
+  styleUrls: ['./permission-change-child.component.scss'],
+  providers: [PermissionManagerService]
 })
-export class PermissionEditComponent {
+export class PermissionChangeChildComponent {
 
   @Input() permission: any = { id: 0, name: "", description: "", key: "", modelid: 0 }
 

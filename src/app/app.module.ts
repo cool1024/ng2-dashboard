@@ -72,8 +72,4 @@ import { HeadbarService } from './system/components/headbar/headbar.service';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { 
-  constructor(){
-    console.log(window)
-  }
-}
+export class AppModule { }

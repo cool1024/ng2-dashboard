@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { MdDialog } from '@angular/material';
 import { DialogDanger } from './../../tools/components/dialog';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { PermissionEditComponent } from './../../modals/permission-edit/permission-edit.component';
+import { PermissionChangeMainComponent } from './../../modals/permission-change-main/permission-change-main.component';
+import { PermissionChangeChildComponent } from './../../modals/permission-change-child/permission-change-child.component';
 import { PermissionAddModelComponent } from './../../modals/permission-add-model/permission-add-model.component';
 import { PermissionAddChildComponent } from './../../modals/permission-add-child/permission-add-child.component';
 import { PermissionManagerService } from "./permission-manager.service";
@@ -45,7 +46,7 @@ export class PermissionManagerComponent implements OnInit {
 
   //弹出权限编辑窗口
   showChangePermissionModal(permission: any) {
-    let modalRef = this.modalService.open(PermissionEditComponent)
+    let modalRef = this.modalService.open(PermissionChangeChildComponent)
     modalRef.componentInstance.permission = this.formCheckService.copyJson(permission)
     modalRef.result.catch(res => {
       if (res.id) {
@@ -56,11 +57,46 @@ export class PermissionManagerComponent implements OnInit {
     }).then()
   }
 
+  //弹出权限模块编辑窗口
+  showChangePermissionModelModal(index: number) {
+    let modalRef = this.modalService.open(PermissionChangeMainComponent)
+    modalRef.componentInstance.permissionModel = this.formCheckService.copyJson(this.permissionsModels[index])
+    modalRef.componentInstance.title = this.permissionsModels[index].name
+    modalRef.result.catch(res => {
+      if (res.id) {
+        console.log(res)
+        this.permissionsModels[index].name = res.name
+      }
+    }).then()
+  }
+
+  //弹出添加权限模块窗口
+  showAddModelModal() {
+    const modalRef = this.modalService.open(PermissionAddModelComponent)
+    modalRef.result.catch(res => {
+      if (res.id) {
+        this.permissionsModels.push({ id: res.id, name: res.name })
+      }
+    }).then()
+
+  }
+
+  //弹出权限添加窗口
+  showAddPermissionModal(modelindex: number) {
+    const modalRef = this.modalService.open(PermissionAddChildComponent)
+    modalRef.componentInstance.permissionModel = this.permissionsModels[modelindex]
+    modalRef.result.catch(res => {
+      if (res.id) {
+        this.permissions.push(res)
+      }
+    }).then()
+  }
+
   //尝试删除权限
   deletePermission(permission: any) {
 
     //显示警告提示
-    let dialogRef = this.dialog.open(DialogDanger, {
+    const dialogRef = this.dialog.open(DialogDanger, {
       data: {
         title: "风险提示",
         message: `您确认删除权限 '${permission.name}',操作不可恢复?！`
@@ -80,19 +116,27 @@ export class PermissionManagerComponent implements OnInit {
     })
   }
 
-  //弹出添加权限模块窗口
-  showAddModelModal() {
-    const modalRef = this.modalService.open(PermissionAddModelComponent)
-  }
+  //尝试删除权限模块
+  deletePermissionModel(index: number) {
+    console.log(111)
 
-  //弹出权限添加窗口
-  showAddPermissionModal(modelindex: number) {
-    const modalRef = this.modalService.open(PermissionAddChildComponent)
-    modalRef.componentInstance.permissionModel = this.permissionsModels[modelindex]
-    modalRef.result.catch(res => {
-      if (res.id) {
-        this.permissions.push(res)
+    //显示警告提示
+    const dialogRef = this.dialog.open(DialogDanger, {
+      data: {
+        title: "风险提示",
+        message: `您确认删除模块 '${this.permissionsModels[index].name}',操作不可恢复?！`
       }
-    }).then()
+    })
+
+    //判断是否确认删除
+    dialogRef.afterClosed().subscribe(result => {
+      if (result == true) {
+        this.permissionMgService.deletePermissionModel(this.permissionsModels[index].id).subscribe(res => {
+          if (res.result) {
+            this.permissionsModels.splice(index, 1)
+          }
+        })
+      }
+    })
   }
 }

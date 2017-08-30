@@ -20,7 +20,7 @@ export class PermissionManagerService {
 
   //修改权限模块
   changePermissionModel(params: any): Observable<ApiData> {
-    return this.request.delete('/permission/model/update', params)
+    return this.request.put('/permission/model/update', params)
   }
 
   //添加权限
@@ -35,7 +35,7 @@ export class PermissionManagerService {
 
   //修改权限
   changePermission(params: any): Observable<ApiData> {
-    return this.request.delete('/permission/update', params)
+    return this.request.put('/permission/update', params)
   }
 
   //获取权限模块列表&权限列表
