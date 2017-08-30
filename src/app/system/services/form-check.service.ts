@@ -15,6 +15,19 @@ export class FormCheckService {
     return isNaN(count) ? '0' : count;
   }
 
+  //将选项转换为ngSelect选中数组（ng2-select装用）
+  toNg2ActiveItem(id: number, items: Array<{ id: number, text: string }>) {
+    return items.filter(e => {
+      if (e.id == id) {
+        return true
+      }
+      else if (e.id == -1 && id == 0) {
+        return true
+      }
+      return false
+    })
+  }
+
   //简单拷贝JSON数据
   copyJson(json: any): any {
     let temp = {}

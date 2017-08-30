@@ -3,17 +3,17 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Page } from './../../tools/components/pagination/page.class';
 import { RoleManagerService } from './role-manager.service';
 import { RoleInfoComponent } from './../../modals/role-info/role-info.component';
-import { RolePermissionComponent } from './../../modals/role-permission/role-permission.component';
 import { RoleAddComponent } from './../../modals/role-add/role-add.component';
 import { MdDialog } from '@angular/material';
 import { DialogDanger } from './../../tools/components/dialog';
 import { ToastrService } from 'ngx-toastr';
+import { FormCheckService } from './../../services/form-check.service';
 
 @Component({
   selector: 'app-role-manager',
   templateUrl: './role-manager.component.html',
   styleUrls: ['./role-manager.component.scss'],
-  providers: [RoleManagerService]
+  providers: [RoleManagerService, FormCheckService]
 })
 export class RoleManagerComponent implements OnInit {
 
@@ -23,11 +23,11 @@ export class RoleManagerComponent implements OnInit {
   //角色列表
   roles = new Array<any>()
 
-  constructor(private roleMgService: RoleManagerService, private toast: ToastrService, private modalService: NgbModal, private dialog: MdDialog) { }
+  constructor(private roleMgService: RoleManagerService, private toast: ToastrService, private modalService: NgbModal, private dialog: MdDialog, private formCheckService: FormCheckService) { }
 
   ngOnInit() { this.loadRoles() }
 
-  //load role list
+  //载入角色列表
   loadRoles() {
     this.roleMgService.getRoles(this.page.pageData).subscribe(res => {
       if (res.result) {
@@ -35,30 +35,42 @@ export class RoleManagerComponent implements OnInit {
         this.page.total = res.datas.total
       }
     })
-
   }
 
-  //open role info edit pad
+  //弹出角色编辑面板
   openInfoChangeModal(index: number) {
-    const modalRef = this.modalService.open(RoleInfoComponent)
-    modalRef.componentInstance.role = this.roles[index]
+    const modalRef = this.modalService.open(RoleInfoComponent, { size: 'lg' })
+    modalRef.componentInstance.role = this.formCheckService.copyJson(this.roles[index])
+    modalRef.componentInstance.roles = this.roles.concat()
+    modalRef.componentInstance.roles.splice(index, 1)
+    modalRef.componentInstance.title = this.roles[index].name
+
+    modalRef.result.catch(res => {
+      if (res.id) {
+        this.roles[index].name = res.name
+        this.roles[index].description = res.description
+        this.roles[index].parentid = res.parentid
+        this.roles[index].permisions = res.permisions
+      }
+    }).then()
   }
 
-  //open role edit pad
-  openPermissionChangeModal(index: number) {
-    const modalRef = this.modalService.open(RolePermissionComponent)
-    modalRef.componentInstance.role = this.roles[index]
-  }
-
-  //open role add page
+  //弹出角色添加面板
   openAddRoleMoal() {
-    const modalRef = this.modalService.open(RoleAddComponent)
+    const modalRef = this.modalService.open(RoleAddComponent, { size: 'lg' })
+    modalRef.componentInstance.roles = this.roles
+    modalRef.result.catch(res => {
+      if (res.id) {
+        this.roles.push(res)
+        this.toast.success("成功添加新角色", "操作成功")
+      }
+    })
   }
 
-  //try delete a role by index
+  //尝试删除角色
   deleteRole(index: number) {
 
-    //show danger message
+    //显示警告信息
     let dialogRef = this.dialog.open(DialogDanger, {
       data: {
         title: "风险提示",
@@ -66,7 +78,7 @@ export class RoleManagerComponent implements OnInit {
       }
     })
 
-    //try delete role
+    //是否删除角色
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this.roleMgService.deleteRole(this.roles[index].id).subscribe(res => {
@@ -79,9 +91,9 @@ export class RoleManagerComponent implements OnInit {
     })
   }
 
-  //on page changed
-  pageChanged($event){
-    
+  //换页方法
+  pageChanged($event) {
+
   }
 
 }

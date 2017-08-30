@@ -16,7 +16,15 @@ export class RoleManagerService {
     return this.req.delete('/role/delete', { roleid })
   }
 
-  get getPermissionDatas():Observable<ApiData>{
+  changeRole(params: any): Observable<ApiData> {
+    return this.req.put('/role/update', params)
+  }
+
+  addRole(params:any): Observable<ApiData> {
+    return this.req.post('/role/add', params)
+  }
+
+  get getPermissionDatas(): Observable<ApiData> {
     return this.req.url('/role/permissions')
   }
 }

@@ -8,6 +8,9 @@ import { SystemRoutingModule } from './system-routing.module';
 /*ng-bootstrap*/
 import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 
+/*ng2-select*/
+import { SelectModule } from 'ng2-select';
+
 /*tool module*/
 import { ToolModule } from './../system/tools/tool.module';
 
@@ -21,10 +24,10 @@ import { MenuSettingComponent, MenuChildrenDialog } from './pages/menu-setting/m
 import { Error404Component } from './pages/error404/error404.component';
 import { PermissionManagerComponent } from './pages/permission-manager/permission-manager.component';
 import { RoleManagerComponent } from './pages/role-manager/role-manager.component';
+import { AdminManagerComponent } from './pages/admin-manager/admin-manager.component';
 
 /*modals list*/
 import { RoleInfoComponent } from './modals/role-info/role-info.component';
-import { RolePermissionComponent } from './modals/role-permission/role-permission.component';
 import { RoleAddComponent } from './modals/role-add/role-add.component';
 import { PermissionChangeChildComponent } from './modals/permission-change-child/permission-change-child.component';
 import { PermissionAddModelComponent } from './modals/permission-add-model/permission-add-model.component';
@@ -40,8 +43,9 @@ import { PermissionChangeMainComponent } from './modals/permission-change-main/p
     CommonModule,
     FormsModule,
     SortablejsModule,
-    NgbModalModule.forRoot(),
-
+    NgbModalModule,
+    SelectModule,
+    
     /*material module*/
     MdButtonModule,
     MdInputModule,
@@ -67,7 +71,6 @@ import { PermissionChangeMainComponent } from './modals/permission-change-main/p
     PermissionManagerComponent,
     RoleManagerComponent,
     RoleInfoComponent,
-    RolePermissionComponent,
     RoleAddComponent,
     PermissionChangeChildComponent,
     PermissionAddModelComponent,
@@ -77,11 +80,11 @@ import { PermissionChangeMainComponent } from './modals/permission-change-main/p
     MenuAddChildComponent,
     MenuChangeMainComponent,
     MenuChangeChildComponent,
+    AdminManagerComponent,
   ],
   entryComponents: [
     MenuChildrenDialog,
     RoleInfoComponent,
-    RolePermissionComponent,
     RoleAddComponent,
     PermissionChangeChildComponent,
     PermissionAddModelComponent,

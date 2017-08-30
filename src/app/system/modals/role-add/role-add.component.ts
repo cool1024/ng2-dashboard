@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormCheckService } from './../../services/form-check.service';
 import { RoleManagerService } from "./../../pages/role-manager/role-manager.service";
@@ -11,9 +11,11 @@ import { RoleManagerService } from "./../../pages/role-manager/role-manager.serv
 })
 export class RoleAddComponent {
 
-  role = { name: '', description: '', parentid: 0, permissions: '1,2,3,4' }
+  role = { id: 0, name: '', description: '', parentid: 0, permissions: '' }
 
-  pad = { models: new Array<any>(), permissions: new Array<any>() }
+  @Input() roles: Array<any>
+
+  @Input() pad = { models: new Array<any>(), permissions: new Array<any>() }
 
   constructor(public activeModal: NgbActiveModal, private formCheckService: FormCheckService, private roleManagerService: RoleManagerService) {
     this.roleManagerService.getPermissionDatas.subscribe(res => {
@@ -59,6 +61,12 @@ export class RoleAddComponent {
 
   //添加新角色
   addNewRole(button: any) {
+    this.roleManagerService.addRole(this.role).finally(() => button.complete = true).subscribe(res => {
+      if (res.result) {
+        this.role.id=res.id;
+        this.activeModal.dismiss(this.role)
+      }
+    })
     setTimeout(_ => {
       button.complete = true
       //this.activeModal.dismiss(this.role)

@@ -20,7 +20,7 @@ import { MenuAddChildComponent } from './../../modals/menu-add-child/menu-add-ch
 export class MenuSettingComponent implements OnInit {
 
   //菜单列表
-  menus = new Array<{ id: number, icon: string, title: string, childs: Array<{ id: number, icon: string, title: string, url: string, parentid: number }> }>()
+  menus = new Array<{ id: number, icon: string, title: string, childs: Array<{ id: number, icon: string, title: string, url: string, parentid: number, permissionid: number }> }>()
 
   constructor(public dialog: MdDialog, private modalService: NgbModal, private toast: ToastrService, private menuSettingService: MenuSettingService, private formService: FormCheckService) { }
 
@@ -32,7 +32,7 @@ export class MenuSettingComponent implements OnInit {
   //载入菜单列表
   loadMenus() {
     this.menuSettingService.getMenuGroups.subscribe(res => {
-      let mains = new Array<{ id: number, icon: string, title: string, childs: Array<{ id: number, icon: string, title: string, url: string, parentid: number }> }>()
+      let mains = new Array<{ id: number, icon: string, title: string, childs: Array<{ id: number, icon: string, title: string, url: string, parentid: number, permissionid: number }> }>()
       for (let i = 0; i < res.datas.length; i++) {
         if (res.datas[i].parentid == 0) {
           res.datas[i].groups.forEach(e => {
@@ -108,6 +108,7 @@ export class MenuSettingComponent implements OnInit {
         child.title = res.title
         child.icon = res.icon
         child.url = res.url
+        child.permissionid=res.permissionid
       }
     }
     ).then()

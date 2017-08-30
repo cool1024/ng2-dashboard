@@ -1,5 +1,5 @@
 <div class="modal-header">
-    <h5 class="modal-title" id="exampleModalLabel">{{role.name}}@信息编辑</h5>
+    <h5 class="modal-title" id="exampleModalLabel">{{title}}@信息编辑</h5>
     <button type="button" class="close pointer" (click)="close()" aria-label="Close">
         <span aria-hidden="true">&times;</span>
     </button>
@@ -9,6 +9,13 @@
         <div class="form-group">
             <label for="recipient-name" class="form-control-label">角色名称:</label>
             <input type="text" class="form-control" id="recipient-name" name="name" [(ngModel)]="role.name">
+        </div>
+        <div class="form-group">
+            <label class="form-control-label">上级角色:</label>
+            <select class="form-control custom-select rounded-0" name="parent" [(ngModel)]="role.parentid" name="type" required>
+                <option value="0">无上级角色</option>                    
+                <option *ngFor="let item of roles" [value]="item.id">{{item.name}}</option>
+            </select>
         </div>
         <div class="form-group">
             <label for="message-text" class="form-control-label">角色描述:</label>

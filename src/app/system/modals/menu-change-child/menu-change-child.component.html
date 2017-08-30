@@ -8,15 +8,20 @@
     <form #change="ngForm">
         <div class="form-group">
             <label class="form-control-label">菜单标题:</label>
-            <input type="text" class="form-control rounded-0" id="recipient-name" name="title" [(ngModel)]="menu.title" placeholder="请输入菜单标题" required>
+            <input type="text" class="form-control rounded-0" name="title" [(ngModel)]="menu.title" placeholder="请输入菜单标题" required>
         </div>
         <div class="form-group">
             <label class="form-control-label">菜单图标:</label>
-            <input type="text" class="form-control rounded-0" id="recipient-name" name="icon" [(ngModel)]="menu.icon" placeholder="请输入菜单图标" required>
+            <input type="text" class="form-control rounded-0" name="icon" [(ngModel)]="menu.icon" placeholder="请输入菜单图标" required>
         </div>
         <div class="form-group">
             <label class="form-control-label">菜单链接:</label>
-            <input type="text" class="form-control rounded-0" id="recipient-name" name="url" [(ngModel)]="menu.url" placeholder="请输入菜单链接" required>
+            <input type="text" class="form-control rounded-0" name="url" [(ngModel)]="menu.url" placeholder="请输入菜单链接" required>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label">访问权限:</label>
+            <ng-select [active]="getActiveSelectItems()" [items]="permissions" (data)="menu.permissionid=$event.id" placeholder="请设置访问权限">
+            </ng-select>
         </div>
     </form>
 </div>

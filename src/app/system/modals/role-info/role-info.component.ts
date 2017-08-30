@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormCheckService } from './../../services/form-check.service';
 import { RoleManagerService } from "./../../pages/role-manager/role-manager.service";
+import 'rxjs/add/operator/finally';
 
 @Component({
   selector: 'app-role-info',
@@ -12,7 +13,14 @@ import { RoleManagerService } from "./../../pages/role-manager/role-manager.serv
 })
 export class RoleInfoComponent {
 
+  //标题
+  @Input() title: string
+
+  //表单数据
   @Input() role: any
+
+  //角色列表
+  @Input() roles: Array<any>
 
   pad = { models: new Array<any>(), permissions: new Array<any>() }
 
@@ -24,6 +32,7 @@ export class RoleInfoComponent {
 
   }
 
+  //获取指定模块的所有权限
   getPermissionsByModel(modelid: number) {
     return this.pad.permissions.filter(e => e.modelid == modelid)
   }
@@ -60,11 +69,13 @@ export class RoleInfoComponent {
 
   //修改角色信息
   applayInfoChange(button: any) {
-
-    setTimeout(_ => {
-      button.complete = true
-      this.activeModal.dismiss(this.role)
-    }, 2000)
+    console.log(this.role)
+    return
+    // this.roleManagerService.changeRole(this.role).finally(() => button.complete = true).subscribe(res => {
+    //   if (res.result) {
+    //     this.activeModal.dismiss(this.role)
+    //   }
+    // })
   }
 
   //关闭本模态框

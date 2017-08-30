@@ -6,27 +6,25 @@
     <div class="card-header">
         <i class="fa fa-users fa-fw"></i>
         <span>角色列表</span>
-        <span (click)="openAddRoleMoal()" class="pull-right text-primary pointer"><i class="fa fa-plus fa-fw"></i>添加新角色</span>
     </div>
-    <div class="card-body">
+    <div class="card-body p-1">
         <!-- <app-tree [trees]="roles" (activeOne)="showChangePad($event)"></app-tree> -->
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th class="border-0">编号</th>
-                    <th class="border-0">角色名称</th>
-                    <th class="border-0">描述</th>
-                    <th class="border-0">操作</th>
+                    <th>编号</th>
+                    <th>角色名称</th>
+                    <th>描述</th>
+                    <th class="text-right">操作</th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let item of roles;index as i">
-                    <th scope="row">{{item.id}}</th>
+                    <td>{{item.id}}</td>
                     <td cass="border border-primary">{{item.name}}</td>
                     <td>{{item.description}}</td>
-                    <td>
+                    <td class="text-right">
                         <button (click)="openInfoChangeModal(i)" class="btn btn-sm btn-info"><i class="fa fa-edit fa-fw"></i>编辑</button>
-                        <button (click)="openPermissionChangeModal(i)" class="btn btn-sm btn-warning"><i class="fa fa-lock fa-fw"></i>权限</button>
                         <button (click)="deleteRole(i)" class="btn btn-sm btn-danger"><i class="fa fa-trash fa-fw"></i>删除</button>
                     </td>
                 </tr>
@@ -34,7 +32,8 @@
         </table>
     </div>
     <div class="text-right pr-3">
-        <button class="btn btn-outline-secondary border-0 mr-3">共 {{this.page.total}} 条记录</button>
+        <button (click)="openAddRoleMoal()" class="btn btn-success"><i class="fa fa-plus fa-fw"></i>添加新角色</button>
+        <button class="btn btn-outline-secondary border-0 mr-3">共 {{this.roles.length}} 条记录</button>
         <app-pagination class="pull-right" (pageChange)="pageChanged($event)" [ellipses]="true" [collectionSize]="this.page.total" [(page)]="this.page.page" [pageSize]="this.page.limit" [maxSize]="5"></app-pagination>
     </div>
 </div>

@@ -9,6 +9,9 @@ import 'hammerjs';
 /*Material*/
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
+/*ng-bootstrap*/
+import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
+
 /*app component*/
 import { AppComponent } from './app.component';
 
@@ -46,8 +49,7 @@ import { HeadbarService } from './system/components/headbar/headbar.service';
     AppRoutingModule,
     ToastrModule.forRoot({ positionClass: 'toast-bottom-right', progressBar: true }),
     NoopAnimationsModule,
-    /*dev module*/
-    // TestModule,
+    NgbModalModule.forRoot(),
 
     /*system module must the end*/
     SystemModule,

@@ -29,13 +29,18 @@ export class MenuSettingService {
   }
 
   //排序菜单
-  sortMenu(ids: string) {
+  sortMenu(ids: string): Observable<ApiData> {
     return this.request.put('/menu/sort', { ids })
   }
 
+  //获取权限下拉列表数据
+  get permissions(): Observable<ApiData> {
+    return this.request.get('/menu/permissions')
+  }
+
   //通过parentid获取指定子菜单列表
-  getChildByParentId(childslist: Array<{ parentid: number, groups: Array<{ id: number, icon: string, title: string, url: string, parentid: number }> }>, parentid: number): Array<{ id: number, icon: string, title: string, url: string, parentid: number }> {
-    let childs = new Array<{ id: number, icon: string, title: string, url: string, parentid: number }>();
+  getChildByParentId(childslist: Array<{ parentid: number, groups: Array<{ id: number, icon: string, title: string, url: string, parentid: number, permissionid: number }> }>, parentid: number): Array<{ id: number, icon: string, title: string, url: string, parentid: number, permissionid: number }> {
+    let childs = new Array<{ id: number, icon: string, title: string, url: string, parentid: number, permissionid: number }>();
     for (let i = 0; i < childslist.length; i++) {
       if (childslist[i].parentid == parentid) {
         childs = childslist[i].groups
