@@ -15,4 +15,8 @@ export class RoleManagerService {
   deleteRole(roleid: number): Observable<ApiData> {
     return this.req.delete('/role/delete', { roleid })
   }
+
+  get getPermissionDatas():Observable<ApiData>{
+    return this.req.url('/role/permissions')
+  }
 }

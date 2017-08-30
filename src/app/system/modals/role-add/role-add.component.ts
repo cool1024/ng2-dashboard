@@ -1,18 +1,27 @@
 import { Component } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormCheckService } from './../../services/form-check.service';
+import { RoleManagerService } from "./../../pages/role-manager/role-manager.service";
 
 @Component({
   selector: 'app-role-add',
   templateUrl: './role-add.component.html',
   styleUrls: ['./role-add.component.scss'],
-  providers: [FormCheckService]
+  providers: [FormCheckService, RoleManagerService]
 })
 export class RoleAddComponent {
 
   role = { name: '', description: '', parentid: 0, permissions: '1,2,3,4' }
 
-  constructor(public activeModal: NgbActiveModal, private formCheckService: FormCheckService) { }
+  pad = { models: new Array<any>(), permissions: new Array<any>() }
+
+  constructor(public activeModal: NgbActiveModal, private formCheckService: FormCheckService, private roleManagerService: RoleManagerService) {
+    this.roleManagerService.getPermissionDatas.subscribe(res => {
+      this.pad.models = res.datas.models
+      this.pad.permissions = res.datas.permissions
+    })
+
+  }
 
   //获取权限列表
   get permissions(): Array<number> {

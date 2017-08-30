@@ -17,10 +17,10 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class RoleManagerComponent implements OnInit {
 
-  //page params
+  //分页参数
   page = new Page()
 
-  //role list
+  //角色列表
   roles = new Array<any>()
 
   constructor(private roleMgService: RoleManagerService, private toast: ToastrService, private modalService: NgbModal, private dialog: MdDialog) { }
