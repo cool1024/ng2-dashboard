@@ -15,6 +15,17 @@
             <textarea class="form-control" id="message-text" name="description" maxlength="100" [(ngModel)]="role.description"></textarea>
             <p class="text-right">{{role.description.length}}/100</p>
         </div>
+        <div>
+            <label class="form-control-label">权限分配:</label>
+            <div class="border border-muted p-2 permission-pad" *ngFor="let model of pad.models">
+                <p>{{model.name}}</p>
+                <div class="mt-2 toggles">
+                    <md-slide-toggle *ngFor="let permission of getPermissionsByModel(model.id)" color="warn" (change)="reversePermission(permission.id)" [checked]="hasPermission(permission.id)">
+                        <span [ngClass]="{'text-danger': hasPermission(permission.id),'text-muted':!hasPermission(permission.id)}">{{permission.name}}</span>
+                    </md-slide-toggle>
+                </div>
+            </div>
+        </div>
     </form>
 </div>
 <div class="modal-footer">

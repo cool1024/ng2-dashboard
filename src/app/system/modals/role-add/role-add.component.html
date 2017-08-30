@@ -25,18 +25,18 @@
         </div>
         <div>
             <label class="form-control-label">权限分配:</label>
-            <div class="border border-muted p-2">
-                <p>系统设置</p>
-                <div class="mt-2">
-                    <md-slide-toggle color="warn" (change)="reversePermission(1)" [checked]="hasPermission(1)">
-                        <span [ngClass]="{'text-danger': hasPermission(1),'text-muted':!hasPermission(1)}">菜单设置</span>
+            <div class="border border-muted p-2 permission-pad" *ngFor="let model of pad.models">
+                <p>{{model.name}}</p>
+                <div class="mt-2 toggles">
+                    <md-slide-toggle *ngFor="let permission of getPermissionsByModel(model.id)" color="warn" (change)="reversePermission(permission.id)" [checked]="hasPermission(permission.id)">
+                        <span [ngClass]="{'text-danger': hasPermission(permission.id),'text-muted':!hasPermission(permission.id)}">{{permission.name}}</span>
                     </md-slide-toggle>
-                    <md-slide-toggle color="warn" (change)="reversePermission(2)" [checked]="hasPermission(2)">
+                    <!-- <md-slide-toggle color="warn" (change)="reversePermission(2)" [checked]="hasPermission(2)">
                         <span [ngClass]="{'text-danger': hasPermission(2),'text-muted':!hasPermission(2)}">角色管理</span>
                     </md-slide-toggle>
                     <md-slide-toggle color="warn" (change)="reversePermission(3)" [checked]="hasPermission(3)">
                         <span [ngClass]="{'text-danger': hasPermission(3),'text-muted':!hasPermission(3)}">权限分配</span>
-                    </md-slide-toggle>
+                    </md-slide-toggle> -->
                 </div>
             </div>
         </div>

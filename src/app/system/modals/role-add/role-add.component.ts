@@ -23,6 +23,10 @@ export class RoleAddComponent {
 
   }
 
+  getPermissionsByModel(modelid: number) {
+    return this.pad.permissions.filter(e => e.modelid == modelid)
+  }
+
   //获取权限列表
   get permissions(): Array<number> {
     return this.formCheckService.idsToArray(this.role.permissions)
