@@ -25,6 +25,7 @@ import { TreeParentPipe } from './pipes/tree-parent.pipe';
 
 /*directive list*/
 import { ButtonLoadingDirective } from './directives/button-loading.directive';
+import { ImageLoadingDirective } from './directives/image-loading.directive';
 
 /*tool components*/
 import { ImageInputFormComponent } from './components/image-input-form/image-input-form.component';
@@ -60,7 +61,7 @@ import { CodePadComponent } from './components/code-pad/code-pad.component';
     
     //directives
     ButtonLoadingDirective,
-
+    ImageLoadingDirective,
   ],
   exports: [
     AlertComponent,
@@ -73,6 +74,7 @@ import { CodePadComponent } from './components/code-pad/code-pad.component';
     TreeComponent,
     CodePadComponent,
     ButtonLoadingDirective,
+    ImageLoadingDirective,
   ]
 })
 export class ToolModule { }

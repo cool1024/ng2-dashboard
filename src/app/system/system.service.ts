@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Config } from '../config/system';
 import { LoginPageConfig } from './../config/login';
+import { AdminPageConfig } from './../config/admin';
 
 @Injectable()
 export class SystemService {
@@ -39,6 +40,8 @@ export class SystemService {
 
   public config: { theme: any, server: any, content: any } = { theme: {}, server: {}, content: {} }
 
-  public loginPageConfig = LoginPageConfig;
+  public loginPageConfig = LoginPageConfig
+
+  public adminPageConfig = AdminPageConfig
 
 }

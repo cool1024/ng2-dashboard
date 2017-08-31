@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, ElementRef, OnChanges, SimpleChanges } from '@angular/core';
 
 @Component({
     selector: 'button[loading]',
@@ -27,7 +27,7 @@ export class ButtonLoadingDirective implements OnChanges {
     }
 
     set complete(ready: boolean) {
-        this.elementRef.nativeElement.disabled = !ready||this.disabled
+        this.elementRef.nativeElement.disabled = !ready || this.disabled
         this.loading = !ready
     }
 
