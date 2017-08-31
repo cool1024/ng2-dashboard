@@ -3,8 +3,7 @@ import { Component, ElementRef, Directive } from '@angular/core';
 @Directive({
     selector: 'img[loading]',
     host: {
-        '(error)': 'setError()',
-        '(load)': 'trySaveImageToStorage()'
+        '(error)': 'setError()'
     },
     inputs: ['error']
 })
@@ -18,27 +17,5 @@ export class ImageLoadingDirective {
 
     setError() {
         this.elementRef.nativeElement.src = this.error
-    }
-
-    trySaveImageToStorage() {
-        let e = this.elementRef.nativeElement
-        let tempStr: string = e.src
-
-        if (tempStr.length > 20 && tempStr.substring(0, 10) == 'data:image') {
-            //不需要缓存图片
-        }
-        else {
-            let canvas = document.createElement('canvas')
-            let context = canvas.getContext("2d");
-            canvas.width = e.width;
-            canvas.height = e.height;
-            context.drawImage(e, 0, 0, e.width, e.height);
-            let base64 = canvas.toDataURL(tempStr);
-            console.log(base64)
-        }
-    }
-
-    tryGetImageToStorage() {
-
     }
 }

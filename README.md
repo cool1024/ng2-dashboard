@@ -7,8 +7,9 @@
 `ng serve --open`
 
 # build
-`ng build --env=prod --output-hashing`
-# anuglar/cli更新到1.2.7可以正常使用 ng build --prod 了
+`ng build --env=prod`
+
+# angular/cli 1.2.7
 
 # run on nginx
 
@@ -22,9 +23,15 @@ replace the old
 
 #update angular/cli
 
-` 先更新全局 `
-` npm install -g @angular/cli@latest `
-` 然后更新项目 1.删除项目中node_modules dist这两个文件夹 2.npm install --save-dev @angular/cli@latest 3.重新安装项目`
+```
+global install
+
+npm install -g @angular/cli@latest
+
+project install
+
+npm install --save-dev @angular/cli@latest
+```
 
 #link source in your index.html
 
