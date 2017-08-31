@@ -3,15 +3,42 @@ import { Component, ElementRef, Directive } from '@angular/core';
 @Directive({
     selector: 'img[loading]',
     host: {
-        'onerror': '$event.target.src="',
-        'role':'button',
-    }
+        '(error)': 'setError()',
+        '(load)': 'trySaveImageToStorage()'
+    },
+    inputs: ['error']
 })
 export class ImageLoadingDirective {
 
+    error = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAA+5SURBVHhe7Z0JkBxlFccT4n3giQpiluxcm2hCstOzGzCyhaIcARGLoAmgpSVVCOEyFAoaAUUuERCQBEQEigQSApHL4pKEWxJAwxEBEQxXkESOhICG7OrvTb+dnel5PdPd07M7M5t/1b9mpvu9973v+/r7+rtnRKMjk9nxg4lEbodk0vluMpk7OZVy5sHbU6ncw3AV19fy+3Wh+z33LHwELkV+PtdP5ftB6XT3lPb27IfU7GYERSYzaZt02jmQRLyIBF7JZy/8X0zsI4OewO6lksFk0GgNdjOKkU5nO3iaZ5NgD7mJZiZmvfgImfNzStAEdWd4QqoiMuFguMxIpCEhGbMCHjF69JSPqJutD6kmiPxZbr1vJ0wDcAP+zUkkJifV7daDZARP34WUiP8aCdCgdDbBy9vbu1MajeZHMtm1JZE7jYi9VR7h5iAP0UZ4bkdH7mMareZEKtU1nVKx2opkM5K4SLP6IKI20o1hk0Carjh/gzdCLcQl6XTXGI1uYwNn9yEz/u2JQMuROK6jBviWRrvxkM1m34mTv8bZwe5HDDUv3nbbye/VZGgM0LH7OJlxh+HsMKHzAI2XbTU5hhZjxuTSOPVUuZPDizyQz1OFba/JMjRIJDo7ceZlr3PDmK/BnTR5BhepVGc3gb9a5MxmupRe/i6aTIODRKI7S8DyNFgOFXMpRfkMHDyNjtVlcAXX4hy9HQz2EocV4r8bD+dXXFvqkfFyA3I9mlz1RSbjZAiwajXFS+4YVSnBmDHdn0ylsjOJ3GOWXuNQ/MvOFH/V9RKQQT+y9frpvC5VuorXB+3tO3wCR/5hOzBAZF7o6el5h6r5YQvkZsAXLRtDRdefrunin+umDbeZX9l3Ssnq7bab1KYq8WLcuHHvwoG7rYDL6fxW1apCmszoLCm3MRR0bhd/1LWqQOd35TZKSab8dcKECe9XlfiA8d94A6vAw1QtEKRjhc49HhuVSB2dWykJyOfVfMq07uXynQS4je+P8n29oVeJd7e19bxHXQoEdA732DCJL1eoSjxIp51vWAH5kffHNFUNDBkbIiHfNOxJz/8hEloaB1/XMaSK1YliZCLhfAZ+Fb1TSJT7sePXoNiQyXRvp3qBkU7n9jNsmST8g1WtNuiEUqjmbSKR3VvVQ4FEP6ffhhT1ZDJ7VJw9YHlBY/cQEufPxf7Cs1UkFNDbx2OnAuVh6x6rqpExEudvtQPwJzozVD8USKxJcDEPwef1Ut0gLSDCklUpm6L2sNE/wIq/H0mXZQEaO/4gwO9YhqvRr8nbiOjoyKX5iDS/QQJXafqanKXq4TBu3OSPEuAaw2AAOpermZaGW8Ks+PuTNF0fqRomsEJ9HpYE+gImgrx4mxnSj4rYhwr5wMpqCwLbaBsLRlogX1JzLQkaHF+24h2QfTL8pKaqQ3LQMBKWSzHVXHPPwUFjx7nTiHNg8sD/UW1Vhju/IS0P21A4Oker2ZaCNFrs+IYj/bucmvQHOXeBpRyRMlJ6hJpuCRCfI4lXXNPUV6lZG7LuiKfa6i3XSGch5pv6JS8jBGTGYjt+0Yi9TWPHVhh8RGiWVykOtkIpIQ6hOoFBSY30Cw2iHAQqy/9NxejMl46WAHGZY8cxOskQugjTRmkQA2hvzzmWQm10nhs9enzLrCTfeuvs+0jAx+24Rmcy2fkVDWIABHS6JVwLKXF7qfmWQTqdnULcYl575lyk5gfAxSdt4ci8Tk23HHjQLjHiWwtfLqm2ZIDNEIpMHH5b5t7VfMshlZr8aR7gWFuj9G0mq3kZKnEOtYSiUp4gNd2yIJ5neuNdC3llzFbT+epqoSUUkX3k9jg13bKQEVsSsabxvmLyEN+mpvMZ8pwlFJG3qNmWB4m4wIh/JGJrXf490taW+5QlEJUy/67+tjxqHPEtY75mSSRyu1o3o5AivL7hlubXFdNGUbu8ZKVFNGanS7GTwTLjZhQ6C9TTYQMewrl2WkSh8zMxeJ59Mzwpcvuqn8MGMhFnpUUUUjjmywv9eutmeDqvh6uupLh3j5UI4UiPrrcakgktXeq0E3HYpb3d+Vy4lSHTRvFQx7IcFjv3SIY8YN2MwIvVw0oYKe8sApbFAWVrvciY1dw7N5nsTKh83SCL6AjvDMKVw2q8fqzjc5EsskO06rQB8rIivsRGFGLnaeng/NN7IyIrblQhsJ6gmU+mbET+pJrWMPlDFif8EF8C9rSdR2k57q66JsaM6Rxv64ajPAiSIUH2eVQkEfwbfpnVjTvpJXsrogzIOTfF2WqTFevYjNQJJrGu6ejo3FpNlQG791p6IdknL/U4epvm4upEomtn7L9gyAemJASmYnm3YM9arS7TzHfg5+lwNpwLzS0XXF8D91RzJeD6/pZOWIqT5o3gdF6Rk33UrwJocR3FvZgWS+RPT6gJdOL29dolI+70WW87Ujq4kgFeHSgl/QSRcUVdyHYN4lvziEcMGZI7UX3qB3V01UV2sp3gXD73oTO0B58/hmUv1wE6L9VWdUmLrnSnMD4ulipMBUzI+jTCNo8GQf9S7zuOazX36WqqsnBgbVvb9h9WfwSyXulCS7af3H9G19OWgCfsA9zzPY6DeweoaGhophfbe9Yq1RZoFe7m0S2is7A4U2R/CdcrPFjVKS+jyOdWkZklex6wVa3515vJ5BwVL4PsNMKm2erj+nwVCw30vZuNDtdbgUC87vPoF1Oa+4XqK+xeGi/F2VXeiwF5M+EX2uiSOYZMCXnK/6TivsAOTVJTd6WKhAY2PVvxnHa9FQjIH1eq76VznIrmwe9Io8D4uV4y5EHvjWpE8f7x4weOwaNK6OJa1YPJkPmlqvjCbwQV3TUqEhpk5hNFtvq4FGqNmGwCLdI36PTCwt50Ken8lpNTDVl/4ucz4mzgY5TS6a6vIb9X8cvQDTz3d6+sRXTPUTVfkPB7+uiuVpHQIHGKt2D3hW0gEHbVfTL4/aL0uVQFTBslHcpwQ/TOveLs+fbNMvZK005DK4DrIaYyS4u2BSJvvoeI8DIVCQ3CvanYlpwDrLcCAZ+kRVjij0XkzKlrwg/0niaOV8po5Q+smwZfU/sFELHP4sTbhmwZCWwuKhU7eDjejj1z9yzXq5YuP6B/QqmtvC+BgfwM9IKcQNGXSDg7qloB+P60IVtG5E6SVsHu1k0vEV6r9gvg+rVeOZsURYqwqplAbiKsdKpQ5ENdvGNNJPBG4l195XkR0Dus2IYfsX2XqhRA2gVaYoXu/gQkS1psAQ83qP08CGQS14KOT/1E1Qpwt0HnziazTuPzFj59e/U4er+qRQb2S6otbMqJDaE2e6J3YrENPxK3L6pKHqTV85acl5lM53hVCDae3150djo6MmBoypWzdCZR5/GDNgSoErNdqhoZqdSksfjhGeGVk1KdU2ChGSwdvUSic2c57UgvlQC9qgco4PMNKg7y8yVBWqBvFDqZ/LjaEiqnmzDS5HUjY8mY7MPJ47VU7ATlsHxLroxULYfmnYwBxFMGAP3eBS9zXwYVN+jvV31KkAzfX6EyPnR6ZdJLhN3hF0umjEvy1gX8CHREBBkyU+UPKr8XL7Vk5MMrhnsakbOwtIkZHGTwgej/xwrTS3xYnUhMKjvdWgcSS6pAL5O6NZzMkwaBKeOhDFi6kOUnhoDFa1353I3GvRjpLPerMgBPaNeW+j0S5OB9EvsuO+xSSqmx5kHcY6YqjWY794kc4QRaByyLuPOG+4FigKaZ85Yc0cT3/mIdG90SkVuku3djmf+oBncluzOPRK9Wxz9sHdDP9QqTe84myUjiVfXIXJEpmx3lxlleQYs4H3qzfBXyfsmf1hZqfClOUOJkWegFkoiGf3ly/57iY5YowVMtuWIGTSsy5FI1OwDpvVrC9SQO8xLt+oK6MORwNy1VPOnuEXyW4zTk4Y2xluicqi6UYCTOBGqKxkEidqtnLqUh4E4BONdYPteHzr98J8q4eaytFC8lM5LJ5Ls12IaD1Of4ucjrdz1IWviPgLsth1ygJmENXNUM+w7d/YT12ARbwl6rWV0CnIh7u1YJaUXtp0E1PKgxdrHiECOrb/uTEVwE63K2LsXT3gLcwKhnKaHZHeygNoSv8irHQ2eeBlEGt82emyEjs3qpDHIuopQwmcEjMh16uQxSDRDWN4WVqgS31981vdJ5i/gUaC4kLMnoqtPZBbg999jWVBWIE2doEGWQ5i/3b0OOzpZzc/H/PpH4cpSsLHKTE6PlFJ7b+VwH/9A/ZiTQTL0CvoGMnD4tfy75Bpxf3NsWHXQXiw2xlUpl99BbZcCXKvPpkdgXdpJMimrF5TxRiM2q5/nK8hxkzyQhZGT2QRJTDqyU89QXcG8bFRshPWfuzeX6W9hdzvdlosP3S5LJiVupGPGYuJVcc+/llomsq5ObW7wuwA/IyvSAGZ8auEjNB4cOkcR92P7Dar4q3PC7plI69q5UpejwxF6yUl1WtOvlMkhvXGREtri0VAM+VzvnPSSdN3XrRXjg/CG20egMO1M3lJBqE5/jbuCUTdaFgYz9BxoVDUoy+U6x65pvbODvdV7/ayFxX2EtFAkFaaWQKWGP7a5I7J2s5hsWVC1HW75HJXGWEeWJar42kLORzu+tRGwer+YbDvgnE3YxHzAT8bxeP5CAsffgsbmgkYZRZME3JeMiy9caKRN78c7xyGo/nI1rP2KBFGVZ/SH/BziU75WRtML25QGJa3tfgcTv8eLFIbHCncgJtqQlLHF8Jfz+YGz47Id0EOmgfY84/cXyqVZid62c8qrB1Qc8zdsTWM37EiuRjHkeyv+C0Evumspne41jYFuMHbtDG4m/Gw/VMVJVEk7UVf9BuSHwWFWtSKe7p5BgMjxhOVIXEp60Up4iMe8ggxbCOVD+pOt4Po8V8v2nfJ4Kz0f+SuSX8P1JWO8phRK6vvoPx9QFuqFzUDOlGSiZofvbBx8USTl/cPN/GQ6Qaqrynva6Q9c41eVF30ykZKwJPYJbL+gZhMstR4cHnccGs3UYCNJPoaT83na4pbmIlltNKynrChz8NhkjEz+W8y1EWWzeJWuPB2WVZU2Q4kumtOz/qxO35bL2QKPbNNgimcwezJP0ihWpZiQZIaPes8rW4TYTZAqVTJlDZALtRWxQ9tKKukwaLxqt5oesEiFS0nuuyxKjOlGG4GWSKp55jEaEu7VMVpCE2oE1qOTB2Yh/8/jeuhnhhbsaRAb64v/7h6ikWn0af2ZnMpMKq1uGJWTvIokh5x9W2hZdL64i7HNkGAhXGr8JO9hwVxNmZ1JlXEVC1WFIxnkJu7JI7kg5gZQgN2dCGMgaKtr8u0oCUp2cR4JeD2XmUmb3XnPrezex9bvM1ciZVQ/x+0Zk5eiQWTIcLhNsarZBMWLE/wFlI0E98tuhHwAAAABJRU5ErkJggg=="
+
+    cache = true
+
     constructor(private elementRef: ElementRef) { }
 
-    loadDefault() {
+    setError() {
+        this.elementRef.nativeElement.src = this.error
+    }
+
+    trySaveImageToStorage() {
+        let e = this.elementRef.nativeElement
+        let tempStr: string = e.src
+
+        if (tempStr.length > 20 && tempStr.substring(0, 10) == 'data:image') {
+            //不需要缓存图片
+        }
+        else {
+            let canvas = document.createElement('canvas')
+            let context = canvas.getContext("2d");
+            canvas.width = e.width;
+            canvas.height = e.height;
+            context.drawImage(e, 0, 0, e.width, e.height);
+            let base64 = canvas.toDataURL(tempStr);
+            console.log(base64)
+        }
+    }
+
+    tryGetImageToStorage() {
 
     }
 }

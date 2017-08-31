@@ -5,7 +5,8 @@ export const Menus = [
         icon: "fa fa-cog", title: "系统设置", childs: [
             { icon: "fa fa-list-ul", title: "菜单编辑", url: "/system/menu" },
             { icon: "fa fa-users", title: "角色管理", url: "/system/role" },
-            { icon: "fa fa-lock", title: "权限分配", url: "/system/permission" }
+            { icon: "fa fa-lock", title: "权限分配", url: "/system/permission" },
+            { icon: "fa fa-user-circle", title: "账户管理", url: "/system/admin" },
         ]
     }, {
         icon: "fa fa-cubes", title: "工具测试", childs: [
