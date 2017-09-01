@@ -15,8 +15,8 @@
                         <span *ngIf="td.type!='image'">{{(td.key=='i'?i+1:item[td.key])||'未设置'}}</span>
                     </td>
                     <td>
-                        <button class="btn btn-sm btn-info">编辑</button>
-                        <button class="btn btn-sm btn-danger">删除</button>
+                        <button type="button" (click)="showChangeModel(i)" class="btn btn-sm btn-info">编辑</button>
+                        <button type="button" class="btn btn-sm btn-danger">删除</button>
                     </td>
                 </tr>
             </tbody>
