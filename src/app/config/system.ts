@@ -9,7 +9,7 @@ export const Config = {
     },
     /*系统主题配置*/
     THEME: {
-        bgColor: "rgba(0, 0, 0, 0.62)",//系统背景色（菜单背景色，登入页面背景色）
+        bgColor: "rgba(0, 0, 0, 0.9)",//系统背景色（菜单背景色，登入页面背景色）
         fontColor: "white",//系统菜单字体颜色
         activeColor: "black",//系统积极状态的组件颜色 
         activeBgColor: 'yellow',//子菜单选中颜色

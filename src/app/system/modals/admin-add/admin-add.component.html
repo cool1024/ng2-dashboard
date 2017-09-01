@@ -1,0 +1,21 @@
+<div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLabel">@添加账户</h5>
+    <button type="button" class="close pointer" (click)="close()" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+</button>
+</div>
+<div class="modal-body">
+    <form #addForm="ngForm">
+        <ng-template ngFor let-item [ngForOf]="config" let-i="index">
+            <div class="form-group" [ngSwitch]="item.type">
+                <label class="form-control-label">{{item.name}}:</label>
+                <input *ngSwitchCase="'text'" class="form-control rounded-0" type="text" id="recipient-name" name="{{item.key}}" [(ngModel)]="admin[item.key]" placeholder="{{item.placeholder||'请输入'+item.name}}" [required]="item.required!=false||false">
+                <textarea *ngSwitchCase="'textarea'" type="text" class="form-control rounded-0" id="recipient-name" name="{{item.key}}" [(ngModel)]="admin[item.key]" placeholder="{{item.placeholder||'请输入'+item.name}}" [required]="item.required!=false||false"></textarea>
+            </div>
+        </ng-template>
+    </form>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="close()"><span>取消/返回</span></button>
+    <button type="button" [disabled]="!addForm.form.valid" loading title="确认添加" class="btn btn-success" #button="btnLoading" (click)="addAdmin(button)"></button>
+</div>

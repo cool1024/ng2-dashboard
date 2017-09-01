@@ -5,25 +5,22 @@ import { SystemService } from "./../../system.service";
 import 'rxjs/add/operator/finally';
 
 @Component({
-  selector: 'app-admin-change',
-  templateUrl: './admin-change.component.html',
-  styleUrls: ['./admin-change.component.scss']
+  selector: 'app-admin-add',
+  templateUrl: './admin-add.component.html',
+  styleUrls: ['./admin-add.component.scss']
 })
-export class AdminChangeComponent {
+export class AdminAddComponent {
 
   config: Array<any>
 
   //表单数据
-  @Input() admin: any = {}
-
-  //标题
-  @Input() title:string
+  admin: any = {}
 
   constructor(public activeModal: NgbActiveModal, private systemService: SystemService) {
     this.config = this.systemService.adminPageConfig.editor
   }
 
-  changeAdmin(button) {
+  addAdmin(button) {
 
   }
 

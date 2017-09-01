@@ -1,8 +1,9 @@
 export class ApiData {
+    
     constructor(public result: boolean, public msg: any, public datas: any, public id?: number) { }
 
     get message(): string {
-        let message = "2222"
+        let message = ""
 
         if (typeof this.msg == 'string') {
             message = this.msg

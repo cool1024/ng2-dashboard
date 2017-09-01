@@ -64,7 +64,6 @@ export class PermissionManagerComponent implements OnInit {
     modalRef.componentInstance.title = this.permissionsModels[index].name
     modalRef.result.catch(res => {
       if (res.id) {
-        console.log(res)
         this.permissionsModels[index].name = res.name
       }
     }).then()
@@ -118,7 +117,6 @@ export class PermissionManagerComponent implements OnInit {
 
   //尝试删除权限模块
   deletePermissionModel(index: number) {
-    console.log(111)
 
     //显示警告提示
     const dialogRef = this.dialog.open(DialogDanger, {

@@ -15,11 +15,16 @@
                         <span *ngIf="td.type!='image'">{{(td.key=='i'?i+1:item[td.key])||'未设置'}}</span>
                     </td>
                     <td>
-                        <button type="button" (click)="showChangeModel(i)" class="btn btn-sm btn-info">编辑</button>
-                        <button type="button" class="btn btn-sm btn-danger">删除</button>
+                        <button type="button" (click)="showChangeModal(i)" class="btn btn-sm btn-info">编辑</button>
+                        <button type="button" (click)="deleteAdmin(i)" class="btn btn-sm btn-danger">删除</button>
                     </td>
                 </tr>
             </tbody>
         </table>
+        <div class="text-right pr-3">
+            <button (click)="showAddModal()" class="btn btn-success"><i class="fa fa-plus fa-fw"></i>添加新账户</button>
+            <button class="btn btn-outline-secondary border-0 mr-3">共 {{this.page.total}} 条记录</button>
+            <app-pagination class="pull-right" (pageChange)="pageChanged($event)" [ellipses]="true" [collectionSize]="this.page.total" [(page)]="this.page.page" [pageSize]="this.page.limit" [maxSize]="5"></app-pagination>
+        </div>
     </div>
 </div>

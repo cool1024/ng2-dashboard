@@ -38,6 +38,7 @@ import { MenuChangeMainComponent } from './modals/menu-change-main/menu-change-m
 import { MenuChangeChildComponent } from './modals/menu-change-child/menu-change-child.component';
 import { PermissionChangeMainComponent } from './modals/permission-change-main/permission-change-main.component';
 import { AdminChangeComponent } from './modals/admin-change/admin-change.component';
+import { AdminAddComponent } from './modals/admin-add/admin-add.component';
 
 @NgModule({
   imports: [
@@ -46,7 +47,7 @@ import { AdminChangeComponent } from './modals/admin-change/admin-change.compone
     SortablejsModule,
     NgbModalModule,
     SelectModule,
-    
+
     /*material module*/
     MdButtonModule,
     MdInputModule,
@@ -83,6 +84,7 @@ import { AdminChangeComponent } from './modals/admin-change/admin-change.compone
     MenuChangeChildComponent,
     AdminManagerComponent,
     AdminChangeComponent,
+    AdminAddComponent,
   ],
   entryComponents: [
     MenuChildrenDialog,
@@ -97,6 +99,7 @@ import { AdminChangeComponent } from './modals/admin-change/admin-change.compone
     MenuChangeMainComponent,
     MenuChangeChildComponent,
     AdminChangeComponent,
+    AdminAddComponent,
   ],
   exports: [MenuComponent, HeadbarComponent, LoginComponent]
 })
