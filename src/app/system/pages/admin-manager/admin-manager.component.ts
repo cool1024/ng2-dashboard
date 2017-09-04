@@ -28,6 +28,20 @@ export class AdminManagerComponent implements OnInit {
   //分页参数
   page = new Page()
 
+  //弹窗配置文件
+  addModalConfig = {
+    title: '@Modal',
+    inputs: [
+      { title: 'E-mail', name: 'email', placeholder: 'please enter your email', type: 'input' },
+      { title: 'Password', name: 'password', placeholder: 'please enter your password', type: 'password' },
+      { title: 'Description', name: 'description', placeholder: 'please enter your email', type: 'textarea' },
+    ],
+    buttons: [
+      { title: 'Close', type: 'close' },
+      { title: 'Confirm', type: 'dismiss' },
+    ]
+  }
+
   constructor(private dialog: MdDialog, private systemService: SystemService, private modalService: NgbModal, private formCheckService: FormCheckService) {
     this.pageConfig = systemService.adminPageConfig
     this.key = systemService.adminPageConfig.table.filter(e => e.primary == true)[0].key || systemService.adminPageConfig.table[0].key
@@ -51,13 +65,12 @@ export class AdminManagerComponent implements OnInit {
   }
 
   //显示添加窗口
-  showAddModal() {
-    const modal = this.modalService.open(AdminAddComponent)
-    modal.result.catch(res => {
-
-    }).then()
+  showAddModal(modal) {
+    modal.open()
   }
 
+
+  //删除账户
   deleteAdmin(index: number) {
 
     const dialog = this.dialog.open(DialogDanger, {
@@ -72,6 +85,11 @@ export class AdminManagerComponent implements OnInit {
         this.admins.splice(index, 1)
       }
     })
+  }
+
+  //换页事件
+  pageChanged(page) {
+
   }
 
 }

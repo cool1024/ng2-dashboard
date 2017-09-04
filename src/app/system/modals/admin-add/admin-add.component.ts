@@ -20,6 +20,7 @@ export class AdminAddComponent {
     this.config = this.systemService.adminPageConfig.editor
   }
 
+  //添加账户
   addAdmin(button) {
 
   }

@@ -13,9 +13,9 @@ export class ChartsDemoComponent implements OnInit {
 
   // 需要显示的数据
   public chartData: Array<any> = [
-    { data: [65, 59, 80, 81, 56, 55, 40], label: '安纳斯' },
-    { data: [28, 48, 40, 19, 86, 27, 90], label: '帮租房' },
-    { data: [18, 48, 77, 9, 100, 27, 40], label: '小租贝贝' }
+    { data: [65, 59, 80, 81, 56, 55, 40], label: 'AMD' },
+    { data: [28, 48, 40, 19, 86, 27, 90], label: 'INTEL' },
+    { data: [18, 48, 77, 9, 100, 27, 40], label: 'NVIDIA' }
   ];
 
   //底部标签名称
@@ -54,7 +54,7 @@ export class ChartsDemoComponent implements OnInit {
   ];
 
   //饼图
-  public doughnutChartLabels: string[] = ['安纳斯', '帮租房', '小租贝贝'];
+  public doughnutChartLabels: string[] = ['AMD', 'INTEL', 'NVIDIA'];
   public doughnutChartData: number[] = [100, 200, 300];
 
 }

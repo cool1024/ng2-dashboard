@@ -1,0 +1,27 @@
+<div #pad class="modal fade" (click)="tryClose($event)" [ngClass]="{'show': show}" [ngStyle]="{'display': show?'block':'none'}" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">{{config.title||'@Modal'}}</h5>
+                <button (click)="_close()" type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group" *ngFor="let item of config.inputs" [ngSwitch]="item.type||'input'">
+                        <label class="form-control-label">{{item.title}}</label>
+                        <input *ngSwitchCase="'input'" type="text" name="{{item.name}}" [(ngModel)]="data[item.name]" class="form-control" placeholder="{{item.placeholder}}">
+                        <input *ngSwitchCase="'password'" type="password" name="{{item.name}}" [(ngModel)]="data[item.name]" class="form-control" placeholder="{{item.placeholder}}">
+                        <textarea *ngSwitchCase="'textarea'" name="{{item.name}}" [(ngModel)]="data[item.name]" class="form-control" placeholder="{{item.placeholder}}"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <ng-template ngFor let-item [ngForOf]="config.buttons">
+                    <button *ngIf="item.type=='close'" type="button" class="btn btn-secondary" (click)="_close()">{{item.title}}</button>
+                    <button *ngIf="item.type=='dismiss'" type="button" class="btn btn-primary" (click)="_dismiss()">{{item.title}}</button>
+                </ng-template>
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="show" class="modal-backdrop fade show"></div>

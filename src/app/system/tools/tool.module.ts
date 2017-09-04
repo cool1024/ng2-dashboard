@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 /*Material*/
@@ -34,10 +35,12 @@ import { ImagesInputFormComponent } from './components/images-input-form/images-
 import { ImagesInputUploadComponent } from './components/images-input-upload/images-input-upload.component';
 import { TreeComponent } from './components/tree/tree.component';
 import { CodePadComponent } from './components/code-pad/code-pad.component';
+import { ModalComponent } from './components/modal/modal.component';
 
 @NgModule({
   imports: [
     CommonModule,
+    FormsModule,
     MdDialogModule,
     HttpModule,
     SortablejsModule,
@@ -55,7 +58,8 @@ import { CodePadComponent } from './components/code-pad/code-pad.component';
     ImagesInputUploadComponent,
     TreeComponent,
     CodePadComponent,
-    
+    ModalComponent,
+
     //pipes
     TreeParentPipe,
     
@@ -75,6 +79,7 @@ import { CodePadComponent } from './components/code-pad/code-pad.component';
     CodePadComponent,
     ButtonLoadingDirective,
     ImageLoadingDirective,
+    ModalComponent,
   ]
 })
 export class ToolModule { }
