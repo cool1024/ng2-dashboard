@@ -2,12 +2,14 @@ import { Component, Input } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { PermissionManagerService } from "./../../pages/permission-manager/permission-manager.service";
 import { SystemService } from "./../../system.service";
+import { AdminManagerService } from "./../../pages/admin-manager/admin-manager.service";
 import 'rxjs/add/operator/finally';
 
 @Component({
   selector: 'app-admin-change',
   templateUrl: './admin-change.component.html',
-  styleUrls: ['./admin-change.component.scss']
+  styleUrls: ['./admin-change.component.scss'],
+  providers: [AdminManagerService]
 })
 export class AdminChangeComponent {
 
@@ -17,14 +19,18 @@ export class AdminChangeComponent {
   @Input() admin: any = {}
 
   //标题
-  @Input() title:string
+  @Input() title: string
 
-  constructor(public activeModal: NgbActiveModal, private systemService: SystemService) {
+  constructor(public activeModal: NgbActiveModal, private systemService: SystemService, private adminManagerService: AdminManagerService) {
     this.config = this.systemService.adminPageConfig.editor
   }
 
   changeAdmin(button) {
-
+    this.adminManagerService.update(this.admin).finally(() => button.complete = true).subscribe(res => {
+      if (res.result) {
+        this.activeModal.dismiss(this.admin)
+      }
+    })
   }
 
   //关闭本模态框

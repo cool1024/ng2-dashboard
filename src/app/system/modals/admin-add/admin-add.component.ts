@@ -1,13 +1,14 @@
 import { Component, Input } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { PermissionManagerService } from "./../../pages/permission-manager/permission-manager.service";
+import { AdminManagerService } from "./../../pages/admin-manager/admin-manager.service";
 import { SystemService } from "./../../system.service";
 import 'rxjs/add/operator/finally';
 
 @Component({
   selector: 'app-admin-add',
   templateUrl: './admin-add.component.html',
-  styleUrls: ['./admin-add.component.scss']
+  styleUrls: ['./admin-add.component.scss'],
+  providers: [AdminManagerService]
 })
 export class AdminAddComponent {
 
@@ -16,13 +17,18 @@ export class AdminAddComponent {
   //表单数据
   admin: any = {}
 
-  constructor(public activeModal: NgbActiveModal, private systemService: SystemService) {
+  constructor(public activeModal: NgbActiveModal, private systemService: SystemService, private adminManagerService: AdminManagerService) {
     this.config = this.systemService.adminPageConfig.editor
   }
 
   //添加账户
   addAdmin(button) {
-
+    this.adminManagerService.add(this.admin).finally(() => button.complete = true).subscribe(res => {
+      if (res.result) {
+        this.admin.id = res.id
+        this.activeModal.dismiss(this.admin)
+      }
+    })
   }
 
   //关闭本模态框

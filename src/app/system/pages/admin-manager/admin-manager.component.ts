@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { AdminChangeComponent } from './../../modals/admin-change/admin-change.component';
 import { AdminAddComponent } from './../../modals/admin-add/admin-add.component';
 import { SystemService } from './../../system.service';
+import { AdminManagerService } from './admin-manager.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { MdDialog } from '@angular/material';
 import { DialogDanger } from './../../tools/components/dialog';
@@ -12,7 +13,7 @@ import { Page } from './../../tools/components/pagination/page.class';
   selector: 'app-admin-manager',
   templateUrl: './admin-manager.component.html',
   styleUrls: ['./admin-manager.component.scss'],
-  providers: [FormCheckService]
+  providers: [FormCheckService, AdminManagerService]
 })
 export class AdminManagerComponent implements OnInit {
 
@@ -28,31 +29,29 @@ export class AdminManagerComponent implements OnInit {
   //分页参数
   page = new Page()
 
-  //弹窗配置文件
-  addModalConfig = {
-    title: '@Modal',
-    inputs: [
-      { title: 'E-mail', name: 'email', placeholder: 'please enter your email', type: 'input' },
-      { title: 'Password', name: 'password', placeholder: 'please enter your password', type: 'password' },
-      { title: 'Description', name: 'description', placeholder: 'please enter your email', type: 'textarea' },
-    ],
-    buttons: [
-      { title: 'Close', type: 'close' },
-      { title: 'Confirm', type: 'dismiss' },
-    ]
-  }
-
-  constructor(private dialog: MdDialog, private systemService: SystemService, private modalService: NgbModal, private formCheckService: FormCheckService) {
+  constructor(private dialog: MdDialog, private adminManagerService: AdminManagerService, private systemService: SystemService, private modalService: NgbModal, private formCheckService: FormCheckService) {
     this.pageConfig = systemService.adminPageConfig
     this.key = systemService.adminPageConfig.table.filter(e => e.primary == true)[0].key || systemService.adminPageConfig.table[0].key
-    this.admins = [
-      { id: 1, account: 'xiaojian', description: 'none', avatar: "http://cool1024.com/flat-ui/img/box-image/message.jpg" },
-      { id: 1, account: 'xiaojian', description: 'none', avatar: "http://hello1024.oss-cn-beijing.aliyuncs.com/body.jpg" }
-    ]
-    this.page.total = this.admins.length
+    // this.admins = [
+    //   { id: 1, account: 'xiaojian', description: 'none', avatar: "http://cool1024.com/flat-ui/img/box-image/message.jpg" },
+    //   { id: 1, account: 'xiaojian', description: 'none', avatar: "http://hello1024.oss-cn-beijing.aliyuncs.com/body.jpg" }
+    // ]
+    // this.page.total = this.admins.length
   }
 
-  ngOnInit() { }
+  ngOnInit() { 
+    this.loadAdmins()
+  }
+
+  loadAdmins() {
+    this.adminManagerService.search(this.page.pageData).subscribe(res => {
+      if (res.result) {
+        this.page.reset()
+        this.admins = res.datas.rows
+        this.page.total = res.datas.total
+      }
+    })
+  }
 
   //显示编辑窗口
   showChangeModal(index: number) {
@@ -60,13 +59,20 @@ export class AdminManagerComponent implements OnInit {
     modal.componentInstance.admin = this.formCheckService.copyJson(this.admins[index])
     modal.componentInstance.title = this.admins[index][this.key]
     modal.result.catch(res => {
-
+      if (res.id) {
+        this.admins[index] = res
+      }
     }).then()
   }
 
   //显示添加窗口
-  showAddModal(modal) {
-    modal.open()
+  showAddModal() {
+    const modal = this.modalService.open(AdminAddComponent)
+    modal.result.catch(res => {
+      if (res.id) {
+        this.admins.push(res)
+      }
+    }).then()
   }
 
 
@@ -82,14 +88,24 @@ export class AdminManagerComponent implements OnInit {
 
     dialog.afterClosed().subscribe(res => {
       if (res == true) {
-        this.admins.splice(index, 1)
+        this.adminManagerService.delete(this.admins[index].id).subscribe(res => {
+          if (res.result) {
+            this.admins.splice(index, 1)
+          }
+        })
       }
     })
   }
 
-  //换页事件
-  pageChanged(page) {
 
+  //换页方法
+  pageChanged(page:number){
+    this.page.page=page
+    this.adminManagerService.search(this.page.pageData).subscribe(res=>{
+      if(res.result){
+        this.admins=res.datas.rows
+        this.page.total=res.datas.total
+      }
+    })
   }
-
 }
