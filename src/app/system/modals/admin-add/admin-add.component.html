@@ -10,9 +10,16 @@
             <div class="form-group" [ngSwitch]="item.type">
                 <label class="form-control-label">{{item.name}}:</label>
                 <input *ngSwitchCase="'text'" class="form-control rounded-0" type="text" id="recipient-name" name="{{item.key}}" [(ngModel)]="admin[item.key]" placeholder="{{'请输入'+item.name}}" required>
+                <input *ngSwitchCase="'password'" class="form-control rounded-0" type="password" id="recipient-name" name="{{item.key}}" [(ngModel)]="admin[item.key]" placeholder="{{'请输入'+item.name}}" required>
                 <textarea *ngSwitchCase="'textarea'" type="text" class="form-control rounded-0" id="recipient-name" name="{{item.key}}" [(ngModel)]="admin[item.key]" placeholder="{{'请输入'+item.name}}" required></textarea>
             </div>
         </ng-template>
+        <div class="form-group">
+            <label class="form-control-label">角色</label>
+            <select class="form-control custom-select rounded-0" name="parent" [(ngModel)]="admin.roles" name="type" required>                   
+                <option *ngFor="let item of roles" [value]="item.id">{{item.name}}</option>
+            </select>
+        </div>
     </form>
 </div>
 <div class="modal-footer">

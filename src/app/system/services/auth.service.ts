@@ -2,11 +2,12 @@ import { Injectable } from '@angular/core';
 import { StorageService } from './../services/storage.service';
 import { Observable } from 'rxjs/Observable';
 import { RequestService } from './request.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable()
 export class AuthService {
 
-  constructor(private storageService: StorageService, private request: RequestService) { }
+  constructor(private storageService: StorageService, private request: RequestService, private toastrService: ToastrService) { }
 
   //是否登入
   isLoggedIn = false
@@ -22,6 +23,9 @@ export class AuthService {
 
   //设置当前状态为登出
   setOut() {
+    this.request.url('/signout').subscribe(res => {
+      this.toastrService.info(res.message, '提示消息')
+    })
     this.storageService.cleanAll()
     this.isLoggedIn = false
   }

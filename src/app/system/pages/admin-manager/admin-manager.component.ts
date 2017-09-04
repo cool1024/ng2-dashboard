@@ -32,11 +32,6 @@ export class AdminManagerComponent implements OnInit {
   constructor(private dialog: MdDialog, private adminManagerService: AdminManagerService, private systemService: SystemService, private modalService: NgbModal, private formCheckService: FormCheckService) {
     this.pageConfig = systemService.adminPageConfig
     this.key = systemService.adminPageConfig.table.filter(e => e.primary == true)[0].key || systemService.adminPageConfig.table[0].key
-    // this.admins = [
-    //   { id: 1, account: 'xiaojian', description: 'none', avatar: "http://cool1024.com/flat-ui/img/box-image/message.jpg" },
-    //   { id: 1, account: 'xiaojian', description: 'none', avatar: "http://hello1024.oss-cn-beijing.aliyuncs.com/body.jpg" }
-    // ]
-    // this.page.total = this.admins.length
   }
 
   ngOnInit() { 

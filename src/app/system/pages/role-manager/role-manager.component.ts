@@ -39,7 +39,7 @@ export class RoleManagerComponent implements OnInit {
 
   //弹出角色编辑面板
   openInfoChangeModal(index: number) {
-    const modalRef = this.modalService.open(RoleInfoComponent, { size: 'lg' })
+    const modalRef = this.modalService.open(RoleInfoComponent)
     modalRef.componentInstance.role = this.formCheckService.copyJson(this.roles[index])
     modalRef.componentInstance.roles = this.roles.concat()
     modalRef.componentInstance.roles.splice(index, 1)
@@ -57,7 +57,7 @@ export class RoleManagerComponent implements OnInit {
 
   //弹出角色添加面板
   openAddRoleMoal() {
-    const modalRef = this.modalService.open(RoleAddComponent, { size: 'lg' })
+    const modalRef = this.modalService.open(RoleAddComponent)
     modalRef.componentInstance.roles = this.roles
     modalRef.result.catch(res => {
       if (res.id) {

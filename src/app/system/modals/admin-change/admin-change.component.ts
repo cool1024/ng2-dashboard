@@ -15,6 +15,9 @@ export class AdminChangeComponent {
 
   config: Array<any>
 
+  //角色列表
+  roles = new Array<any>()
+
   //表单数据
   @Input() admin: any = {}
 
@@ -23,6 +26,11 @@ export class AdminChangeComponent {
 
   constructor(public activeModal: NgbActiveModal, private systemService: SystemService, private adminManagerService: AdminManagerService) {
     this.config = this.systemService.adminPageConfig.editor
+    this.adminManagerService.getRolesOptions.subscribe(res => {
+      if (res.result) {
+        this.roles = res.datas
+      }
+    })
   }
 
   changeAdmin(button) {

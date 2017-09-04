@@ -17,8 +17,16 @@ export class AdminAddComponent {
   //表单数据
   admin: any = {}
 
+  //角色列表
+  roles=new Array<any>()
+
   constructor(public activeModal: NgbActiveModal, private systemService: SystemService, private adminManagerService: AdminManagerService) {
     this.config = this.systemService.adminPageConfig.editor
+    this.adminManagerService.getRolesOptions.subscribe(res=>{
+      if(res.result){
+        this.roles=res.datas
+      }
+    })
   }
 
   //添加账户

@@ -4,8 +4,8 @@ export const Config = {
 
     /*服务端配置*/
     SERVER: {
-        server: 'http://ng.cool1024.com',//API接口访问地址
-        source: 'http://ng.cool1024.com',//资源文件访问地址
+        server: 'http://127.0.0.1',//API接口访问地址
+        source: 'http://127.0.0.1',//资源文件访问地址
     },
     /*系统主题配置*/
     THEME: {
@@ -14,7 +14,7 @@ export const Config = {
         activeColor: "black",//系统积极状态的组件颜色 
         activeBgColor: 'yellow',//子菜单选中颜色
         childsColor: 'yellow',//子菜单字体颜色
-        childsBgColor:'rgba(0, 0, 0, 0.5)',//子菜单背景颜色
+        childsBgColor: 'rgba(0, 0, 0, 0.5)',//子菜单背景颜色
         bgImage: "/assets/image/avatar/6.jpg",  //系统背景图
         mnImage: "/assets/image/siderbar/3.png" //菜单背景图片
     },

@@ -10,11 +10,16 @@
             <div class="form-group" [ngSwitch]="item.type">
                 <label class="form-control-label">{{item.name}}:</label>
                 <input *ngSwitchCase="'text'" class="form-control rounded-0" type="text" id="recipient-name" name="{{item.key}}" [(ngModel)]="admin[item.key]" placeholder="{{item.placeholder||'请输入'+item.name}}" [required]="item.required!=false||false">
+                <input *ngSwitchCase="'password'" class="form-control rounded-0" type="password" id="recipient-name" name="{{item.key}}" [(ngModel)]="admin[item.key]" placeholder="{{'请输入'+item.name}}" [required]="item.required!=false||false">
                 <textarea *ngSwitchCase="'textarea'" type="text" class="form-control rounded-0" id="recipient-name" name="{{item.key}}" [(ngModel)]="admin[item.key]" placeholder="{{item.placeholder||'请输入'+item.name}}" [required]="item.required!=false||false"></textarea>
-                <app-image-input-form *ngSwitchCase="'image'" [image]="admin[item.key]" [imageStyle]="{ 'width': '100px', 'height': '100px','border':'none' }" openBtnClassName="btn btn-outline-secondary btn-sm rounded-0" removeBtnClassName="d-none" resetBtnClassName="d-none">
-                </app-image-input-form>
             </div>
         </ng-template>
+        <div class="form-group">
+            <label class="form-control-label">角色</label>
+            <select class="form-control custom-select rounded-0" name="parent" [(ngModel)]="admin.roles" name="type" required>                   
+                <option *ngFor="let item of roles" [value]="item.id">{{item.name}}</option>
+            </select>
+        </div>
     </form>
 </div>
 <div class="modal-footer">

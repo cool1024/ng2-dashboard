@@ -37,4 +37,8 @@ export class AdminManagerService {
     return this.request.get(this.systemService.adminPageConfig.urls.select, params)
   }
 
+  get getRolesOptions(): Observable<ApiData> {
+    return this.request.url('/role/options');
+  }
+
 }
