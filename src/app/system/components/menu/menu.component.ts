@@ -2,21 +2,30 @@ import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { SystemService } from './../../system.service';
 import { Menus } from './../../../config/menus';
-import { AuthService } from './../../services/auth.service'
+import { AuthService } from './../../services/auth.service';
+import { MenuService } from './menu.service';
 
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.scss']
+  styleUrls: ['./menu.component.scss'],
+  providers: [MenuService]
 })
 export class MenuComponent implements OnInit {
 
-  constructor(private router: Router, private systemService: SystemService, private authService: AuthService) { }
+  constructor(private router: Router, private menuService: MenuService, private systemService: SystemService, private authService: AuthService) { }
 
   ngOnInit() {
 
     //load menus 
-    this.menus = this.menus.concat(Menus)
+    //this.menus = this.menus.concat(Menus)
+    this.menuService.menus.subscribe(res => {
+      if (res.result) {
+        let menus=this.menuService.formateMenu(res.datas)
+        //console.log(menus)
+        this.menus = this.menus.concat(menus)
+      }
+    })
 
     //open active main menu
     this.router.events.filter(event => event instanceof NavigationEnd).subscribe(_ => {

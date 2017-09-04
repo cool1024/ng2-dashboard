@@ -73,4 +73,5 @@ export class FormCheckService {
     })
     return result.join()
   }
+
 }
