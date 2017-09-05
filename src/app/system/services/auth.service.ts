@@ -57,4 +57,8 @@ export class AuthService {
       console.log(this.user)
     })
   }
+
+  changeUserInfo(params): Observable<any> {
+    return this.request.post('/password', params)
+  }
 }

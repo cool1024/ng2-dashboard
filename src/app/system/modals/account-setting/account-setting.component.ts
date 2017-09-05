@@ -12,13 +12,19 @@ export class AccountSettingComponent {
 
   user: any = {}
 
+  password: string = ""
+
   constructor(private authService: AuthService, private activeModal: NgbActiveModal) {
     this.user = authService.user
   }
 
   //修改账户
-  changeAccount(button){
-    
+  changeAccount(button) {
+    this.authService.changeUserInfo({ password: this.password }).finally(() => button.complete = true).subscribe(res => {
+      if (res.result) {
+        this.activeModal.dismiss()
+      }
+    })
   }
 
   //关闭本模态框
