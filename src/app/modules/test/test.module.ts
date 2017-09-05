@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 // /*Material*/
-import { MdButtonModule, MdDialogModule, MdSelectModule, MdInputModule, MdSlideToggleModule, MdListModule, MdCardModule } from '@angular/material';
+import { MdButtonModule, MdDialogModule, MdSelectModule, MdInputModule, MdSlideToggleModule, MdListModule } from '@angular/material';
 
 /*ng2-charts*/
 import { ChartsModule } from 'ng2-charts';
@@ -34,7 +34,7 @@ import { TableDemoComponent } from './pages/table-demo/table-demo.component';
 import { FormDemoComponent } from './pages/form-demo/form-demo.component';
 import { LoadingServiceComponent } from './pages/loading-service/loading-service.component';
 import { ToastrDemoComponent } from './pages/toastr-demo/toastr-demo.component';
-import { HomeComponent } from './pages/home/home.component';
+// import { HomeComponent } from './pages/home/home.component';
 import { UploadDemoComponent } from './pages/upload-demo/upload-demo.component';
 import { RequestServiceComponent } from './pages/request-service/request-service.component';
 import { UploadServiceComponent } from './pages/upload-service/upload-service.component';
@@ -52,7 +52,6 @@ import { UploadServiceComponent } from './pages/upload-service/upload-service.co
     MdInputModule,
     MdSlideToggleModule,
     MdListModule,
-    MdCardModule,
     SelectModule,
     NgbProgressbarModule.forRoot(),
     ToolModule
@@ -68,12 +67,12 @@ import { UploadServiceComponent } from './pages/upload-service/upload-service.co
     FormDemoComponent,
     LoadingServiceComponent,
     ToastrDemoComponent,
-    HomeComponent,
+    // HomeComponent,
     UploadDemoComponent,
     RequestServiceComponent,
     UploadServiceComponent,
   ],
-  exports:[
+  exports: [
     ConfirmWindowComponent,
     AlertWindowComponent,
     ChartsDemoComponent,
@@ -83,7 +82,7 @@ import { UploadServiceComponent } from './pages/upload-service/upload-service.co
     FormDemoComponent,
     LoadingServiceComponent,
     ToastrDemoComponent,
-    HomeComponent,
+    // HomeComponent,
     UploadDemoComponent,
     RequestServiceComponent,
     UploadServiceComponent,

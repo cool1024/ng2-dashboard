@@ -22,15 +22,13 @@ export class LoginComponent implements OnInit {
       if (res.result) {
         //登入成功后设置登入状态为已经登入
         this.authService.setIn({ 'ng-params-one': res.datas.secret_id, 'ng-params-two': res.datas.token })
+        this.authService.loadUserInfo()
         this.router.navigateByUrl('/')
       }
       else {
         this.message = this.message
       }
     })
-    //登入成功后设置登入状态为已经登入
-    // this.authService.setIn({ 'ng-params-one': 'admin', 'ng-params-two': 'fjklqw8uewj4rwelkjr45jkoimnio' })
-    // this.router.navigateByUrl('/')
   }
 
   //login data

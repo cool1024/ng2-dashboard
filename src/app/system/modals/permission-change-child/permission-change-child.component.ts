@@ -10,6 +10,8 @@ import { PermissionManagerService } from "./../../pages/permission-manager/permi
 })
 export class PermissionChangeChildComponent {
 
+  @Input() title: string
+
   @Input() permission: any = { id: 0, name: "", description: "", key: "", modelid: 0 }
 
   constructor(public activeModal: NgbActiveModal, private permissionMgService: PermissionManagerService) { }

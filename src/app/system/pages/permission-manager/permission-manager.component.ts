@@ -48,6 +48,7 @@ export class PermissionManagerComponent implements OnInit {
   showChangePermissionModal(permission: any) {
     let modalRef = this.modalService.open(PermissionChangeChildComponent)
     modalRef.componentInstance.permission = this.formCheckService.copyJson(permission)
+    modalRef.componentInstance.title = permission.name
     modalRef.result.catch(res => {
       if (res.id) {
         permission.name = res.name

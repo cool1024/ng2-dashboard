@@ -15,6 +15,9 @@ export class AuthService {
   //跳转页面
   redirectUrl = ''
 
+  //用户信息
+  user: any = {}
+
   //设置当前状态为登入
   setIn($params?: any) {
     if (!!$params) this.storageService.setToken($params)
@@ -36,7 +39,22 @@ export class AuthService {
     let token = this.storageService.getToken()
     return this.request.post('/check', token).map(res => {
       this.isLoggedIn = res.result
+      if (this.isLoggedIn) {
+        for (let key in res.datas) {
+          this.user[key] = res.datas[key]
+        }
+      }
       return this.isLoggedIn
+    })
+  }
+
+  //获取用户信息
+  loadUserInfo() {
+    this.request.url('/info').subscribe(res => {
+      for (let key in res.datas) {
+        this.user[key] = res.datas[key]
+      }
+      console.log(this.user)
     })
   }
 }

@@ -69,13 +69,11 @@ export class RoleInfoComponent {
 
   //修改角色信息
   applayInfoChange(button: any) {
-    console.log(this.role)
-    return
-    // this.roleManagerService.changeRole(this.role).finally(() => button.complete = true).subscribe(res => {
-    //   if (res.result) {
-    //     this.activeModal.dismiss(this.role)
-    //   }
-    // })
+    this.roleManagerService.changeRole(this.role).finally(() => button.complete = true).subscribe(res => {
+      if (res.result) {
+        this.activeModal.dismiss(this.role)
+      }
+    })
   }
 
   //关闭本模态框

@@ -4,6 +4,8 @@ import { SystemService } from './../../system.service';
 import { Menus } from './../../../config/menus';
 import { AuthService } from './../../services/auth.service';
 import { MenuService } from './menu.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { AccountSettingComponent } from './../../modals/account-setting/account-setting.component'
 
 @Component({
   selector: 'app-menu',
@@ -13,21 +15,24 @@ import { MenuService } from './menu.service';
 })
 export class MenuComponent implements OnInit {
 
-  constructor(private router: Router, private menuService: MenuService, private systemService: SystemService, private authService: AuthService) { }
+  constructor(private router: Router, private menuService: MenuService, private systemService: SystemService, private authService: AuthService, private ngbModal: NgbModal) {
+    this.user = authService.user
+  }
 
   ngOnInit() {
 
     //load menus 
-    //this.menus = this.menus.concat(Menus)
     this.menuService.menus.subscribe(res => {
       if (res.result) {
-        let menus=this.menuService.formateMenu(res.datas)
-        //console.log(menus)
-        this.menus = this.menus.concat(menus)
+        let menus = this.menuService.formateMenu(res.datas)
+        this.menus = this.menus.concat(menus.filter(e => e.childs.length > 0))
+        //this.openAccountSettingPad()
       }
     })
+  }
 
-    //open active main menu
+  //open active main menu
+  openActiveMenuPad() {
     this.router.events.filter(event => event instanceof NavigationEnd).subscribe(_ => {
       let defaultActive = this.isCollopseArray[0] || false
       this.isCollopseArray = new Array<boolean>()
@@ -73,6 +78,14 @@ export class MenuComponent implements OnInit {
     this.router.navigateByUrl('/login')
   }
 
+  //open account setting page
+  openAccountSettingPad() {
+    const modal = this.ngbModal.open(AccountSettingComponent)
+    modal.result.catch(res => {
+
+    }).then()
+  }
+
   //theme color
   themeConfig: any = this.systemService.theme
 
@@ -85,4 +98,6 @@ export class MenuComponent implements OnInit {
   //menu collopse
   isCollopseArray: Array<boolean> = new Array<boolean>()
 
+  //admin info
+  user: any = {}
 }

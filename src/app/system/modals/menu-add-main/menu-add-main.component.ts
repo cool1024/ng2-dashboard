@@ -11,7 +11,7 @@ import { MenuSettingService } from './../../pages/menu-setting/menu-setting.serv
 export class MenuAddMainComponent {
 
   //菜单数据
-  menu = { title: "", icon: "", url: "#", parentid: 0 }
+  menu = { title: "", icon: "", url: "#", parentid: 0, permissionid: 0 }
 
   constructor(public activeModal: NgbActiveModal, private menuSettingService: MenuSettingService) { }
 

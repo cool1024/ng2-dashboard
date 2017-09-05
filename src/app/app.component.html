@@ -1,12 +1,18 @@
+<!--main-page-->
 <div *ngIf="!isLoginPage()" class="app-pad" [ngClass]="{'app-pad-small': minSetting.size=='sm'}">
+    <!--app-menu-->
     <div class="app-pad-menu" [ngClass]="{'app-pad-menu-small': minSetting.size=='sm'}" [ngStyle]="{'background-image': mnImage}">
         <app-menu></app-menu>
     </div>
+    <!--app-content-->
     <div class="app-pad-cotent">
         <app-headbar></app-headbar>
         <div class="p-2">
             <router-outlet></router-outlet>
         </div>
     </div>
+    <!--app-side-bar-->
+    <!-- <div class="right-side-bar fixed-top h-100"></div> -->
 </div>
+<!--login-page-->
 <app-login *ngIf="isLoginPage()"></app-login>

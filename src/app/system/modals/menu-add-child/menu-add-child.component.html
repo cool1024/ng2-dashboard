@@ -18,11 +18,16 @@
             <label class="form-control-label">菜单链接:</label>
             <input type="text" class="form-control rounded-0" id="recipient-name" name="url" [(ngModel)]="menu.url" placeholder="请输入菜单链接" required>
         </div>
+        <div class="form-group">
+            <label class="form-control-label">访问权限:</label>
+            <ng-select [active]="getActiveSelectItems()" [items]="permissions" (data)="menu.permissionid=$event.id" placeholder="请设置访问权限">
+            </ng-select>
+        </div>
     </form>
 </div>
 <div class="modal-footer">
     <button type="button" class="btn btn-secondary" (click)="close()">
     <span>取消/返回</span>
 </button>
-    <button type="button" [disabled]="!change.form.valid" loading title="确认修改" class="btn btn-success" #button="btnLoading" (click)="addChildMenu(button)"></button>
+    <button type="button" [disabled]="!change.form.valid" loading title="确认添加" class="btn btn-success" #button="btnLoading" (click)="addChildMenu(button)"></button>
 </div>

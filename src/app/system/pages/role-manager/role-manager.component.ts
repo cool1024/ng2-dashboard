@@ -50,7 +50,7 @@ export class RoleManagerComponent implements OnInit {
         this.roles[index].name = res.name
         this.roles[index].description = res.description
         this.roles[index].parentid = res.parentid
-        this.roles[index].permisions = res.permisions
+        this.roles[index].permissions = res.permissions
       }
     }).then()
   }

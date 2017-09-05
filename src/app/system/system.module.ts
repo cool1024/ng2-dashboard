@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { MdButtonModule, MdInputModule, MdDialogModule, MdMenuModule, MdCheckboxModule, MdSlideToggleModule, MdListModule } from '@angular/material';
+import { MdButtonModule, MdInputModule, MdDialogModule, MdMenuModule, MdCheckboxModule, MdSlideToggleModule, MdListModule ,MdCardModule} from '@angular/material';
 import { SortablejsModule } from 'angular-sortablejs';
 import { SystemRoutingModule } from './system-routing.module';
 
@@ -20,6 +20,7 @@ import { HeadbarComponent } from './components/headbar/headbar.component';
 import { LoginComponent } from './components/login/login.component';
 
 /*system pages*/
+import { HomeComponent } from './pages/home/home.component';
 import { MenuSettingComponent, MenuChildrenDialog } from './pages/menu-setting/menu-setting.component';
 import { Error404Component } from './pages/error404/error404.component';
 import { PermissionManagerComponent } from './pages/permission-manager/permission-manager.component';
@@ -39,6 +40,7 @@ import { MenuChangeChildComponent } from './modals/menu-change-child/menu-change
 import { PermissionChangeMainComponent } from './modals/permission-change-main/permission-change-main.component';
 import { AdminChangeComponent } from './modals/admin-change/admin-change.component';
 import { AdminAddComponent } from './modals/admin-add/admin-add.component';
+import { AccountSettingComponent } from './modals/account-setting/account-setting.component';
 
 @NgModule({
   imports: [
@@ -56,7 +58,8 @@ import { AdminAddComponent } from './modals/admin-add/admin-add.component';
     MdCheckboxModule,
     MdSlideToggleModule,
     MdListModule,
-
+    MdCardModule,
+    
     /*system module*/
     SystemRoutingModule,
 
@@ -64,6 +67,7 @@ import { AdminAddComponent } from './modals/admin-add/admin-add.component';
     ToolModule,
   ],
   declarations: [
+    HomeComponent,
     MenuComponent,
     HeadbarComponent,
     MenuSettingComponent,
@@ -85,6 +89,7 @@ import { AdminAddComponent } from './modals/admin-add/admin-add.component';
     AdminManagerComponent,
     AdminChangeComponent,
     AdminAddComponent,
+    AccountSettingComponent,
   ],
   entryComponents: [
     MenuChildrenDialog,
@@ -100,6 +105,7 @@ import { AdminAddComponent } from './modals/admin-add/admin-add.component';
     MenuChangeChildComponent,
     AdminChangeComponent,
     AdminAddComponent,
+    AccountSettingComponent,
   ],
   exports: [MenuComponent, HeadbarComponent, LoginComponent]
 })
