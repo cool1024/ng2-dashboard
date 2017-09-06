@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, NavigationEnd } from '@angular/router';
+import { Router } from '@angular/router';
 import { SystemService } from './../../system.service';
 import { Menus } from './../../../config/menus';
 import { AuthService } from './../../services/auth.service';
@@ -26,20 +26,18 @@ export class MenuComponent implements OnInit {
       if (res.result) {
         let menus = this.menuService.formateMenu(res.datas)
         this.menus = this.menus.concat(menus.filter(e => e.childs.length > 0))
-        //this.openAccountSettingPad()
+        this.openActiveMenuPad()
       }
     })
   }
 
   //open active main menu
   openActiveMenuPad() {
-    this.router.events.filter(event => event instanceof NavigationEnd).subscribe(_ => {
-      let defaultActive = this.isCollopseArray[0] || false
-      this.isCollopseArray = new Array<boolean>()
-      this.isCollopseArray.push(defaultActive)
-      this.menus.forEach(e => {
-        this.isCollopseArray.push(this.hasActiveMenu(e.childs))
-      })
+    let defaultActive = this.isCollopseArray[0] || false
+    this.isCollopseArray = new Array<boolean>()
+    this.isCollopseArray.push(defaultActive)
+    this.menus.forEach(e => {
+      this.isCollopseArray.push(this.hasActiveMenu(e.childs))
     })
   }
 

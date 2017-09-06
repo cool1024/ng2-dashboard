@@ -4,7 +4,7 @@ export const Config = {
 
     /*服务端配置*/
     SERVER: {
-        server: 'http://127.0.0.1',//API接口访问地址
+        server: 'http://ng.cool1024.com',//API接口访问地址
         source: 'http://ng.cool1024.com',//资源文件访问地址
     },
     /*系统主题配置*/
@@ -15,8 +15,8 @@ export const Config = {
         activeBgColor: 'yellow',//子菜单选中颜色
         childsColor: 'yellow',//子菜单字体颜色
         childsBgColor: 'rgba(0, 0, 0, 0.5)',//子菜单背景颜色
-        bgImage: "http://hello1024.oss-cn-beijing.aliyuncs.com/ng-dashboard/assets/image/avatar/6.jpg",  //系统背景图
-        mnImage: "http://hello1024.oss-cn-beijing.aliyuncs.com/ng-dashboard/assets/image/siderbar/3.png" //菜单背景图片
+        bgImage: "http://hello1024.oss-cn-beijing.aliyuncs.com/ng-dashboard/assets/image/avatar/2.jpg",  //系统背景图(目前好像没什么用。。)
+        mnImage: "http://hello1024.oss-cn-beijing.aliyuncs.com/ng-dashboard/assets/image/siderbar/4.png" //菜单背景图片
     },
     /*系统描述信息*/
     CONTENT: {

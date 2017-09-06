@@ -3,11 +3,21 @@
     <div class="card-body">
         <form class="form-inline">
             <div class="form-group">
+                <span class="mr-2 text-primary">默认设置</span>
                 <div class="input-group">
-                    <input class="form-control" placeholder="yyyy-mm-dd" name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
-                    <button class="input-group-addon" (click)="d.toggle()" type="button">
-                                <i class="fa fa-calendar" aria-hidden="true"></i>
-                            </button>
+                    <input class="form-control" (click)="d1.toggle()" placeholder="yyyy-mm-dd" name="dp1" [(ngModel)]="model1" ngbDatepicker #d1="ngbDatepicker">
+                    <button class="input-group-addon pointer" (click)="d1.toggle()" type="button">
+                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="form-group ml-2">
+                <span class="mr-2 text-primary">显示两个</span>
+                <div class="input-group">
+                    <input class="form-control" (click)="d2.toggle()" placeholder="yyyy-mm-dd" name="dp2" [(ngModel)]="model2" displayMonths="2" ngbDatepicker #d2="ngbDatepicker">
+                    <button class="input-group-addon pointer" (click)="d2.toggle()" type="button">
+                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                    </button>
                 </div>
             </div>
         </form>
@@ -17,15 +27,15 @@
 <div class="card rounded-0">
     <div class="card-header">日期段选择</div>
     <div class="card-body">
-        <form class="form-inline">
-            <div class="form-group">
-                <div class="input-group">
-                    <input class="form-control" placeholder="yyyy-mm-dd" name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
-                    <button class="input-group-addon" (click)="d.toggle()" type="button">
-                                    <i class="fa fa-calendar" aria-hidden="true"></i>
-                                </button>
-                </div>
-            </div>
-        </form>
+        <ngb-datepicker #dp ngModel (ngModelChange)="onDateChange($event)" [displayMonths]="2" [dayTemplate]="t"></ngb-datepicker>
+        <ng-template #t let-date="date" let-focused="focused">
+            <span class="custom-day" [class.focused]="focused" [class.range]="isFrom(date) || isTo(date) || isInside(date) || isHovered(date)" [class.faded]="isHovered(date) || isInside(date)" (mouseenter)="hoveredDate = date" (mouseleave)="hoveredDate = null">
+                {{ date.day }}
+            </span>
+        </ng-template>
+        <div class="pull-right">
+            <pre>From: {{ fromDate | json }} </pre>
+            <pre>To: {{ toDate | json }} </pre>
+        </div>
     </div>
 </div>

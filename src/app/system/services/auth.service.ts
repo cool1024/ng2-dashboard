@@ -37,6 +37,11 @@ export class AuthService {
   checkOnline(): Observable<boolean> {
     let obs = new Observable<boolean>()
     let token = this.storageService.getToken()
+    for (let key in token) {
+      if (!token[key]) {
+        return Observable.create(obs => obs.next(false))
+      }
+    }
     return this.request.post('/check', token).map(res => {
       this.isLoggedIn = res.result
       if (this.isLoggedIn) {
