@@ -82,3 +82,13 @@
         transform: rotate(0deg);
     }
 }
+
+.search-content {
+    position: fixed;
+    top: 60px;
+    right: 0px;
+    z-index: 5;
+    height: 100%;
+    width: 400px;
+    background-color: white;
+}

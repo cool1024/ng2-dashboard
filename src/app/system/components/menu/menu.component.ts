@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { SystemService } from './../../system.service';
-import { Menus } from './../../../config/menus';
+// import { Menus } from './../../../config/menus';
 import { AuthService } from './../../services/auth.service';
 import { MenuService } from './menu.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';

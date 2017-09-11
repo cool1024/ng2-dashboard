@@ -3,6 +3,7 @@ import { Router, NavigationEnd } from '@angular/router';
 import { HeadbarService } from './headbar.service';
 import { SystemService } from './../../system.service';
 import { Breadcrumb } from './../../class/breadcrumb';
+import { Menus } from './../../../config/menus';
 import 'rxjs/add/operator/filter';
 
 @Component({
@@ -29,11 +30,22 @@ export class HeadbarComponent implements OnInit {
     this.systemService.menuSetting.size = (this.systemService.menuSetting.size == 'sm' ? 'lg' : 'sm')
   }
 
+  //get search result
+  searchList(datas: Array<{ icon: string, title: string, url: string }>): Array<any> {
+    return !this.search ? [] : datas.filter(e => e.title.indexOf(this.search) >= 0)
+  }
+
+  //search key
+  search = ""
+
   //系统菜单配置参数
   menuSetting = this.systemService.menuSetting
 
   //系统主题配置参数
   theme: any = this.systemService.theme
+
+  //system menus
+  menus: Array<any> = Menus
 
   //面包屑导航列表
   breadcrumbs: Array<Breadcrumb> = this.headbarService.breadcrumbs
