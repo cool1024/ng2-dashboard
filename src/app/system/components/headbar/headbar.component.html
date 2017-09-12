@@ -6,30 +6,35 @@
             </span>
         </div>
         <div class="right-bur text-right h-100">
-            <md-input-container color="warn">
+            <md-input-container color="warn" (click)="canShowSearchPad=true">
                 <input [(ngModel)]="search" style="width:150px;" mdInput>
             </md-input-container>
-            <button [ngStyle]="{'color': theme.bgColor}" class="icon-hover mr-2" md-icon-button><i class="fa fa-search fa-lg"></i></button>
+            <button (click)="canShowSearchPad=true;" [ngStyle]="{'color': theme.bgColor}" class="icon-hover mr-2" md-icon-button><i class="fa fa-search fa-lg"></i></button>
             <button [ngStyle]="{'color': theme.bgColor}" class="icon-hover mr-2" md-icon-button><i class="fa fa-question-circle fa-lg"></i></button>
             <button [ngStyle]="{'color': theme.bgColor}" class="icon-hover mr-2" md-icon-button><i class="fa fa-bell fa-lg"></i></button>
             <button [ngStyle]="{'color': theme.bgColor}" class="icon-hover mr-2" md-icon-button [mdMenuTriggerFor]="menu"><i class="fa fa-cog fa-lg"></i></button>
         </div>
     </div>
 </div>
-<div class="search-content">
-    <div class="h-100 w-100" [ngStyle]="{'background-color': theme.bgColor}">
-        <md-nav-list>
-            <ng-template ngFor let-i="index" let-item [ngForOf]="menus">
-                <md-list-item *ngFor="let menu of searchList(item.childs)" [ngStyle]="{'color':theme.fontColor}">
-                    <i class="{{menu.icon}} fa-fw fa-lg" md-list-icon></i>
-                    <h3 md-line> {{menu.title}} </h3>
-                    <p md-line>
-                        <span> Love you... </span>
-                        <span> -- Hope we can see us again soon :) </span>
-                    </p>
-                </md-list-item>
-            </ng-template>
-        </md-nav-list>
+<div class="search-pad" *ngIf="!!search&&canShowSearchPad" (click)="canShowSearchPad=false;">
+    <div class="search-content">
+        <div class="h-100 w-100" [ngStyle]="{'background-color': theme.bgColor}" #navList>
+            <md-nav-list>
+                <ng-template ngFor let-i="index" let-item [ngForOf]="menus">
+                    <md-list-item *ngFor="let menu of searchList(item.childs)" [ngStyle]="{'color':theme.fontColor}">
+                        <i class="{{menu.icon}} fa-fw fa-lg" md-list-icon></i>
+                        <h3 md-line> {{menu.title}} </h3>
+                        <p md-line>
+                            <span> Love you... </span>
+                            <span> -- Hope we can see us again soon :) </span>
+                        </p>
+                    </md-list-item>
+                </ng-template>
+            </md-nav-list>
+            <div *ngIf="!searchIsNotEmpty()">
+                没有查询到符合的菜单
+            </div>
+        </div>
     </div>
 </div>
 <!--setting menu-->

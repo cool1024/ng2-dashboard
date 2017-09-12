@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { HeadbarService } from './headbar.service';
 import { SystemService } from './../../system.service';
@@ -30,13 +30,29 @@ export class HeadbarComponent implements OnInit {
     this.systemService.menuSetting.size = (this.systemService.menuSetting.size == 'sm' ? 'lg' : 'sm')
   }
 
-  //get search result
+  //获取查询结果
   searchList(datas: Array<{ icon: string, title: string, url: string }>): Array<any> {
     return !this.search ? [] : datas.filter(e => e.title.indexOf(this.search) >= 0)
   }
 
-  //search key
+  //判断查询结果是否为空
+  searchIsNotEmpty(): boolean {
+    if (this.searcListPad != undefined) {
+      if (this.searcListPad.nativeElement.children[0] != undefined) {
+        return this.searcListPad.nativeElement.children[0].children > 0
+      }
+      else {
+        return false
+      }
+    }
+    return false
+  }
+
+  //查询关键词
   search = ""
+
+  //弹出搜索结果
+  canShowSearchPad = false
 
   //系统菜单配置参数
   menuSetting = this.systemService.menuSetting
@@ -44,9 +60,12 @@ export class HeadbarComponent implements OnInit {
   //系统主题配置参数
   theme: any = this.systemService.theme
 
-  //system menus
+  //系统菜单
   menus: Array<any> = Menus
 
   //面包屑导航列表
   breadcrumbs: Array<Breadcrumb> = this.headbarService.breadcrumbs
+
+  //搜索结果面板
+  @ViewChild('navList') searcListPad: any
 }

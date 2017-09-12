@@ -83,12 +83,29 @@
     }
 }
 
-.search-content {
+.search-pad {
     position: fixed;
     top: 60px;
-    right: 0px;
+    left: 0;
     z-index: 5;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    animation: search-show 1s ease-in-out forwards;
+}
+
+.search-content {
+    float: right;
     height: 100%;
     width: 400px;
     background-color: white;
+}
+
+@keyframes search-show {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
