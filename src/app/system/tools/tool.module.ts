@@ -36,6 +36,7 @@ import { ImagesInputUploadComponent } from './components/images-input-upload/ima
 import { TreeComponent } from './components/tree/tree.component';
 import { CodePadComponent } from './components/code-pad/code-pad.component';
 import { ModalComponent } from './components/modal/modal.component';
+import { VideoInputFormComponent } from './components/video-input-form/video-input-form.component';
 
 @NgModule({
   imports: [
@@ -59,10 +60,11 @@ import { ModalComponent } from './components/modal/modal.component';
     TreeComponent,
     CodePadComponent,
     ModalComponent,
+    VideoInputFormComponent,
 
     //pipes
     TreeParentPipe,
-    
+
     //directives
     ButtonLoadingDirective,
     ImageLoadingDirective,
@@ -77,9 +79,10 @@ import { ModalComponent } from './components/modal/modal.component';
     ImagesInputUploadComponent,
     TreeComponent,
     CodePadComponent,
+    ModalComponent,
+    VideoInputFormComponent,
     ButtonLoadingDirective,
     ImageLoadingDirective,
-    ModalComponent,
   ]
 })
 export class ToolModule { }

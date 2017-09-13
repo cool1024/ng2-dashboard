@@ -25,6 +25,13 @@
 </div>
 <br>
 <div class="card rounded-0">
+    <div class="card-header"><i class="fa fa-file-text"></i> 媒体文件上传</div>
+    <div class="card-body">
+        <app-video-input-form [src]="" (onChange)="getFile($event)"></app-video-input-form>
+    </div>
+</div>
+<br>
+<div class="card rounded-0">
     <div class="card-header"><i class="fa fa-file-text"></i> 单图选择-表单提交</div>
     <div class="card-body">
         <app-image-input-form [image]="image" (onChange)="getFile($event)"></app-image-input-form>

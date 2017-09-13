@@ -1,6 +1,6 @@
 <input #input_file type="file" [hidden]="true" accept="image/*" multiple="multiple" (change)="changeFile($event.target.files)">
-<button class="{{openBtnClassName}}" (click)="input_file.click()" [innerHtml]="openTitle"></button>
-<button class="{{resetBtnClassName}}" (click)="resetInput(input_file)" [innerHtml]="resetTitle"></button>
+<button type="button" class="{{openBtnClassName}}" (click)="input_file.click()" [innerHtml]="openTitle"></button>
+<button type="button" class="{{resetBtnClassName}}" (click)="resetInput(input_file)" [innerHtml]="resetTitle"></button>
 <br>
 <div [sortablejs]="imagesArray" [sortablejsOptions]="options">
     <!-- <img *ngFor="let item of imagesArray" class="img-thumbnail mt-2 mr-2" src="{{item.url}}" [ngStyle]="imageStyle"> -->

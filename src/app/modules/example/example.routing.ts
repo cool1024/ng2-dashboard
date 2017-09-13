@@ -3,9 +3,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DatepickerComponent } from './pages/datepicker/datepicker.component';
+import { CardComponent } from './pages/card/card.component';
+import { EditorComponent } from './pages/editor/editor.component';
 
 const routes: Routes = [
-  { path: 'datepicker', component: DatepickerComponent }
+  { path: 'datepicker', component: DatepickerComponent },
+  { path: 'card', component: CardComponent },
+  { path: 'editor', component: EditorComponent },
 ];
 
 @NgModule({

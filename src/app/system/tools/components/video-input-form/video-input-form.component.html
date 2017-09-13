@@ -1,0 +1,5 @@
+<input #input_file type="file" [hidden]="true" accept="video/*" (change)="changeFile($event.target.files)">
+<button type="button" class="btn btn-outline-secondary" (click)="input_file.click()"><i class="fa fa-folder-open-o fa-fw" aria-hidden="true"></i>打开文件</button>
+<button type="button" class="btn btn-outline-danger" (click)="cleanInput()"><i class="fa fa-trash fa-fw" aria-hidden="true"></i></button>
+<br>
+<video class="p-1 mt-1 rounded border border-secondary" [ngStyle]="videoStyle||{'width':'300px',height:'200px;' }" [src]="src" *ngIf="showVideo" controls="true"></video>

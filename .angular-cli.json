@@ -22,7 +22,10 @@
             "theme/theme-material.scss"
         ],
         "scripts": [
-            "./../node_modules/chart.js/src/chart.js"
+            "../node_modules/chart.js/src/chart.js",
+            "../node_modules/jquery/dist/jquery.min.js",
+            "../node_modules/froala-editor/js/froala_editor.pkgd.min.js",
+            "../node_modules/froala-editor/js/languages/zh_cn.js"
         ],
         "environmentSource": "environments/environment.ts",
         "environments": {

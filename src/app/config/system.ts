@@ -4,7 +4,7 @@ export const Config = {
 
     /*服务端配置*/
     SERVER: {
-        server: 'http://127.0.0.1',//API接口访问地址
+        server: 'http://ng.cool1024.com',//API接口访问地址
         source: 'http://ng.cool1024.com',//资源文件访问地址
     },
     /*系统主题配置*/

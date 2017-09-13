@@ -35,7 +35,6 @@ import { AuthService } from './system/services/auth.service';
 /*public components service*/
 import { HeadbarService } from './system/components/headbar/headbar.service';
 
-
 @NgModule({
   declarations: [
     AppComponent,
