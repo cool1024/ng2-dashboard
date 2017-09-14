@@ -7,7 +7,8 @@ import { ToastrModule } from 'ngx-toastr';
 import 'hammerjs';
 
 /*Material*/
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { NoopAnimationsModule} from '@angular/platform-browser/animations';
+import { MdDatepickerModule } from '@angular/material';
 
 /*ng-bootstrap*/
 import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
@@ -49,7 +50,8 @@ import { HeadbarService } from './system/components/headbar/headbar.service';
     ToastrModule.forRoot({ positionClass: 'toast-bottom-right', progressBar: true }),
     NoopAnimationsModule,
     NgbModalModule.forRoot(),
-
+    MdDatepickerModule,
+    
     /*system module must the end*/
     SystemModule,
   ],
