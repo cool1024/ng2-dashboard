@@ -9,6 +9,7 @@ const routes: Routes = [
   //懒加载子模块
   { path: 'test', loadChildren: 'app/modules/test/test.module#TestModule', canActivate: [AuthGuard] },
   { path: 'example', loadChildren: 'app/modules/example/example.module#ExampleModule', canActivate: [AuthGuard] },
+  { path: 'docs', loadChildren: 'app/modules/docs/docs.module#DocsModule', canActivate: [AuthGuard] }  
 
 ];
 

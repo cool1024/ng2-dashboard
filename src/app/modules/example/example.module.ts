@@ -1,13 +1,28 @@
+/*angular module*/
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { MdButtonModule, MdCardModule } from '@angular/material';
+
+/*material module*/
+import { MdButtonModule, MdCardModule, MdPaginatorModule, MdTableModule, MdTooltipModule } from '@angular/material';
+
+/*tool-module*/
+import { ToolModule } from './../../system/tools/tool.module';
+
+/*froala-editor*/
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
-import { ExampleRoutingModule } from './example.routing';
+
+/*ng-bootstrap*/
 import { NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
+
+/*routing-module*/
+import { ExampleRoutingModule } from './example.routing';
+
+/*page list */
 import { DatepickerComponent } from './pages/datepicker/datepicker.component';
 import { CardComponent } from './pages/card/card.component';
 import { EditorComponent } from './pages/editor/editor.component';
+import { TableComponent } from './pages/table/table.component';
 
 @NgModule({
   imports: [
@@ -15,18 +30,16 @@ import { EditorComponent } from './pages/editor/editor.component';
     FormsModule,
     ExampleRoutingModule,
     NgbDatepickerModule.forRoot(),
-    MdButtonModule, MdCardModule,
-    FroalaEditorModule.forRoot(), FroalaViewModule.forRoot()
+    MdButtonModule, MdCardModule, MdPaginatorModule, MdTableModule, MdTooltipModule,
+    FroalaEditorModule.forRoot(), FroalaViewModule.forRoot(),
+    ToolModule,
   ],
   declarations: [
     DatepickerComponent,
     CardComponent,
     EditorComponent,
     EditorComponent,
+    TableComponent,
   ]
 })
-export class ExampleModule {
-  constructor() {
-    console.log(window);
-  }
-}
+export class ExampleModule { }

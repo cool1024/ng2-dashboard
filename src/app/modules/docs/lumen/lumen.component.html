@@ -1,0 +1,16 @@
+<div class="card rounded-0">
+    <div class="card-header">参数校验(ApiContract)</div>
+    <div class="card-body">
+        <p>功能介绍</p>
+        <p>1.请求参数合法性校验</p>
+        <p>2.请求参数过滤（非法参数，多余参数，恶意参数过滤）</p>
+        <p>3.请求参数转换（前端参数名称替换为服务端字段名称）</p>
+        <p>4.可选参数追加</p>
+        <p>引入服务 <code>use App\Api\Contracts\ApiContract;</code></p>
+        <p>核心方法 <code>public function getParams($params = [], $exp = [], $formate = [], $message = []);</code></p>
+        <p>$params：必要参数，形式如 ['email','password']</p>
+        <app-code-pad [content]='docs[0]'>
+
+        </app-code-pad>
+    </div>
+</div>

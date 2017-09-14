@@ -2,10 +2,4 @@
     <a class="breadcrumb-item" routerLink="/"><i class="fa fa-home fa-fw fa-lg" aria-hidden="true"></i>首页</a>
     <span class="breadcrumb-item active"><i class="fa fa-clipboard fa-fw fa-lg" aria-hidden="true"></i>富文本框</span>
 </nav>
-<div [froalaEditor]="options"></div>
-<!-- <div class="card rounded-0">
-    <div class="card-header">文本编辑器</div> -->
-<!-- <div class="card-body">
-    <div [froalaEditor]="options"></div>
-</div> -->
-<!-- </div> -->
+<div [froalaEditor]="options" [(froalaModel)]="editorContent"></div>

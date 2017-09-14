@@ -1,0 +1,64 @@
+<nav class="breadcrumb-pad p-0 m-0">
+    <a class="breadcrumb-item" routerLink="/"><i class="fa fa-home fa-fw fa-lg" aria-hidden="true"></i>首页</a>
+    <span class="breadcrumb-item active"><i class="fa fa-table fa-fw fa-lg" aria-hidden="true"></i>功能表格</span>
+</nav>
+<div class="card rounded-0">
+    <div class="card-header"><i class="fa fa-sort-amount-asc fa-fw" aria-hidden="true"></i>条件筛选</div>
+    <div class="card-body">
+        <div class="input-group">
+            <span class="input-group-addon bg-white">名称</span>
+            <input type="text" class="form-control" placeholder="请输入查询名称的关键词">
+        </div>
+        <br>
+        <div class="input-group">
+            <span class="input-group-addon bg-white">质量</span>
+            <input type="text" class="form-control" placeholder="筛选的最小质量">
+            <span class="input-group-addon  bg-white">到</span>
+            <input type="text" class="form-control" placeholder="筛选的最大质量">
+            <span class="input-group-addon bg-white">克</span>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-6">
+                <div class="input-group">
+                    <span class="input-group-addon bg-white">共查询到</span>
+                    <input type="text" class="form-control text-center bg-white" readonly placeholder="0">
+                    <span class="input-group-addon bg-white">条/结果</span>
+                </div>
+            </div>
+            <div class="col-6">
+                <button class="btn btn-primary pull-right"><i class="fa fa-search fa-fw"></i>搜索</button>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<div class="card rounded-0">
+    <div class="card-body">
+        <table class="table bg-white mb-0">
+            <thead class="text-muted">
+                <tr>
+                    <th *ngFor="let th of theads" class="border-0">{{th}}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let tr of list" class="mat-cell">
+                    <td>{{tr.position}}</td>
+                    <td><img loading src="{{tr.thumb}}"></td>
+                    <td>{{tr.name}}</td>
+                    <td>{{tr.weight}}</td>
+                    <td>{{tr.symbol}}</td>
+                    <td>
+                        <button md-icon-button mdTooltip="详情" color="primary">
+                    <i class="fa fa-info fa-fw fa-lg"></i>
+                </button>
+                        <button md-icon-button mdTooltip="删除" color="warn">
+                    <i class="fa fa-trash fa-fw fa-lg"></i>
+                </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <md-paginator [length]="page.total" (page)="onChanged($event)" [pageSize]="page.limit" [pageSizeOptions]="[5, 10, 25, 100]"></md-paginator>
+    </div>
+</div>
