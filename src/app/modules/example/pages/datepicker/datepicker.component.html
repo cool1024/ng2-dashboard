@@ -3,6 +3,19 @@
     <span class="breadcrumb-item active"><i class="fa fa-calendar-plus-o fa-fw fa-lg" aria-hidden="true"></i>日期日历</span>
 </nav>
 <div class="card rounded-0">
+    <div class="card-header">Material DatePicker</div>
+    <div class="card-body">
+        <div class="input-group">
+            <input [mdDatepicker]="picker" class="form-control" (click)="picker.open()" placeholder="yyyy-mm-dd">
+            <button class="input-group-addon pointer" (click)="picker.open()" type="button">
+                <i class="fa fa-calendar" aria-hidden="true"></i>
+            </button>
+            <md-datepicker #picker></md-datepicker>
+        </div>
+    </div>
+</div>
+<br>
+<div class="card rounded-0">
     <div class="card-header">单个日期选择</div>
     <div class="card-body">
         <form class="form-inline">
@@ -41,10 +54,4 @@
         <pre>To: {{ toDate | json }} </pre>
     </div>
 </div>
-<div class="card rounded-0">
-    <div class="card-header">Material DatePicker</div>
-    <div class="card-body">
-        <!-- <input [mdDatepicker]="myDatepicker"> -->
-        <md-datepicker #myDatepicker></md-datepicker>
-    </div>
-</div>
+<br>

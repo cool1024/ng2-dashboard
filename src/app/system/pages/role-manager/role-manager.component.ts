@@ -51,6 +51,7 @@ export class RoleManagerComponent implements OnInit {
         this.roles[index].description = res.description
         this.roles[index].parentid = res.parentid
         this.roles[index].permissions = res.permissions
+        this.toast.success("修改成功", "操作成功")
       }
     }).then()
   }
@@ -84,7 +85,7 @@ export class RoleManagerComponent implements OnInit {
         this.roleMgService.deleteRole(this.roles[index].id).subscribe(res => {
           if (res.result) {
             this.roles.splice(index, 1)
-            this.toast.success(res.message, '操作成功')
+            this.toast.success('删除成功', '操作成功')
           }
         })
       }

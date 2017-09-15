@@ -1,14 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 import 'hammerjs';
 
 /*Material*/
-import { NoopAnimationsModule} from '@angular/platform-browser/animations';
-import { MdDatepickerModule } from '@angular/material';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 /*ng-bootstrap*/
 import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
@@ -50,8 +49,7 @@ import { HeadbarService } from './system/components/headbar/headbar.service';
     ToastrModule.forRoot({ positionClass: 'toast-bottom-right', progressBar: true }),
     NoopAnimationsModule,
     NgbModalModule.forRoot(),
-    MdDatepickerModule,
-    
+
     /*system module must the end*/
     SystemModule,
   ],
@@ -72,6 +70,9 @@ import { HeadbarService } from './system/components/headbar/headbar.service';
     /*public interceptor*/
     { provide: HTTP_INTERCEPTORS, useClass: HeaderInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorCheckInterceptor, multi: true },
+
+    //material default setting
+    { provide: LOCALE_ID, useValue: 'zh-cn' },
   ],
   bootstrap: [AppComponent]
 })

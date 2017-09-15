@@ -8,6 +8,7 @@ import { PermissionAddModelComponent } from './../../modals/permission-add-model
 import { PermissionAddChildComponent } from './../../modals/permission-add-child/permission-add-child.component';
 import { PermissionManagerService } from "./permission-manager.service";
 import { FormCheckService } from './../../services/form-check.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-permission-manager',
@@ -23,7 +24,7 @@ export class PermissionManagerComponent implements OnInit {
   //权限模块列表
   permissionsModels = new Array<{ id: number, name: string }>()
 
-  constructor(private modalService: NgbModal, private dialog: MdDialog, private permissionMgService: PermissionManagerService, private formCheckService: FormCheckService) { }
+  constructor(private toast: ToastrService, private modalService: NgbModal, private dialog: MdDialog, private permissionMgService: PermissionManagerService, private formCheckService: FormCheckService) { }
 
   ngOnInit() {
     this.loadPermissionsAndModel()
@@ -54,6 +55,7 @@ export class PermissionManagerComponent implements OnInit {
         permission.name = res.name
         permission.description = res.description
         permission.key = res.key
+        this.toast.success('修改成功~', '操作成功')
       }
     }).then()
   }
@@ -66,6 +68,7 @@ export class PermissionManagerComponent implements OnInit {
     modalRef.result.catch(res => {
       if (res.id) {
         this.permissionsModels[index].name = res.name
+        this.toast.success('修改成功~', '操作成功')
       }
     }).then()
   }
@@ -88,6 +91,7 @@ export class PermissionManagerComponent implements OnInit {
     modalRef.result.catch(res => {
       if (res.id) {
         this.permissions.push(res)
+        this.toast.success('添加成功~', '操作成功')
       }
     }).then()
   }
@@ -110,6 +114,7 @@ export class PermissionManagerComponent implements OnInit {
           if (res.result) {
             let index = this.permissions.indexOf(permission)
             this.permissions.splice(index, 1)
+            this.toast.success('删除成功~', '操作成功')
           }
         })
       }
@@ -133,6 +138,7 @@ export class PermissionManagerComponent implements OnInit {
         this.permissionMgService.deletePermissionModel(this.permissionsModels[index].id).subscribe(res => {
           if (res.result) {
             this.permissionsModels.splice(index, 1)
+            this.toast.success('删除成功~', '操作成功')
           }
         })
       }

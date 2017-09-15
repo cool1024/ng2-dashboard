@@ -6,6 +6,7 @@ import { AdminManagerService } from './admin-manager.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { MdDialog } from '@angular/material';
 import { DialogDanger } from './../../tools/components/dialog';
+import { ToastrService } from 'ngx-toastr';
 import { FormCheckService } from './../../services/form-check.service';
 import { Page } from './../../tools/components/pagination/page.class';
 
@@ -29,12 +30,12 @@ export class AdminManagerComponent implements OnInit {
   //分页参数
   page = new Page()
 
-  constructor(private dialog: MdDialog, private adminManagerService: AdminManagerService, private systemService: SystemService, private modalService: NgbModal, private formCheckService: FormCheckService) {
+  constructor(private toast: ToastrService, private dialog: MdDialog, private adminManagerService: AdminManagerService, private systemService: SystemService, private modalService: NgbModal, private formCheckService: FormCheckService) {
     this.pageConfig = systemService.adminPageConfig
     this.key = systemService.adminPageConfig.table.filter(e => e.primary == true)[0].key || systemService.adminPageConfig.table[0].key
   }
 
-  ngOnInit() { 
+  ngOnInit() {
     this.loadAdmins()
   }
 
@@ -56,6 +57,7 @@ export class AdminManagerComponent implements OnInit {
     modal.result.catch(res => {
       if (res.id) {
         this.admins[index] = res
+        this.toast.success('修改成功', '操作成功')
       }
     }).then()
   }
@@ -86,6 +88,7 @@ export class AdminManagerComponent implements OnInit {
         this.adminManagerService.delete(this.admins[index].id).subscribe(res => {
           if (res.result) {
             this.admins.splice(index, 1)
+            this.toast.success('删除成功', '操作成功')
           }
         })
       }
@@ -94,12 +97,12 @@ export class AdminManagerComponent implements OnInit {
 
 
   //换页方法
-  pageChanged(page:number){
-    this.page.page=page
-    this.adminManagerService.search(this.page.pageData).subscribe(res=>{
-      if(res.result){
-        this.admins=res.datas.rows
-        this.page.total=res.datas.total
+  pageChanged(page: number) {
+    this.page.page = page
+    this.adminManagerService.search(this.page.pageData).subscribe(res => {
+      if (res.result) {
+        this.admins = res.datas.rows
+        this.page.total = res.datas.total
       }
     })
   }

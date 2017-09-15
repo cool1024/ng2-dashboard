@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 /*material module*/
-import { MdButtonModule, MdCardModule, MdPaginatorModule, MdTableModule, MdTooltipModule } from '@angular/material';
+import { MdButtonModule, MdCardModule, MdPaginatorModule, MdTableModule, MdTooltipModule, MdDatepickerModule, MdNativeDateModule } from '@angular/material';
 
 /*tool-module*/
 import { ToolModule } from './../../system/tools/tool.module';
@@ -30,7 +30,7 @@ import { TableComponent } from './pages/table/table.component';
     FormsModule,
     ExampleRoutingModule,
     NgbDatepickerModule.forRoot(),
-    MdButtonModule, MdCardModule, MdPaginatorModule, MdTableModule, MdTooltipModule,
+    MdButtonModule, MdCardModule, MdPaginatorModule, MdTableModule, MdTooltipModule, MdDatepickerModule, MdNativeDateModule,
     FroalaEditorModule.forRoot(), FroalaViewModule.forRoot(),
     ToolModule,
   ],
@@ -40,6 +40,6 @@ import { TableComponent } from './pages/table/table.component';
     EditorComponent,
     EditorComponent,
     TableComponent,
-  ]
+  ],
 })
 export class ExampleModule { }

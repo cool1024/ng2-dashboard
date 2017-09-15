@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CustomDatepickerI18n, I18n } from './customdatepickerI18n.service';
 import { NgbDatepickerI18n, NgbDateStruct, NgbCalendar } from '@ng-bootstrap/ng-bootstrap';
+import { DateAdapter, NativeDateAdapter } from '@angular/material';
 
 const equals = (one: NgbDateStruct, two: NgbDateStruct) =>
   one && two && two.year === one.year && two.month === one.month && two.day === one.day;
@@ -29,9 +30,10 @@ export class DatepickerComponent implements OnInit {
   fromDate: NgbDateStruct;
   toDate: NgbDateStruct;
 
-  constructor(calendar: NgbCalendar) {
+  constructor(calendar: NgbCalendar, dateAdapter: DateAdapter<NativeDateAdapter>) {
     this.fromDate = calendar.getToday();
-    this.toDate = calendar.getNext(calendar.getToday(), 'd', 10);
+    this.toDate = calendar.getNext(calendar.getToday(), 'd', 10)
+    //dateAdapter.setLocale('cn-GBK')
   }
 
   onDateChange(date: NgbDateStruct) {
@@ -50,7 +52,6 @@ export class DatepickerComponent implements OnInit {
   isFrom = date => equals(date, this.fromDate);
   isTo = date => equals(date, this.toDate);
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
 }

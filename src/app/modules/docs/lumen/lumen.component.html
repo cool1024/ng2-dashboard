@@ -9,8 +9,53 @@
         <p>引入服务 <code>use App\Api\Contracts\ApiContract;</code></p>
         <p>核心方法 <code>public function getParams($params = [], $exp = [], $formate = [], $message = []);</code></p>
         <p>$params：必要参数，形式如 ['email','password']</p>
-        <app-code-pad [content]='docs[0]'>
+        <p>$params：可选参数，形式如 ['name','description']</p>
+        <p>$formate: 转换参数，形式如['name'=>'username','description'=>'info']</p>
+        <p>$message: 参数校验国际化，形式如['email.required' => '邮箱是必须参数','email.email='邮箱非法']</p>
+        <p>返回值: [result:boolean(校验结果),message:array(...校验信息),datas:array(...请求数据)]</p>
+        <p class="text-success"><i class="fa fa-code fa-fw" aria-hidden="true"></i>基本用法，登入参数校验</p>
+        <app-code-pad [content]='docs[0]' language='php'></app-code-pad>
+        <p>比较上述代码loginV1与loginV2,可以发现区别在于email后面多了 :email,password后面多了 :string|min:8|max:12</p>
+        <p>我们对此做一个规定，当我们需要对参数进行特别的校验时，使用:符号然后后面开始接上valid规则,格式为：（参数名称 + ：+ Valid规则）形式如（password + : + string|min:8|max:12 = password:string|min:8|max:12）</p>
+        <p>而如果我们不需要对参数进行特殊的校验，仅仅只是想确保参数不为空，只需要按照signV1的写法即可</p>
+        <p><a href="https://lumen.golaravel.com/docs/validation/#available-validation-rules" target="view_window">查看更多个valid规则，点击此处查看文档<span class="text-danger">(注意required已经默认添加，请不要添加required规则)</span></a></p>
+        <p class="text-success"><i class="fa fa-code fa-fw" aria-hidden="true"></i>基本用法，添加可选参数(可选参数也能使用valid校验)</p>
+        <app-code-pad [content]='docs[1]' language='php'></app-code-pad>
+        <p class="text-success"><i class="fa fa-code fa-fw" aria-hidden="true"></i>特殊用法，请求参数转换</p>
+        <app-code-pad [content]='docs[2]' language='php'></app-code-pad>
+        <p class="text-success"><i class="fa fa-code fa-fw" aria-hidden="true"></i>特殊用法，国际化提示信息(不建议把错误信息转换为中文,参数必须在前端校验通过后才允许提交,意味着所有校验失败的数据都是非法操作(恶意攻击),没必要做温馨提示)</p>
+        <app-code-pad [content]='docs[3]' language='php'></app-code-pad>
+    </div>
+</div>
+<br>
+<div class="card rounded-0">
+    <div class="card-header">接口返回数据(ApiContract)</div>
+    <div class="card-body">
+        <pre>
+//返回一个成功消息
+public function success($message = "success");
 
-        </app-code-pad>
+//返回一个失败消息
+public function error($message = "error");
+
+//返回一次分页数据
+public function paginate($paginate, $message = "paginate");
+
+//返回一些数据,数据可以为空(这是一个成功的响应)
+public function datas($datas, $message = "get datas success");
+
+//返回一些数据,数据为空是,将提示错误信息(失败响应),数据不为空时,将提示成功信息(成功响应)
+public function data($datas, $success = "get datas success", $error = "get datas failed");
+
+//返回插入结果提示消息,如果插入成功(insertGetId返回值>0)提示成,反之失败
+public function insert_message($insert_id, $success = "insert success", $error = "insert error");
+
+//返回删除结果提示消息,如果删除不为空(delete返回值不为空)提示成功,反之失败
+public function delete_message($delete_result, $success = "delete success", $error = "delete error");
+
+//返回更新结果提示消息,如果修改结果不为空(update/save返回值不为空)提示成功,反之失败
+public function update_message($update_result, $success = "update success", $error = "update error");
+        </pre>
+        <app-code-pad [content]='docs[4]' language='php'></app-code-pad>
     </div>
 </div>

@@ -67,7 +67,10 @@ export class MenuSettingComponent implements OnInit {
   showAddMainMenuPad() {
     const modal = this.modalService.open(MenuAddMainComponent)
     modal.result.catch(res => {
-      if (!!res.id) this.menus.push({ id: res.id, icon: res.icon, title: res.title, childs: [] })
+      if (!!res.id) {
+        this.menus.push({ id: res.id, icon: res.icon, title: res.title, childs: [] })
+        this.toast.success('添加成功~', '操作成功')
+      }
     }).then()
   }
 
@@ -80,6 +83,7 @@ export class MenuSettingComponent implements OnInit {
       if (!!res.id) {
         this.menus[index].icon = res.icon
         this.menus[index].title = res.title
+        this.toast.success('修改成功~', '操作成功')
       }
     }
     ).then()
@@ -92,6 +96,7 @@ export class MenuSettingComponent implements OnInit {
     modal.result.catch(res => {
       if (!!res.id) {
         this.menus[index].childs.push(res)
+        this.toast.success('添加成功~', '操作成功')
       }
     }
     ).then()
@@ -104,11 +109,11 @@ export class MenuSettingComponent implements OnInit {
     modal.componentInstance.title = child.title
     modal.result.catch(res => {
       if (!!res.id) {
-        console.log(res)
         child.title = res.title
         child.icon = res.icon
         child.url = res.url
-        child.permissionid=res.permissionid
+        child.permissionid = res.permissionid
+        this.toast.success('修改成功~', '操作成功')
       }
     }
     ).then()

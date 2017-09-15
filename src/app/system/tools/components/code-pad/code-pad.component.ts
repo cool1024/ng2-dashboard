@@ -5,6 +5,8 @@ const LANGUAGE = {
   html: Prism.languages.html,
   typescript: Prism.languages.typescript,
   javascript: Prism.languages.javascript,
+  xml: Prism.languages.xml,
+  php: Prism.languages.php,
 }
 
 @Component({
