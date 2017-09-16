@@ -10,13 +10,16 @@ import 'hammerjs';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 /*ng-bootstrap*/
-import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModalModule, NgbDatepickerModule, NgbProgressbarModule } from '@ng-bootstrap/ng-bootstrap';
+
+/*froala-editor*/
+import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 
 /*app component*/
 import { AppComponent } from './app.component';
 
 /*module list*/
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule } from './app.routing';
 import { SystemModule } from './system/system.module';
 
 /*interceptor list*/
@@ -41,14 +44,23 @@ import { HeadbarService } from './system/components/headbar/headbar.service';
   ],
   imports: [
 
-    /*angular module*/
+    /*angular module 不可移除模块*/
     BrowserModule,
     CommonModule,
     HttpClientModule,
     AppRoutingModule,
-    ToastrModule.forRoot({ positionClass: 'toast-bottom-right', progressBar: true }),
     NoopAnimationsModule,
+    ToastrModule.forRoot({ positionClass: 'toast-bottom-right', progressBar: true }),
     NgbModalModule.forRoot(),
+
+    /*froala-editor 富文本编辑器，可移除模块*/
+    FroalaEditorModule.forRoot(), FroalaViewModule.forRoot(),
+
+    /*ng-bootstrap 日历控件，可移除模块*/
+    NgbDatepickerModule.forRoot(),
+
+    /*ng-bootstrap 进度条控件，可移除模块*/
+    NgbProgressbarModule.forRoot(),
 
     /*system module must the end*/
     SystemModule,

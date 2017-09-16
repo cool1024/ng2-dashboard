@@ -53,7 +53,7 @@ import { UploadServiceComponent } from './pages/upload-service/upload-service.co
     MdSlideToggleModule,
     MdListModule,
     SelectModule,
-    NgbProgressbarModule.forRoot(),
+    NgbProgressbarModule,
     ToolModule
   ],
   declarations: [

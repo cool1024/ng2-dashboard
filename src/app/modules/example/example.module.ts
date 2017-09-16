@@ -29,9 +29,9 @@ import { TableComponent } from './pages/table/table.component';
     CommonModule,
     FormsModule,
     ExampleRoutingModule,
-    NgbDatepickerModule.forRoot(),
+    NgbDatepickerModule,
     MdButtonModule, MdCardModule, MdPaginatorModule, MdTableModule, MdTooltipModule, MdDatepickerModule, MdNativeDateModule,
-    FroalaEditorModule.forRoot(), FroalaViewModule.forRoot(),
+    FroalaEditorModule, FroalaViewModule,
     ToolModule,
   ],
   declarations: [
