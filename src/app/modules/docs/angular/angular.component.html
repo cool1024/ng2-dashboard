@@ -1,3 +1,52 @@
-<p>
-  angular works!
-</p>
+<div class="card rounded-0">
+    <div class="card-header">HTTP请求服务(RequestService)</div>
+    <div class="card-body">
+        <p>RequestService服务在AppModule已经引入，服务所在目录 <code>app/system/services/request.service</code></p>
+        <app-code-pad [content]='docs[0]' language='typescript'></app-code-pad>
+        <p>上述任何方法都会返回一个<span class="text-danger">Observable</span>对象，用于观察请求</p>
+        <p><span class="text-primary">subscrible(success=>...)</span>,只有订阅后的Observable对象才会被执行，success=>...会在请求成功（并不意味着接口调用成功）时执行,success是<span class="text-danger">ApiData</span>对象</p>
+        <p><span class="text-primary">finally(()=>...)</span>,finally方法会在请求结束后执行，不论请求成功还是失败，finally必须在subscrible之前</p>
+        <app-code-pad [content]='docs[1]' language='typescript'></app-code-pad>
+        <p>ApiData属性字段</p>
+        <pre>
+result:boolean 接口调用结果true成功，false失败
+message:string 接口提示信息
+datas:any 接口返回数据
+id:number 接口ID参数，一般为插入添加操作时，会返回插入后数据的id(可选参数，不一定可用)
+        </pre>
+        <p>特别说明</p>
+        <p><small>所有上述请求方法，发送的请求都会携带头部参数（如果有的话）,头部参数在config/storage.ts文件中配置</small></p>
+        <p><small>所有上述请求方法，发送的请求在请求失败/调用接口失败时都会有toast提示消息，但是调用成功时不会有提示消息</small></p>
+    </div>
+</div>
+<br>
+<div class="card rounded-0">
+    <div class="card-header">提示消息服务(ToastrService)</div>
+    <div class="card-body">
+        <p>RequestService服务在AppModule已经注入 <code>import ..ToastrService..  from 'ngx-toastr';</code></p>
+        <pre>
+this.toast.success(message,title)
+
+this.toast.error(message,title)
+
+this.toast.info(message,title)
+
+this.toast.warning(message,title)
+        </pre>
+    </div>
+</div>
+<br>
+<div class="card rounded-0">
+    <div class="card-header">弹窗提示(执行特别操作时要提醒用户在做什么)</div>
+    <div class="card-body">
+        详细见工具测试=》确认对话/弹出对话
+    </div>
+</div>
+<br>
+<div class="card rounded-0">
+    <div class="card-header">配置文件（config文件夹）</div>
+    <div class="card-body">
+        <p><code>system.ts</code> 系统配置文件，可用于定制系统外观以及接口地址（文件中有详细注释）</p>
+        <p><code>login.ts</code> 登入页面配置，可用于定制登入（文件中有详细注释）</p>
+    </div>
+</div>

@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
   }
 
   //login data
-  loginParams: { email: string, password: string } = { email: "", password: "" }
+  loginParams: any = {}
 
   //login message
   message: string = ""

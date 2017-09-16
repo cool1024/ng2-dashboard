@@ -20,12 +20,12 @@
             <form #loginForm="ngForm" (ngSubmit)="doLogin()">
                 <div class="login-input">
                     <span class="{{loginPageConfig.inputs[0].icon}} pl-2 pr-2"></span>
-                    <input name="email" #email="ngModel" [(ngModel)]="loginParams.email" type="text" placeholder="{{loginPageConfig.inputs[0].placeholder}}" required>
+                    <input name="loginPageConfig.inputs[0].name" #account="ngModel" [(ngModel)]="loginParams[loginPageConfig.inputs[0].name]" type="text" placeholder="{{loginPageConfig.inputs[0].placeholder}}" required>
                 </div>
                 <br>
                 <div class="login-input">
                     <span class="{{loginPageConfig.inputs[1].icon}} pl-2 pr-2" aria-hidden="true"></span>
-                    <input name="password" #password="ngModel" [(ngModel)]="loginParams.password" type="password" placeholder="{{loginPageConfig.inputs[1].placeholder}}" required>
+                    <input name="loginPageConfig.inputs[1].name" #password="ngModel" [(ngModel)]="loginParams[loginPageConfig.inputs[1].name]" type="password" placeholder="{{loginPageConfig.inputs[1].placeholder}}" required>
                 </div>
                 <br>
                 <div>

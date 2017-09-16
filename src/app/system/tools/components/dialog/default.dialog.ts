@@ -11,7 +11,7 @@ import { MdDialogRef, MD_DIALOG_DATA } from '@angular/material';
   <md-dialog-actions>
     <div class="text-right w-100">
       <button class="btn btn-link text-muted" md-dialog-close>取消</button>
-      <button class="btn btn-link text-black" color="primary" [md-dialog-close]="true">确认</button>
+      <button class="btn btn-link text-dark" [md-dialog-close]="true">确认</button>
     </div>
   </md-dialog-actions>
   `,

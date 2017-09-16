@@ -59,3 +59,73 @@ public function update_message($update_result, $success = "update success", $err
         <app-code-pad [content]='docs[4]' language='php'></app-code-pad>
     </div>
 </div>
+<br>
+<div class="card rounded-0">
+    <div class="card-header">文件处理(FileContract)</div>
+    <div class="card-body">
+        <p>引入服务 <code>use App\Api\Contracts\FileContract;</code></p>
+        <pre>
+//修改文件保存路径
+public function setSavePath($path);
+
+//自动保存文件
+public function saveFileTo($name, $path);
+
+//自动保存图片
+public function saveImageTo($name, $path);
+    
+//根据文件MD5值保存图片（避免上传多张重复图片，但是文件一旦删除，所有使用同一图片的页面都将失去这张图，所以这个方法只能用于私有操作）
+public function saveImageByMd5($name, $path);
+
+//根据文件MD5值保存文件
+public function saveFileByMd5($name, $path);
+
+//删除指定路径的文件
+public function removeFile($url);
+        </pre>
+        <app-code-pad [content]='docs[5]' language='php'></app-code-pad>
+    </div>
+</div>
+<br>
+<div class="card rounded-0">
+    <div class="card-header">ORM拓展:数据分组(DataGroupTrait)</div>
+    <div class="card-body">
+        <p>引入Trait <code>use App\Api\Traits\Orm\DataGroupTrait;</code></p>
+        <pre>
+//分组方法，参数$wheres用于添加条件判断
+public function groupData($wheres = [])
+        </pre>
+        <p>方法返回数据格式(分组依据字段parentid,查询字段['id', 'icon', 'title', 'url','level','permissionid'])</p>
+        <pre class="bg-dark text-light">{{groupData|json}}</pre>
+        <p class="text-success"><i class="fa fa-code fa-fw" aria-hidden="true"></i>在模型中使用此特性</p>
+        <app-code-pad [content]='docs[6]' language='php'></app-code-pad>
+        <p class="text-success"><i class="fa fa-code fa-fw" aria-hidden="true"></i>在控制器中调用模型的特性方法（groupData）</p>
+        <app-code-pad [content]='docs[7]' language='php'></app-code-pad>
+    </div>
+</div>
+<br>
+<div class="card rounded-0">
+    <div class="card-header">ORM拓展:局部排序(DataSortTrait)</div>
+    <div class="card-body">
+        <p>引入Trait <code>use App\Api\Traits\Orm\DataSortTrait;</code></p>
+        <pre>
+//字典排序方法$ids为要排序的数据id列表（数据库必须有id字段）,$sort_key排序依据字段
+public function sort(array $ids, string $sort_key)
+//逆字典排序
+public function rsort(array $ids, string $sort_key)
+        </pre>
+        <app-code-pad [content]='docs[8]' language='php'></app-code-pad>
+    </div>
+</div>
+<br>
+<div class="card rounded-0">
+    <div class="card-header">ORM拓展:分页查询(SearchTrait)</div>
+    <div class="card-body">
+        <p>引入Trait <code>use App\Api\Traits\Orm\SearchTrait;</code></p>
+        <pre>
+//查询参数
+public function search($params)
+        </pre>
+        <app-code-pad [content]='docs[9]' language='php'></app-code-pad>
+    </div>
+</div>

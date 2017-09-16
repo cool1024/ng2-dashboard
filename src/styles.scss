@@ -182,7 +182,9 @@ div {
 }
 
 .fr-wrapper div a {
-    display: none !important;
+    visibility: hidden;
+    height: 0px;
+    position: absolute;
 }
 
 .fr-wrapper div p a {
