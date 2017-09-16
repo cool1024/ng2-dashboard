@@ -7,9 +7,10 @@ const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
 
   //懒加载子模块
+  { path: 'system', loadChildren: 'app/system/system-page.module#SystemPageModule', canActivate: [AuthGuard] },
   { path: 'test', loadChildren: 'app/modules/test/test.module#TestModule', canActivate: [AuthGuard] },
   { path: 'example', loadChildren: 'app/modules/example/example.module#ExampleModule', canActivate: [AuthGuard] },
-  { path: 'docs', loadChildren: 'app/modules/docs/docs.module#DocsModule', canActivate: [AuthGuard] }  
+  { path: 'docs', loadChildren: 'app/modules/docs/docs.module#DocsModule', canActivate: [AuthGuard] }
 
 ];
 

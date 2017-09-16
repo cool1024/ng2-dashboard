@@ -17,9 +17,8 @@ import { AngularComponent } from './angular/angular.component';
     ToolModule,
   ],
   declarations: [
-
-  LumenComponent,
-
-  AngularComponent]
+    LumenComponent,
+    AngularComponent,
+  ]
 })
 export class DocsModule { }
