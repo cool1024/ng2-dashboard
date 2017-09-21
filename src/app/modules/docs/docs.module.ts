@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { DocsRoutingModule } from './docs.routing'
 
 /*tool-module*/
-import { ToolModule } from './../../system/tools/tool.module';
+import { ToolModule } from './../../../tools/tool.module';
 
 /*page list */
 import { LumenComponent } from './lumen/lumen.component';

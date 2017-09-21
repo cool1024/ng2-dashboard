@@ -1,0 +1,30 @@
+<div #pad class="modal fade" (click)="tryClose($event)" [ngClass]="{'show': show}" [ngStyle]="{'display': show?'block':'none'}" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">{{user.email}}@账户设置</h5>
+                <button type="button" class="close pointer" (click)="_close()" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            <div class="modal-body">
+                <form #changeForm="ngForm">
+                    <div class="form-group">
+                        <label class="form-control-label">账户:</label>
+                        <input class="form-control rounded-0" type="text" value="{{user.email}}" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-control-label">新密码:</label>
+                        <input class="form-control rounded-0" name="_password" type="password" style="display:none">
+                        <input class="form-control rounded-0" name="_password" type="password" autocomplete="off" [(ngModel)]="password" placeholder="请输入新密码" required>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" (click)="_close()"><span>取消/返回</span></button>
+                <button type="button" [disabled]="!changeForm.form.valid" class="btn btn-success" (click)="changeAccount()">确认修改</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="show" class="modal-backdrop fade show"></div>

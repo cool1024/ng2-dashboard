@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MdPaginatorIntl } from '@angular/material';
-import { Page } from './../../../../system/tools/components/pagination/page.class';
+import { Page } from './../../../../../tools/components/pagination/page.class';
 
 const datas = [
   { position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H', thumb: 'http://placekitten.com/200/350' },

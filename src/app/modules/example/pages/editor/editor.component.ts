@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SystemService } from './../../../../system/system.service';
+import { SystemService } from './../../../../../dashboard/system.service';
 
 @Component({
   selector: 'app-editor',

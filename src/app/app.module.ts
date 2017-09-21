@@ -1,13 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
-import { NgModule, LOCALE_ID } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { ToastrModule } from 'ngx-toastr';
-import 'hammerjs';
-
-/*Material*/
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { NgModule, LOCALE_ID } from '@angular/core';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+
+/*ngx-toastr module*/
+import { ToastrModule } from 'ngx-toastr';
 
 /*ng-bootstrap*/
 import { NgbModalModule, NgbDatepickerModule, NgbProgressbarModule } from '@ng-bootstrap/ng-bootstrap';
@@ -15,28 +13,26 @@ import { NgbModalModule, NgbDatepickerModule, NgbProgressbarModule } from '@ng-b
 /*froala-editor*/
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 
-/*app component*/
-import { AppComponent } from './app.component';
-
-/*module list*/
+/*routing module*/
 import { AppRoutingModule } from './app.routing';
-import { SystemModule } from './system/system.module';
 
-/*interceptor list*/
-import { ErrorCheckInterceptor } from './system/interceptors/ErrorCheckInterceptor';
-import { HeaderInterceptor } from './system/interceptors/HeaderInterceptor';
+/*system module*/
+import { SystemModule } from './../dashboard/system.module';
+
+/*global interceptors*/
+import { ErrorCheckInterceptor } from './../dashboard/interceptors/ErrorCheckInterceptor';
+import { HeaderInterceptor } from './../dashboard/interceptors/HeaderInterceptor';
 
 /*public system service*/
-import { SystemService } from './system/system.service';
-import { SessionService } from './system/services/session.service';
-import { LocalService } from './system/services/local.service';
-import { StorageService } from './system/services/storage.service';
-import { RequestService } from './system/services/request.service';
-import { AuthGuard } from './system/services/auth-guard.service';
-import { AuthService } from './system/services/auth.service';
+import { SystemService } from './../dashboard/system.service';
+import { SessionService } from './../dashboard/services/session.service';
+import { LocalService } from './../dashboard/services/local.service';
+import { StorageService } from './../dashboard/services/storage.service';
+import { RequestService } from './../dashboard/services/request.service';
+import { AuthService } from './../dashboard/services/auth.service';
 
-/*public components service*/
-import { HeadbarService } from './system/components/headbar/headbar.service';
+/*app component*/
+import { AppComponent } from './app.component';
 
 @NgModule({
   declarations: [
@@ -74,10 +70,6 @@ import { HeadbarService } from './system/components/headbar/headbar.service';
     StorageService,
     RequestService,
     AuthService,
-    AuthGuard,
-
-    /*public components service*/
-    HeadbarService,
 
     /*public interceptor*/
     { provide: HTTP_INTERCEPTORS, useClass: HeaderInterceptor, multi: true },

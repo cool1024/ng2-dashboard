@@ -1,0 +1,12 @@
+<div class="head-bar" [ngClass]="{'head-bar-min': menuSetting.size=='sm'}">
+    <div class="w-100 h-100 head-block">
+        <div class="left-bur d-inline-block h-100">
+            <span (click)="changeMenuSize()" class="circle-button pointer text-center ml-2">
+                <i [ngClass]="{'icon-up': menuSetting.size=='sm','icon-down':menuSetting.size!='sm'}" class="fa fa-dedent fa-fw fa-lg" aria-hidden="true"></i>
+            </span>
+        </div>
+        <div class="right-bur text-right h-100">
+
+        </div>
+    </div>
+</div>

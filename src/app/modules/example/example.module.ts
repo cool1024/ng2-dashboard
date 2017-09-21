@@ -7,7 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { MdButtonModule, MdCardModule, MdPaginatorModule, MdTableModule, MdTooltipModule, MdDatepickerModule, MdNativeDateModule } from '@angular/material';
 
 /*tool-module*/
-import { ToolModule } from './../../system/tools/tool.module';
+import { ToolModule } from './../../../tools/tool.module';
 
 /*froala-editor*/
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';

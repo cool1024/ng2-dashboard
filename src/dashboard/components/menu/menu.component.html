@@ -1,0 +1,45 @@
+<div class="app-menu" [ngStyle]="{'background-color': themeConfig.bgColor,'color': themeConfig.fontColor}">
+    <div class="menu-title">
+        <img class="mr-3" src="{{systemContent.icon}}">
+        <span>{{systemContent.title}}</span>
+    </div>
+    <hr class="menu-line">
+    <div class="menu-manager">
+        <div class="menu-manager-title" (click)="isCollopseArray[0]=!isCollopseArray[0]">
+            <img width="40" height="40" class="avatar mt-2 ml-3 mr-3 rounded-circle pull-left" src="/assets/image/avatar/4.jpg">
+            <span class="d-inline-block text-truncate" style="width:170px;">{{user.email}}</span>
+            <i class="pull-right fa fa-caret-down right-icon mr-3" [ngClass]="{'icon-up': isCollopseArray[0],'icon-down':!isCollopseArray[0]}"></i>
+        </div>
+        <div class="menu-block" *ngIf="isCollopseArray[0]">
+            <div class="menu-manager-item pl-4 hover-item">
+                <i class="fa fa-user-circle icon"></i>
+                <span class="ml-4">{{user.role}}</span>
+            </div>
+            <div (click)="openAccountSettingPad()" class="menu-manager-item pl-4 hover-item">
+                <i class="fa fa-info-circle icon"></i>
+                <span class="ml-4">账户设置</span>
+            </div>
+            <div (click)="signOut()" class="menu-manager-item pl-4 hover-item">
+                <i class="fa fa-sign-out icon"></i>
+                <span class="ml-4">退出登入</span>
+            </div>
+        </div>
+    </div>
+    <hr class="menu-line">
+    <div class="menu-list" [ngStyle]="{'background-color': isCollopseArray[mainIndex+1]?themeConfig.childsBgColor:'transparent'}" *ngFor="let main of menus;index as mainIndex">
+        <div class="menu-item-main pl-4 hover-item" (click)="isCollopseArray[mainIndex+1]==true?closeMenu(mainIndex+1):listMenu(mainIndex+1)">
+            <i class="{{main.icon}} icon"></i>
+            <span class="ml-4">{{main.title}}</span>
+            <i class="pull-right fa fa-caret-down right-icon mr-3" [ngClass]="{'icon-up': isCollopseArray[mainIndex+1],'icon-down':!isCollopseArray[mainIndex+1]}"></i>
+        </div>
+        <ng-template ngFor let-item [ngForOf]="main.childs">
+            <div class="menu-block" *ngIf="isCollopseArray[mainIndex+1]">
+                <div routerLink="{{item.url}}" class="menu-item-child pl-4 hover-item" [ngStyle]="{'color': isActiveMenu(item.url)?themeConfig.activeColor:themeConfig.childsColor,'background-color':isActiveMenu(item.url)?themeConfig.activeBgColor:'transparent'}">
+                    <i class="{{item.icon}} icon"></i>
+                    <span class="ml-4">{{item.title}}</span>
+                </div>
+            </div>
+        </ng-template>
+    </div>
+</div>
+<app-account-modal #modal></app-account-modal>

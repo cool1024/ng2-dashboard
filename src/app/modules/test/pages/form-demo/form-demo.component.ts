@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormCheckService } from './../../../../system/services/form-check.service';
+import { FormCheckService } from './../../../../../dashboard/services/form-check.service';
 import { Http } from '@angular/http';
 
 @Component({

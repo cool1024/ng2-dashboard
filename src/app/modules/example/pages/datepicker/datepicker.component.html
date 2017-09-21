@@ -3,35 +3,36 @@
     <span class="breadcrumb-item active"><i class="fa fa-calendar-plus-o fa-fw fa-lg" aria-hidden="true"></i>日期日历</span>
 </nav>
 <div class="card rounded-0">
-    <div class="card-header">Material DatePicker</div>
+    <div class="card-header">Material/样式日历</div>
     <div class="card-body">
         <div class="input-group">
-            <input [mdDatepicker]="picker" class="form-control" (click)="picker.open()" placeholder="yyyy-mm-dd">
-            <button class="input-group-addon pointer" (click)="picker.open()" type="button">
-                <i class="fa fa-calendar" aria-hidden="true"></i>
-            </button>
-            <md-datepicker #picker></md-datepicker>
+            <button class="input-group-addon bg-white" type="button">时间段</button>
+            <input [mdDatepicker]="picker1" class="form-control bg-white" (click)="picker1.open()" placeholder="开始日期" readonly>
+            <button class="input-group-addon bg-white" type="button">到</button>
+            <input [mdDatepicker]="picker2" class="form-control bg-white" (click)="picker2.open()" placeholder="结束日期" readonly>
         </div>
     </div>
+    <md-datepicker #picker1></md-datepicker>
+    <md-datepicker #picker2></md-datepicker>
 </div>
 <br>
 <div class="card rounded-0">
-    <div class="card-header">单个日期选择</div>
+    <div class="card-header">Bootstrap/样式日历</div>
     <div class="card-body">
         <form class="form-inline">
             <div class="form-group">
-                <span class="mr-2 text-primary">默认设置</span>
+                <span class="mr-2">默认设置</span>
                 <div class="input-group">
-                    <input class="form-control" (click)="d1.toggle()" placeholder="yyyy-mm-dd" name="dp1" [(ngModel)]="model1" ngbDatepicker #d1="ngbDatepicker">
+                    <input class="form-control" (click)="d1.toggle()" name="dp1" [(ngModel)]="model1" ngbDatepicker #d1="ngbDatepicker">
                     <button class="input-group-addon pointer" (click)="d1.toggle()" type="button">
                         <i class="fa fa-calendar" aria-hidden="true"></i>
                     </button>
                 </div>
             </div>
             <div class="form-group ml-2">
-                <span class="mr-2 text-primary">显示两个</span>
+                <span class="mr-2">显示两个</span>
                 <div class="input-group">
-                    <input class="form-control" (click)="d2.toggle()" placeholder="yyyy-mm-dd" name="dp2" [(ngModel)]="model2" displayMonths="2" ngbDatepicker #d2="ngbDatepicker">
+                    <input class="form-control" (click)="d2.toggle()" name="dp2" [(ngModel)]="model2" displayMonths="2" ngbDatepicker #d2="ngbDatepicker">
                     <button class="input-group-addon pointer" (click)="d2.toggle()" type="button">
                         <i class="fa fa-calendar" aria-hidden="true"></i>
                     </button>
@@ -44,14 +45,15 @@
 <div class="card rounded-0">
     <div class="card-header">日期段选择</div>
     <div class="card-body">
-        <ngb-datepicker #dp ngModel (ngModelChange)="onDateChange($event)" [displayMonths]="2" [dayTemplate]="t"></ngb-datepicker>
+        暂不建议使用此插件
+        <!-- <ngb-datepicker #dp ngModel (ngModelChange)="onDateChange($event)" [displayMonths]="2" [dayTemplate]="t"></ngb-datepicker>
         <ng-template #t let-date="date" let-focused="focused">
             <span class="custom-day" [class.focused]="focused" [class.range]="isFrom(date) || isTo(date) || isInside(date) || isHovered(date)" [class.faded]="isHovered(date) || isInside(date)" (mouseenter)="hoveredDate = date" (mouseleave)="hoveredDate = null">
                 {{ date.day }}
             </span>
         </ng-template>
         <pre>From: {{ fromDate | json }} </pre>
-        <pre>To: {{ toDate | json }} </pre>
+        <pre>To: {{ toDate | json }} </pre> -->
     </div>
 </div>
 <br>

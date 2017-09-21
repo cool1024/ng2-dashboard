@@ -19,7 +19,7 @@ import { SelectModule } from 'ng2-select';
 import { NgbProgressbarModule } from '@ng-bootstrap/ng-bootstrap';
 
 /*tool-module*/
-import { ToolModule } from './../../system/tools/tool.module';
+import { ToolModule } from './../../../tools/tool.module';
 
 /*引入路由模块*/
 import { TestRoutingModule } from './test-routing.module'

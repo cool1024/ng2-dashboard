@@ -1,8 +1,9 @@
 import { Component, ViewContainerRef, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from './system/services/auth.service';
-import { SystemService } from './system/system.service';
-import { LoadingService } from './system/services/loading.service';
+import { AuthService } from './../dashboard/services/auth.service';
+import { SystemService } from './../dashboard/system.service';
+import { LoadingService } from './../tools/services/loading.service';
+import 'rxjs/add/operator/finally';
 
 @Component({
   selector: 'app-root',
@@ -24,7 +25,7 @@ export class AppComponent implements OnInit {
 
     //判断登入状态（服务器校验时显示动画）
     this.loadingService.play(this.loadingService.player.squre)
-    this.authService.checkOnline().subscribe(_ => this.loadingService.hiden())
+    this.authService.checkOnline().finally(() => this.loadingService.hiden()).subscribe()
   }
 
   isLoginPage(): boolean {

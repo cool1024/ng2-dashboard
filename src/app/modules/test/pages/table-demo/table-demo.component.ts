@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Page } from './../../../../system/tools/components/pagination/page.class';
+import { Page } from './../../../../../tools/components/pagination/page.class';
 @Component({
   selector: 'app-table-demo',
   templateUrl: './table-demo.component.html',
