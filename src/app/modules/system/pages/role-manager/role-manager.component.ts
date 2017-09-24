@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { Page } from './../../../../../tools/components/pagination/page.class';
+import { Page } from './../../../../../tools/classes/page.class';
 import { RoleManagerService } from './role-manager.service';
 import { RoleInfoComponent } from './../../modals/role-info/role-info.component';
 import { RoleAddComponent } from './../../modals/role-add/role-add.component';

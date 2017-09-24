@@ -8,7 +8,7 @@ import { MdDialog } from '@angular/material';
 import { DialogDanger } from './../../../../../tools/components/dialog';
 import { ToastrService } from 'ngx-toastr';
 import { FormCheckService } from './../../../../../dashboard/services/form-check.service';
-import { Page } from './../../../../../tools/components/pagination/page.class';
+import { Page } from './../../../../../tools/classes/page.class';
 
 @Component({
   selector: 'app-admin-manager',

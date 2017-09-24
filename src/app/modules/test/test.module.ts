@@ -1,5 +1,6 @@
 /*Angular*/
 import { NgModule } from '@angular/core';
+import { HttpModule } from '@angular/http';
 
 // /*Material*/
 import { MdButtonModule, MdDialogModule, MdSelectModule, MdInputModule, MdSlideToggleModule, MdListModule } from '@angular/material';
@@ -36,6 +37,7 @@ import { UploadServiceComponent } from './pages/upload-service/upload-service.co
 
 @NgModule({
   imports: [
+    HttpModule,
     TestRoutingModule,
     MdDialogModule,
     MdButtonModule,
