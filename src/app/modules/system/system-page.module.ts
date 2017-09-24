@@ -1,17 +1,12 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { MdButtonModule, MdInputModule, MdDialogModule, MdMenuModule, MdCheckboxModule, MdSlideToggleModule, MdListModule ,MdCardModule} from '@angular/material';
-import { SortablejsModule } from 'angular-sortablejs';
-import { SystemPageRoutingModule } from './system-page.routing';
 
-/*ng-bootstrap*/
-import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
+import { MdButtonModule, MdInputModule, MdDialogModule, MdMenuModule, MdCheckboxModule, MdSlideToggleModule, MdListModule, MdCardModule } from '@angular/material';
+import { SystemPageRoutingModule } from './system-page.routing';
 
 /*ng2-select*/
 import { SelectModule } from 'ng2-select';
 
-/*tool module*/
+/*share module*/
 import { ToolModule } from './../../../tools/tool.module';
 
 /*system pages*/
@@ -36,10 +31,7 @@ import { AdminAddComponent } from './modals/admin-add/admin-add.component';
 
 @NgModule({
   imports: [
-    CommonModule,
-    FormsModule,
-    SortablejsModule,
-    NgbModalModule,
+
     SelectModule,
 
     /*material module*/
@@ -51,11 +43,11 @@ import { AdminAddComponent } from './modals/admin-add/admin-add.component';
     MdSlideToggleModule,
     MdListModule,
     MdCardModule,
-    
+
     /*system module*/
     SystemPageRoutingModule,
 
-    /*tool module*/
+    /*share module*/
     ToolModule,
   ],
   declarations: [

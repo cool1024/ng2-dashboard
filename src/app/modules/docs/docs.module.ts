@@ -1,6 +1,5 @@
 /*angular module*/
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { DocsRoutingModule } from './docs.routing'
 
 /*tool-module*/
@@ -12,7 +11,6 @@ import { AngularComponent } from './angular/angular.component';
 
 @NgModule({
   imports: [
-    CommonModule,
     DocsRoutingModule,
     ToolModule,
   ],

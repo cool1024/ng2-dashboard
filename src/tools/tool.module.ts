@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
 
 /*Material*/
 import { MdDialogModule } from '@angular/material';
@@ -9,7 +8,7 @@ import { MdDialogModule } from '@angular/material';
 /*SyntaxHighlighter*/
 import 'assets/prism/prism.js';
 
-/*sortablejs*/
+/*sortable js*/
 import { SortablejsModule } from 'angular-sortablejs';
 
 /*引入对话组件*/
@@ -22,7 +21,6 @@ import { AlertComponent } from './components/alert/alert.component';
 import { PaginationComponent } from './components/pagination/pagination.component';
 
 /*pipe list*/
-import { TreeParentPipe } from './pipes/tree-parent.pipe';
 
 /*directive list*/
 import { ButtonLoadingDirective } from './directives/button-loading.directive';
@@ -33,7 +31,6 @@ import { ImageInputFormComponent } from './components/image-input-form/image-inp
 import { ImageInputUploadComponent } from './components/image-input-upload/image-input-upload.component';
 import { ImagesInputFormComponent } from './components/images-input-form/images-input-form.component';
 import { ImagesInputUploadComponent } from './components/images-input-upload/images-input-upload.component';
-import { TreeComponent } from './components/tree/tree.component';
 import { CodePadComponent } from './components/code-pad/code-pad.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { VideoInputFormComponent } from './components/video-input-form/video-input-form.component';
@@ -43,7 +40,6 @@ import { VideoInputFormComponent } from './components/video-input-form/video-inp
     CommonModule,
     FormsModule,
     MdDialogModule,
-    HttpModule,
     SortablejsModule,
   ],
   entryComponents: [DialogDefault, DialogInfo, DialogSuccess, DialogWarning, DialogDanger],
@@ -57,19 +53,24 @@ import { VideoInputFormComponent } from './components/video-input-form/video-inp
     ImageInputUploadComponent,
     ImagesInputFormComponent,
     ImagesInputUploadComponent,
-    TreeComponent,
     CodePadComponent,
     ModalComponent,
     VideoInputFormComponent,
 
     //pipes
-    TreeParentPipe,
 
     //directives
     ButtonLoadingDirective,
     ImageLoadingDirective,
   ],
   exports: [
+    //module list*/
+    CommonModule,
+    FormsModule,
+    MdDialogModule,
+    SortablejsModule,
+
+    /*component list*/
     AlertComponent,
     PaginationComponent,
     DialogDefault, DialogInfo, DialogSuccess, DialogWarning, DialogDanger,
@@ -77,10 +78,11 @@ import { VideoInputFormComponent } from './components/video-input-form/video-inp
     ImageInputUploadComponent,
     ImagesInputFormComponent,
     ImagesInputUploadComponent,
-    TreeComponent,
     CodePadComponent,
     ModalComponent,
     VideoInputFormComponent,
+
+    /*derective list*/
     ButtonLoadingDirective,
     ImageLoadingDirective,
   ]

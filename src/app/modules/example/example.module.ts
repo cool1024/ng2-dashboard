@@ -1,7 +1,5 @@
 /*angular module*/
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
 
 /*material module*/
 import { MdButtonModule, MdCardModule, MdPaginatorModule, MdTableModule, MdTooltipModule, MdDatepickerModule, MdNativeDateModule } from '@angular/material';
@@ -26,8 +24,6 @@ import { TableComponent } from './pages/table/table.component';
 
 @NgModule({
   imports: [
-    CommonModule,
-    FormsModule,
     ExampleRoutingModule,
     NgbDatepickerModule,
     MdButtonModule, MdCardModule, MdPaginatorModule, MdTableModule, MdTooltipModule, MdDatepickerModule, MdNativeDateModule,
