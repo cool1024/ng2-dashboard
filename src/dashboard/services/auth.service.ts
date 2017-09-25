@@ -39,7 +39,7 @@ export class AuthService {
     let token = this.storageService.getToken()
     for (let key in token) {
       if (!token[key]) {
-        return Observable.create(obs => obs.next(false))
+        return Observable.of(false)
       }
     }
     return this.request.post('/check', token).map(res => {
