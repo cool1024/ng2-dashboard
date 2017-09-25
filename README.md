@@ -5,7 +5,7 @@ npm install
 ```
 ### run
 ```
-ng serve --open\
+ng serve --open
 ```
 ### build
 ```
@@ -41,7 +41,7 @@ npm install --save-dev @angular/cli@latest
 
 support IE9+
 ```
- <script src="http://hello1024.oss-cn-beijing.aliyuncs.com/ng-dashboard/classList.min.js"></script> 
+<script src="http://hello1024.oss-cn-beijing.aliyuncs.com/ng-dashboard/classList.min.js"></script> 
 <script src="http://hello1024.oss-cn-beijing.aliyuncs.com/ng-dashboard/shim.min.js"></script> 
 ```
 
