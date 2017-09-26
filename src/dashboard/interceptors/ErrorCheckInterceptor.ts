@@ -38,12 +38,12 @@ export class ErrorCheckInterceptor implements HttpInterceptor {
                 if (response.body != null && response.body.result != null) {
                     let apiData = new ApiData(response.body.result, response.body.message, response.body.datas)
                     if (apiData.result == false) {
-                        this.toastrService.warning(apiData.message || ErrorMessages.API_DATA_ERROR, 'Warning')
+                        this.toastrService.warning(apiData.message || ErrorMessages.API_DATA_ERROR, '操作失败')
                     }
                     response.clone({ body: apiData })
                 }
                 else {
-                    this.toastrService.error(ErrorMessages.API_DATA_ERROR, 'Error!')
+                    this.toastrService.error(ErrorMessages.API_DATA_ERROR, '意外提示!')
                     response = response.clone({ body: new ApiData(false, ErrorMessages.API_DATA_ERROR, response) })
                 }
 

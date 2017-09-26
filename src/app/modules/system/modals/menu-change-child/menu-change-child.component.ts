@@ -49,8 +49,4 @@ export class MenuChangeChildComponent {
     this.activeModal.close("取消修改，并关闭窗口")
   }
 
-  test($event) {
-    console.log($event)
-  }
-
 }

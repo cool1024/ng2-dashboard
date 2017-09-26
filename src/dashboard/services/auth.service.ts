@@ -58,7 +58,6 @@ export class AuthService {
       for (let key in res.datas) {
         this.user[key] = res.datas[key]
       }
-      console.log(this.user)
     })
   }
 

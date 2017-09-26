@@ -11,5 +11,6 @@ export const LoginPageConfig = {
         { icon: 'fa fa-envelope', placeholder: '请输入邮箱', name: 'email' },//账号输入框（图标，默认提示文字，字段名称）
         { icon: 'fa fa-key', placeholder: '请输入密码', name: 'password' },//密码输入框（图标，默认提示文字，字段名称）
     ],
+    responseTokens: ['secret_id', 'token'],//登入返回权限令牌参数名称(注意顺序，要与authHeaders一致)
     footer: 'Copyright © 2016 XiaoJian. All Rights Reserved.| 赣 ICP备16010587号'//页脚文字
 }

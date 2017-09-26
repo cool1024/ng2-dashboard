@@ -3,6 +3,9 @@ import { Router } from '@angular/router';
 import { SystemService } from './../../system.service';
 import { LoginService } from './login.service'
 import { AuthService } from './../../services/auth.service'
+import { LoginPageConfig } from './../../../config/login';
+import { AuthHeaders } from './../../../config/auth';
+
 
 @Component({
   selector: 'app-login',
@@ -21,7 +24,11 @@ export class LoginComponent implements OnInit {
     this.loginService.doLogin(this.loginParams).subscribe(res => {
       if (res.result) {
         //登入成功后设置登入状态为已经登入
-        this.authService.setIn({ 'ng-params-one': res.datas.secret_id, 'ng-params-two': res.datas.token })
+        let params: { [key: string]: string } = {}
+        LoginPageConfig.responseTokens.forEach((key, index) => {
+          params[AuthHeaders[index]] = res.datas[key]
+        })
+        this.authService.setIn(params)//({ 'ng-params-one': res.datas.secret_id, 'ng-params-two': res.datas.token })
         this.authService.loadUserInfo()
         this.router.navigateByUrl('/')
       }

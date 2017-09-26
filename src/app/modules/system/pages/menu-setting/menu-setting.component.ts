@@ -53,7 +53,6 @@ export class MenuSettingComponent implements OnInit {
   openChildDialog(childs) {
     const dialog = this.dialog.open(MenuChildrenDialog, { data: childs });
     dialog.afterClosed().subscribe(res => {
-      console.log(dialog.componentInstance.ids)
       this.menuSettingService.sortMenu(dialog.componentInstance.ids).subscribe(res => {
         if (res.result) {
           this.toast.success('排序成功~', '操作成功')

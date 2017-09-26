@@ -1,6 +1,7 @@
 import { Component, Input, Output, ViewChild } from '@angular/core';
 import { AuthService } from './../../services/auth.service';
 import { ToastrService } from 'ngx-toastr';
+// import { LoginPageConfig } from './../../../config/login';
 
 @Component({
   selector: 'app-account-modal',
