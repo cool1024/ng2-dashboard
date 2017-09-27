@@ -7,13 +7,13 @@
     <div class="menu-manager">
         <div class="menu-manager-title" (click)="isCollopseArray[0]=!isCollopseArray[0]">
             <img width="40" height="40" class="avatar mt-2 ml-3 mr-3 rounded-circle pull-left" src="/assets/image/avatar/4.jpg">
-            <span class="d-inline-block text-truncate" style="width:170px;">{{user.email}}</span>
+            <span class="d-inline-block text-truncate" style="width:170px;">{{user[showParams[0]]}}</span>
             <i class="pull-right fa fa-caret-down right-icon mr-3" [ngClass]="{'icon-up': isCollopseArray[0],'icon-down':!isCollopseArray[0]}"></i>
         </div>
         <div class="menu-block" *ngIf="isCollopseArray[0]">
             <div class="menu-manager-item pl-4 hover-item">
                 <i class="fa fa-user-circle icon"></i>
-                <span class="ml-4">{{user.role}}</span>
+                <span class="ml-4">{{user[showParams[1]]}}</span>
             </div>
             <div (click)="openAccountSettingPad()" class="menu-manager-item pl-4 hover-item">
                 <i class="fa fa-info-circle icon"></i>

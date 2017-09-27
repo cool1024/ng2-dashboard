@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { SystemService } from './../../system.service';
 import { AuthService } from './../../services/auth.service';
 import { MenuService } from './menu.service';
+import { MenuConfig } from './../../../config/menus';
 
 @Component({
   selector: 'app-menu',
@@ -92,6 +93,9 @@ export class MenuComponent implements OnInit {
 
   //admin info
   user: any = {}
+
+  //manager config
+  showParams = MenuConfig.managerPadConfig
 
   //模态框
   @ViewChild('modal') accountModal: any

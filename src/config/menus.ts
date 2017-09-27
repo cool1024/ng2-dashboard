@@ -30,3 +30,7 @@ export const Menus = [
         ]
     }
 ]
+
+export const MenuConfig = {
+    managerPadConfig: ['email', 'role']
+}

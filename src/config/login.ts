@@ -11,7 +11,11 @@ export const LoginPageConfig = {
         { icon: 'fa fa-envelope', placeholder: '请输入邮箱', name: 'email' },//账号输入框（图标，默认提示文字，字段名称）
         { icon: 'fa fa-key', placeholder: '请输入密码', name: 'password' },//密码输入框（图标，默认提示文字，字段名称）
     ],
-    apiUrl:'/login',    
+    apiUrl: '/login',//登入接口，必须返回令牌
+    outUrl: '/signout',//退出登入接口
+    checkUrl: '/check',//登入校验接口，必须返回用户信息
+    infoUrl: '/info',//用户信息获取接口，第一次登入会调用此接口获取用户信息
+    changeUrl: '/password',//用户信息修改接口   
     responseTokens: ['secret_id', 'token'],//登入返回权限令牌参数名称(注意顺序，要与authHeaders一致)
     footer: 'Copyright © 2016 XiaoJian. All Rights Reserved.| 赣 ICP备16010587号'//页脚文字
 }

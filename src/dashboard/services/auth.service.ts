@@ -3,6 +3,7 @@ import { StorageService } from './../services/storage.service';
 import { Observable } from 'rxjs/Observable';
 import { RequestService } from './request.service';
 import { ToastrService } from 'ngx-toastr';
+import { LoginPageConfig } from './../../config/login';
 
 @Injectable()
 export class AuthService {
@@ -26,7 +27,7 @@ export class AuthService {
 
   //设置当前状态为登出
   setOut() {
-    this.request.url('/signout').subscribe(res => {
+    this.request.url(LoginPageConfig.outUrl).subscribe(res => {
       this.toastrService.info(res.message, '提示消息')
     })
     this.storageService.cleanAll()
@@ -41,7 +42,7 @@ export class AuthService {
         return Observable.of(false)
       }
     }
-    return this.request.post('/check', token).map(res => {
+    return this.request.post(LoginPageConfig.checkUrl, token).map(res => {
       this.isLoggedIn = res.result
       if (this.isLoggedIn) {
         for (let key in res.datas) {
@@ -54,7 +55,7 @@ export class AuthService {
 
   //获取用户信息
   loadUserInfo() {
-    this.request.url('/info').subscribe(res => {
+    this.request.url(LoginPageConfig.infoUrl).subscribe(res => {
       for (let key in res.datas) {
         this.user[key] = res.datas[key]
       }
@@ -62,6 +63,6 @@ export class AuthService {
   }
 
   changeUserInfo(params): Observable<any> {
-    return this.request.post('/password', params)
+    return this.request.post(LoginPageConfig.changeUrl, params)
   }
 }
