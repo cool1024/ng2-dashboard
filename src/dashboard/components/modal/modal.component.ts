@@ -1,7 +1,7 @@
 import { Component, Input, Output, ViewChild } from '@angular/core';
 import { AuthService } from './../../services/auth.service';
 import { ToastrService } from 'ngx-toastr';
-// import { LoginPageConfig } from './../../../config/login';
+import { LoginPageConfig } from './../../../config/login';
 
 @Component({
   selector: 'app-account-modal',
@@ -15,6 +15,8 @@ export class AccountModalComponent {
   show = false
 
   user: any = {}
+
+  inputsConfig = LoginPageConfig.inputs
 
   password: string
 

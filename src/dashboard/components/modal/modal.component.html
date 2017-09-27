@@ -1,8 +1,9 @@
-<div #pad class="modal fade" (click)="tryClose($event)" [ngClass]="{'show': show}" [ngStyle]="{'display': show?'block':'none'}" tabindex="-1" role="dialog">
+<div #pad class="modal fade" (click)="tryClose($event)" [ngClass]="{'show': show}" [ngStyle]="{'display': show?'block':'none'}"
+    tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">{{user.email}}@账户设置</h5>
+                <h5 class="modal-title" id="exampleModalLabel">{{user[inputsConfig[0].name]}}@账户设置</h5>
                 <button type="button" class="close pointer" (click)="_close()" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -11,12 +12,13 @@
                 <form #changeForm="ngForm">
                     <div class="form-group">
                         <label class="form-control-label">账户:</label>
-                        <input class="form-control rounded-0" type="text" value="{{user.email}}" readonly>
+                        <input class="form-control rounded-0" type="text" value="{{user[inputsConfig[0].name]}}" readonly>
                     </div>
                     <div class="form-group">
                         <label class="form-control-label">新密码:</label>
                         <input class="form-control rounded-0" name="_password" type="password" style="display:none">
-                        <input class="form-control rounded-0" name="_password" type="password" autocomplete="off" [(ngModel)]="password" placeholder="请输入新密码" required>
+                        <input class="form-control rounded-0" name="_password" type="password" autocomplete="off" [(ngModel)]="password" placeholder="请输入新密码"
+                            required>
                     </div>
                 </form>
             </div>
