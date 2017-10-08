@@ -47,10 +47,12 @@ import { AppComponent } from './app.component';
     AppRoutingModule,
     NoopAnimationsModule,
     ToastrModule.forRoot({ positionClass: 'toast-bottom-right', progressBar: true }),
-    NgbModalModule.forRoot(),
 
     /*froala-editor 富文本编辑器，可移除模块*/
     FroalaEditorModule.forRoot(), FroalaViewModule.forRoot(),
+
+    /*ng-bootstrap 模态框，可移除模块*/
+    NgbModalModule.forRoot(),
 
     /*ng-bootstrap 日历控件，可移除模块*/
     NgbDatepickerModule.forRoot(),
@@ -75,7 +77,7 @@ import { AppComponent } from './app.component';
     { provide: HTTP_INTERCEPTORS, useClass: HeaderInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorCheckInterceptor, multi: true },
 
-    //material default setting
+    /*angular default setting*/
     { provide: LOCALE_ID, useValue: 'zh-cn' },
   ],
   bootstrap: [AppComponent]

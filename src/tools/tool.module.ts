@@ -45,7 +45,7 @@ import { VideoInputFormComponent } from './components/video-input-form/video-inp
   entryComponents: [DialogDefault, DialogInfo, DialogSuccess, DialogWarning, DialogDanger],
   declarations: [
 
-    //components
+    // components
     AlertComponent,
     PaginationComponent,
     DialogDefault, DialogInfo, DialogSuccess, DialogWarning, DialogDanger,
@@ -57,14 +57,14 @@ import { VideoInputFormComponent } from './components/video-input-form/video-inp
     ModalComponent,
     VideoInputFormComponent,
 
-    //pipes
+    // pipes
 
-    //directives
+    // directives
     ButtonLoadingDirective,
     ImageLoadingDirective,
   ],
   exports: [
-    //module list*/
+    /*module list*/
     CommonModule,
     FormsModule,
     MdDialogModule,

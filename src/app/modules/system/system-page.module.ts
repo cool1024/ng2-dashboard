@@ -1,7 +1,11 @@
 import { NgModule } from '@angular/core';
-
-import { MdButtonModule, MdInputModule, MdDialogModule, MdMenuModule, MdCheckboxModule, MdSlideToggleModule, MdListModule, MdCardModule } from '@angular/material';
 import { SystemPageRoutingModule } from './system-page.routing';
+
+/*material*/
+import { MdButtonModule, MdInputModule, MdDialogModule, MdMenuModule, MdCheckboxModule, MdSlideToggleModule, MdListModule, MdCardModule } from '@angular/material';
+
+/*ng-bootstrap*/
+import { NgbModalModule, NgbDatepickerModule, NgbProgressbarModule } from '@ng-bootstrap/ng-bootstrap';
 
 /*ng2-select*/
 import { SelectModule } from 'ng2-select';
@@ -43,6 +47,9 @@ import { AdminAddComponent } from './modals/admin-add/admin-add.component';
     MdSlideToggleModule,
     MdListModule,
     MdCardModule,
+
+    /*ng-bootstrap*/
+    NgbModalModule,
 
     /*system module*/
     SystemPageRoutingModule,

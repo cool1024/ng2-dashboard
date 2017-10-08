@@ -4,10 +4,10 @@ import { AuthGuard } from './../dashboard/services/auth-guard.service';
 
 
 const routes: Routes = [
-  //此处设置网站首页
+  // 此处设置网站首页
   { path: '', redirectTo: '/home', pathMatch: 'full' },
 
-  //懒加载子模块
+  // 懒加载子模块
   { path: 'system', loadChildren: 'app/modules/system/system-page.module#SystemPageModule', canActivate: [AuthGuard] },
   { path: 'test', loadChildren: 'app/modules/test/test.module#TestModule', canActivate: [AuthGuard] },
   { path: 'example', loadChildren: 'app/modules/example/example.module#ExampleModule', canActivate: [AuthGuard] },
