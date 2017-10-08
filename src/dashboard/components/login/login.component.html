@@ -20,12 +20,14 @@
             <form #loginForm="ngForm" (ngSubmit)="doLogin()">
                 <div class="login-input">
                     <span class="{{loginPageConfig.inputs[0].icon}} pl-2 pr-2"></span>
-                    <input name="loginPageConfig.inputs[0].name" #account="ngModel" [(ngModel)]="loginParams[loginPageConfig.inputs[0].name]" type="text" placeholder="{{loginPageConfig.inputs[0].placeholder}}" required>
+                    <input name="loginPageConfig.inputs[0].name" #account="ngModel" [(ngModel)]="loginParams[loginPageConfig.inputs[0].name]"
+                        type="text" placeholder="{{loginPageConfig.inputs[0].placeholder}}" required>
                 </div>
                 <br>
                 <div class="login-input">
                     <span class="{{loginPageConfig.inputs[1].icon}} pl-2 pr-2" aria-hidden="true"></span>
-                    <input name="loginPageConfig.inputs[1].name" #password="ngModel" [(ngModel)]="loginParams[loginPageConfig.inputs[1].name]" type="password" placeholder="{{loginPageConfig.inputs[1].placeholder}}" required>
+                    <input name="loginPageConfig.inputs[1].name" #password="ngModel" [(ngModel)]="loginParams[loginPageConfig.inputs[1].name]"
+                        type="password" placeholder="{{loginPageConfig.inputs[1].placeholder}}" required>
                 </div>
                 <br>
                 <div>
@@ -38,3 +40,33 @@
         <footer class="fixed-bottom text-center window-header"><i>{{loginPageConfig.footer}}</i></footer>
     </div>
 </div>
+<!-- <div class="row fixed-top login-window">
+    <div class="card rounded-0 login-card border-0">
+        <div class="login-card-left text-light" [ngStyle]="{'background-color': bgColor}">
+            <h3 class="text-center">{{loginPageConfig.title}}</h3>
+            <h5 class="text-center">dsad</h5>
+            <h6 class="text-center">2017-10-8</h6>
+        </div>
+        <div class="card-body">
+            <h4 class="card-title text-muted"><i class="fa fa-user-circle-o"></i> 管理员登入</h4>
+            <p class="text-muted"><small>请输入管理员账号密码</small><small class="text-danger pull-right"><i class="fa fa-warning"></i> {{message}}</small></p>
+            <form (ngSubmit)="doLogin()" #loginForm="ngForm">
+                <div class="input-group">
+                    <span class="input-group-addon rounded-0" id="sizing-addon2">账号</span>
+                    <input type="text" name="login_account" #login_account="ngModel" [(ngModel)]="loginParams[loginPageConfig.inputs[0].name]"
+                        required class="form-control rounded-0" placeholder="{{loginPageConfig.inputs[0].placeholder}}">
+                </div>
+                <br>
+                <div class="input-group">
+                    <span class="input-group-addon rounded-0" id="sizing-addon2">密码</span>
+                    <input type="password" name="login_password" #login_password="ngModel" [(ngModel)]="loginParams[loginPageConfig.inputs[1].name]"
+                        required class="form-control rounded-0" placeholder="{{loginPageConfig.inputs[1].placeholder}}">
+                </div>
+                <br>
+                <button [disabled]="!loginForm.form.valid" type="submit" class="btn btn-info rounded-0">
+                    <i class="fa fa-sign-in mr-2" aria-hidden="true"></i>{{loginPageConfig.button}}
+                </button>
+            </form>
+        </div>
+    </div>
+</div> -->

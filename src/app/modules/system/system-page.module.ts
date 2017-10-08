@@ -36,8 +36,6 @@ import { AdminAddComponent } from './modals/admin-add/admin-add.component';
 @NgModule({
   imports: [
 
-    SelectModule,
-
     /*material module*/
     MdButtonModule,
     MdInputModule,
@@ -47,6 +45,9 @@ import { AdminAddComponent } from './modals/admin-add/admin-add.component';
     MdSlideToggleModule,
     MdListModule,
     MdCardModule,
+
+    /*ng2-select*/
+    SelectModule,
 
     /*ng-bootstrap*/
     NgbModalModule,
